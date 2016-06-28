@@ -13,3 +13,7 @@
     ```bash
     $ npm start
     ```
+
+## Keybindings
+
+S - Speaker-View
