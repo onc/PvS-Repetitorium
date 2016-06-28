@@ -41,4 +41,4 @@ class Test() {
 
 
 
-![alt text](//content/images/cat.jpg)
+![alt text](content/images/cat.jpg)
