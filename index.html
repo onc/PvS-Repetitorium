@@ -4,12 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        <title>PvS Repetitorium</title>
+        <title>Add title here</title>
 
         <link rel="stylesheet" href="css/reveal.css">
         <link rel="stylesheet" href="css/theme/white.css">
 
-        <link rel="stylesheet" href="plugin/info-header/info-header.css">
+        <link rel="stylesheet" href="plugin/chapter-header/chapter-header.css">
 
         <!-- Theme used for syntax highlighting of code -->
         <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -25,7 +25,7 @@
     </head>
     <body>
         <div class="reveal">
-            <div class="slides" id="Intro">
+            <div class="slides" data-title="Intro">
                 <section data-markdown="content/example.md"
                          data-separator="^\n\n\n"
                          data-separator-vertical="^\n\n"
@@ -34,7 +34,7 @@
                 </section>
             </div>
                 
-            <div class="slides" id="OOP">
+            <div class="slides" data-title="OOP">
                 <section data-markdown="content/oop.md"
                          data-separator="^\n\n\n"
                          data-separator-vertical="^\n\n"
@@ -43,7 +43,7 @@
                 </section>
             </div>
 
-            <div class="slides" id="GUI">
+            <div class="slides" data-title="GUI">
                 <section data-markdown="content/gui.md"
                          data-separator="^\n\n\n"
                          data-separator-vertical="^\n\n"
@@ -52,7 +52,7 @@
                 </section>
             </div>
 
-            <div class="slides" id="XML">
+            <div class="slides" data-title="XML">
                 <section data-markdown="content/xml.md"
                          data-separator="^\n\n\n"
                          data-separator-vertical="^\n\n"
@@ -61,7 +61,7 @@
                 </section>
             </div>
 
-            <div class="slides" id="SQL">
+            <div class="slides" data-title="SQL chapter">
                 <section data-markdown="content/sql.md"
                          data-separator="^\n\n\n"
                          data-separator-vertical="^\n\n"
@@ -79,12 +79,17 @@
          Reveal.initialize({
              history: true,
 
+             transition: 'none',
+             progress: false,
+             controls: false,
+
              // More info https://github.com/hakimel/reveal.js#dependencies
              dependencies: [
                  { src: 'plugin/markdown/marked.js' },
                  { src: 'plugin/markdown/markdown.js' },
                  { src: 'plugin/notes/notes.js', async: true },
-                 { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                 { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                 { src: 'plugin/chapter-header/chapter-header.js', async: true, callback: function() { chapterHeader.init(); } }
              ]
          });
         </script>
