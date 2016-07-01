@@ -1,5 +1,7 @@
 # PVS Rep
 
+Please note: the markdown files in `content/` need to have unix line-endings!
+
 ## Setup
 
 - Install `Node.js`
