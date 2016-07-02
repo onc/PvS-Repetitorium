@@ -114,6 +114,27 @@ Sofern eine statische Klassenvariable erst zur Laufzeit dynamisch einen Wert erh
 
 
 ###Vererbung
+```java
+public class GameObject
+{
+  public String name;
+}
+```
+```java
+public class Player extends GameObject
+{
+}
+```
+```java
+public class Room extends GameObject
+{
+  public int size;
+}
+```
+
+
+
+![Vererbung](content/images/gameobjectplayerroom.gif)
 
 
 
