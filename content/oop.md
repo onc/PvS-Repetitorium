@@ -185,6 +185,34 @@ public class Room extends GameObject
 
 
 ##Identität und Gleichheit
+###Identität
+Der Vergleichsoperator ==  ist für alle Datentypen so definiert, dass er die vollständige Übereinstimmung zweier Werte testet. Bei primitiven Datentypen ist das einfach einzusehen und bei Referenztypen im Prinzip genauso. Der Operator ==  testet bei Referenzen, ob diese übereinstimmen, also auf das gleiche Objekt verweisen. Demnach sagt der Test etwas über die Identität der referenzierten Objekte aus, aber nichts darüber, ob zwei verschiedene Objekte möglicherweise den gleichen Inhalt haben. Der Inhalt der Objekte spielt bei 
+
+
+
+```java
+Point p = new Point(10, 10);
+Point q = p;
+Point r = new Point(10, 10);
+System.out.println(p==q); // true, da p und q dasselbe Objekt referenzieren
+System.out.println(p==r); // false, da p und r zwei unterschiedliche
+                          // Punkt-Objekte referenzieren
+```
+
+
+
+###Gleichheit
+Die allgemein gültige Lösung besteht darin, die Klasse festlegen zu lassen, wann Objekte gleich sind. Dazu kann jede Klasse eine Methode equals() implementieren, die Exemplare dieser Klasse mit beliebigen anderen Objekten vergleichen kann. Die Klassen entscheiden immer nach Anwendungsfall, welche Attribute sie für einen Gleichheitstest heranziehen, und equals()  liefert true, wenn die gewünschten Zustände (Objektvariablen) übereinstimmen.
+
+
+
+```java
+Point p = new Point(10, 10);
+Point q = p;
+Point r = new Point(10, 10);
+System.out.println(p.equals(q)); // true, da p und q dasselbe Objekt referenzieren
+System.out.println(p.equals(r)); // true, da p und r identisch sind
+```
 
 
 
