@@ -301,6 +301,46 @@ public class Tupel<T> {
 
 
 ##println von Objekten
+```java
+System.out.print(new String("bar").charAt(2));       // r
+Treasure<Gold> goldSchatz = new Treasure<Gold>();
+System.out.println(goldSchatz.setValue(goldMuenze)); // Compiler-Fehler: void Rückgabewert 
+                                                     // lässt sich nicht drucken
+Tupel<Int> coords = new Tupel<Int>(10, -3);
+System.out.println(coords);                          // package.Class@Speicheradresse
+System.out.println(coords.object1);                  // 10
+System.out.println(coords.object2);                  // -3
+System.out.println(new Tupel<String>(new String("foo"),new String("bar")));
+                                                     // foo, bar
+System.out.println(new Tupel<String>(new String("foo"),new String("bar")).toString);
+                                                     // foo, bar
+```
+
+
+
+```java
+public class Cell {
+  public int row;
+  public int col;
+  public Cell(int row, int column) {
+    this.row = row;
+    this.col = column;
+  }
+  public Cell add(Cell other){
+    return new Cell(this.row+other.row, this.col + other.col);
+  }
+  public String toString(){
+    return this.row + "," + this.col;
+  }
+  public static void main(String[] args) {
+    System.out.println(new Cell(1,1));                // 1,1
+    System.out.println(new Cell(1,1){public String toString(){return this.row + ":" + this.col;}});
+                                                      // 1:1
+    System.out.println(new Cell(2,4).add(new Cell(1,-1)));
+                                                      // 3,3
+  }
+}
+```
 
 
 
