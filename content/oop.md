@@ -345,3 +345,71 @@ public class Cell {
 
 
 ##UML Klassendiagramm
+* \+ für public
+* \# für protected
+* \- für private
+* ~ für package
+
+![Komponenten Klassendiagramm](content/images/UmlCd_Klasse-3.svg.png)
+
+![Beziehung Klassendiagramm](content/images/UML-Beziehungen.png)
+
+
+
+```java
+interface Buchbar{
+  public int kontostand(){}
+  
+  public void abheben(int betrag){}
+  
+  public void einzahlen(int betrag){}
+}
+```
+```java
+class AbstraktesKonto implements Buchbar{
+  private int kontonummer;
+  
+  AbstraktesKonto(int kNr){ kontonummer = knr; }
+  
+  public int kontostand() { return kontostand; }
+  
+  public void abheben(int betrag) {
+    kontostand -= betrag;
+  }
+  
+  public void einzahlen(int betrag) {
+    kontostand += betrag;
+  }
+}
+```
+
+
+
+
+```java
+class Konto extends AbstraktesKonto{
+  private float kontostand;
+  
+  Konto(int kontonummer, int betrag) { 
+    super(kontonummer);
+    kontostand = betrag; 
+  }
+  
+  public float kontostand() { 
+    return kontostand*0.999999f;
+  }
+  
+  public void abheben(int betrag) {
+    if (betrag>kontostand) {
+      System.out.println("Konto nicht gedeckt!");
+    } else {
+      kontostand -= betrag;
+    }
+  }
+  
+  public void einzahlen(int betrag) {
+    kontostand += betrag;
+  }
+}
+```
+
