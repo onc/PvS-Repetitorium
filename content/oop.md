@@ -258,7 +258,7 @@ class Treasure
   public Treasure(){ ... }
   public Treasure(Object val){ ... }
   public Object getValue(){ return this.value; }
-  public void getValue(Object val){ this.value = val; }
+  public void setValue(Object val){ this.value = val; }
 }
 ```
 
@@ -269,7 +269,7 @@ class Treasure<T>
   public Treasure(){ ... }
   public Treasure(T val){ ... }
   public T getValue(){ return this.value; }
-  public void getValue(T val){ this.value = val; }
+  public void setValue(T val){ this.value = val; }
 }
 ```
 
@@ -284,7 +284,7 @@ Treasure<Silber> silberSchatz = new Treasure<Silber>();
 public class Tupel<T> {
   private T object1;
   private T object2;
-  public DoubleObject(T object1,T object2) {
+  public Tupel<T>(T object1,T object2) {
     this.object1 = object1;
     this.object2 = object2;
   }
