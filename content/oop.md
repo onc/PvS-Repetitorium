@@ -217,7 +217,36 @@ System.out.println(p.equals(r)); // true, da p und r identisch sind
 
 
 ##Exception Handling (checked - unchecked)
+![Exception Handling](content/images/06_001.png)
 
+
+
+###Checked Exceptions
+Checked Esceptions müssen beim programmieren beachtet werden. Der Compiler meckert, wenn dies nicht geschiet.
++ IOException
++ FileNotFoundException
++ ParseException
++ ClassNotFoundException
++ CloneNotSupportedException
++ InstantiationException
++ InterruptedException
++ NoSuchMethodException
++ NoSuchFieldException
+
+
+
+###Unchecked Exceptions
+Unchecked Esceptions werden vom Compiler ignoriert, können aber dennoch auftreten.
++ ArrayIndexOutOfBoundsException
++ ClassCastException
++ IllegalArgumentException
++ IllegalStateException
++ NullPointerException
++ NumberFormatException
++ AssertionError
++ ExceptionInInitializerError
++ StackOverflowError
++ NoClassDefFoundError
 
 
 
