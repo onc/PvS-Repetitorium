@@ -220,7 +220,54 @@ System.out.println(p.equals(r)); // true, da p und r identisch sind
 
 
 
+
 ##Generics
+```java
+class Treasure
+{
+  private Object value;  
+  public Treasure(){ ... }
+  public Treasure(Object val){ ... }
+  public Object getValue(){ return this.value; }
+  public void getValue(Object val){ this.value = val; }
+}
+```
+
+```java
+class Treasure<T>
+{
+  private T value;
+  public Treasure(){ ... }
+  public Treasure(T val){ ... }
+  public T getValue(){ return this.value; }
+  public void getValue(T val){ this.value = val; }
+}
+```
+
+```java
+Treasure<Gold> goldSchatz = new Treasure<Gold>();
+Treasure<Silber> silberSchatz = new Treasure<Silber>();
+```
+
+
+
+```java
+public class Tupel<T> {
+  private T object1;
+  private T object2;
+  public DoubleObject(T object1,T object2) {
+    this.object1 = object1;
+    this.object2 = object2;
+  }
+  public String toString() {
+    return this.object1 + ", " + this.object2;
+  }
+  public void add(Tupel<T> other){
+    this.object1 = this.object1 + other.object1;
+    this.object2 = this.object2 + other.object2;
+  }
+}
+```
 
 
 
