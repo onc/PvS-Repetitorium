@@ -97,3 +97,23 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+
+### MicrosoftOffice ###
+*.tmp
+
+# Word temporary
+~$*.doc*
+
+# Excel temporary
+~$*.xls*
+
+# Excel Backup File
+*.xlk
+
+# PowerPoint temporary
+~$*.ppt*
+
+# Visio autosave temporary files
+*.~vsdx
+*.vsdx
