@@ -86,6 +86,7 @@ Note:Polymorphie: griechisch: Vielgestaltigkeit
 Es können Methoden und Attribute als abstract bezeichnet (deklariert) werden, was bedeutet, dass entweder die Unterklasse diese implementieren muss oder aber die abgeleitete Klasse ebenfalls als abstrakt deklariert werden muss.
 
 Von einer abstrakten Klasse können keine Instanzen gebildet werden, so dass diese immer erst implementiert werden muss, um das gewünschte Ergebnis zu erreichen.
+Note: TODO: text kürzen
 
 
 
@@ -99,6 +100,7 @@ Finale Methoden können in Subklassen nicht überschrieben werden.
 Finale Attribute und auch Klassen-Variablen können nur ein einziges Mal zugewiesen werden. Sobald die Zuweisung erfolgt ist, kann eine finale Variable ihren Wert nicht mehr ändern. Bei Member-Variablen muss die Zuweisung bei der Instanzierung, bei Klassen-Variablen beim Laden der Klasse erfolgen.
 
 Finale Parameter können ausschliesslich den beim Methodenaufruf übergebenen Wert besitzen. In der Methode selbst lassen sie sich nicht überschreiben.
+Note: TODO: text kürzen
 
 
 
@@ -110,6 +112,7 @@ Statische Methoden und Variablen benötigen keinerlei Instanzen einer Klasse, um
 Auch die Methoden dieser Klasse können einfach aufgerufen werden, ohne vorher eine Instanz dieser Klasse anzulegen, z.B. java.lang.Math.max(3,4).
 
 Sofern eine statische Klassenvariable erst zur Laufzeit dynamisch einen Wert erhalten soll, können Sie dies mit einem statischen Block erreichen.
+Note: TODO: text kürzen
 
 
 
@@ -135,6 +138,7 @@ public class Room extends GameObject
 
 
 ![Vererbung](content/images/gameobjectplayerroom.gif)
+Note: TODO: bild eher weg, da man noch gar nicht klassendiagramme hatte!?
 
 
 
@@ -181,6 +185,7 @@ public class Room extends GameObject
 
 
 ![Overriding](content/images/kleinroomgameobjecttostring.gif)
+Note: TODO: bild eher weg, da man noch gar nicht klassendiagramme hatte!?
 
 
 
@@ -232,6 +237,7 @@ Checked Esceptions müssen beim programmieren beachtet werden. Der Compiler meck
 + InterruptedException
 + NoSuchMethodException
 + NoSuchFieldException
+Note: TODO: erklärung schreiben
 
 
 
@@ -247,6 +253,7 @@ Unchecked Esceptions werden vom Compiler ignoriert, können aber dennoch auftret
 + ExceptionInInitializerError
 + StackOverflowError
 + NoClassDefFoundError
+Note: TODO: erklärung schreiben
 
 
 
@@ -315,6 +322,7 @@ System.out.println(new Tupel<String>(new String("foo"),new String("bar")));
 System.out.println(new Tupel<String>(new String("foo"),new String("bar")).toString);
                                                      // foo, bar
 ```
+Note: TODO: ausgabe nicht als kommentar stehen lassen, sondern als Aufgabe stellen!?
 
 
 
@@ -341,6 +349,7 @@ public class Cell {
   }
 }
 ```
+Note: TODO: ausgabe nicht als kommentar stehen lassen, sondern als Aufgabe stellen!?
 
 
 
@@ -412,4 +421,4 @@ class Konto extends AbstraktesKonto{
   }
 }
 ```
-
+Note: TODO: als Aufgabe anstatt die Lösung direkt zu präsentieren?
