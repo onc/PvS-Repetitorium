@@ -308,24 +308,78 @@ public class Tupel<T> {
 
 
 ##println von Objekten
+###Aufgabe 1
 ```java
-System.out.print(new String("bar").charAt(2));       // r
-Treasure<Gold> goldSchatz = new Treasure<Gold>();
-System.out.println(goldSchatz.setValue(goldMuenze)); // Compiler-Fehler: void Rückgabewert 
-                                                     // lässt sich nicht drucken
-Tupel<Integer> coords = new Tupel<Integer>(10, -3);
-System.out.println(coords);                          // package.Class@Speicheradresse
-System.out.println(coords.object1);                  // 10
-System.out.println(coords.object2);                  // -3
-System.out.println(new Tupel<String>(new String("foo"),new String("bar")));
-                                                     // foo, bar
-System.out.println(new Tupel<String>(new String("foo"),new String("bar")).toString);
-                                                     // foo, bar
+public static void main(String[] args) {
+  System.out.println("foo");                                              // foo
+  System.out.println("bar".charAt(0));                                    // b
+  System.out.println(new String("foobar") == new String("foobar"));       // false
+  System.out.println(new String("foobar").equals(new String("foobar")));  // true
+  System.out.println(1==1);                                               // true
+  System.out.println(0.9999f==0.9999d);                                   // false
+  System.out.println(new Integer(1).equals(1));                           // true
+  int i = 3;
+  System.out.println(i++);                                                // 3, aber Wert von i = 4   
+  while(--i>0){
+    System.out.println(i);                                                // 3 2 1
+  }
+  char[] charArray = new char[]{'p','v','s',' ','r','e','p'};
+  System.out.println(charArray);                                          // pvs rep
+  System.out.println(Arrays.asList(charArray));                           // anonymerName@Speicheradresse
+}
+```
+
+
+
+##println von Objekten
+###Aufgabe 2
+```java
+public class Tupel<T> {
+  private T object1;
+  private T object2;
+  public Tupel(T obj1,T obj2) {
+    this.object1 = obj1;
+    this.object2 = obj2;
+  }
+  public static void main(String[] args) {
+    Tupel<Integer> coords = new Tupel<Integer>(10, -3);
+    System.out.println(coords);                                           // package.Class@Speicheradresse
+    System.out.println(coords.object1);                                   // 10
+    System.out.println(coords.object2);                                   // -3
+  }
+}
 ```
 Note: TODO: ausgabe nicht als kommentar stehen lassen, sondern als Aufgabe stellen!?
 
 
 
+##println von Objekten
+###Aufgabe 3
+```java
+public class Tupel<T> {
+  private T object1;
+  private T object2;
+  public Tupel(T obj1,T obj2) {
+    this.object1 = obj1;
+    this.object2 = obj2;
+  }
+  public String toString() {
+      return this.object1 + ": " + this.object2;
+  }
+  public static void main(String[] args) {
+    Tupel<Integer> coords = new Tupel<Integer>(10, -3);
+    System.out.println(coords);                                           // 10: -3
+    System.out.println(coords.object1);                                   // 10
+    System.out.println(coords.object2);                                   // -3
+  }
+}
+```
+Note: TODO: ausgabe nicht als kommentar stehen lassen, sondern als Aufgabe stellen!?
+
+
+
+##println von Objekten
+###Aufgabe 4
 ```java
 public class Cell {
   public int row;
@@ -341,11 +395,10 @@ public class Cell {
     return this.row + "," + this.col;
   }
   public static void main(String[] args) {
-    System.out.println(new Cell(1,1));                // 1,1
+    System.out.println(new Cell(1,1));                                    // 1,1
     System.out.println(new Cell(1,1){public String toString(){return this.row + ":" + this.col;}});
-                                                      // 1:1
-    System.out.println(new Cell(2,4).add(new Cell(1,-1)));
-                                                      // 3,3
+                                                                          // 1:1
+    System.out.println(new Cell(2,4).add(new Cell(1,-1)));                // 3,3
   }
 }
 ```
