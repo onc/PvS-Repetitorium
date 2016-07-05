@@ -2,6 +2,10 @@
 
 Please note: the markdown files in `content/` need to have unix line-endings!
 
+This repository is used to publish all slides used in the PVS review course at Ulm University.
+If you find any mistake, please feel free to create an [issue](https://github.com/onc/PvS-Repetitorium/issues/new). 
+We also welcome pull requests!
+
 ## Setup
 
 - Install `Node.js`
@@ -21,3 +25,5 @@ Please note: the markdown files in `content/` need to have unix line-endings!
 ## Keybindings
 
 S - Speaker-View
+
+## Licence
