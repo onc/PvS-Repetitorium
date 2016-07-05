@@ -310,6 +310,30 @@ public class Tupel<T> {
 ###Aufgabe 1
 ```java
 public static void main(String[] args) {
+  System.out.println("foo");
+  System.out.println("bar".charAt(0));
+  System.out.println(new String("foobar") == new String("foobar"));
+  System.out.println(new String("foobar").equals(new String("foobar")));
+  System.out.println(1==1);
+  System.out.println(0.9999f==0.9999d);
+  System.out.println(new Integer(1).equals(1));
+  int i = 3;
+  System.out.println(i++);
+  while(--i>0){
+    System.out.println(i);
+  }
+  char[] charArray = new char[]{'p','v','s',' ','r','e','p'};
+  System.out.println(charArray);
+  System.out.println(Arrays.asList(charArray));
+}
+```
+Note: Lösung unten
+
+
+##println von Objekten
+###Aufgabe 1 - Lösung
+```java
+public static void main(String[] args) {
   System.out.println("foo");                                              // foo
   System.out.println("bar".charAt(0));                                    // b
   System.out.println(new String("foobar") == new String("foobar"));       // false
@@ -342,18 +366,62 @@ public class Tupel<T> {
   }
   public static void main(String[] args) {
     Tupel<Integer> coords = new Tupel<Integer>(10, -3);
+    System.out.println(coords);
+    System.out.println(coords.object1);
+    System.out.println(coords.object2);
+  }
+}
+```
+Note: Lösung unten
+
+
+##println von Objekten
+###Aufgabe 2 - Lösung
+```java
+public class Tupel<T> {
+  private T object1;
+  private T object2;
+  public Tupel(T obj1,T obj2) {
+    this.object1 = obj1;
+    this.object2 = obj2;
+  }
+  public static void main(String[] args) {
+    Tupel<Integer> coords = new Tupel<Integer>(10, -3);
     System.out.println(coords);                                           // package.Class@Speicheradresse
     System.out.println(coords.object1);                                   // 10
     System.out.println(coords.object2);                                   // -3
   }
 }
 ```
-Note: TODO: ausgabe nicht als kommentar stehen lassen, sondern als Aufgabe stellen!?
 
 
 
 ##println von Objekten
 ###Aufgabe 3
+```java
+public class Tupel<T> {
+  private T object1;
+  private T object2;
+  public Tupel(T obj1,T obj2) {
+    this.object1 = obj1;
+    this.object2 = obj2;
+  }
+  public String toString() {
+      return this.object1 + ": " + this.object2;
+  }
+  public static void main(String[] args) {
+    Tupel<Integer> coords = new Tupel<Integer>(10, -3);
+    System.out.println(coords);
+    System.out.println(coords.object1);
+    System.out.println(coords.object2);
+  }
+}
+```
+Note: Lösung unten
+
+
+##println von Objekten
+###Aufgabe 3 - Lösung
 ```java
 public class Tupel<T> {
   private T object1;
@@ -373,12 +441,37 @@ public class Tupel<T> {
   }
 }
 ```
-Note: TODO: ausgabe nicht als kommentar stehen lassen, sondern als Aufgabe stellen!?
 
 
 
 ##println von Objekten
 ###Aufgabe 4
+```java
+public class Cell {
+  public int row;
+  public int col;
+  public Cell(int row, int column) {
+    this.row = row;
+    this.col = column;
+  }
+  public Cell add(Cell other){
+    return new Cell(this.row+other.row, this.col + other.col);
+  }
+  public String toString(){
+    return this.row + "," + this.col;
+  }
+  public static void main(String[] args) {
+    System.out.println(new Cell(1,1));
+    System.out.println(new Cell(1,1){public String toString(){return this.row + ":" + this.col;}});
+    System.out.println(new Cell(2,4).add(new Cell(1,-1)));
+  }
+}
+```
+Note: Lösung unten
+
+
+##println von Objekten
+###Aufgabe 4 - Lösung
 ```java
 public class Cell {
   public int row;
@@ -401,7 +494,6 @@ public class Cell {
   }
 }
 ```
-Note: TODO: ausgabe nicht als kommentar stehen lassen, sondern als Aufgabe stellen!?
 
 
 
