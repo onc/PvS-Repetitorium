@@ -83,10 +83,10 @@ Note:Polymorphie: griechisch: Vielgestaltigkeit
 
 
 ###abstract
-Drückt aus, dass es sich um eine allgemeine Klasse handelt zu der keine konkreten Objekte existieren.
+Abstract sagt aus, dass es sich um eine allgemeine Klasse handelt zu der keine konkreten Objekte existieren.
 
-* Abstrakte Klasse kann nicht instanziiert werden
-* *'abstract'* kann sich auf Methoden und Attribute beziehen
+* Abstrakte Klasse kann nicht instanziiert werden.
+* *'abstract'* kann sich auf Methoden und Attribute beziehen.
 
 Note: Definition:
 1. (besonders Philosophie) die wesentlichen, gesetzmäßigen o.ä. Züge aus etwas Konkretem, sinnlich Wahrnehmbarem ableitend
@@ -94,17 +94,14 @@ Note: Definition:
 
 
 
-####final
-Es können Klassen, Methoden, Attribute und Parameter als final bezeichnet (deklariert) werden. Einfach ausgedrückt bedeutet final in Java "du kannst mich jetzt nicht überschreiben".
+###final
+Einfach ausgedrückt bedeutet final in Java "du kannst mich jetzt nicht überschreiben".
 
-Für finale Klassen bedeutet dies, dass man von ihr nicht erben kann (man kann keine Unterklasse erzeugen). Sie kann also nicht als Vorlage für eine neue Klasse dienen. Grundlegende Klassen, wie zum Beispiel die String-Klasse sind final. Wenn sie es nicht wäre, dann könnte man von ihr erben und ihre Methoden überschreiben und damit das Verhalten der erweiterten Klasse verändern.
-
-Finale Methoden können in Subklassen nicht überschrieben werden.
-
-Finale Attribute und auch Klassen-Variablen können nur ein einziges Mal zugewiesen werden. Sobald die Zuweisung erfolgt ist, kann eine finale Variable ihren Wert nicht mehr ändern. Bei Member-Variablen muss die Zuweisung bei der Instanzierung, bei Klassen-Variablen beim Laden der Klasse erfolgen.
-
-Finale Parameter können ausschliesslich den beim Methodenaufruf übergebenen Wert besitzen. In der Methode selbst lassen sie sich nicht überschreiben.
-Note: TODO: text kürzen
+* Finale Methoden lassen sich nicht überschreiben.
+* Von finalen Klassen kann nicht geerbt werden.
+* Finale Attribute und Klassen-Variablen können nur ein einziges Mal gesetzt werden.
+* Finale Parameter können nur den beim Methodenaufruf übergebenen Wert haben.
+* *'final'* bezieht sich auf Methoden, Attribute und Klassen.
 
 
 
