@@ -60,7 +60,7 @@ public class WidgetExample extends JFrame {
   }
 
   /**
-   * Creates a JPasswordField and adds it to the given JPanel.
+   * Creates a {@link JPasswordField} and adds it to the given {@link JPanel}.
    * 
    * @param panel - to add to
    */
@@ -73,7 +73,8 @@ public class WidgetExample extends JFrame {
   }
 
   /**
-   * Creates a JTextArea, wrap it into a JScrollPane and add everything to the given JPanel.
+   * Creates a {@link JTextArea}, wrap it into a {@link JScrollPane} and add everything to the given
+   * {@link JPanel}.
    * 
    * @param panel - to add to
    */
@@ -88,7 +89,7 @@ public class WidgetExample extends JFrame {
   }
 
   /**
-   * Creates a JTextField and adds it to the given JPanel.
+   * Creates a {@link JTextField} and adds it to the given {@link JPanel}.
    * 
    * @param panel - to add to
    */
@@ -101,7 +102,7 @@ public class WidgetExample extends JFrame {
   }
 
   /**
-   * Creates a JLabel and adds it to the given JPanel.
+   * Creates a {@link JLabel} and adds it to the given {@link JPanel}.
    * 
    * @param panel - to add to
    */
@@ -112,7 +113,7 @@ public class WidgetExample extends JFrame {
   }
 
   /**
-   * Creates a JButton and adds it to the given JPanel.
+   * Creates a {@link JButton} and adds it to the given {@link JPanel}.
    * 
    * @param panel - to add to
    */
@@ -124,8 +125,8 @@ public class WidgetExample extends JFrame {
   }
 
   /**
-   * Creates some JRadioButtons, adds them into a ButtonGroup and adds all JRadioButtons it to the
-   * given JPanel.
+   * Creates some {@link JRadioButton}, adds them into a {@link ButtonGroup} and adds all
+   * {@link JRadioButton} it to the given {@link JPanel}.
    * 
    * @param panel - to add to
    */
@@ -143,7 +144,8 @@ public class WidgetExample extends JFrame {
   }
 
   /**
-   * Creates a JMenuBar, JMenu and one JMenuItem and adds them as a JMenuBar onto the given JFrame.
+   * Creates a {@link JMenuBar}, {@link JMenu} and one {@link JMenuItem} and adds them as a
+   * {@link JMenuBar} onto the given {@link JFrame}.
    * 
    * @param frame - to add to
    */
@@ -159,11 +161,13 @@ public class WidgetExample extends JFrame {
   }
 
   /**
-   * Main-Method creates an instance of WidgetExample.
+   * Main-Method creates an instance of {@link WidgetExample} into the AWT-Thread.
    * 
    * @param args - arguments
    */
   public static void main(String[] args) {
+    // passes an lambda function to the invokeLater method.
+    // you can use this since java8 instead of new Runnable in this case.
     SwingUtilities.invokeLater(() -> {
       new WidgetExample();
     });
