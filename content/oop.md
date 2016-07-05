@@ -82,11 +82,15 @@ Note:Polymorphie: griechisch: Vielgestaltigkeit
 
 
 
-####abstract
-Es können Methoden und Attribute als abstract bezeichnet (deklariert) werden, was bedeutet, dass entweder die Unterklasse diese implementieren muss oder aber die abgeleitete Klasse ebenfalls als abstrakt deklariert werden muss.
+###abstract
+Drückt aus, dass es sich um eine allgemeine Klasse handelt zu der keine konkreten Objekte existieren.
 
-Von einer abstrakten Klasse können keine Instanzen gebildet werden, so dass diese immer erst implementiert werden muss, um das gewünschte Ergebnis zu erreichen.
-Note: TODO: text kürzen
+* Abstrakte Klasse kann nicht instanziiert werden
+* *'abstract'* kann sich auf Methoden und Attribute beziehen
+
+Note: Definition:
+1. (besonders Philosophie) die wesentlichen, gesetzmäßigen o.ä. Züge aus etwas Konkretem, sinnlich Wahrnehmbarem ableitend
+2. sich [nur] im Gedanklichen, Theoretischen bewegend [und keinen unmittelbar feststellbaren Bezug zur Wirklichkeit habend]
 
 
 
