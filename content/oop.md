@@ -105,15 +105,11 @@ Einfach ausgedrückt bedeutet final in Java "du kannst mich jetzt nicht übersch
 
 
 
-####static
-Es können Methoden und Klassenvariablen als static bezeichnet (deklariert) werden.
+###static
+Statische Eigenschaften haben gegenüber Objekteigenschaften den Vorteil, dass sie im Programm ausdrücken, keinen Zustand vom Objekt zu nutzen.
 
-Statische Methoden und Variablen benötigen keinerlei Instanzen einer Klasse, um aufgerufen zu werden. Ein Beispiel für einen statischen Member ist z.B. die Konstante PI in der Klasse java.lang.Math.
-
-Auch die Methoden dieser Klasse können einfach aufgerufen werden, ohne vorher eine Instanz dieser Klasse anzulegen, z.B. java.lang.Math.max(3,4).
-
-Sofern eine statische Klassenvariable erst zur Laufzeit dynamisch einen Wert erhalten soll, können Sie dies mit einem statischen Block erreichen.
-Note: TODO: text kürzen
+* Statische Methoden und Variablen benötigen keinerlei Instanzen einer Klasse, um aufgerufen zu werden.
+* *'static'* bezieht sich auf Methoden und Klassenvariablen.
 
 
 
