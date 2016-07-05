@@ -313,7 +313,7 @@ System.out.print(new String("bar").charAt(2));       // r
 Treasure<Gold> goldSchatz = new Treasure<Gold>();
 System.out.println(goldSchatz.setValue(goldMuenze)); // Compiler-Fehler: void Rückgabewert 
                                                      // lässt sich nicht drucken
-Tupel<Int> coords = new Tupel<Int>(10, -3);
+Tupel<Integer> coords = new Tupel<Integer>(10, -3);
 System.out.println(coords);                          // package.Class@Speicheradresse
 System.out.println(coords.object1);                  // 10
 System.out.println(coords.object2);                  // -3
