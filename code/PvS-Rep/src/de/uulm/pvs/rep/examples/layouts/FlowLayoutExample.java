@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 /**
- * Java swing Layouts example.
+ * Java swing {@link FlowLayout}-example.
  * 
  * @author Christian van Onzenoodt
  *
@@ -18,7 +18,7 @@ import javax.swing.SwingUtilities;
 public class FlowLayoutExample extends JFrame {
 
   private static final long serialVersionUID = -7297666990106294513L;
-  private static final String WINDOW_TITLE = "WidgetExample";
+  private static final String WINDOW_TITLE = "FlowLayoutExample";
   private static final int AMOUNT_OF_BUTTONS = 10;
 
   /**
