@@ -1,4 +1,4 @@
-package de.uulm.pvs.rep.examples.widgets;
+package de.uulm.pvs.rep.examples.gui.widgets;
 
 import java.awt.Container;
 import java.awt.Dimension;

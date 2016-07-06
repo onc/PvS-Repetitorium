@@ -1,4 +1,4 @@
-package de.uulm.pvs.rep.examples.layouts;
+package de.uulm.pvs.rep.examples.gui.layouts;
 
 import java.awt.Container;
 import java.awt.GridBagLayout;
