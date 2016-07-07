@@ -1,0 +1,50 @@
+* Blatt 1
+  - Sichtbarkeiten
+  - Identitaet und Gleichheit
+  - Klassendiagramm
+  - Exceptions
+  - Generics
+
+* Blatt 2
+  - sortierung
+  - layouts
+
+* Blatt 3
+  - Listener
+  - Observer
+
+* Blatt 4
+  - Scrollpane
+  - statechart
+  - menu
+
+* Blatt 5
+  - open und save
+  - serialisierung
+
+* Blatt 6
+  - reader
+  - regex
+  - xml und dtd
+
+* Blatt 7
+  - XSD
+  - XPath
+
+* Blatt 8
+  - ER-Diagramme
+  - min:max-notation
+  - relationales datenbank-schema
+
+* Blatt 9
+  - relationen-algebra
+  - sql (select)
+
+* Blatt 10
+  - sql (select)
+  - sql (update)
+  - sql (create)
+
+* Blatt 11
+  - jdbc
+  - normalformen
