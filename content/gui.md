@@ -1,9 +1,25 @@
 # Graphical User Interface (GUI)
 
+* Button
+* Label
+* Menu
+* CheckBox
+* RadioButtons
+* List
+* TextField
+* TextArea
+* PasswordField
+* ScrollPane
+
+JFrame -> ContentPane -> JPanel -> JLabel
 
 
-Hier steht noch was
+setDefaultCloseOperation()
+setVisible
+!! add to contentPane
 
-
-
-Hier auch noch was
+* FlowLayout (!)
+* BoxLayout
+* BorderLayout (!)
+* CardLayout
+* GridLayout (!)

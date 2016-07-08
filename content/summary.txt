@@ -1,42 +1,49 @@
 Wichtigste Themen aus Altklausuren 
 
-1. Objektorientierung
-  *(Abstrakte)Klasse und Interfaces
-  *Information Hiding und Vererbung
-  *Overriding, Overloading
-  *Identität und Gleichheit
-  *Exception Handling (checked - unchecked)
-  *Generics
-  *println von Objekten
-  *UML Klassendiagramm
-2. Swing
-  *Skizze -> Code
-  *Code -> Skizze
-  *Swing Komponenten
-3. Listener und Observer
-  *ActionListener
-  *MouseListener
-  *MouseMotionListener
-  *Observer-Pattern (Push-, Pull- Variante)
-4. JavaIO
-  *Streams
-  *Serialisierung
-  *Reader
-5. XML
-  *dtd
-  *xsd
-6. ER-Diagramme
-  *(modifizierte) Chen-Notation
-  *(Min:max)-Notation
-  *UML-Notation
-  *Zustandsautomat (2'2015)
-7. DB-Entwurf und SQL
-  *Relationale Algebra
-  *Normalformen
-  *SQL
-  *JDBC
-  *Löschanomalie
-8. Threads
-  *Prozess, Thread
-  *Parallelität vs. Nebenläufigkeit
-  *Ausführungsreihenfolge
+1. Objektorientierung (tobias)
+  * (Abstrakte)Klasse und Interfaces
+  * Information Hiding und Vererbung
+  * Overriding, Overloading
+  * Identität und Gleichheit
+  * Exception Handling (checked - unchecked)
+  * Generics
+  * println von Objekten
+  * UML Klassendiagramm
+
+2. Swing (christian)
+  * Skizze -> Code
+  * Code -> Skizze
+  * Swing Komponenten
+
+3. Listener und Observer (tobias)
+  * ActionListener
+  * MouseListener
+  * MouseMotionListener
+  * Observer-Pattern (Push-, Pull- Variante)
+
+4. JavaIO (christian)
+  * Streams
+  * Serialisierung
+  * Reader
+
+5. XML (tobias)
+  * dtd
+  * xsd
+
+6. ER-Diagramme (christian)
+  * (modifizierte) Chen-Notation
+  * (Min:max)-Notation
+  * UML-Notation
+  * Zustandsautomat (2'2015)
+
+7. DB-Entwurf und SQL (tobias)
+  * Relationale Algebra
+  * Normalformen
+  * SQL
+  * JDBC
+  * Löschanomalie
+
+8. Threads (christian)
+  * Prozess, Thread
+  * Parallelität vs. Nebenläufigkeit
+  * Ausführungsreihenfolge
