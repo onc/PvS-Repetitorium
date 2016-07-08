@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     width="1280px" height="720px" viewBox="0 0 1280 720" enable-background="new 0 0 1280 720" xml:space="preserve">
+<polygon fill="#0C8441" points="227.434,391.152 270.735,316.153 314.036,391.152 "/>
+<circle fill="#323E99" stroke="#71BBE8" stroke-width="7" cx="795" cy="170" r="30"/>
+<circle fill="#323E99" stroke="#71BBE8" stroke-width="7" cx="1000" cy="250" r="30"/>
+<circle fill="#323E99" stroke="#71BBE8" stroke-width="7" cx="840" cy="340" r="30"/>
+<circle fill="#323E99" stroke="#ED1C24" stroke-width="7" cx="1070" cy="580" r="30"/>
+<circle fill="#323E99" stroke="#71BBE8" stroke-width="7" cx="930" cy="450" r="30"/>
+<circle fill="#323E99" stroke="#71BBE8" stroke-width="7" cx="800" cy="590" r="30"/>
+<text transform="matrix(1 0 0 1 290 320)" fill="#ED1C24" font-family="'Arial'" font-size="36">!</text>
+<g>
+    <line fill="none" stroke="#ED1C24" stroke-width="5" stroke-miterlimit="10" x1="329.333" y1="341.667" x2="712.291" y2="199.27"/>
+    <g>
+        <polygon fill="#ED1C24" points="709.335,211.218 741.354,188.463 702.247,192.156             "/>
+    </g>
+</g>
+<g>
+    <line fill="none" stroke="#ED1C24" stroke-width="5" stroke-miterlimit="10" x1="333" y1="357.333" x2="916.976" y2="261.611"/>
+    <g>
+        <polygon fill="#ED1C24" points="911.776,272.768 947.575,256.596 908.487,252.699             "/>
+    </g>
+</g>
+<g>
+    <line fill="none" stroke="#ED1C24" stroke-width="5" stroke-miterlimit="10" x1="336.667" y1="375.667" x2="764.502" y2="339.389"/>
+    <g>
+        <polygon fill="#ED1C24" points="758.45,350.107 795.398,336.769 756.732,329.843             "/>
+    </g>
+</g>
+<g>
+    <line fill="none" stroke="#ED1C24" stroke-width="5" stroke-miterlimit="10" x1="336.667" y1="393" x2="852.242" y2="447.529"/>
+    <g>
+        <polygon fill="#ED1C24" points="844.276,456.912 883.078,450.791 846.415,436.688             "/>
+    </g>
+</g>
+<g>
+    <line fill="none" stroke="#ED1C24" stroke-width="5" stroke-miterlimit="10" x1="329.333" y1="407.333" x2="736.53" y2="566.97"/>
+    <g>
+        <polygon fill="#ED1C24" points="726.361,573.905 765.398,578.287 733.784,554.972             "/>
+    </g>
+</g>
+</svg>
