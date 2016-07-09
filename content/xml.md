@@ -46,6 +46,16 @@ Ein Parser ist ein Computerprogramm, das in der Informatik für die Zerlegung un
 
 
 
+###Element
+Wichtigste Struktureinheit einer XML-Anwendung ist das Element. Der Name eines XML-Elements kann weitgehend frei gewählt werden. Elemente können weitere Elemente, Text- und andere Knoten – ggfs. auch vermischt – enthalten.
+
+
+
+###Attribut
+Attribute dienen als bei einem Start-Tag oder Empty-Element-Tag geschriebene Schlüsselwort-Werte-Paare (Attribut-Name="Attribut-Wert") für Zusatz-Informationen über Elemente (eine Art Meta-Information).
+
+
+
 ##Dokumenttypdefinition - DTD
 
 
