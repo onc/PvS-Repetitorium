@@ -7,7 +7,7 @@ E**X**tensible **M**arkup **L**anguage - erweiterbare Auszeichnungssprache
 
 Entwickelt um Daten zu transportieren.
 
-Gut von menschen und von Maschinen lesbar
+Gut von Menschen und von Maschinen lesbar
 
 
 
@@ -23,17 +23,41 @@ In der Grundidee ist XML häufig wiederzufinden:
 
 
 ##Begriffe
-Element
-
-Attribut
-
-Parser
-
-Wohlgeformtheit
+####Element
+####Attribut
+####Parser
+####Wohlgeformtheit
 
 
 
 ##Dokumenttypdefinition - DTD
+
+
+
+###DTD-Element
+```xml
+<!ELEMENT                   Schlüsselwort
+  <name>                    Bezeichner des Tags
+  <Inhaltsspezifizierung>   siehe unten
+>
+```
+Inhaltsspezifizierung:
+* beliebiger Text: (#PCDATA)
+* bestimmte Kinder: reguläre Ausdrücke
+* leere Elemente: EMPTY
+* beliebiger Inhalt: ANY
+* Text gemischt mit Tags: reg. Ausdruck mit #PCDATA
+
+
+
+* Sequenz: (< erstesTag \> , < zweitesTag \>)
+* Auswahl: (< erstesTag \> | < zweitesTag \>)
+* Anzahl:
+  * "_" = genau einmal (Leerzeichen)
+  *  ? = ein oder keinmal
+  * \+ = ein oder mehrmal
+  * \* = kein oder mehrmal
+
 
 
 
