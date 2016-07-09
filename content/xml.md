@@ -32,7 +32,7 @@ In der Grundidee ist XML häufig wiederzufinden:
 
 ####Wohlgeformtheit
 Ein XML-Dokument heißt *wohlgeformt*, wenn es alle XML-Regeln einhält. Beispielhaft seien hier folgende genannt:
-* Das Dokument besitzt genau ein Wurzelelement. 
+* Das Dokument besitzt genau ein Wurzelelement.
 * Alle Elemente mit Inhalt besitzen einen Beginn- und einen End-Auszeichner.
 * Die Beginn- und End-Auszeichner sind ebenentreu-paarig verschachtelt.
 * Ein Element darf nicht mehrere Attribute mit demselben Namen besitzen.
@@ -68,6 +68,15 @@ Inhaltsspezifizierung:
   *  ? = ein oder keinmal
   * \+ = ein oder mehrmal
   * \* = kein oder mehrmal
+
+
+
+####Attribut Definition
+Vorgabewerte für Attribute
+* \#REQUIRED Das Attribut muss angegeben werden
+* \#IMPLIED  Das Attribut ist optional
+* "..." Standardwert, falls das Attribut weggelassen wird
+* \#FIXED "..." Das Attribut hat immer einen festen Wert
 
 
 
