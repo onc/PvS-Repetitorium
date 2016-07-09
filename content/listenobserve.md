@@ -17,24 +17,27 @@ Note: Vorlesen!
 
 
 ###Beispiel: Die Push Variante
-![Observer](content/images/Observer_push.svg)
-
-
-
-###Beispiel: Die Push Variante
 Im Push-Modell übergibt der Observable der update()-Methode detaillierte Informationen über die Änderung als Parameter.
 
 Der Vorteil hierbei ist, dass Observer und Observable stärker entkoppelt sind, da der Observer keine Informationen über den Observable benötigt.
 
 
 
-###Beispiel: Die Pull Variante
-![Observer](content/images/Observer_pull.svg)
+###Beispiel: Die Push Variante
+![Observer](content/images/Observer_push.svg)
+Note: ANIMIERT! Seperat öffnen, da die Animation sonst nicht funktioniert.
+
 
 
 
 ###Beispiel: Die Pull Variante
 Beim Pull-Modell erhält der Observer nur eine minimale Benachrichtigung und muss sich die benötigten Informationen selber aus vom Observable holen. Dazu erhält/besitzt es eine Referenz auf diesen (entweder in einer Instanzvariable beim Registrieren gespeichert oder via Argument der update()-Methode).
+
+
+
+###Beispiel: Die Pull Variante
+![Observer](content/images/Observer_pull.svg)
+Note: ANIMIERT! Seperat öffnen, da die Animation sonst nicht funktioniert.
 
 
 
