@@ -43,6 +43,9 @@
   
   <g id="Message" class="message">
     <rect x="20" y="0" width="27" height="27" class="filled" />
+    <text x="0" y="30" font-family="'Arial'" font-size="36" style="opacity:0;fill:#ED1C24;">!
+        <animate begin="state2.click" attributeName="opacity" from="0" to="1" dur="0.5s" fill="freeze"/>
+    </text>
     <animate begin="state2.click" attributeName="opacity" from="0" to="1" dur="1.5s" fill="freeze"/>
   </g>
 </defs>
@@ -54,24 +57,24 @@
         <animate begin="state4.click" attributeName="opacity" from="1" to="0" dur="1s" fill="freeze"/>
         <animate begin="state4.click" attributeName="d" from="M330,410 L730,570" to="M730,570 L730,570" dur="1s" fill="freeze"/>
     </path>
-    <path d="M337,390 L852,448" class="arrow">
+    <!-- <path d="M337,390 L852,448" class="arrow">
         <animate begin="state1.click" attributeName="opacity" from="0" to="1" dur="0.1s" fill="freeze"/>
         <animate begin="state1.click" attributeName="d" from="M337,390 L337,390" to="M337,390 L852,448" dur="1s" fill="freeze"/>
         <animate begin="state4.click" attributeName="opacity" from="1" to="0" dur="1s" fill="freeze"/>
         <animate begin="state4.click" attributeName="d" from="M337,390 L852,448" to="M852,448 L852,448" dur="1s" fill="freeze"/>
-    </path>
+    </path> -->
     <path d="M329,342 L712,199" class="arrow">
         <animate begin="state1.click" attributeName="opacity" from="0" to="1" dur="0.1s" fill="freeze"/>
         <animate begin="state1.click" attributeName="d" from="M329,342 L329,342" to="M329,342 L712,199" dur="1s" fill="freeze"/>
         <animate begin="state4.click" attributeName="opacity" from="1" to="0" dur="1s" fill="freeze"/>
         <animate begin="state4.click" attributeName="d" from="M329,342 L712,199" to="M712,199 L712,199" dur="1s" fill="freeze"/>
     </path>
-    <path d="M333,357 L917,262" class="arrow">
+    <!-- <path d="M333,357 L917,262" class="arrow">
         <animate begin="state1.click" attributeName="opacity" from="0" to="1" dur="0.1s" fill="freeze"/>
         <animate begin="state1.click" attributeName="d" from="M333,357 L333,357" to="M333,357 L917,262" dur="1s" fill="freeze"/>
         <animate begin="state4.click" attributeName="opacity" from="1" to="0" dur="1s" fill="freeze"/>
         <animate begin="state4.click" attributeName="d" from="M333,357 L917,262" to="M917,262 L917,262" dur="1s" fill="freeze"/>
-    </path>
+    </path> -->
     <path d="M337,376 L765,339" class="arrow">
         <animate begin="state1.click" attributeName="opacity" from="0" to="1" dur="0.1s" fill="freeze"/>
         <animate begin="state1.click" attributeName="d" from="M337,376 L337,376" to="M337,376 L765,339" dur="1s" fill="freeze"/>
@@ -103,35 +106,30 @@
     </use>
 </g>
 
-<text x="280" y="310" font-family="'Arial'" font-size="36" style="opacity:0;fill:#ED1C24;">!
-    <animate begin="state2.click" attributeName="opacity" from="0" to="1" dur="0.5s" fill="freeze"/>
-    <animate begin="state3.click" attributeName="opacity" from="1" to="0" dur="0.5s" fill="freeze"/>
-</text>
-
 <use x="290" y="290" xlink:href="#Message">
     <animateTransform attributeName="transform" type="translate" from="0 0" to="0 0" begin="state2.click" dur="0.001s" fill="freeze"/>
     <animate attributeName="opacity" from="1" to="1" begin="state2.click" dur="0.001s" fill="freeze"/>
     <animateTransform attributeName="transform" type="translate" from="0 0" to="410 -70" begin="state3.click" dur="1s" id="message-anim" fill="freeze"/>
     <animate attributeName="opacity" from="1" to="0" begin="message-anim.begin + 2s" dur="0.5s" fill="freeze"/>
 </use>
-<use x="290" y="290" xlink:href="#Message">
+<!-- <use x="290" y="290" xlink:href="#Message">
     <animateTransform attributeName="transform" type="translate" from="0 0" to="0 0" begin="state2.click" dur="0.001s" fill="freeze"/>
     <animate attributeName="opacity" from="1" to="1" begin="state2.click" dur="0.001s" fill="freeze"/>
     <animateTransform attributeName="transform" type="translate" from="0 0" to="615 -10" begin="message-anim.begin + 0.1s" dur="1s" fill="freeze"/>
     <animate attributeName="opacity" from="1" to="0" begin="message-anim.begin + 2.1s" dur="0.5s" fill="freeze"/>
-</use>
+</use> -->
 <use x="290" y="290" xlink:href="#Message">
     <animateTransform attributeName="transform" type="translate" from="0 0" to="0 0" begin="state2.click" dur="0.001s" fill="freeze"/>
     <animate attributeName="opacity" from="1" to="1" begin="state2.click" dur="0.001s" fill="freeze"/>
     <animateTransform attributeName="transform" type="translate" from="0 0" to="465 70" begin="message-anim.begin + 0.2s" dur="1s" fill="freeze"/>
     <animate attributeName="opacity" from="1" to="0" begin="message-anim.begin + 2.2s" dur="0.5s" fill="freeze"/>
 </use>
-<use x="290" y="290" xlink:href="#Message">
+<!-- <use x="290" y="290" xlink:href="#Message">
     <animateTransform attributeName="transform" type="translate" from="0 0" to="0 0" begin="state2.click" dur="0.001s" fill="freeze"/>
     <animate attributeName="opacity" from="1" to="1" begin="state2.click" dur="0.001s" fill="freeze"/>
     <animateTransform attributeName="transform" type="translate" from="0 0" to="540 180" begin="message-anim.begin + 0.3s" dur="1s" fill="freeze"/>
     <animate attributeName="opacity" from="1" to="0" begin="message-anim.begin + 2.3s" dur="0.5s" fill="freeze"/>
-</use>
+</use> -->
 <use x="290" y="290" xlink:href="#Message">
     <animateTransform attributeName="transform" type="translate" from="0 0" to="0 0" begin="state2.click" dur="0.001s" fill="freeze"/>
     <animate attributeName="opacity" from="1" to="1" begin="state2.click" dur="0.001s" fill="freeze"/>
