@@ -30,7 +30,7 @@ In der Grundidee ist XML häufig wiederzufinden:
 
 
 
-####Wohlgeformtheit
+###Wohlgeformtheit
 Ein XML-Dokument heißt *wohlgeformt*, wenn es alle XML-Regeln einhält. Beispielhaft seien hier folgende genannt:
 * Das Dokument besitzt genau ein Wurzelelement.
 * Alle Elemente mit Inhalt besitzen einen Beginn- und einen End-Auszeichner.
@@ -38,6 +38,11 @@ Ein XML-Dokument heißt *wohlgeformt*, wenn es alle XML-Regeln einhält. Beispie
 * Ein Element darf nicht mehrere Attribute mit demselben Namen besitzen.
 * Attributeigenschaften müssen in Anführungszeichen stehen.
 * Die Beginn- und End-Auszeichner beachten die Groß- und Kleinschreibung.
+
+
+
+###Parser
+Ein Parser ist ein Computerprogramm, das in der Informatik für die Zerlegung und Umwandlung einer Eingabe in ein für die Weiterverarbeitung geeigneteres Format zuständig ist.
 
 
 
