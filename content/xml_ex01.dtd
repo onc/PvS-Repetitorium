@@ -1,0 +1,12 @@
+<!DOCTYPE order[
+  <!ELEMENT order (orderperson,item) >
+  <!ATTLIST img
+    orderid  ID  #REQUIRED
+  >
+  <!ELEMENT orderperson (#PCDATA) >
+  <!ELEMENT item (title, note, quantity, price)* >
+  <!ELEMENT title (#PCDATA) >
+  <!ELEMENT note (#PCDATA)? >
+  <!ELEMENT quantity (#PCDATA) >
+  <!ELEMENT price (#PCDATA) >
+]>
