@@ -71,13 +71,6 @@ Note:Den Unterschied zwischen innerer Klasse und Unterklasse erklären
 
 ###Polymorphie-Modifizierer
 **abstract, final, static**
-
----
-Noch Vorhanden, aber hier nicht weiter behandelt: 
-
-strictfp (Strict Floating Point), 
-
-native (Methode nicht in Java geschrieben)
 Note:Polymorphie: griechisch: Vielgestaltigkeit
 
 
@@ -95,7 +88,7 @@ Note: Definition:
 
 
 ###final
-Einfach ausgedrückt bedeutet final in Java "du kannst mich jetzt nicht überschreiben".
+Einfach ausgedrückt bedeutet final in Java "kann nicht überschrieben werden".
 
 * Finale Methoden lassen sich nicht überschreiben.
 * Von finalen Klassen kann nicht geerbt werden.
@@ -114,6 +107,7 @@ Statische Eigenschaften haben gegenüber Objekteigenschaften den Vorteil, dass s
 
 
 ###Vererbung
+Durch den Vererbungsmechanismus werden alle sichtbaren Eigenschaften der Oberklasse auf die Unterklasse übertragen.
 ```java
 public class GameObject
 {
@@ -131,11 +125,6 @@ public class Room extends GameObject
   public int size;
 }
 ```
-
-
-
-![Vererbung](content/images/gameobjectplayerroom.gif)
-Note: TODO: bild eher weg, da man noch gar nicht klassendiagramme hatte!?
 
 
 
@@ -181,14 +170,11 @@ public class Room extends GameObject
 
 
 
-![Overriding](content/images/kleinroomgameobjecttostring.gif)
-Note: TODO: bild eher weg, da man noch gar nicht klassendiagramme hatte!?
-
-
-
 ##Identität und Gleichheit
 ###Identität
-Der Vergleichsoperator ==  ist für alle Datentypen so definiert, dass er die vollständige Übereinstimmung zweier Werte testet. Bei primitiven Datentypen ist das einfach einzusehen und bei Referenztypen im Prinzip genauso. Der Operator ==  testet bei Referenzen, ob diese übereinstimmen, also auf das gleiche Objekt verweisen. Demnach sagt der Test etwas über die Identität der referenzierten Objekte aus, aber nichts darüber, ob zwei verschiedene Objekte möglicherweise den gleichen Inhalt haben. Der Inhalt der Objekte spielt bei 
+Der Vergleichsoperator ==  ist für alle Datentypen so definiert, dass er die vollständige Übereinstimmung zweier Werte testet. 
+
+Bei primitiven Datentypen ist das einfach einzusehen und bei Referenztypen im Prinzip genauso. Der Operator ==  testet bei Referenzen, ob diese übereinstimmen, also auf das gleiche Objekt verweisen.
 Note: TODO: Text kürzen
 
 
@@ -205,7 +191,9 @@ System.out.println(p==r); // false, da p und r zwei unterschiedliche
 
 
 ###Gleichheit
-Die allgemein gültige Lösung besteht darin, die Klasse festlegen zu lassen, wann Objekte gleich sind. Dazu kann jede Klasse eine Methode equals() implementieren, die Exemplare dieser Klasse mit beliebigen anderen Objekten vergleichen kann. Die Klassen entscheiden immer nach Anwendungsfall, welche Attribute sie für einen Gleichheitstest heranziehen, und equals()  liefert true, wenn die gewünschten Zustände (Objektvariablen) übereinstimmen.
+Es kann jede Klasse eine Methode equals() implementieren, die Exemplare dieser Klasse mit beliebigen anderen Objekten vergleichen kann. 
+
+Die Klassen entscheiden immer nach Anwendungsfall, welche Attribute sie für einen Gleichheitstest heranziehen, und equals() liefert true, wenn die gewünschten Zustände (Objektvariablen) übereinstimmen.
 Note: TODO: Text kürzen
 
 
@@ -222,6 +210,7 @@ System.out.println(p.equals(r)); // true, da p und r identisch sind
 
 ##Exception Handling (checked - unchecked)
 ![Exception Handling](content/images/06_001.png)
+Note: TODO: Exceptions generell erklären
 
 
 
@@ -230,28 +219,18 @@ Checked Esceptions müssen beim programmieren beachtet werden. Der Compiler meck
 + IOException
 + FileNotFoundException
 + ParseException
-+ ClassNotFoundException
-+ CloneNotSupportedException
-+ InstantiationException
-+ InterruptedException
-+ NoSuchMethodException
-+ NoSuchFieldException
++ ...
 Note: TODO: erklärung schreiben
 
 
 
 ###Unchecked Exceptions
-Unchecked Esceptions werden vom Compiler ignoriert, können aber dennoch auftreten.
+Unchecked Esceptions werden vom Compiler ignoriert, können aber dennoch im Programmablauf auftreten.
 + ArrayIndexOutOfBoundsException
-+ ClassCastException
 + IllegalArgumentException
-+ IllegalStateException
 + NullPointerException
 + NumberFormatException
-+ AssertionError
-+ ExceptionInInitializerError
-+ StackOverflowError
-+ NoClassDefFoundError
++ ...
 Note: TODO: erklärung schreiben
 
 
@@ -498,6 +477,7 @@ public class Cell {
 
 
 ##UML Klassendiagramm
+Klassen und Schnittstellen werden durch Rechtecke dargestellt.
 * \+ für public
 * \# für protected
 * \- für private
@@ -506,6 +486,7 @@ public class Cell {
 ![Komponenten Klassendiagramm](content/images/UmlCd_Klasse-3.svg.png)
 
 ![Beziehung Klassendiagramm](content/images/UML-Beziehungen.png)
+Note: TODO: erweiterung schreiben. (Klasse-Attribute-Methoden) (Sichtbarkeiten) (Vererbung) (Kardinalitäten?)
 
 
 
@@ -535,6 +516,7 @@ class AbstraktesKonto implements Buchbar{
   }
 }
 ```
+Note: TODO: Lösung erstellen
 
 
 
