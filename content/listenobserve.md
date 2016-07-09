@@ -4,23 +4,41 @@
 
 ##Observer Pattern
 ###Das Beobachter-Muster
-Wir erläutern das Observer-Pattern anhand des PvS-Repetitoriums. 
+Wir erlÃ¤utern das Observer-Pattern anhand des PvS-Repetitoriums. 
 
-In diesem Beispiel sind die Tutoren (*wir*) die Erzähler und erklären den Stoff von Programmierung von Systemen. Die Zuhörer (*ihr*) seid diejenigen, welche sich für den Stoff interessieren und aufmerksam zuhören. Wir nennen die Tutoren jetzt Observable (beobachtbar) und die Studenten Observer(Beobachter).
+In diesem Beispiel sind die Tutoren (*wir*) die ErzÃ¤hler und erklÃ¤ren den Stoff von Programmierung von Systemen. Die ZuhÃ¶rer (*ihr*) seid diejenigen, welche sich fÃ¼r den Stoff interessieren und aufmerksam zuhÃ¶ren. Wir nennen die Tutoren jetzt Observable (beobachtbar) und die Studenten Observer(Beobachter).
 
-Solange ein Observable einen oder mehrere Observer hat erzählt er, sendet also Mitteilungen. Wenn allerdings kein Observer dem Observable zuhört, dann schweigt er auch. 
+Solange ein Observable einen oder mehrere Observer hat erzÃ¤hlt er, sendet also Mitteilungen. Wenn allerdings kein Observer dem Observable zuhÃ¶rt, dann schweigt er auch. 
 
-Die Observer sind vielleicht nicht immer am Stoff interessiert, dann können sie sich beim Observer abmelden und bekommen keine neuen Nachrichten.
-Sollten neue Observer hinzu kommen, können sich diese beim Observable anmelden und werden auch informiert.
+Die Observer sind vielleicht nicht immer am Stoff interessiert, dann kÃ¶nnen sie sich beim Observer abmelden und bekommen keine neuen Nachrichten.
+Sollten neue Observer hinzu kommen, kÃ¶nnen sich diese beim Observable anmelden und werden auch informiert.
+Note: Vorlesen!
 
 
 
 ###Beispiel: Die Push Variante
-![Observer](content/images/Observer_Push.svg)
+![Observer](content/images/Observer_push.svg)
 
 
 
-Unser Beispiel mit den Erzählern und Zuhörern können wir auf Datenstrukturen übertragen. Die Datenstruktur lässt sich beobachten und wird zum Beobachteten. Sie wird in Java als Exemplar der Bibliotheksklasse Observable repräsentiert. Der Beobachter wird durch die Schnittstelle Observer abgedeckt und ist der, der informiert werden will, wenn sich die Datenstruktur ändert.
+###Beispiel: Die Push Variante
+Im Push-Modell Ã¼bergibt der Observable der update()-Methode detaillierte Informationen Ã¼ber die Ã„nderung als Parameter.
+
+Der Vorteil hierbei ist, dass Observer und Observable stÃ¤rker entkoppelt sind, da der Observer keine Informationen Ã¼ber den Observable benÃ¶tigt.
+
+
+
+###Beispiel: Die Pull Variante
+![Observer](content/images/Observer_pull.svg)
+
+
+
+###Beispiel: Die Pull Variante
+Beim Pull-Modell erhÃ¤lt der Observer nur eine minimale Benachrichtigung und muss sich die benÃ¶tigten Informationen selber aus vom Observable holen. Dazu erhÃ¤lt/besitzt es eine Referenz auf diesen (entweder in einer Instanzvariable beim Registrieren gespeichert oder via Argument der update()-Methode).
+
+
+
+Unser Beispiel mit den ErzÃ¤hlern und ZuhÃ¶rern kÃ¶nnen wir auf Datenstrukturen Ã¼bertragen. Die Datenstruktur lÃ¤sst sich beobachten und wird zum Beobachteten. Sie wird in Java als Exemplar der Bibliotheksklasse Observable reprÃ¤sentiert. Der Beobachter wird durch die Schnittstelle Observer abgedeckt und ist der, der informiert werden will, wenn sich die Datenstruktur Ã¤ndert.
 
 
 
