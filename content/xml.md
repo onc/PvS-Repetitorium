@@ -23,10 +23,21 @@ In der Grundidee ist XML häufig wiederzufinden:
 
 
 ##Begriffe
+####Wohlgeformtheit
+####Parser
 ####Element
 ####Attribut
-####Parser
+
+
+
 ####Wohlgeformtheit
+Ein XML-Dokument heißt *wohlgeformt*, wenn es alle XML-Regeln einhält. Beispielhaft seien hier folgende genannt:
+* Das Dokument besitzt genau ein Wurzelelement. 
+* Alle Elemente mit Inhalt besitzen einen Beginn- und einen End-Auszeichner.
+* Die Beginn- und End-Auszeichner sind ebenentreu-paarig verschachtelt.
+* Ein Element darf nicht mehrere Attribute mit demselben Namen besitzen.
+* Attributeigenschaften müssen in Anführungszeichen stehen.
+* Die Beginn- und End-Auszeichner beachten die Groß- und Kleinschreibung.
 
 
 
@@ -34,7 +45,7 @@ In der Grundidee ist XML häufig wiederzufinden:
 
 
 
-###DTD-Element
+###DTD-Element Definition
 ```xml
 <!ELEMENT                   Schlüsselwort
   <name>                    Bezeichner des Tags
@@ -57,7 +68,6 @@ Inhaltsspezifizierung:
   *  ? = ein oder keinmal
   * \+ = ein oder mehrmal
   * \* = kein oder mehrmal
-
 
 
 
