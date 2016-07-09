@@ -41,18 +41,6 @@ Note: ANIMIERT! Seperat öffnen, da die Animation sonst nicht funktioniert.
 
 
 
-Unser Beispiel mit den Erzählern und Zuhörern können wir auf Datenstrukturen übertragen. Die Datenstruktur lässt sich beobachten und wird zum Beobachteten. Sie wird in Java als Exemplar der Bibliotheksklasse Observable repräsentiert. Der Beobachter wird durch die Schnittstelle Observer abgedeckt und ist der, der informiert werden will, wenn sich die Datenstruktur ändert.
-
-
-
-###Observer-Pattern: Push-Variante
-
-
-
-###Observer-Pattern: Pull-Variante
-
-
-
 ##Listener
 
 
