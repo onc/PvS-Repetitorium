@@ -19,3 +19,14 @@ Hierzu zählen beispielsweise:
 * Selektion
 * Join
 
+
+
+![Union](content/images/Union.svg)
+
+
+
+![Union](content/images/Intersect.svg)
+
+
+
+![Union](content/images/Relative_complement.svg)

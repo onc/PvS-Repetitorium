@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     width="1000px" height="800px" xml:space="preserve">
+
+<circle cx="400" cy="400" fill="#323E99" opacity="0.8" stroke-width="5" r="150">
+</circle>
+
+<circle cx="600" cy="400" fill="#99323e" opacity="0.8" stroke-width="5" r="150">
+</circle>
+
+<path d="M 500,290 A 150 150 0 1 0 500,510 A 150 150 0 1 0 500,290" fill="none" stroke="#95C191" stroke-dasharray="25" stroke-dashoffset="0" stroke-width="10">
+    <animate attributeName="stroke-dashoffset" from="0" to="100" dur="4s" repeatCount="indefinite"/>
+</path>
+
+<text x="415" y="700" style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 4em; text-align: center;">
+A &#x222a; B
+</text>
+</svg>
