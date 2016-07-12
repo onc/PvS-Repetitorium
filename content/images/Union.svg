@@ -4,12 +4,14 @@
      width="1000px" height="800px" xml:space="preserve">
 
 <defs>
-  <rect id='c' width='30' height='30' x='0' class="cell"/>
+  <rect id='cr' width='30' height='30' x='0' class="cellR"/>
+  <rect id='cs' width='30' height='30' x='0' class="cellS"/>
   <rect id='h' width='30' height='30' x='0' class="head"/>
 
   <style type="text/css">
       <![CDATA[
-        .cell{stroke:black;fill:#f6f6f6;stroke-width:2px;opacity:1;}
+        .cellR{stroke:black;fill:#323E99;stroke-width:2px;opacity:0.6;}
+        .cellS{stroke:black;fill:#99323e;stroke-width:2px;opacity:0.6;}
         .head{stroke:black;fill:#e0e0e0;stroke-width:2px;opacity:1;}
         .text{font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 1.2em;font-weight:bold;}
       ]]>
@@ -18,9 +20,11 @@
 
 <circle cx="400" cy="260" fill="#323E99" opacity="0.8" stroke-width="5" r="150">
 </circle>
+<text x="320" y="280" style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 4em; text-align: center;fill:#323E99;">R</text>
 
 <circle cx="600" cy="260" fill="#99323e" opacity="0.8" stroke-width="5" r="150">
 </circle>
+<text x="650" y="280" style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 4em; text-align: center;fill:#99323e;">S</text>
 
 <path d="M 500,150 A 150 150 0 1 0 500,370 A 150 150 0 1 0 500,150" fill="none" stroke="#95C191" stroke-dasharray="25" stroke-dashoffset="0" stroke-width="10">
     <animate attributeName="stroke-dashoffset" from="0" to="100" dur="4s" repeatCount="indefinite"/>
@@ -49,30 +53,64 @@ R &#x222a; S
     <text width='30' heigth='30' transform='translate(8, 22)' class="text">C</text>
   </g>
 
-  <g transform='translate( 0, 30)'>
-    <use xlink:href='#c'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">1</text>
+  <g transform='translate( 0, 0)'>
+    <g transform='translate( 0, 30)'>
+      <use xlink:href='#cr'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">1</text>
+    </g>
+    <g transform='translate(30, 30)'>
+      <use xlink:href='#cr'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">2</text>
+    </g>
+    <g transform='translate(60, 30)'>
+      <use xlink:href='#cr'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">3</text>
+    </g>
+    <animateTransform attributeName="transform" type="translate" from="0, 0" to="240, 60" dur="1.1s" begin="2.7s" fill="freeze" />
   </g>
-  <g transform='translate(30, 30)'>
-    <use xlink:href='#c'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">2</text>
-  </g>
-  <g transform='translate(60, 30)'>
-    <use xlink:href='#c'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">3</text>
+  <g transform='translate( 0, 0)'>
+    <g transform='translate( 0, 30)'>
+      <use xlink:href='#cr'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">1</text>
+    </g>
+    <g transform='translate(30, 30)'>
+      <use xlink:href='#cr'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">2</text>
+    </g>
+    <g transform='translate(60, 30)'>
+      <use xlink:href='#cr'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">3</text>
+    </g>
   </g>
 
-  <g transform='translate(0, 60)'>
-    <use xlink:href='#c'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">4</text>
+  <g transform='translate( 0, 0)'>
+    <g transform='translate(0, 60)'>
+      <use xlink:href='#cr'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">4</text>
+    </g>
+    <g transform='translate(30, 60)'>
+      <use xlink:href='#cr'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">5</text>
+    </g>
+    <g transform='translate(60, 60)'>
+      <use xlink:href='#cr'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">6</text>
+    </g>
+    <animateTransform attributeName="transform" type="translate" from="0, 0" to="240, 0" dur="1.1s" begin="1.6s" fill="freeze" />
   </g>
-  <g transform='translate(30, 60)'>
-    <use xlink:href='#c'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">5</text>
-  </g>
-  <g transform='translate(60, 60)'>
-    <use xlink:href='#c'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">6</text>
+  <g transform='translate( 0, 0)'>
+    <g transform='translate(0, 60)'>
+      <use xlink:href='#cr'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">4</text>
+    </g>
+    <g transform='translate(30, 60)'>
+      <use xlink:href='#cr'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">5</text>
+    </g>
+    <g transform='translate(60, 60)'>
+      <use xlink:href='#cr'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">6</text>
+    </g>
   </g>
 </g>
 
@@ -80,7 +118,7 @@ R &#x222a; S
   <text width='30' heigth='30' transform='translate(15, -5)' class="text">
   S
   </text>
-  
+
   <g transform='translate( 0,  0)' >
     <use xlink:href='#h'/>
     <text width='30' heigth='30' transform='translate(8, 22)' class="text">A</text>
@@ -94,30 +132,64 @@ R &#x222a; S
     <text width='30' heigth='30' transform='translate(8, 22)' class="text">C</text>
   </g>
 
-  <g transform='translate( 0, 30)'>
-    <use xlink:href='#c'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">7</text>
+  <g transform='translate( 0, 0)'>
+    <g transform='translate( 0, 30)'>
+      <use xlink:href='#cs'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">7</text>
+    </g>
+    <g transform='translate(30, 30)'>
+      <use xlink:href='#cs'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">8</text>
+    </g>
+    <g transform='translate(60, 30)'>
+      <use xlink:href='#cs'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">9</text>
+    </g>
+    <animateTransform attributeName="transform" type="translate" from="0, 0" to="130, 0" dur="0.8s" begin="0s" fill="freeze" />
   </g>
-  <g transform='translate(30, 30)'>
-    <use xlink:href='#c'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">8</text>
-  </g>
-  <g transform='translate(60, 30)'>
-    <use xlink:href='#c'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">9</text>
+  <g transform='translate( 0, 0)'>
+    <g transform='translate( 0, 30)'>
+      <use xlink:href='#cs'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">7</text>
+    </g>
+    <g transform='translate(30, 30)'>
+      <use xlink:href='#cs'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">8</text>
+    </g>
+    <g transform='translate(60, 30)'>
+      <use xlink:href='#cs'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">9</text>
+    </g>
   </g>
 
-  <g transform='translate(0, 60)'>
-    <use xlink:href='#c'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">4</text>
+  <g transform='translate( 0, 0)'>
+    <g transform='translate(0, 60)'>
+      <use xlink:href='#cs'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">4</text>
+    </g>
+    <g transform='translate(30, 60)'>
+      <use xlink:href='#cs'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">5</text>
+    </g>
+    <g transform='translate(60, 60)'>
+      <use xlink:href='#cs'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">6</text>
+    </g>
+    <animateTransform attributeName="transform" type="translate" from="0, 0" to="130, 0" dur="0.8s" begin="0.8s" fill="freeze" />
   </g>
-  <g transform='translate(30, 60)'>
-    <use xlink:href='#c'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">5</text>
-  </g>
-  <g transform='translate(60, 60)'>
-    <use xlink:href='#c'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">6</text>
+  <g transform='translate( 0, 0)'>
+    <g transform='translate(0, 60)'>
+      <use xlink:href='#cs'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">4</text>
+    </g>
+    <g transform='translate(30, 60)'>
+      <use xlink:href='#cs'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">5</text>
+    </g>
+    <g transform='translate(60, 60)'>
+      <use xlink:href='#cs'/>
+      <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">6</text>
+    </g>
   </g>
 </g>
 
@@ -139,7 +211,7 @@ R &#x222a; S
     <text width='30' heigth='30' transform='translate(8, 22)' class="text">C</text>
   </g>
 
-  <g transform='translate( 0, 30)'>
+  <!-- <g transform='translate( 0, 30)'>
     <use xlink:href='#c'/>
     <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">7</text>
   </g>
@@ -176,7 +248,7 @@ R &#x222a; S
   <g transform='translate(60, 90)'>
     <use xlink:href='#c'/>
     <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">3</text>
-  </g>
+  </g> -->
 </g>
 </g>
 </svg>
