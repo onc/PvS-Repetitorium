@@ -30,3 +30,15 @@ Hierzu zählen beispielsweise:
 
 
 ![Union](content/images/Relative_complement.svg)
+
+
+
+![Union](content/images/Cross_product.svg)
+
+
+
+![Union](content/images/Projection.svg)
+
+
+
+![Union](content/images/Selection.svg)
