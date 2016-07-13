@@ -92,3 +92,30 @@ Ein Beispiel:
 * Welche? Nr 2
 
 * Warum? Weil die Kundenstadt beim Auswerten der Selektion nicht mehr existiert.
+
+
+
+##Aufgabe
+Gegeben seien die folgenden Relationenschemata:
+
+|Teile||||
+|---|---|---|---|
+|TNR|Name|Preis|Bestand|
+
+|Lieferant|||
+|---|---|---|
+|LiefNr|LiefName|LiefStadt|
+
+|Bestellung||||
+|---|---|---|---|
+|TNR|LiefNr|KdName|KdStadt|
+
+--------
+
+Gib die Algebra-Ausdrücke für die folgenden Anfragen an:
+1. Gib alle Namen der Teile aus, deren Bestand kleiner gleich 5 ist.
+2. Gib alle Städte aus, in denen ein Kunde wohnt oder ein Lieferant seinen Firmensitz hat.
+3. Gib alle Namen der Kunden aus, die nicht gleichzeitig auch Lieferanten sind.
+4. Gib den Namen und die Stadt aller Lieferanten aus, bei denen keine Bestellungen vorliegen.
+5. Gib alle Namen von Teilen, die von einem Kunden aus Ulm beim Lieferanten ’Rapp’ bestellt wurden.
+6. Gib die Namen aller Teile, bei denen der Kunde und Lieferant in der gleichen Stadt sind.
