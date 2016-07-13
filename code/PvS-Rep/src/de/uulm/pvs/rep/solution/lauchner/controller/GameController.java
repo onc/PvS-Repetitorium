@@ -33,7 +33,7 @@ public class GameController implements ActionListener, GameFinishedListener {
     gameFrame.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
     gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     gameFrame.setLocationRelativeTo(null);
-    gameFrame.add(game.getRenderer());
+    gameFrame.add(game.getRenderPanel());
     gameFrame.setResizable(false);
     gameFrame.pack();
 
