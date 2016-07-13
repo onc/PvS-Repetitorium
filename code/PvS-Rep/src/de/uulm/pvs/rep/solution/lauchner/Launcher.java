@@ -3,6 +3,7 @@ package de.uulm.pvs.rep.solution.lauchner;
 import de.uulm.pvs.rep.solution.lauchner.controller.GameController;
 import de.uulm.pvs.rep.solution.lauchner.controller.SettingsController;
 import de.uulm.pvs.rep.solution.lauchner.widgets.ButtonWidget;
+import de.uulm.pvs.rep.solution.lauchner.widgets.SettingsWidget;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -24,7 +25,9 @@ public class Launcher extends JFrame {
 
   private GameController gameController;
   private SettingsController settingsController;
+
   private ButtonWidget buttonWidget;
+  private SettingsWidget settingsWidget;
 
   /**
    * TODO documentation.
@@ -44,9 +47,12 @@ public class Launcher extends JFrame {
     this.buttonWidget.addActionListener(gameController);
     this.buttonWidget.addActionListener(settingsController);
 
+    this.settingsWidget = new SettingsWidget();
+
     this.setLayout(new BorderLayout());
 
-    this.add(buttonWidget, BorderLayout.CENTER);
+    this.add(buttonWidget, BorderLayout.SOUTH);
+    this.add(settingsWidget, BorderLayout.CENTER);
 
     this.setTitle(WINDOW_TITLE);
     this.setDefaultCloseOperation(EXIT_ON_CLOSE);
