@@ -49,6 +49,10 @@ public class Renderer extends JPanel {
     Collections.sort(this.renderables);
   }
 
+  public void clear() {
+    this.renderables.clear();
+  }
+
   @Override
   protected void paintComponent(Graphics graphics) {
     super.paintComponent(graphics);

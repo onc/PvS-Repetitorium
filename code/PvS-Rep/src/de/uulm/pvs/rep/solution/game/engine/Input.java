@@ -14,7 +14,16 @@ public class Input implements KeyListener {
   private static final int AMOUNT_OF_BUTTONS = Buttons.values().length;
 
   public boolean[] buttonsPressed = new boolean[AMOUNT_OF_BUTTONS];
-  public boolean pressedQ = false;
+
+  /**
+   * TODO documentation.
+   */
+  public void clear() {
+
+    for (int i = 0; i < buttonsPressed.length; i++) {
+      buttonsPressed[i] = false;
+    }
+  }
 
   @Override
   public void keyTyped(KeyEvent event) {
@@ -44,10 +53,6 @@ public class Input implements KeyListener {
 
       case KeyEvent.VK_SPACE:
         buttonsPressed[Buttons.SPACE.ordinal()] = true;
-        break;
-
-      case KeyEvent.VK_Q:
-        pressedQ = true;
         break;
 
       default:

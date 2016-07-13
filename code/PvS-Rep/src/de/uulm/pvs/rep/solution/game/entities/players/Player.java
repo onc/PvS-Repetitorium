@@ -26,13 +26,14 @@ public class Player extends Entity {
    * @param windowSize - {@link Dimension}
    */
   public Player(int zindex, Dimension windowSize) {
-    super(new Point(0, 0), PLAYER_IMAGE_PATH, new Dimension(DEFAULT_SIZE, DEFAULT_SIZE));
+    super(new Point(0, windowSize.height / 2), PLAYER_IMAGE_PATH,
+        new Dimension(DEFAULT_SIZE, DEFAULT_SIZE));
     super.zindex = zindex;
     this.windowSize = windowSize;
   }
 
   public Player(int zindex, Dimension windowSize, Dimension playerSize) {
-    super(new Point(0, 0), "resources/spaceship.png", playerSize);
+    super(new Point(0, windowSize.height / 2), "resources/spaceship.png", playerSize);
   }
 
   public Point getPosition() {

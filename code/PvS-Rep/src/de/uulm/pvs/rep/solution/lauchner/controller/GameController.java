@@ -1,6 +1,7 @@
 package de.uulm.pvs.rep.solution.lauchner.controller;
 
 import de.uulm.pvs.rep.solution.game.Game;
+import de.uulm.pvs.rep.solution.game.engine.GameFinishedListener;
 import de.uulm.pvs.rep.solution.lauchner.constants.ActionConstants;
 
 import java.awt.FlowLayout;
@@ -14,7 +15,7 @@ import javax.swing.JFrame;
  * 
  * @author Christian van Onzenoodt
  */
-public class GameController implements ActionListener {
+public class GameController implements ActionListener, GameFinishedListener {
 
   private Game game;
 
@@ -36,19 +37,20 @@ public class GameController implements ActionListener {
     gameFrame.setResizable(false);
     gameFrame.pack();
 
+    game.registerListener(gameFrame);
+    game.addGameFinishedListener(this);
   }
 
   /**
    * TODO documentation.
    */
   private void startGame() {
+
     gameFrame.setVisible(true);
     gameFrame.toFront();
-    game.registerListener(gameFrame);
 
-    new Thread(() -> {
-      game.start();
-    }).start();
+    Thread gameThread = new Thread(game);
+    gameThread.start();
   }
 
   @Override
@@ -58,5 +60,11 @@ public class GameController implements ActionListener {
       System.out.println("start game");
       startGame();
     }
+  }
+
+  @Override
+  public void gameFinished(int points) {
+    System.out.println(points);
+    gameFrame.setVisible(false);
   }
 }
