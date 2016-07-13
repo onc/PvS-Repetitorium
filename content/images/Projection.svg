@@ -83,9 +83,9 @@ Projektion &#960;
   </g>
 </g>
 
-<g transform='translate(110,0)' >
-  <text width='30' heigth='30' transform='translate(2, -7)' class="text">
-  R[A,B]
+<g transform='translate(140,0)' >
+  <text width='30' heigth='30' transform='translate(2, -15)' class="text">
+  <tspan>&#960;<tspan baseline-shift="sub" style="font-size:14px;">{A, B}</tspan>R</tspan>
   </text>
 
   <g transform='translate( 0,  0)' >
@@ -125,9 +125,9 @@ Projektion &#960;
   </g>
 </g>
 
-<g transform='translate(210,0)' >
-  <text width='30' heigth='30' transform='translate(2, -7)' class="text">
-  R[A]
+<g transform='translate(270,0)' >
+  <text width='30' heigth='30' transform='translate(2, -15)' class="text">
+  <tspan>&#960;<tspan baseline-shift="sub" style="font-size:14px;">{A}</tspan>R</tspan>
   </text>
   
   <g transform='translate( 0,  0)' >
@@ -146,9 +146,9 @@ Projektion &#960;
   </g>
 </g>
 
-<g transform='translate(280,0)' >
-  <text width='30' heigth='30' transform='translate(2, -7)' class="text">
-  R[C]
+<g transform='translate(370,0)' >
+  <text width='30' heigth='30' transform='translate(2, -15)' class="text">
+  <tspan>&#960;<tspan baseline-shift="sub" style="font-size:14px;">{C}</tspan>R</tspan>
   </text>
   
   <g transform='translate( 0,  0)' >

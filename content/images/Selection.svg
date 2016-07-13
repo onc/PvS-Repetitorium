@@ -98,9 +98,9 @@ Selektion &#963;
   </g>
 </g>
 
-<g transform='translate(110,0)' >
-  <text width='30' heigth='30' transform='translate(15, -5)' class="text">
-  R[A=1]
+<g transform='translate(140,0)' >
+  <text width='30' heigth='30' transform='translate(2, -15)' class="text">
+  <tspan>&#963;<tspan baseline-shift="sub" style="font-size:14px;">{A = 1}</tspan>R</tspan>
   </text>
 
   <g transform='translate( 0,  0)' >
@@ -143,9 +143,9 @@ Selektion &#963;
   </g>
 </g>
 
-<g transform='translate(220,0)' >
-  <text width='30' heigth='30' transform='translate(15, -5)' class="text">
-  R[C&#62;6]
+<g transform='translate(280,0)' >
+  <text width='30' heigth='30' transform='translate(2, -15)' class="text">
+  <tspan>&#963;<tspan baseline-shift="sub" style="font-size:14px;">{C &#62; 6}</tspan>R</tspan>
   </text>
   
   <g transform='translate( 0,  0)' >

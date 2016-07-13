@@ -62,3 +62,7 @@ Hierzu zählen beispielsweise:
 
 
 ![Outer Join](content/images/Outer_Join.svg)
+
+
+
+![Rename](content/images/Rename.svg)

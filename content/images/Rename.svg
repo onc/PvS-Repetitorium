@@ -19,7 +19,7 @@
 </defs>
 
 <text x="15" y="75" style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 4em; text-align: center;">
-Natural Join &#10781;
+Umbenennung &#961;
 </text>
 
 <g transform='translate(260,250)' >
@@ -98,55 +98,10 @@ Natural Join &#10781;
 </g>
 
 <g transform='translate(140,0)' >
-  <text width='30' heigth='30' transform='translate(15, -5)' class="text">
-  S
-  </text>
-
-  <g transform='translate( 0,  0)' >
-    <use xlink:href='#h'/>
-    <text width='30' heigth='30' transform='translate(8, 22)' class="text">A</text>
-  </g>
-  <g transform='translate(30,  0)' >
-    <use xlink:href='#h'/>
-    <text width='30' heigth='30' transform='translate(8, 22)' class="text">F</text>
-  </g>
-  <g transform='translate(60,  0)' >
-    <use xlink:href='#h'/>
-    <text width='30' heigth='30' transform='translate(8, 22)' class="text">G</text>
-  </g>
-
-  <g transform='translate( 0, 30)'>
-    <use xlink:href='#cs'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">1</text>
-  </g>
-  <g transform='translate(30, 30)'>
-    <use xlink:href='#cs'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">2</text>
-  </g>
-  <g transform='translate(60, 30)'>
-    <use xlink:href='#cs'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">3</text>
-  </g>
-
-  <g transform='translate(0, 60)'>
-    <use xlink:href='#cs'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">7</text>
-  </g>
-  <g transform='translate(30, 60)'>
-    <use xlink:href='#cs'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">8</text>
-  </g>
-  <g transform='translate(60, 60)'>
-    <use xlink:href='#cs'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">9</text>
-  </g>
-</g>
-
-<g transform='translate(270,0)' >
   <text width='30' heigth='30' transform='translate(2, -15)' class="text">
-  <tspan>R &#10781; S</tspan>
+  <tspan>&#961;<tspan baseline-shift="sub" style="font-size:14px;">{E&#8592;C}</tspan>R</tspan>
   </text>
-  
+
   <g transform='translate( 0,  0)' >
     <use xlink:href='#h'/>
     <text width='30' heigth='30' transform='translate(8, 22)' class="text">A</text>
@@ -157,24 +112,16 @@ Natural Join &#10781;
   </g>
   <g transform='translate(60,  0)' >
     <use xlink:href='#h'/>
-    <text width='30' heigth='30' transform='translate(8, 22)' class="text">C</text>
+    <text width='30' heigth='30' transform='translate(8, 22)' class="text">E</text>
   </g>
   <g transform='translate(90,  0)' >
     <use xlink:href='#h'/>
     <text width='30' heigth='30' transform='translate(8, 22)' class="text">D</text>
   </g>
-  <g transform='translate(120,  0)' >
-    <use xlink:href='#h'/>
-    <text width='30' heigth='30' transform='translate(8, 22)' class="text">F</text>
-  </g>
-  <g transform='translate(150,  0)' >
-    <use xlink:href='#h'/>
-    <text width='30' heigth='30' transform='translate(8, 22)' class="text">G</text>
-  </g>
 
-  <g transform='translate(0, 30)'>
+  <g transform='translate( 0, 30)'>
     <use xlink:href='#cr'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text">1</text>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">1</text>
   </g>
   <g transform='translate(30, 30)'>
     <use xlink:href='#cr'/>
@@ -188,40 +135,113 @@ Natural Join &#10781;
     <use xlink:href='#cr'/>
     <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">4</text>
   </g>
-  
-  <g transform='translate(120, 30)'>
-    <use xlink:href='#cs'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">2</text>
-  </g>
-  <g transform='translate(150, 30)'>
-    <use xlink:href='#cs'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">3</text>
-  </g>
-   
-  <g transform='translate( 0, 60)'>
+
+  <g transform='translate(0, 60)'>
     <use xlink:href='#cr'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text">7</text>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">4</text>
   </g>
   <g transform='translate(30, 60)'>
     <use xlink:href='#cr'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">8</text>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">5</text>
   </g>
   <g transform='translate(60, 60)'>
     <use xlink:href='#cr'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">9</text>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">6</text>
   </g>
   <g transform='translate(90, 60)'>
     <use xlink:href='#cr'/>
-    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">0</text>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">7</text>
   </g>
   
-  <g transform='translate(120, 60)'>
-    <use xlink:href='#cs'/>
+  <g transform='translate(0, 90)'>
+    <use xlink:href='#cr'/>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">7</text>
+  </g>
+  <g transform='translate(30, 90)'>
+    <use xlink:href='#cr'/>
     <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">8</text>
   </g>
-  <g transform='translate(150, 60)'>
-    <use xlink:href='#cs'/>
+  <g transform='translate(60, 90)'>
+    <use xlink:href='#cr'/>
     <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">9</text>
+  </g>
+  <g transform='translate(90, 90)'>
+    <use xlink:href='#cr'/>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">0</text>
+  </g>
+</g>
+
+<g transform='translate(280,0)' >
+  <text width='30' heigth='30' transform='translate(2, -15)' class="text">
+  <tspan>&#961;<tspan baseline-shift="sub" style="font-size:14px;">{Z&#8592;A}</tspan>R</tspan>
+  </text>
+
+  <g transform='translate( 0,  0)' >
+    <use xlink:href='#h'/>
+    <text width='30' heigth='30' transform='translate(8, 22)' class="text">Z</text>
+  </g>
+  <g transform='translate(30,  0)' >
+    <use xlink:href='#h'/>
+    <text width='30' heigth='30' transform='translate(8, 22)' class="text">B</text>
+  </g>
+  <g transform='translate(60,  0)' >
+    <use xlink:href='#h'/>
+    <text width='30' heigth='30' transform='translate(8, 22)' class="text">C</text>
+  </g>
+  <g transform='translate(90,  0)' >
+    <use xlink:href='#h'/>
+    <text width='30' heigth='30' transform='translate(8, 22)' class="text">D</text>
+  </g>
+
+  <g transform='translate( 0, 30)'>
+    <use xlink:href='#cr'/>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">1</text>
+  </g>
+  <g transform='translate(30, 30)'>
+    <use xlink:href='#cr'/>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">2</text>
+  </g>
+  <g transform='translate(60, 30)'>
+    <use xlink:href='#cr'/>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">3</text>
+  </g>
+  <g transform='translate(90, 30)'>
+    <use xlink:href='#cr'/>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">4</text>
+  </g>
+
+  <g transform='translate(0, 60)'>
+    <use xlink:href='#cr'/>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">4</text>
+  </g>
+  <g transform='translate(30, 60)'>
+    <use xlink:href='#cr'/>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">5</text>
+  </g>
+  <g transform='translate(60, 60)'>
+    <use xlink:href='#cr'/>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">6</text>
+  </g>
+  <g transform='translate(90, 60)'>
+    <use xlink:href='#cr'/>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">7</text>
+  </g>
+  
+  <g transform='translate(0, 90)'>
+    <use xlink:href='#cr'/>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">7</text>
+  </g>
+  <g transform='translate(30, 90)'>
+    <use xlink:href='#cr'/>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">8</text>
+  </g>
+  <g transform='translate(60, 90)'>
+    <use xlink:href='#cr'/>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">9</text>
+  </g>
+  <g transform='translate(90, 90)'>
+    <use xlink:href='#cr'/>
+    <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">0</text>
   </g>
 </g>
 </g>
