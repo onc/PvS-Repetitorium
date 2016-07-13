@@ -25,20 +25,40 @@ Hierzu zählen beispielsweise:
 
 
 
-![Union](content/images/Intersect.svg)
+![Intersect](content/images/Intersect.svg)
 
 
 
-![Union](content/images/Relative_complement.svg)
+![Relative_complement](content/images/Relative_complement.svg)
 
 
 
-![Union](content/images/Cross_product.svg)
+![Cross_product](content/images/Cross_product.svg)
 
 
 
-![Union](content/images/Projection.svg)
+![Projection](content/images/Projection.svg)
 
 
 
-![Union](content/images/Selection.svg)
+![Selection](content/images/Selection.svg)
+
+
+
+![Join](content/images/Join.svg)
+
+
+
+![Equi-Join](content/images/Equi-Join.svg)
+
+
+
+![Natural Join](content/images/Natural_Join.svg)
+
+
+
+![Semi Join](content/images/Semi_Join.svg)
+
+
+
+![Outer Join](content/images/Outer_Join.svg)
