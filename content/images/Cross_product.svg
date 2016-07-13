@@ -133,15 +133,15 @@ R x S
   </g>
 
   <g transform='translate(0, 60)'>
-    <use xlink:href='#cs'/>
+    <use xlink:href='#cu'/>
     <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">7</text>
   </g>
   <g transform='translate(30, 60)'>
-    <use xlink:href='#cs'/>
+    <use xlink:href='#cu'/>
     <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">8</text>
   </g>
   <g transform='translate(60, 60)'>
-    <use xlink:href='#cs'/>
+    <use xlink:href='#cu'/>
     <text width='30' heigth='30' transform='translate(10, 22)' class="text" style="font-weight:normal;">9</text>
   </g>
 </g>
