@@ -66,3 +66,29 @@ Hierzu zählen beispielsweise:
 
 
 ![Rename](content/images/Rename.svg)
+
+
+
+Ein Beispiel:
+
+* Zwei Alternativen
+  1. &pi;<sub style="font-size:20px;">KdNr, KdName</sub> (&sigma;<sub style="font-size:20px;">KdStadt = 'Ulm'</sub> Kunden)
+  2. &sigma;<sub style="font-size:20px;">KdStadt = 'Ulm'</sub> (&pi;<sub style="font-size:20px;">KdNr, KdName</sub> Kunden)
+* Eine der beiden Alternativen führt nicht zum gewünschten Ergebnis
+
+* Welche?
+
+* Warum?
+Note: Ergebnis unten
+
+
+Ein Beispiel:
+
+* Zwei Alternativen
+  1. &pi;<sub style="font-size:20px;">KdNr, KdName</sub> (&sigma;<sub style="font-size:20px;">KdStadt = 'Ulm'</sub> Kunden)
+  2. &sigma;<sub style="font-size:20px;">KdStadt = 'Ulm'</sub> (&pi;<sub style="font-size:20px;">KdNr, KdName</sub> Kunden)
+* Eine der beiden Alternativen führt nicht zum gewünschten Ergebnis
+
+* Welche? Nr 2
+
+* Warum? Weil die Kundenstadt beim Auswerten der Selektion nicht mehr existiert.
