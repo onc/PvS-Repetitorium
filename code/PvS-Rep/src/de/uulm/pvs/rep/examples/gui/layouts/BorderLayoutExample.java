@@ -2,6 +2,7 @@ package de.uulm.pvs.rep.examples.gui.layouts;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Dimension;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,6 +19,7 @@ public class BorderLayoutExample extends JFrame {
 
   private static final long serialVersionUID = -2967025487459243852L;
   private static final String WINDOW_TITLE = "BorderLayoutExample";
+  private static final Dimension PREFERRED_WINDOW_SIZE = new Dimension(800, 600);
 
   /**
    * Default constructor.
@@ -45,6 +47,7 @@ public class BorderLayoutExample extends JFrame {
     this.setTitle(WINDOW_TITLE);
     this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     this.setLocationRelativeTo(null);
+    this.setPreferredSize(PREFERRED_WINDOW_SIZE);
     this.setVisible(true);
   }
 

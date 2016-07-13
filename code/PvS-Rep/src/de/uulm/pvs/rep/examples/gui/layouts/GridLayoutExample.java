@@ -1,6 +1,7 @@
 package de.uulm.pvs.rep.examples.gui.layouts;
 
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
@@ -19,6 +20,7 @@ public class GridLayoutExample extends JFrame {
 
   private static final long serialVersionUID = -5218905969823758710L;
   private static final String WINDOW_TITLE = "GridLayoutExample";
+  private static final Dimension PREFERRED_WINDOW_SIZE = new Dimension(800, 600);
 
   private static final int GRID_ROWS = 5;
   private static final int GRID_COLS = 3;
@@ -45,6 +47,7 @@ public class GridLayoutExample extends JFrame {
     this.setTitle(WINDOW_TITLE);
     this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     this.setLocationRelativeTo(null);
+    this.setPreferredSize(PREFERRED_WINDOW_SIZE);
     this.setVisible(true);
   }
 

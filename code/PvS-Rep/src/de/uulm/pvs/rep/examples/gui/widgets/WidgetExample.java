@@ -28,6 +28,8 @@ public class WidgetExample extends JFrame {
 
   private static final long serialVersionUID = 8967100311460513201L;
   private static final String WINDOW_TITLE = "WidgetExample";
+  private static final Dimension PREFERRED_WINDOW_SIZE = new Dimension(800, 600);
+
   private static final Dimension TEXT_FIELD_SIZE = new Dimension(200, 24);
 
   /**
@@ -56,6 +58,7 @@ public class WidgetExample extends JFrame {
     this.setTitle(WINDOW_TITLE);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setLocationRelativeTo(null);
+    this.setPreferredSize(PREFERRED_WINDOW_SIZE);
     this.setVisible(true);
   }
 
