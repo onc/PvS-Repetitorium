@@ -1,6 +1,6 @@
 package de.uulm.pvs.rep.solution.game.entities.players;
 
-import de.uulm.pvs.rep.solution.game.engine.Buttons;
+import de.uulm.pvs.rep.solution.game.engine.Button;
 import de.uulm.pvs.rep.solution.game.entities.Entity;
 
 import java.awt.Dimension;
@@ -36,23 +36,43 @@ public class Player extends Entity {
     super(new Point(0, windowSize.height / 2), "resources/spaceship.png", playerSize);
   }
 
-  public Point getPosition() {
-    return super.getPosition();
+  /**
+   * TODO documentation.
+   * 
+   * @param input - boolean[]
+   */
+  public void update(boolean[] input) {
+
+    if (input[Button.UP.ordinal()]) {
+      this.move(Button.UP);
+    }
+
+    if (input[Button.DOWN.ordinal()]) {
+      this.move(Button.DOWN);
+    }
+
+    if (input[Button.RIGHT.ordinal()]) {
+      this.move(Button.RIGHT);
+    }
+
+    if (input[Button.LEFT.ordinal()]) {
+      this.move(Button.LEFT);
+    }
   }
 
   /**
    * TODO documentation.
    * 
-   * @param buttons - {@link Buttons}
+   * @param button - {@link Button}
    */
-  public void move(Buttons buttons) {
+  private void move(Button button) {
 
     int stepSize = 1;
 
     Point position = super.getPosition();
     Dimension size = super.getSize();
 
-    switch (buttons) {
+    switch (button) {
       case UP:
         if (position.y <= 0) {
           break;

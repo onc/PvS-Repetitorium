@@ -11,7 +11,7 @@ import java.awt.event.KeyListener;
  */
 public class Input implements KeyListener {
 
-  private static final int AMOUNT_OF_BUTTONS = Buttons.values().length;
+  private static final int AMOUNT_OF_BUTTONS = Button.values().length;
 
   public boolean[] buttonsPressed = new boolean[AMOUNT_OF_BUTTONS];
 
@@ -36,23 +36,23 @@ public class Input implements KeyListener {
 
     switch (event.getKeyCode()) {
       case KeyEvent.VK_UP:
-        buttonsPressed[Buttons.UP.ordinal()] = true;
+        buttonsPressed[Button.UP.ordinal()] = true;
         break;
 
       case KeyEvent.VK_DOWN:
-        buttonsPressed[Buttons.DOWN.ordinal()] = true;
+        buttonsPressed[Button.DOWN.ordinal()] = true;
         break;
 
       case KeyEvent.VK_LEFT:
-        buttonsPressed[Buttons.LEFT.ordinal()] = true;
+        buttonsPressed[Button.LEFT.ordinal()] = true;
         break;
 
       case KeyEvent.VK_RIGHT:
-        buttonsPressed[Buttons.RIGHT.ordinal()] = true;
+        buttonsPressed[Button.RIGHT.ordinal()] = true;
         break;
 
       case KeyEvent.VK_SPACE:
-        buttonsPressed[Buttons.SPACE.ordinal()] = true;
+        buttonsPressed[Button.SPACE.ordinal()] = true;
         break;
 
       default:
@@ -65,23 +65,23 @@ public class Input implements KeyListener {
 
     switch (event.getKeyCode()) {
       case KeyEvent.VK_UP:
-        buttonsPressed[Buttons.UP.ordinal()] = false;
+        buttonsPressed[Button.UP.ordinal()] = false;
         break;
 
       case KeyEvent.VK_DOWN:
-        buttonsPressed[Buttons.DOWN.ordinal()] = false;
+        buttonsPressed[Button.DOWN.ordinal()] = false;
         break;
 
       case KeyEvent.VK_LEFT:
-        buttonsPressed[Buttons.LEFT.ordinal()] = false;
+        buttonsPressed[Button.LEFT.ordinal()] = false;
         break;
 
       case KeyEvent.VK_RIGHT:
-        buttonsPressed[Buttons.RIGHT.ordinal()] = false;
+        buttonsPressed[Button.RIGHT.ordinal()] = false;
         break;
 
       case KeyEvent.VK_SPACE:
-        buttonsPressed[Buttons.SPACE.ordinal()] = false;
+        buttonsPressed[Button.SPACE.ordinal()] = false;
         break;
 
       default:

@@ -1,6 +1,6 @@
 package de.uulm.pvs.rep.solution.game;
 
-import de.uulm.pvs.rep.solution.game.engine.Buttons;
+import de.uulm.pvs.rep.solution.game.engine.Button;
 import de.uulm.pvs.rep.solution.game.engine.GameFinishedListener;
 import de.uulm.pvs.rep.solution.game.engine.Input;
 import de.uulm.pvs.rep.solution.game.engine.Renderer;
@@ -34,20 +34,20 @@ public class Game implements Runnable {
 
   public static final Dimension WINDOW_SIZE = new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT);
 
-  private Renderer renderer = new Renderer(WINDOW_SIZE);
-  private Input input = new Input();
+  private Renderer renderer;
+  private Input input;
 
   private Player player;
 
-  private Background background = new Background(0, WINDOW_SIZE);
-  private Hud hud = new Hud(1);
+  private Background background;
+  private Hud hud;
   private ProjectileSpawner projectileSpawner;
   private EnemySpawner enemySpawner;
   private ObstacleSpawner obstacleSpawner;
 
   private GameFinishedListener gameFinishedListener;
 
-  volatile boolean isRunning = true;
+  private volatile boolean isRunning = true;
 
   private volatile int points = 0;
 
@@ -56,13 +56,22 @@ public class Game implements Runnable {
    */
   public Game() {
 
+    this.renderer = new Renderer(WINDOW_SIZE);
+    this.input = new Input();
+
   }
 
+  /**
+   * TODO documentation.
+   */
   private void initGame() {
+
     this.player = new Player(2, WINDOW_SIZE);
     this.projectileSpawner = new ProjectileSpawner(2, WINDOW_SIZE);
     this.enemySpawner = new EnemySpawner(2);
     this.obstacleSpawner = new ObstacleSpawner(1);
+    this.background = new Background(0, WINDOW_SIZE);
+    this.hud = new Hud(1);
 
     this.renderer.clear();
     this.input.clear();
@@ -86,7 +95,7 @@ public class Game implements Runnable {
     frame.addKeyListener(input);
   }
 
-  public long getTime() {
+  private long getTime() {
     return System.nanoTime();
   }
 
@@ -158,11 +167,6 @@ public class Game implements Runnable {
    */
   private void update() {
 
-    background.update();
-    enemySpawner.update();
-    projectileSpawner.update();
-    obstacleSpawner.update();
-
     for (Asteroid asteroid : obstacleSpawner.getList()) {
       if (player.intersects(asteroid)) {
         System.out.println("lost");
@@ -195,31 +199,21 @@ public class Game implements Runnable {
       obstacleSpawner.spawnAsteroid((int) (WINDOW_SIZE.width * Math.random()));
     }
 
-    if (input.buttonsPressed[Buttons.SPACE.ordinal()]) {
-      projectileSpawner.spawnProjectile(new Point(playerPosition));
+    if (input.buttonsPressed[Button.SPACE.ordinal()]) {
+      projectileSpawner.spawnProjectile(playerPosition);
     }
 
-    if (input.buttonsPressed[Buttons.UP.ordinal()]) {
-      player.move(Buttons.UP);
-    }
-
-    if (input.buttonsPressed[Buttons.DOWN.ordinal()]) {
-      player.move(Buttons.DOWN);
-    }
-
-    if (input.buttonsPressed[Buttons.RIGHT.ordinal()]) {
-      player.move(Buttons.RIGHT);
-    }
-
-    if (input.buttonsPressed[Buttons.LEFT.ordinal()]) {
-      player.move(Buttons.LEFT);
-    }
+    background.update();
+    enemySpawner.update();
+    projectileSpawner.update();
+    obstacleSpawner.update();
+    player.update(input.buttonsPressed);
   }
 
   /**
    * TODO documentation.
    */
-  void render() {
+  private void render() {
     renderer.render();
   }
 

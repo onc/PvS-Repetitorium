@@ -69,7 +69,7 @@ public class Entity implements Renderable {
   }
 
   public Point getPosition() {
-    return this.position;
+    return new Point(this.position);
   }
 
   public Dimension getSize() {
