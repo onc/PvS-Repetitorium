@@ -106,9 +106,13 @@ Gegeben seien die folgenden Relationenschemata:
 |---|---|---|
 |LiefNr|LiefName|LiefStadt|
 
-|Bestellung||||
-|---|---|---|---|
-|TNR|LiefNr|KdName|KdStadt|
+|Bestellung|||
+|---|---|---|
+|TNR|LiefNr|KdNr|
+
+|Kunde|||
+|---|---|---|
+|KdNR|KdName|KdStadt|
 
 --------
 
