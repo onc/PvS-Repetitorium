@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 /**
- * TODO documentation.
+ * Launcher for the game. This is the main class and frame for the application.
  * 
  * @author Christian van Onzenoodt
  *
@@ -30,7 +30,7 @@ public class Launcher extends JFrame {
   private SettingsWidget settingsWidget;
 
   /**
-   * TODO documentation.
+   * Create a new {@link Launcher} by creating the needed controllers.
    */
   public Launcher() {
 
@@ -39,7 +39,8 @@ public class Launcher extends JFrame {
   }
 
   /**
-   * TODO documentation.
+   * Initializes the UI with the {@link ButtonWidget} and {@link SettingsWidget}, packs everything
+   * together and shows the Frame.
    */
   public void initGui() {
 
@@ -62,12 +63,14 @@ public class Launcher extends JFrame {
   }
 
   /**
-   * TODO documentation.
+   * Main-Method.
    */
   public static void main(String[] args) {
 
+    // create a launcher
     Launcher launcher = new Launcher();
 
+    // initialize the ui in the swing-thread
     SwingUtilities.invokeLater(() -> {
       launcher.initGui();
     });

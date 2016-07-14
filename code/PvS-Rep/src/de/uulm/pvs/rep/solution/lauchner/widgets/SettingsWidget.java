@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
- * TODO documentation.
+ * Widget for the settings like username, amount of monsters and obstacles etc.
  *
  * @author Christian van Onzenoodt
  *
@@ -40,7 +40,7 @@ public class SettingsWidget extends JPanel {
   private HighscoreList highscoreList;
 
   /**
-   * TODO documentation.
+   * Create a new {@link SettingsWidget}.
    */
   public SettingsWidget() {
 
@@ -53,6 +53,11 @@ public class SettingsWidget extends JPanel {
     this.add(highscoreList);
   }
 
+  /**
+   * Builds the panel on the left with username, monster and obstacle-settings.
+   * 
+   * @return - panel with all elements.
+   */
   private JPanel buildLeftPanel() {
 
     this.nameLabel = new JLabel(NAME_LABEL_CAPTION);

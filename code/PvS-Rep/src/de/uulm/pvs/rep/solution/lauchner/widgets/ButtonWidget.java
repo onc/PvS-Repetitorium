@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
- * TODO documentation.
+ * Widget for the buttons in the main-UI.
  * 
  * @author Christian van Onzenoodt
  *
@@ -27,7 +27,7 @@ public class ButtonWidget extends JPanel {
   private JButton exportSettingsButton;
 
   /**
-   * TODO documentation.
+   * Creates a new {@link ButtonWidget}.
    */
   public ButtonWidget() {
 
@@ -46,9 +46,9 @@ public class ButtonWidget extends JPanel {
   }
 
   /**
-   * TODO documentation.
+   * Adds the given {@link ActionListener} to all Buttons in the Widget.
    * 
-   * @param actionListener - {@link ActionListener}
+   * @param actionListener - listener to add
    */
   public void addActionListener(ActionListener actionListener) {
     this.startGameButton.addActionListener(actionListener);

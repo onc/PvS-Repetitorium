@@ -9,7 +9,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 
 /**
- * TODO documentation.
+ * Widget for the highscore-list.
  *
  * @author Christian van Onzenoodt
  *
@@ -24,7 +24,7 @@ public class HighscoreList extends JPanel {
   private JLabel highsoreLabel;
 
   /**
-   * TODO documentation.
+   * Creates a new {@link HighscoreList}.
    */
   public HighscoreList() {
 
@@ -37,6 +37,11 @@ public class HighscoreList extends JPanel {
     this.add(highscoreList, BorderLayout.CENTER);
   }
 
+  /**
+   * Updates the data in List with the given data.
+   * 
+   * @param highscores - list of strings to show
+   */
   public void updateList(List<String> highscores) {
 
     this.highscoreList.setListData(new Vector<>(highscores));

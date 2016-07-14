@@ -1,7 +1,9 @@
 package de.uulm.pvs.rep.solution.lauchner.constants;
 
 /**
- * TODO documentation.
+ * Constants for actions in the UI. This actions-strings are added onto e.g. a button or a
+ * menu-item. The controller are listening for all events and handle all events which they are
+ * responsible for.
  * 
  * @author Christian van Onzenoodt
  *
