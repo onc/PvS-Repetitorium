@@ -1,6 +1,7 @@
 package de.uulm.pvs.rep.examples.gui.layouts;
 
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
@@ -19,6 +20,7 @@ public class FlowLayoutExample extends JFrame {
 
   private static final long serialVersionUID = -7297666990106294513L;
   private static final String WINDOW_TITLE = "FlowLayoutExample";
+  private static final Dimension PREFERRED_WINDOW_SIZE = new Dimension(800, 600);
   private static final int AMOUNT_OF_BUTTONS = 10;
 
   /**
@@ -44,6 +46,7 @@ public class FlowLayoutExample extends JFrame {
     this.setTitle(WINDOW_TITLE);
     this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     this.setLocationRelativeTo(null);
+    this.setPreferredSize(PREFERRED_WINDOW_SIZE);
     this.setVisible(true);
   }
 

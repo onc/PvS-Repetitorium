@@ -6,13 +6,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * TODO documentation.
+ * Controller for the settings.
  * 
  * @author Christian van Onzenoodt
  *
  */
 public class SettingsController implements ActionListener {
 
+  // FIXME: implement
   @Override
   public void actionPerformed(ActionEvent event) {
 
