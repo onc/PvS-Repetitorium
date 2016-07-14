@@ -3,7 +3,7 @@ package de.uulm.pvs.rep.solution.game.engine;
 import java.awt.Graphics2D;
 
 /**
- * TODO documentation.
+ * Interface for a renderable.
  * 
  * @author Christian van Onzenoodt
  *
@@ -11,23 +11,31 @@ import java.awt.Graphics2D;
 public interface Renderable extends Comparable<Renderable> {
 
   /**
-   * TODO documentation.
+   * Render this component to the given {@link Graphics2D}.
    * 
    * @param graphics - {@link Graphics2D}
    */
   public void render(Graphics2D graphics);
 
   /**
-   * TODO documentation.
+   * Returns the z-index where the rendererable should be rendered in. Renderables in a list can be
+   * sorted using this index.
    * 
-   * @return - int
+   * @return - z-index to render to.
    */
   public int getZindex();
 
-  @Override
   /**
-   * TODO documentation.
+   * Update the logic.
    */
+  public void update();
+
+  /**
+   * Java 8 provides the option to provide default implementations in interfaces. Since all
+   * renderables should share the same compareTo method implementation to have Collections.sort()
+   * work properly, we provide this default implementation bases on the z-index.
+   */
+  @Override
   public default int compareTo(Renderable other) {
     if (this.getZindex() < other.getZindex()) {
       return -1;

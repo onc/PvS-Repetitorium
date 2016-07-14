@@ -13,45 +13,57 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
- * TODO.
+ * Basic-class for all entities in the game.
  * 
  * @author Christian van Onzenoodt
  *
  */
-public class Entity implements Renderable {
+public abstract class Entity implements Renderable {
 
+  // image of the entity
   protected BufferedImage image;
 
+  // z-index the entity is rendered in. Higher z-index values are in front of lower ones.
   protected int zindex = 0;
 
+  // bounding-box of the entity. this is used to check for intersections with other entities.
   private Rectangle boundingBox;
   private Point position;
 
   /**
-   * TODO.
+   * Creates an new {@link Entity}. In this case a z-index of 0 is used. If you can not see you
+   * entity, you maybe should check, if you have to set this to a higher value.
    * 
-   * @param position - {@link Point}
-   * @param imagePath - {@link String}
-   * @param size - {@link Dimension}
+   * @param position - point where the entity should spawn
+   * @param imagePath - path to the image of the entity
+   * @param size - size of the entity
    */
   public Entity(Point position, String imagePath, Dimension size) {
 
     this.position = position;
     this.boundingBox = new Rectangle(position.x, position.y, size.width, size.height);
 
-    this.image = loadImage(imagePath);
+    this.image = this.loadImage(imagePath);
   }
 
+  /**
+   * Creates an new {@link Entity}.
+   * 
+   * @param position - point where the entity should spawn
+   * @param imagePath - path to the image of the entity
+   * @param size - size of the entity
+   * @param zindex - z-index for the entity
+   */
   public Entity(Point position, String imagePath, Dimension size, int zindex) {
     this(position, imagePath, size);
     this.zindex = zindex;
   }
 
   /**
-   * TODO documentation.
+   * Loads an images from the given Path.
    * 
-   * @param path - {@link String}
-   * @return {@link BufferedImage}
+   * @param path - path of the image
+   * @return loaded image
    */
   private BufferedImage loadImage(String path) {
 
@@ -72,15 +84,20 @@ public class Entity implements Renderable {
     return new Point(this.position);
   }
 
+  /**
+   * Get size of the entity.
+   * 
+   * @return size of the entity
+   */
   public Dimension getSize() {
     return this.boundingBox.getSize();
   }
 
   /**
-   * TODO documentation.
+   * Move the entity. This also updates the boundingBox.
    * 
-   * @param dx - int
-   * @param dy - int
+   * @param dx - amount of pixels to translate in the x-axis
+   * @param dy - amount of pixels to translate in the y-axis
    */
   protected void translate(int dx, int dy) {
     this.position.translate(dx, dy);
@@ -88,10 +105,10 @@ public class Entity implements Renderable {
   }
 
   /**
-   * TODO documentation.
+   * Checks if this entity intersects the given entity.
    * 
-   * @param enity - {@link Entity}
-   * @return - {@link Boolean}
+   * @param enity - entity to check against.
+   * @return true, if the entities intersects otherwise false.
    */
   public boolean intersects(Entity enity) {
     return this.boundingBox.intersects(enity.boundingBox);

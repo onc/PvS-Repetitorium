@@ -4,7 +4,7 @@ import java.awt.Dimension;
 import java.awt.Point;
 
 /**
- * TODO documentation.
+ * Class for an moving {@link Enemy}.
  * 
  * @author Christian van Onzenoodt
  *
@@ -26,9 +26,13 @@ public class MovingEnemy extends Enemy {
   }
 
   public MovingEnemy(Point spawnPoint, Dimension size) {
-    super(spawnPoint, MOVING_ENEMY_IMAGE_PATH, size);
+    super(spawnPoint, size, MOVING_ENEMY_IMAGE_PATH);
   }
 
+  /**
+   * Updates the enemy. using cos to let the enemy moving up and down. FIXME: clean up this code.
+   * overflow?
+   */
   public void update() {
     iterator++;
     super.translate(-1, Math.round(AMPLITUTE * (float) Math.cos(MULTIPLICATOR * iterator)));

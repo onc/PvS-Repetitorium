@@ -4,19 +4,24 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
- * TODO documentation.
+ * Class which checks for pressed keys. <br>
+ * We want to be able to press and hold a key like UP or DOWN and get continues movement. Therefore
+ * we have to register an {@link KeyListener} which checks for presses and releases and updates an
+ * array of booleans for all keys.
  * 
  * @author Christian van Onzenoodt
  *
  */
 public class Input implements KeyListener {
 
+  // get the length of the button-enum
   private static final int AMOUNT_OF_BUTTONS = Button.values().length;
 
+  // create an array for the buttons
   public boolean[] buttonsPressed = new boolean[AMOUNT_OF_BUTTONS];
 
   /**
-   * TODO documentation.
+   * Set all booleans to false, which marks all buttons as 'not-pressed'.
    */
   public void clear() {
 

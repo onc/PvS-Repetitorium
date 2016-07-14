@@ -1,7 +1,7 @@
 package de.uulm.pvs.rep.solution.game.engine;
 
 /**
- * TODO documentation.
+ * {@link Enum} to 'name' pressed and released Buttons.
  * 
  * @author Christian van Onzenoodt
  *

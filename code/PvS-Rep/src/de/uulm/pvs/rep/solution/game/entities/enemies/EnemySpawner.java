@@ -1,85 +1,34 @@
 package de.uulm.pvs.rep.solution.game.entities.enemies;
 
-import de.uulm.pvs.rep.solution.game.engine.Renderable;
+import de.uulm.pvs.rep.solution.game.entities.util.Spawner;
 
-import java.awt.Graphics2D;
+import java.awt.Dimension;
 import java.awt.Point;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
- * TODO documentation.
+ * Spawner for {@link Enemy}. This class holds a list of enemies, which can be rendered and updated
+ * at once.
  * 
  * @author Christian van Onzenoodt
  *
  */
-public class EnemySpawner implements Renderable {
+public class EnemySpawner extends Spawner<Enemy> {
 
-  private List<Enemy> enemies;
-  private List<Enemy> removeList;
-
-  private int zindex;
+  public EnemySpawner(int zindex, Dimension windowSize) {
+    super(zindex, windowSize);
+  }
 
   /**
-   * TODO documentation.
+   * Spawns an new {@link Enemy} at the given location.
    * 
-   * @param zindex - int
+   * @param spawnPoint - location, where the enemy should spawn
    */
-  public EnemySpawner(int zindex) {
-    this.zindex = zindex;
-    this.enemies = Collections.synchronizedList(new LinkedList<>());
-    this.removeList = Collections.synchronizedList(new LinkedList<>());
-  }
-
-  public void spawnEnemy(Point spawnPoint) {
-    enemies.add(new MovingEnemy(spawnPoint));
-  }
-
-  /**
-   * TODO documentation.
-   */
-  public void update() {
-
-    // remove all enemies which are on the remove list from the render-list
-    this.enemies.removeAll(removeList);
-    this.removeList.clear();
-
-    // run update on all remaining
-    for (Enemy enemy : enemies) {
-      enemy.update();
-    }
-
-    // add 'old' to the remove-list
-    for (Enemy enemy : enemies) {
-      if (enemy.getPosition().x + enemy.getSize().width <= 0) {
-        this.removeList.add(enemy);
-      }
-    }
-  }
-
-  public void removeEnemy(Enemy enemy) {
-    removeList.add(enemy);
-  }
-
-  public int getEnemyCount() {
-    return enemies.size();
+  public void spawn(Point spawnPoint) {
+    super.spawn(new MovingEnemy(spawnPoint));
   }
 
   @Override
-  public void render(Graphics2D graphics) {
-    for (Enemy enemy : enemies) {
-      enemy.render(graphics);
-    }
+  public void spawn(int coordinateX) {
+    throw new UnsupportedOperationException("This method is not implemented");
   }
-
-  public List<Enemy> getList() {
-    return enemies;
-  }
-
-  @Override
-  public int getZindex() {
-    return this.zindex;
-  }
-
 }

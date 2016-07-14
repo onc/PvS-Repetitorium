@@ -7,7 +7,7 @@ import java.awt.Dimension;
 import java.awt.Point;
 
 /**
- * TODO documentation.
+ * Class for the Player.
  * 
  * @author Christian van Onzenoodt
  *
@@ -20,10 +20,10 @@ public class Player extends Entity {
   private Dimension windowSize;
 
   /**
-   * TODO documentation.
+   * Creates a new player.
    * 
-   * @param zindex - int
-   * @param windowSize - {@link Dimension}
+   * @param zindex - z-index where the player should be rendered.
+   * @param windowSize - size of the window / rendered-area.
    */
   public Player(int zindex, Dimension windowSize) {
     super(new Point(0, windowSize.height / 2), PLAYER_IMAGE_PATH,
@@ -32,14 +32,27 @@ public class Player extends Entity {
     this.windowSize = windowSize;
   }
 
+  /**
+   * Creates a new player with the given size.
+   * 
+   * @param zindex - z-index where the player should be rendered.
+   * @param windowSize - size of the window / rendered-area.
+   * @playerSize - size of the player
+   */
   public Player(int zindex, Dimension windowSize, Dimension playerSize) {
-    super(new Point(0, windowSize.height / 2), "resources/spaceship.png", playerSize);
+    super(new Point(0, windowSize.height / 2), PLAYER_IMAGE_PATH, playerSize);
+  }
+
+  @Override
+  public void update() {
+    // We have to have this method because we are a renderable...
+    // FIXME: find a nicer solution. maybe optional parameters for update()
   }
 
   /**
-   * TODO documentation.
+   * Update the position of the player based on the pressed keys.
    * 
-   * @param input - boolean[]
+   * @param input - pressed buttons
    */
   public void update(boolean[] input) {
 
@@ -61,14 +74,18 @@ public class Player extends Entity {
   }
 
   /**
-   * TODO documentation.
+   * Move the player in the given direction.
    * 
-   * @param button - {@link Button}
+   * @param button - Button for the direction
    */
   private void move(Button button) {
 
+    // speed of the player
+    // FIXME: class-variable
     int stepSize = 1;
 
+    // get position and size of the player to check, if the player is still visible
+    // FIXME: isVisible -> Entity?
     Point position = super.getPosition();
     Dimension size = super.getSize();
 
