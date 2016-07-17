@@ -46,40 +46,30 @@ public class PlayerDao {
 
   /**
    * TODO documentation.
-   * 
-   * @return - players from the database.
    */
-  public List<PlayerDto> getPlayers() {
+  public void resetDb() {
 
     try {
-      return this.loadPlayers();
+      DbConnector.resetDb();
     } catch (SQLException exception) {
       exception.printStackTrace();
     }
-
-    return null;
   }
 
   /**
-   * Get list of all players from the database.
+   * TODO documentation.
    * 
-   * @return - list of players
-   * @throws SQLException - sql on errors
+   * @return - all players from the database
    */
-  private List<PlayerDto> loadPlayers() throws SQLException {
+  public List<PlayerDto> getPlayers() {
 
     List<PlayerDto> players = new ArrayList<>();
 
     String query = "SELECT id, name FROM player";
 
-    Connection connection = null;
-    Statement statement = null;
-    ResultSet resultSet = null;
-
-    try {
-      connection = DbConnector.getConnection();
-      statement = connection.createStatement();
-      resultSet = statement.executeQuery(query);
+    try (Connection connection = DbConnector.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(query)) {
 
       while (resultSet.next()) {
 
@@ -90,10 +80,8 @@ public class PlayerDao {
         players.add(player);
       }
 
-    } finally {
-      resultSet.close();
-      statement.close();
-      connection.close();
+    } catch (SQLException exception) {
+      exception.printStackTrace();
     }
 
     return players;
@@ -102,31 +90,19 @@ public class PlayerDao {
   /**
    * TODO documentation.
    * 
-   * @param playerDto - player to store
-   * @return - stored player including id, otherwise null
+   * @param playerDto - player to save
+   * @return - the new player
    */
   public PlayerDto savePlayer(PlayerDto playerDto) {
 
-    try {
-      return this.storePlayer(playerDto);
-    } catch (SQLException exception) {
-      exception.printStackTrace();
-    }
-    return null;
-  }
-
-  private PlayerDto storePlayer(PlayerDto playerDto) throws SQLException {
-
     String query = "INSERT INTO player(name) VALUES(?)";
 
-    Connection connection = null;
-    PreparedStatement statement = null;
     ResultSet resultSet = null;
 
-    try {
+    try (Connection connection = DbConnector.getConnection();
+        PreparedStatement statement =
+            connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
 
-      connection = DbConnector.getConnection();
-      statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
       statement.setString(1, playerDto.getName());
 
       statement.executeUpdate();
@@ -138,13 +114,60 @@ public class PlayerDao {
         playerDto.setId(id);
         return playerDto;
       }
+    } catch (SQLException exception) {
+      exception.printStackTrace();
     } finally {
-      resultSet.close();
-      statement.close();
-      connection.close();
+      try {
+        resultSet.close();
+      } catch (SQLException sqlException) {
+        sqlException.printStackTrace();
+      }
     }
 
     return null;
+  }
+
+  /**
+   * TODO documentation.
+   * 
+   * @param playerDto - player to update
+   */
+  public void updatePlayer(PlayerDto playerDto) {
+
+    String query = "UPDATE player SET name=? WHERE id=?";
+
+    try (Connection connection = DbConnector.getConnection();
+        PreparedStatement statement = connection.prepareStatement(query)) {
+
+      statement.setString(1, playerDto.getName());
+      statement.setInt(2, playerDto.getId());
+
+      statement.executeUpdate();
+
+    } catch (SQLException exception) {
+      exception.printStackTrace();
+    }
+  }
+
+  /**
+   * TODO documentation.
+   * 
+   * @param playerDto - player to delete
+   */
+  public void storeDeletePlayer(PlayerDto playerDto) {
+
+    String query = "DELETE FROM player WHERE id=?";
+
+    try (Connection connection = DbConnector.getConnection();
+        PreparedStatement statement = connection.prepareStatement(query)) {
+
+      statement.setInt(1, playerDto.getId());
+
+      statement.executeUpdate();
+
+    } catch (SQLException exception) {
+      exception.printStackTrace();
+    }
   }
 
 }

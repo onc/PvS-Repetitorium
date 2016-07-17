@@ -69,6 +69,8 @@ public class Launcher extends JFrame {
    */
   public static void main(String[] args) {
 
+    PlayerDao.getInstance().resetDb();
+
     List<PlayerDto> players = PlayerDao.getInstance().getPlayers();
 
     for (PlayerDto playerDto : players) {
@@ -77,9 +79,19 @@ public class Launcher extends JFrame {
 
     PlayerDto newPlayer = new PlayerDto("Horschde");
     System.out.println("=================");
-    System.out.println(PlayerDao.getInstance().savePlayer(newPlayer));
+    newPlayer = PlayerDao.getInstance().savePlayer(newPlayer);
+    System.out.println(newPlayer);
     System.out.println("=================");
 
+    players = PlayerDao.getInstance().getPlayers();
+
+    for (PlayerDto playerDto : players) {
+      System.out.println(playerDto);
+    }
+
+    System.out.println("=================");
+    newPlayer.setName("bernde");
+    PlayerDao.getInstance().updatePlayer(newPlayer);
     players = PlayerDao.getInstance().getPlayers();
 
     for (PlayerDto playerDto : players) {

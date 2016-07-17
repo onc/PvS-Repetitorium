@@ -92,15 +92,10 @@ public class DbConnector {
    * TODO documentation.
    * 
    * @return - Connection to the database
+   * @throws SQLException - on connection error
    */
-  static Connection getConnection() {
+  static Connection getConnection() throws SQLException {
 
-    try {
-      return DriverManager.getConnection(URL, USER, PASSWORD);
-    } catch (SQLException exception) {
-      exception.printStackTrace();
-    }
-
-    return null;
+    return DriverManager.getConnection(URL, USER, PASSWORD);
   }
 }

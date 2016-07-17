@@ -10,7 +10,7 @@ CREATE TABLE game(
        id INTEGER IDENTITY PRIMARY KEY,
        playerid INTEGER NOT NULL REFERENCES player(id),
        score INTEGER NOT NULL,
-       playedAt TIMESTAMP DEFAULT 'now'
+       playedAt TIMESTAMP DEFAULT NOW
 );
 
 INSERT INTO player(name) VALUES('Bernd');
