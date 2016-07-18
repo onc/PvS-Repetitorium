@@ -4,22 +4,6 @@
 
 ##(Abstrakte-)
 ##Klassen und Interfaces
-```java
-class Tutor {
-  private int food;
-  
-  public Tutor(int food){
-  }
-  
-  protected void correct(Sheet sheet){
-    ...
-  }
-  
-  void feed(int meal){
-    ...
-  }
-}
-```
 
 
 
@@ -172,10 +156,12 @@ public class Room extends GameObject
 
 ##Identität und Gleichheit
 ###Identität
-Der Vergleichsoperator ==  ist für alle Datentypen so definiert, dass er die vollständige Übereinstimmung zweier Werte testet. 
+Der Vergleichsoperator
+>**==**
 
-Bei primitiven Datentypen ist das einfach einzusehen und bei Referenztypen im Prinzip genauso. Der Operator ==  testet bei Referenzen, ob diese übereinstimmen, also auf das gleiche Objekt verweisen.
-Note: TODO: Text kürzen
+ist für alle Datentypen so definiert, dass er die vollständige Übereinstimmung zweier Werte testet.
+
+"==" testet bei Referenzen, ob diese übereinstimmen, also auf das gleiche Objekt verweisen.
 
 
 
@@ -191,10 +177,12 @@ System.out.println(p==r); // false, da p und r zwei unterschiedliche
 
 
 ###Gleichheit
-Es kann jede Klasse eine Methode equals() implementieren, die Exemplare dieser Klasse mit beliebigen anderen Objekten vergleichen kann. 
+Jede Klasse kann eine Methode
+>**equals()**
 
-Die Klassen entscheiden immer nach Anwendungsfall, welche Attribute sie für einen Gleichheitstest heranziehen, und equals() liefert true, wenn die gewünschten Zustände (Objektvariablen) übereinstimmen.
-Note: TODO: Text kürzen
+implementieren, die Exemplare dieser Klasse mit beliebigen anderen Objekten vergleichen kann.
+
+"equals()" liefert true, wenn die Objektvariablen einer Instanz vollständig übereinstimmen.
 
 
 
