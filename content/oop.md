@@ -454,20 +454,17 @@ class Foo {
 ###Vererbung
 Durch den Vererbungsmechanismus werden alle sichtbaren Eigenschaften der Oberklasse auf die Unterklasse übertragen.
 ```java
-public class GameObject
-{
-  public String name;
+public class GameObject {
+    public String name;
 }
 ```
 ```java
-public class Player extends GameObject
-{
+public class Player extends GameObject {
 }
 ```
 ```java
-public class Room extends GameObject
-{
-  public int size;
+public class Room extends GameObject {
+    public int size;
 }
 ```
 
@@ -477,39 +474,34 @@ public class Room extends GameObject
 ```java
 public class GameObject
 {
-  private String name;
+    private String name;
 
-  public String getName()
-  {
-    return name;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public void setName( String name )
-  {
-    this.name = name;
-  }
+    public void setName( String name ) {
+        this.name = name;
+    }
 }
 ```
 ```java
 public class Room extends GameObject
 {
-  private int size;
+    private int size;
 
-  public void setSize( int size )
-  {
-    if ( size > 0 )
-      this.size = size;
-  }
+    public void setSize( int size ) {
+        if ( size > 0 )
+            this.size = size;
+    }
 
-  public int getSize()
-  {
-    return size;
-  }
+    public int getSize() {s
+        return size;
+    }
 
-  @Override public String toString()
-  {
-    return String.format( "Room[name=%s, size=%d]", getName(), getSize() );
-  }
+    @Override public String toString() {
+        return String.format( "Room[name=%s, size=%d]", getName(), getSize() );
+    }
 }
 ```
 
@@ -611,24 +603,22 @@ Typumwandlungen und (teilweise) Exception Handling kann so vermieden werden.
 
 
 ```java
-class Treasure
-{
-  private int value;  
-  public Treasure(){ ... }
-  public Treasure(int val){ ... }
-  public int getValue(){ return this.value; }
-  public void setValue(Object val){ this.value = Integer.parseInt(val); }
+class Treasure {
+    private int value;  
+    public Treasure(){ ... }
+    public Treasure(int val){ ... }
+    public int getValue(){ return this.value; }
+    public void setValue(Object val){ this.value = Integer.parseInt(val); }
 }
 ```
 
 ```java
-class Treasure<T>
-{
-  private T value;
-  public Treasure(){ ... }
-  public Treasure(T val){ ... }
-  public T getValue(){ return this.value; }
-  public void setValue(T val){ this.value = val; }
+class Treasure<T> {
+    private T value;
+    public Treasure(){ ... }
+    public Treasure(T val){ ... }
+    public T getValue(){ return this.value; }
+    public void setValue(T val){ this.value = val; }
 }
 ```
 
@@ -641,19 +631,19 @@ Treasure<Integer> silberSchatz = new Treasure<Integer>();
 
 ```java
 public class Tupel<T> {
-  private T object1;
-  private T object2;
-  public Tupel<T>(T object1,T object2) {
-    this.object1 = object1;
-    this.object2 = object2;
-  }
-  public String toString() {
-    return this.object1 + ", " + this.object2;
-  }
-  public void add(Tupel<T> other){
-    this.object1 = this.object1 + other.object1;
-    this.object2 = this.object2 + other.object2;
-  }
+    private T object1;
+    private T object2;
+    public Tupel<T>(T object1,T object2) {
+        this.object1 = object1;
+        this.object2 = object2;
+    }
+    public String toString() {
+        return this.object1 + ", " + this.object2;
+    }
+    public void add(Tupel<T> other) {
+        this.object1 = this.object1 + other.object1;
+        this.object2 = this.object2 + other.object2;
+    }
 }
 ```
 
@@ -663,21 +653,21 @@ public class Tupel<T> {
 ###Aufgabe 1
 ```java
 public static void main(String[] args) {
-  System.out.println("foo");
-  System.out.println("bar".charAt(0));
-  System.out.println(new String("foobar") == new String("foobar"));
-  System.out.println(new String("foobar").equals(new String("foobar")));
-  System.out.println(1==1);
-  System.out.println(0.9999f==0.9999d);
-  System.out.println(new Integer(1).equals(1));
-  int i = 3;
-  System.out.println(i++);
-  while(--i>0){
-    System.out.println(i);
-  }
-  char[] charArray = new char[]{'p','v','s',' ','r','e','p'};
-  System.out.println(charArray);
-  System.out.println(Arrays.asList(charArray));
+    System.out.println("foo");
+    System.out.println("bar".charAt(0));
+    System.out.println(new String("foobar") == new String("foobar"));
+    System.out.println(new String("foobar").equals(new String("foobar")));
+    System.out.println(1==1);
+    System.out.println(0.9999f==0.9999d);
+    System.out.println(new Integer(1).equals(1));
+    int i = 3;
+    System.out.println(i++);
+    while(--i>0){
+        System.out.println(i);
+    }
+    char[] charArray = new char[]{'p','v','s',' ','r','e','p'};
+    System.out.println(charArray);
+    System.out.println(Arrays.asList(charArray));
 }
 ```
 Note: Lösung unten
@@ -687,42 +677,43 @@ Note: Lösung unten
 ###Aufgabe 1 - Lösung
 ```java
 public static void main(String[] args) {
-  System.out.println("foo");                                              // foo
-  System.out.println("bar".charAt(0));                                    // b
-  System.out.println(new String("foobar") == new String("foobar"));       // false
-  System.out.println(new String("foobar").equals(new String("foobar")));  // true
-  System.out.println(1==1);                                               // true
-  System.out.println(0.9999f==0.9999d);                                   // false
-  System.out.println(new Integer(1).equals(1));                           // true
-  int i = 3;
-  System.out.println(i++);                                                // 3, aber Wert von i = 4   
-  while(--i>0){
-    System.out.println(i);                                                // 3 2 1
-  }
-  char[] charArray = new char[]{'p','v','s',' ','r','e','p'};
-  System.out.println(charArray);                                          // pvs rep
-  System.out.println(Arrays.asList(charArray));                           // anonymerName@Speicheradresse
+    System.out.println("foo");                                              // foo
+    System.out.println("bar".charAt(0));                                    // b
+    System.out.println(new String("foobar") == new String("foobar"));       // false
+    System.out.println(new String("foobar").equals(new String("foobar")));  // true
+    System.out.println(1==1);                                               // true
+    System.out.println(0.9999f==0.9999d);                                   // false
+    System.out.println(new Integer(1).equals(1));                           // true
+    int i = 3;
+    System.out.println(i++);                                                // 3, aber Wert von i = 4   
+    while(--i>0){
+        System.out.println(i);                                                // 3 2 1
+    }
+    char[] charArray = new char[]{'p','v','s',' ','r','e','p'};
+    System.out.println(charArray);                                          // pvs rep
+    System.out.println(Arrays.asList(charArray));                           // anonymerName@Speicheradresse
 }
 ```
-
 
 
 ##println von Objekten
 ###Aufgabe 2
 ```java
 public class Tupel<T> {
-  private T object1;
-  private T object2;
-  public Tupel(T obj1,T obj2) {
-    this.object1 = obj1;
-    this.object2 = obj2;
-  }
-  public static void main(String[] args) {
-    Tupel<Integer> coords = new Tupel<Integer>(10, -3);
-    System.out.println(coords);
-    System.out.println(coords.object1);
-    System.out.println(coords.object2);
-  }
+    private T object1;
+    private T object2;
+
+    public Tupel(T obj1,T obj2) {
+        this.object1 = obj1;
+        this.object2 = obj2;
+    }
+
+    public static void main(String[] args) {
+        Tupel<Integer> coords = new Tupel<Integer>(10, -3);
+        System.out.println(coords);
+        System.out.println(coords.object1);
+        System.out.println(coords.object2);
+    }
 }
 ```
 Note: Lösung unten
@@ -732,42 +723,46 @@ Note: Lösung unten
 ###Aufgabe 2 - Lösung
 ```java
 public class Tupel<T> {
-  private T object1;
-  private T object2;
-  public Tupel(T obj1,T obj2) {
-    this.object1 = obj1;
-    this.object2 = obj2;
-  }
-  public static void main(String[] args) {
-    Tupel<Integer> coords = new Tupel<Integer>(10, -3);
-    System.out.println(coords);                                           // package.Class@Speicheradresse
-    System.out.println(coords.object1);                                   // 10
-    System.out.println(coords.object2);                                   // -3
-  }
+    private T object1;
+    private T object2;
+
+    public Tupel(T obj1,T obj2) {
+        this.object1 = obj1;
+        this.object2 = obj2;
+    }
+
+    public static void main(String[] args) {
+        Tupel<Integer> coords = new Tupel<Integer>(10, -3);
+        System.out.println(coords);                                           // package.Class@Speicheradresse
+        System.out.println(coords.object1);                                   // 10
+        System.out.println(coords.object2);                                   // -3
+    }
 }
 ```
-
 
 
 ##println von Objekten
 ###Aufgabe 3
 ```java
 public class Tupel<T> {
-  private T object1;
-  private T object2;
-  public Tupel(T obj1,T obj2) {
-    this.object1 = obj1;
-    this.object2 = obj2;
-  }
-  public String toString() {
-      return this.object1 + ": " + this.object2;
-  }
-  public static void main(String[] args) {
-    Tupel<Integer> coords = new Tupel<Integer>(10, -3);
-    System.out.println(coords);
-    System.out.println(coords.object1);
-    System.out.println(coords.object2);
-  }
+    private T object1;
+    private T object2;
+
+    public Tupel(T obj1,T obj2) {
+        this.object1 = obj1;
+        this.object2 = obj2;
+    }
+
+    public String toString() {
+        return this.object1 + ": " + this.object2;
+    }
+
+    public static void main(String[] args) {
+        Tupel<Integer> coords = new Tupel<Integer>(10, -3);
+        System.out.println(coords);
+        System.out.println(coords.object1);
+        System.out.println(coords.object2);
+    }
 }
 ```
 Note: Lösung unten
@@ -777,47 +772,46 @@ Note: Lösung unten
 ###Aufgabe 3 - Lösung
 ```java
 public class Tupel<T> {
-  private T object1;
-  private T object2;
-  public Tupel(T obj1,T obj2) {
-    this.object1 = obj1;
-    this.object2 = obj2;
-  }
-  public String toString() {
-      return this.object1 + ": " + this.object2;
-  }
-  public static void main(String[] args) {
+    private T object1;
+    private T object2;
+    public Tupel(T obj1,T obj2) {
+        this.object1 = obj1;
+        this.object2 = obj2;
+    }
+    public String toString() {
+        return this.object1 + ": " + this.object2;
+    }
+    public static void main(String[] args) {
     Tupel<Integer> coords = new Tupel<Integer>(10, -3);
-    System.out.println(coords);                                           // 10: -3
-    System.out.println(coords.object1);                                   // 10
-    System.out.println(coords.object2);                                   // -3
-  }
+        System.out.println(coords);                                           // 10: -3
+        System.out.println(coords.object1);                                   // 10
+        System.out.println(coords.object2);                                   // -3
+    }
 }
 ```
-
 
 
 ##println von Objekten
 ###Aufgabe 4
 ```java
 public class Cell {
-  public int row;
-  public int col;
-  public Cell(int row, int column) {
-    this.row = row;
-    this.col = column;
-  }
-  public Cell add(Cell other){
-    return new Cell(this.row+other.row, this.col + other.col);
-  }
-  public String toString(){
-    return this.row + "," + this.col;
-  }
-  public static void main(String[] args) {
-    System.out.println(new Cell(1,1));
-    System.out.println(new Cell(1,1){public String toString(){return this.row + ":" + this.col;}});
-    System.out.println(new Cell(2,4).add(new Cell(1,-1)));
-  }
+    public int row;
+    public int col;
+    public Cell(int row, int column) {
+        this.row = row;
+        this.col = column;
+    }
+    public Cell add(Cell other){
+        return new Cell(this.row+other.row, this.col + other.col);
+    }
+    public String toString(){
+        return this.row + "," + this.col;
+    }
+    public static void main(String[] args) {
+        System.out.println(new Cell(1,1));
+        System.out.println(new Cell(1,1){public String toString(){return this.row + ":" + this.col;}});
+        System.out.println(new Cell(2,4).add(new Cell(1,-1)));
+    }
 }
 ```
 Note: Lösung unten
@@ -827,24 +821,24 @@ Note: Lösung unten
 ###Aufgabe 4 - Lösung
 ```java
 public class Cell {
-  public int row;
-  public int col;
-  public Cell(int row, int column) {
-    this.row = row;
-    this.col = column;
-  }
-  public Cell add(Cell other){
-    return new Cell(this.row+other.row, this.col + other.col);
-  }
-  public String toString(){
-    return this.row + "," + this.col;
-  }
-  public static void main(String[] args) {
-    System.out.println(new Cell(1,1));                                    // 1,1
-    System.out.println(new Cell(1,1){public String toString(){return this.row + ":" + this.col;}});
-                                                                          // 1:1
-    System.out.println(new Cell(2,4).add(new Cell(1,-1)));                // 3,3
-  }
+    public int row;
+    public int col;
+    public Cell(int row, int column) {
+        this.row = row;
+        this.col = column;
+    }
+    public Cell add(Cell other){
+        return new Cell(this.row+other.row, this.col + other.col);
+    }
+    public String toString(){
+        return this.row + "," + this.col;
+    }
+    public static void main(String[] args) {
+        System.out.println(new Cell(1,1));                                    // 1,1
+        System.out.println(new Cell(1,1){public String toString(){return this.row + ":" + this.col;}});
+                                                                              // 1:1
+        System.out.println(new Cell(2,4).add(new Cell(1,-1)));                // 3,3
+    }
 }
 ```
 
@@ -866,28 +860,28 @@ Note: TODO: erweiterung schreiben. (Klasse-Attribute-Methoden) (Sichtbarkeiten) 
 
 ```java
 interface Buchbar{
-  public int kontostand(){}
-  
-  public void abheben(int betrag){}
-  
-  public void einzahlen(int betrag){}
+    public int kontostand(){}
+
+    public void abheben(int betrag){}
+
+    public void einzahlen(int betrag){}
 }
 ```
 ```java
 class AbstraktesKonto implements Buchbar{
-  private int kontonummer;
-  
-  AbstraktesKonto(int kNr){ kontonummer = knr; }
-  
-  public int kontostand() { return kontostand; }
-  
-  public void abheben(int betrag) {
-    kontostand -= betrag;
-  }
-  
-  public void einzahlen(int betrag) {
-    kontostand += betrag;
-  }
+    private int kontonummer;
+
+    AbstraktesKonto(int kNr){ kontonummer = knr; }
+
+    public int kontostand() { return kontostand; }
+
+    public void abheben(int betrag) {
+        kontostand -= betrag;
+    }
+
+    public void einzahlen(int betrag) {
+        kontostand += betrag;
+    }
 }
 ```
 Note: TODO: Lösung erstellen
@@ -897,28 +891,28 @@ Note: TODO: Lösung erstellen
 
 ```java
 class Konto extends AbstraktesKonto{
-  private float kontostand;
-  
-  Konto(int kontonummer, int betrag) { 
-    super(kontonummer);
-    kontostand = betrag; 
-  }
-  
-  public float kontostand() { 
-    return kontostand*0.999999f;
-  }
-  
-  public void abheben(int betrag) {
-    if (betrag>kontostand) {
-      System.out.println("Konto nicht gedeckt!");
-    } else {
-      kontostand -= betrag;
+    private float kontostand;
+
+    Konto(int kontonummer, int betrag) { 
+        super(kontonummer);
+        kontostand = betrag; 
     }
-  }
-  
-  public void einzahlen(int betrag) {
-    kontostand += betrag;
-  }
+
+    public float kontostand() { 
+        return kontostand*0.999999f;
+    }
+
+    public void abheben(int betrag) {
+        if (betrag>kontostand) {
+            System.out.println("Konto nicht gedeckt!");
+        } else {
+            kontostand -= betrag;
+        }
+    }
+
+    public void einzahlen(int betrag) {
+        kontostand += betrag;
+    }
 }
 ```
 Note: TODO: als Aufgabe anstatt die Lösung direkt zu präsentieren?
