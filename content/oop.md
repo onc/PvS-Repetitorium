@@ -63,7 +63,7 @@ Note:Polymorphie: griechisch: Vielgestaltigkeit
 Abstract sagt aus, dass es sich um eine allgemeine Klasse handelt zu der keine konkreten Objekte existieren.
 
 * Abstrakte Klasse kann nicht instanziiert werden.
-* *'abstract'* kann sich auf Methoden und Attribute beziehen.
+* *'abstract'* kann sich auf Klassen und Methoden beziehen.
 
 Note: Definition:
 1. (besonders Philosophie) die wesentlichen, gesetzmäßigen o.ä. Züge aus etwas Konkretem, sinnlich Wahrnehmbarem ableitend
@@ -87,6 +87,367 @@ Statische Eigenschaften haben gegenüber Objekteigenschaften den Vorteil, dass s
 
 * Statische Methoden und Variablen benötigen keinerlei Instanzen einer Klasse, um aufgerufen zu werden.
 * *'static'* bezieht sich auf Methoden und Klassenvariablen.
+
+
+
+###Aufgabe 1
+Funktioniert die main-Methode der Klasse Foo so?
+
+Ja, oder nein. Warum?
+```java
+public abstact class Body {
+    int limbs;
+    int eyes;
+
+    public Body(int limb, int eye){
+        this.limbs = limb;
+        this.eyes = eye;
+    }
+}
+```
+```java
+class Foo {
+    public static void main(String[] args){
+        Body albert = new Body(10, 2);
+    }
+}
+```
+
+
+###Aufgabe 1 - Lösung
+```java
+public abstact class Body {
+    int limbs;
+    int eyes;
+
+    public Body(int limb, int eye){
+        this.limbs = limb;
+        this.eyes = eye;
+    }
+}
+```
+```java
+class Foo {
+    public static void main(String[] args){
+        Body albert = new Body(10, 2);
+    }
+}
+```
+Geht nicht, da Body *abstract* ist.
+
+
+###Aufgabe 2
+Funktioniert die main-Methode der Klasse Foo so?
+
+Ja, oder nein. Warum?
+```java
+public class Person extends Body {
+    final int height;
+    int weight;
+
+    public Person(int height, int weight){
+        super(4, 2);
+        this.height = height;
+        this.weight = weight;
+    }
+    
+    public void grow(final int distance) {
+        this.height += distance;
+    }
+}
+```
+```java
+class Foo {
+    public static void main(String[] args){
+        Person albert = new Person(180, 70);
+        albert.grow(10);
+    }
+}
+```
+
+
+###Aufgabe 2 - Lösung
+```java
+public class Person extends Body {
+    final int height;
+    int weight;
+
+    public Person(int height, int weight){
+        super(4, 2);
+        this.height = height;
+        this.weight = weight;
+    }
+    
+    public void grow(final int distance) {
+        this.height += distance;
+    }
+}
+```
+```java
+class Foo {
+    public static void main(String[] args){
+        Person albert = new Person(180, 70);
+        albert.grow(10);
+    }
+}
+```
+Nein, da height final ist.
+
+
+###Aufgabe 3
+Funktioniert die main-Methode der Klasse Foo so?
+
+Ja, oder nein. Warum?
+```java
+public class Person extends Body {
+    int height;
+    int weight;
+
+    public Person(int height, int weight){
+        super(4, 2);
+        this.height = height;
+        this.weight = weight;
+    }
+    
+    public void grow(final int distance) {
+        this.height += distance;
+    }
+}
+```
+```java
+class Foo {
+    public static void main(String[] args){
+        Body albert = new Body(2, 2);
+        Person bernd = new Body(2, 2);
+        Body carmen = new Person(180, 70);
+    }
+}
+```
+
+
+###Aufgabe 3 - Lösung
+```java
+public class Person extends Body {
+    final int height;
+    int weight;
+
+    public Person(int height, int weight){
+        super(4, 2);
+        this.height = height;
+        this.weight = weight;
+    }
+    
+    public void grow(final int distance) {
+        this.height += distance;
+    }
+}
+```
+```java
+class Foo {
+    public static void main(String[] args){
+        Body albert = new Body(2, 2);
+        Person bernd = new Body(2, 2);
+        Body carmen = new Person(180, 70);
+    }
+}
+```
+1. Nein, *Body* kann nicht instanziiert werden.
+1. Nein, *Body* kann nicht instanziiert werden.
+1. Ja, denn die Klasse *Person* erbt von *Body*.
+
+
+###Aufgabe 4
+Funktioniert die main-Methode der Klasse Foo so?
+
+Ja, oder nein. Warum?
+```java
+public abstact class Body {
+    int limbs;
+    int eyes;
+
+    public Body(int limb, int eye){
+        this.limbs = limb;
+        this.eyes = eye;
+    }
+    
+    abstract int walk();
+}
+```
+```java
+class Foo {
+    public static void main(String[] args){
+        Person albert = new Person(180, 70);
+        albert.walk();
+    }
+}
+```
+
+
+###Aufgabe 4 - Lösung
+```java
+public abstact class Body {
+    int limbs;
+    int eyes;
+
+    public Body(int limb, int eye){
+        this.limbs = limb;
+        this.eyes = eye;
+    }
+    
+    abstract int walk();
+}
+```
+```java
+class Foo {
+    public static void main(String[] args){
+        Person albert = new Person(180, 70);
+        albert.walk();
+    }
+}
+```
+Jain, der Aufruf der Methode ist erlaubt.
+
+**Aber!** Die kompilierung wird fehlschlagen, da die Methode nicht implementiert ist.
+
+
+###Aufgabe 5
+Können die beiden Methoden *growAnotherArm* überschrieben werden?
+
+Ja, oder nein. Warum?
+```java
+public abstract class Body {
+    int limbs;
+    int eyes;
+
+    public Body(int limb, int eye){
+        this.limbs = limb;
+        this.eyes = eye;
+    }
+    
+    final void growAnotherArm(){
+        this.limbs = this.limbs + 1;
+    }
+    
+    void growAnotherArm(int arms){
+        this.limbs = this.limbs + arms;
+    }
+}
+```
+```java
+public class Person extends Body {
+    int height;
+    int weight;
+
+    public Person(int height, int weight){
+        super(4, 2);
+        this.height = height;
+        this.weight = weight;
+    }
+    
+    final void growAnotherArm(){
+        this.limbs = this.limbs + 2;
+    }
+    
+    void growAnotherArm(int arms){
+        this.limbs = this.limbs + (arms*2);
+    }
+}
+```
+
+
+###Aufgabe 5 - Lösung
+```java
+public abstract class Body {
+    int limbs;
+    int eyes;
+
+    public Body(int limb, int eye){
+        this.limbs = limb;
+        this.eyes = eye;
+    }
+    
+    final void growAnotherArm(){
+        this.limbs = this.limbs + 1;
+    }
+    
+    void growAnotherArm(int arms){
+        this.limbs = this.limbs + arms;
+    }
+}
+```
+```java
+public class Person extends Body {
+    int height;
+    int weight;
+
+    public Person(int height, int weight){
+        super(4, 2);
+        this.height = height;
+        this.weight = weight;
+    }
+    
+    final void growAnotherArm(){
+        this.limbs = this.limbs + 2;
+    }
+    
+    void growAnotherArm(int arms){
+        this.limbs = this.limbs + (arms*2);
+    }
+}
+```
+1. Nein, da die Methode growAnotherArm() in der Klasse *Body* final ist.
+1. Ja, alles in Ordnung.
+
+
+###Aufgabe 6
+Sind die Aufrufe von *saySomething()* so möglich? 
+
+Ja, oder nein. Warum?
+```java
+class Foo {
+    public static void main(String[] args) {
+        saySomething("Tobias");
+        this.saySomething("Tobias");
+        new Foo().saySomething();
+        Foo pseudoInstanz = new Foo();
+        pseudoInstanz.saySomething("Christian");
+    }
+
+    void saySomething() {
+        System.out.println("Hallo!");
+    }
+
+    static void saySomething(String s) {
+        System.out.println("Hallo, " + s);
+    }
+}
+```
+
+
+###Aufgabe 6 - Lösung
+```java
+class Foo {
+    public static void main(String[] args) {
+        saySomething("Tobias");
+        this.saySomething("Tobias");
+        new Foo().saySomething();
+        Foo pseudoInstanz = new Foo();
+        pseudoInstanz.saySomething("Christian");
+    }
+
+    void saySomething() {
+        System.out.println("Hallo!");
+    }
+
+    static void saySomething(String s) {
+        System.out.println("Hallo, " + s);
+    }
+}
+```
+1. Ja, da die statische Methode aufgerufen wird.
+2. Nein, das Schlüsselwort *this* ist im statischen kontext nicht erlaubt.
+3. Ja, alles in Ordnung.
+4. Ja, aber auf eine statische Methode sollte auch statisch zugegriffen werden.
 
 
 
