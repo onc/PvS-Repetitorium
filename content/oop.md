@@ -858,6 +858,7 @@ Note: TODO: erweiterung schreiben. (Klasse-Attribute-Methoden) (Sichtbarkeiten) 
 
 
 
+###Aufgabe 1
 ```java
 interface Buchbar {
     public void abheben(float betrag);
@@ -893,4 +894,35 @@ class Konto extends AbstraktesKonto {
 ```
 
 
+###Aufgabe 1 - Lösung
 ![Beziehung Klassendiagramm](content/images/UML-A1-Klassendiagramm.png)
+
+
+###Aufgabe 2
+```java
+interface A {
+}
+```
+```java
+interface B {
+}
+```
+```java
+abstract class C implements A, B {
+}
+```
+```java
+abstract class D extends C {
+}
+```
+```java
+final class E extends C implements B {
+}
+```
+```java
+class F extends D {
+}
+```
+
+
+###Aufgabe 1 - Lösung
