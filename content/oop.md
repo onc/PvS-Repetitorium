@@ -908,7 +908,7 @@ interface B {
 }
 ```
 ```java
-abstract class C implements A, B {
+abstract class C implements A {
 }
 ```
 ```java
@@ -920,9 +920,10 @@ final class E extends C implements B {
 }
 ```
 ```java
-class F extends D {
+class F extends D implements B {
 }
 ```
 
 
-###Aufgabe 1 - Lösung
+###Aufgabe 2 - Lösung
+![Beziehung Klassendiagramm](content/images/UML-A2-Klassendiagramm.png)
