@@ -859,60 +859,38 @@ Note: TODO: erweiterung schreiben. (Klasse-Attribute-Methoden) (Sichtbarkeiten) 
 
 
 ```java
-interface Buchbar{
-    public int kontostand(){}
+interface Buchbar {
+    public void abheben(float betrag);
 
-    public void abheben(int betrag){}
-
-    public void einzahlen(int betrag){}
+    public void einzahlen(float betrag);
 }
 ```
 ```java
-class AbstraktesKonto implements Buchbar{
+abstract class AbstraktesKonto implements Buchbar {
     private int kontonummer;
 
-    AbstraktesKonto(int kNr){ kontonummer = knr; }
+    AbstraktesKonto(int kNr) { /*...*/ }
 
-    public int kontostand() { return kontostand; }
-
-    public void abheben(int betrag) {
-        kontostand -= betrag;
-    }
-
-    public void einzahlen(int betrag) {
-        kontostand += betrag;
-    }
+    public int getKontonummer() { /*...*/ }
+    
+    public int setKontonummer() { /*...*/ }
 }
 ```
-Note: TODO: Lösung erstellen
-
-
-
-
 ```java
-class Konto extends AbstraktesKonto{
+class Konto extends AbstraktesKonto {
     private float kontostand;
 
-    Konto(int kontonummer, int betrag) { 
-        super(kontonummer);
-        kontostand = betrag; 
-    }
+    Konto(int kontonummer, float betrag) { /*...*/ }
 
-    public float kontostand() { 
-        return kontostand*0.999999f;
-    }
+    public float getKontostand() { /*...*/ }
+    
+    public float setKontostand() { /*...*/ }
 
-    public void abheben(int betrag) {
-        if (betrag>kontostand) {
-            System.out.println("Konto nicht gedeckt!");
-        } else {
-            kontostand -= betrag;
-        }
-    }
+    public void abheben(float betrag) { /*...*/ }
 
-    public void einzahlen(int betrag) {
-        kontostand += betrag;
-    }
+    public void einzahlen(float betrag) { /*...*/ }
 }
 ```
-Note: TODO: als Aufgabe anstatt die Lösung direkt zu präsentieren?
+
+
+![Beziehung Klassendiagramm](content/images/UML-A1-Klassendiagramm.png)
