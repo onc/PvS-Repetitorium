@@ -224,14 +224,39 @@ Note: TODO: erklärung schreiben
 
 
 ##Generics
+> Generics realisieren das Prinzip des Stellvertreters
+
+```java
+List<T>
+```
+
+Eine liste ist genereisch, weil sie alle Arten von Daten in sich tragen kann.
+
+
+
+Wenn angegeben wird, dass die Liste nur Contacts speichern soll sagst der Programmierer damit, dass alle Elemente in dieser Liste vom Typ Contact sind. 
+
+
+
+Der Compiler behandelt Generics dann so: 
+>"Das was hier behandelt wird ist vom Typ XY und, wenn das nicht so ist, dann kann ich damit nicht umgehen und werfe mit Exceptions um mich"
+
+
+
+Generics vereinfachen also unter umständen das Programmieren, da der Programmierer angeben kann mit welchen Datentypen ein Programmabschnitt umgehen kann. 
+
+Typumwandlungen und (teilweise) Exception Handling kann so vermieden werden.
+
+
+
 ```java
 class Treasure
 {
-  private Object value;  
+  private int value;  
   public Treasure(){ ... }
-  public Treasure(Object val){ ... }
-  public Object getValue(){ return this.value; }
-  public void setValue(Object val){ this.value = val; }
+  public Treasure(int val){ ... }
+  public int getValue(){ return this.value; }
+  public void setValue(Object val){ this.value = Integer.parseInt(val); }
 }
 ```
 
@@ -247,8 +272,8 @@ class Treasure<T>
 ```
 
 ```java
-Treasure<Gold> goldSchatz = new Treasure<Gold>();
-Treasure<Silber> silberSchatz = new Treasure<Silber>();
+Treasure<String> goldSchatz = new Treasure<String>();
+Treasure<Integer> silberSchatz = new Treasure<Integer>();
 ```
 
 
