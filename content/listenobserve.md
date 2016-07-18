@@ -86,6 +86,14 @@ Note:![ActionListener](content/images/actioneventactionlisteneruml.gif)
 
 
 
+```java
+public void actionPerformed(ActionEvent event) {
+    System.out.println(inputTA..getText()); // Input of an JTextArea
+}
+```
+
+
+
 ###MouseListener
 |Rückgabewert|Methode|
 |---|---|
@@ -97,8 +105,38 @@ Note:![ActionListener](content/images/actioneventactionlisteneruml.gif)
 
 
 
+```java
+public void mouseReleased(MouseEvent e) {
+}
+
+public void mousePressed(MouseEvent e) {
+}
+
+public void mouseExited(MouseEvent e) {
+}
+
+public void mouseEntered(MouseEvent e) {
+}
+
+public void mouseClicked(MouseEvent e) {
+}
+```
+
+
+
 ###MouseMotionListener
 |Rückgabewert|Methode|
 |---|---|
 |void|mouseDragged(MouseEvent e)|
 |void|mouseMoved(MouseEvent e)|
+
+
+
+```java
+public void mouseMoved(MouseEvent arg0) {
+}
+
+@Override
+public void mouseDragged(MouseEvent arg0) {
+}
+```
