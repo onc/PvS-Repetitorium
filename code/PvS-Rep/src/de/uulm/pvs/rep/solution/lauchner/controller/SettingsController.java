@@ -30,6 +30,8 @@ public class SettingsController implements ActionListener {
    */
   public SettingsController() {
     this.settingsWidget = new SettingsWidget();
+    this.settingsWidget.registerListener(this);
+
     this.updateUi();
   }
 
@@ -39,11 +41,17 @@ public class SettingsController implements ActionListener {
 
     switch (event.getActionCommand()) {
       case ActionConstants.IMPORT_SETTINGS:
-        System.out.println("import");
+        System.out.println("[SettingsController] Import");
         break;
 
       case ActionConstants.EXPORT_SETTINGS:
-        System.out.println("export");
+        System.out.println("[SettingsController] Export");
+        break;
+
+      case ActionConstants.SELECT_PRESET:
+        System.out.println("[SettingsController] Select preset");
+        String presetName = this.settingsWidget.getSelectedPresetName();
+        this.updatePresetSettings(presetName);
         break;
 
       default:
@@ -61,6 +69,12 @@ public class SettingsController implements ActionListener {
 
     List<PresetDto> presets = presetDao.getPresets();
     this.settingsWidget.setPresetList(presets);
+  }
+
+  private void updatePresetSettings(String presetName) {
+
+    PresetDto preset = this.presetDao.getPresetByName(presetName);
+    this.settingsWidget.setPresetSettings(preset);
   }
 
   /**

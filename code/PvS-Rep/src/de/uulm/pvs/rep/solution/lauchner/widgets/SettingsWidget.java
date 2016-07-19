@@ -2,8 +2,10 @@ package de.uulm.pvs.rep.solution.lauchner.widgets;
 
 import de.uulm.pvs.rep.solution.data.dto.GameDto;
 import de.uulm.pvs.rep.solution.data.dto.PresetDto;
+import de.uulm.pvs.rep.solution.lauchner.constants.ActionConstants;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -76,6 +78,7 @@ public class SettingsWidget extends JPanel {
 
     this.presetLabel = new JLabel(PRESET_LABEL_CAPTION);
     this.presetComboBox = new JComboBox<>();
+    this.presetComboBox.setActionCommand(ActionConstants.SELECT_PRESET);
 
     this.obstacleAmountLabel = new JLabel(OBSTACLE_AMOUNT_LABEL_CAPTION);
     this.obstacleAmountField = new JTextField();
@@ -129,6 +132,17 @@ public class SettingsWidget extends JPanel {
   /**
    * TODO documentation.
    * 
+   * @param preset - preset to show
+   */
+  public void setPresetSettings(PresetDto preset) {
+
+    this.obstacleAmountField.setText(String.valueOf(preset.getObstacleSpawnRate()));
+    this.monsterAmountField.setText(String.valueOf(preset.getMonsterSpawnRate()));
+  }
+
+  /**
+   * TODO documentation.
+   * 
    * @param presets - to show
    */
   public void setPresetList(List<PresetDto> presets) {
@@ -138,6 +152,14 @@ public class SettingsWidget extends JPanel {
     for (PresetDto presetDto : presets) {
       this.presetComboBox.addItem(presetDto.getName());
     }
+  }
+
+  public String getSelectedPresetName() {
+    return this.presetComboBox.getSelectedItem().toString();
+  }
+
+  public void registerListener(ActionListener actionListener) {
+    this.presetComboBox.addActionListener(actionListener);
   }
 
 }

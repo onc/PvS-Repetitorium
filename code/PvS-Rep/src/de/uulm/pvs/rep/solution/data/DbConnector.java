@@ -78,8 +78,10 @@ public class DbConnector {
   static void seed() {
 
     final String createPlayer = "INSERT INTO players (name) VALUES ('Bernd');";
-    final String createPreset =
+    final String createPresetEasy =
         "INSERT INTO presets (name, obstacleSpawnRate, monsterSpawnRate) VALUES ('Easy', 5, 5);";
+    final String createPresetMedium =
+        "INSERT INTO presets (name, obstacleSpawnRate, monsterSpawnRate) VALUES ('Medium', 10, 10);";
     final String createGame =
         "INSERT INTO games (playerid, preset, score) VALUES (0, 'Easy', 1000);";
 
@@ -88,7 +90,8 @@ public class DbConnector {
 
       statement.execute(createPlayer);
       System.out.println("[DB] Seed player");
-      statement.execute(createPreset);
+      statement.execute(createPresetEasy);
+      statement.execute(createPresetMedium);
       System.out.println("[DB] Seed preset");
       statement.execute(createGame);
       System.out.println("[DB] Seed game");

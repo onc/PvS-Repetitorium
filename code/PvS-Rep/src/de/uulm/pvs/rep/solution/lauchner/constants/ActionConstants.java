@@ -14,4 +14,6 @@ public class ActionConstants {
 
   public static final String IMPORT_SETTINGS = "IMPORT_SETTINGS";
   public static final String EXPORT_SETTINGS = "EXPORT_SETTINGS";
+
+  public static final String SELECT_PRESET = "SELECT_PRESET";
 }
