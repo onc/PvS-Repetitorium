@@ -29,7 +29,6 @@ public class Launcher extends JFrame {
   private SettingsController settingsController;
 
   private ButtonWidget buttonWidget;
-  private SettingsWidget settingsWidget;
 
   /**
    * Create a new {@link Launcher} by creating the needed controllers.
@@ -50,12 +49,10 @@ public class Launcher extends JFrame {
     this.buttonWidget.addActionListener(gameController);
     this.buttonWidget.addActionListener(settingsController);
 
-    this.settingsWidget = new SettingsWidget();
-
     this.setLayout(new BorderLayout());
 
     this.add(buttonWidget, BorderLayout.SOUTH);
-    this.add(settingsWidget, BorderLayout.CENTER);
+    this.add(settingsController.getSettingsWidget(), BorderLayout.CENTER);
 
     this.setTitle(WINDOW_TITLE);
     this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -99,7 +96,6 @@ public class Launcher extends JFrame {
     }
 
     // create a launcher
-    // Launcher launcher = new Launcher();
 
     // initialize the ui in the swing-thread
     // SwingUtilities.invokeLater(() -> {

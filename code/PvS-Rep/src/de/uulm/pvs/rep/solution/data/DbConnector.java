@@ -1,10 +1,5 @@
 package de.uulm.pvs.rep.solution.data;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -24,68 +19,12 @@ public class DbConnector {
   private static final String USER = "SA";
   private static final String PASSWORD = "";
 
-  private static final String DB_INIT_SCRIPT_PATH = "de/uulm/pvs/rep/solution/data/db.sql";
-
   static {
     try {
       Class.forName(DRIVER);
     } catch (ClassNotFoundException exception) {
       exception.printStackTrace();
     }
-  }
-
-  /**
-   * TODO documentation.
-   * 
-   * @throws SQLException - oh no
-   */
-  static void resetDb() throws SQLException {
-
-    Connection connection = null;
-    Statement statement = null;
-
-    try {
-      connection = DbConnector.getConnection();
-      statement = connection.createStatement();
-
-      String query = DbConnector.loadInitScript();
-
-      statement.execute(query);
-    } finally {
-      statement.close();
-      connection.close();
-    }
-  }
-
-  /**
-   * TODO documentation.
-   * 
-   * @return - script to initialize the database
-   */
-  static String loadInitScript() {
-
-    ClassLoader classLoader = DbConnector.class.getClassLoader();
-    String scriptPath = classLoader.getResource(DB_INIT_SCRIPT_PATH).getPath();
-    File file = new File(scriptPath).getAbsoluteFile();
-
-    try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
-
-      StringBuilder stringBuilder = new StringBuilder();
-
-      for (String line = bufferedReader.readLine(); line != null; line =
-          bufferedReader.readLine()) {
-        stringBuilder.append(line);
-      }
-
-      return stringBuilder.toString();
-
-    } catch (FileNotFoundException exception) {
-      exception.printStackTrace();
-    } catch (IOException exception) {
-      exception.printStackTrace();
-    }
-
-    return "";
   }
 
   /**
@@ -98,4 +37,64 @@ public class DbConnector {
 
     return DriverManager.getConnection(URL, USER, PASSWORD);
   }
+
+  static void resetTables() {
+
+    final String dropTableGames = "DROP TABLE games IF EXISTS;";
+    final String dropTablePlayers = "DROP TABLE players IF EXISTS;";
+    final String dropTablePresets = "DROP TABLE presets IF EXISTS;";
+
+    final String createTablePlayers =
+        "CREATE TABLE players(id INTEGER IDENTITY PRIMARY KEY, " + " name VARCHAR(30) NOT NULL);";
+    final String createTablePresets = "CREATE TABLE presets(id INTEGER IDENTITY PRIMARY KEY, "
+        + "name VARCHAR(30) NOT NULL, obstacleSpawnRate INTEGER NOT NULL, monsterSpawnRate INTEGER NOT NULL);";
+    final String createTableGames =
+        "CREATE TABLE games(id INTEGER IDENTITY PRIMARY KEY, playerid INTEGER NOT NULL REFERENCES players(id), "
+            + "presetid INTEGER NOT NULL REFERENCES presets(id), score INTEGER NOT NULL, "
+            + "playedAt TIMESTAMP DEFAULT NOW);";
+
+    try (Connection connection = DbConnector.getConnection();
+        Statement statement = connection.createStatement()) {
+
+      statement.execute(dropTableGames);
+      System.out.println("[DB] Dropped table games");
+      statement.execute(dropTablePlayers);
+      System.out.println("[DB] Dropped table players");
+      statement.execute(dropTablePresets);
+      System.out.println("[DB] Dropped table presets");
+
+      statement.execute(createTablePlayers);
+      System.out.println("[DB] Created table players");
+      statement.execute(createTablePresets);
+      System.out.println("[DB] Created table presets");
+      statement.execute(createTableGames);
+      System.out.println("[DB] Created table games");
+
+    } catch (SQLException exception) {
+      exception.printStackTrace();
+    }
+  }
+
+  static void seed() {
+
+    final String createPlayer = "INSERT INTO players (name) VALUES ('Bernd');";
+    final String createPreset =
+        "INSERT INTO presets (name, obstacleSpawnRate, monsterSpawnRate) VALUES ('Easy', 5, 5);";
+    final String createGame = "INSERT INTO games (playerid, presetid, score) VALUES (0, 0, 1000);";
+
+    try (Connection connection = DbConnector.getConnection();
+        Statement statement = connection.createStatement()) {
+
+      statement.execute(createPlayer);
+      System.out.println("[DB] Seed player");
+      statement.execute(createPreset);
+      System.out.println("[DB] Seed preset");
+      statement.execute(createGame);
+      System.out.println("[DB] Seed game");
+
+    } catch (SQLException exception) {
+      exception.printStackTrace();
+    }
+  }
+
 }

@@ -83,4 +83,13 @@ public class SettingsWidget extends JPanel {
 
     return leftPanel;
   }
+
+  public void setNameField(String name) {
+    this.nameField.setText(name);
+  }
+
+  public String getNameFieldText() {
+    return nameField.getText();
+  }
+
 }

@@ -49,11 +49,8 @@ public class PlayerDao {
    */
   public void resetDb() {
 
-    try {
-      DbConnector.resetDb();
-    } catch (SQLException exception) {
-      exception.printStackTrace();
-    }
+    DbConnector.resetTables();
+    DbConnector.seed();
   }
 
   /**
@@ -65,7 +62,7 @@ public class PlayerDao {
 
     List<PlayerDto> players = new ArrayList<>();
 
-    String query = "SELECT id, name FROM player";
+    String query = "SELECT id, name FROM PLAYERS;";
 
     try (Connection connection = DbConnector.getConnection();
         Statement statement = connection.createStatement();
@@ -90,12 +87,51 @@ public class PlayerDao {
   /**
    * TODO documentation.
    * 
+   * @param id - id of the player to find
+   * @return player
+   */
+  public PlayerDto getPlayerById(int id) {
+
+    String query = "SELECT id, name FROM players WHERE id = ?";
+
+    ResultSet resultSet = null;
+
+    try (Connection connection = DbConnector.getConnection();
+        PreparedStatement statement = connection.prepareStatement(query)) {
+
+      statement.setInt(1, id);
+
+      resultSet = statement.executeQuery();
+
+      if (resultSet.next()) {
+        int playerId = resultSet.getInt(ID_COLUMN_NAME);
+        String playerName = resultSet.getString(NAME_COLUMN_NAME);
+
+        return new PlayerDto(playerId, playerName);
+      }
+
+    } catch (SQLException exception) {
+      exception.printStackTrace();
+    } finally {
+      try {
+        resultSet.close();
+      } catch (SQLException sqlException) {
+        sqlException.printStackTrace();
+      }
+    }
+
+    return null;
+  }
+
+  /**
+   * TODO documentation.
+   * 
    * @param playerDto - player to save
    * @return - the new player
    */
   public PlayerDto savePlayer(PlayerDto playerDto) {
 
-    String query = "INSERT INTO player(name) VALUES(?)";
+    String query = "INSERT INTO players(name) VALUES(?)";
 
     ResultSet resultSet = null;
 
@@ -134,7 +170,7 @@ public class PlayerDao {
    */
   public void updatePlayer(PlayerDto playerDto) {
 
-    String query = "UPDATE player SET name=? WHERE id=?";
+    String query = "UPDATE players SET name=? WHERE id=?";
 
     try (Connection connection = DbConnector.getConnection();
         PreparedStatement statement = connection.prepareStatement(query)) {
@@ -156,7 +192,7 @@ public class PlayerDao {
    */
   public void storeDeletePlayer(PlayerDto playerDto) {
 
-    String query = "DELETE FROM player WHERE id=?";
+    String query = "DELETE FROM players WHERE id=?";
 
     try (Connection connection = DbConnector.getConnection();
         PreparedStatement statement = connection.prepareStatement(query)) {

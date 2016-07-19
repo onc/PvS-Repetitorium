@@ -8,10 +8,11 @@ import java.sql.Timestamp;
  * @author Christian van Onzenoodt
  *
  */
-public class GameDto {
+public class GameDto implements Comparable<GameDto> {
 
   private int id;
   private PlayerDto playerDto;
+  private PresetDto presetDto;
   private int score;
   private Timestamp playedAt;
 
@@ -21,10 +22,11 @@ public class GameDto {
    * @param playerDto - player of the game
    * @param score - score of the player
    */
-  public GameDto(PlayerDto playerDto, int score) {
+  public GameDto(PlayerDto playerDto, PresetDto presetDto, int score) {
 
     this.id = -1;
     this.playerDto = playerDto;
+    this.presetDto = presetDto;
     this.score = score;
   }
 
@@ -36,12 +38,21 @@ public class GameDto {
    * @param score - score of the player
    * @param playedAt - time the game was played;
    */
-  public GameDto(int id, PlayerDto playerDto, int score, Timestamp playedAt) {
+  public GameDto(int id, PlayerDto playerDto, PresetDto presetDto, int score, Timestamp playedAt) {
 
     this.id = id;
     this.playerDto = playerDto;
+    this.presetDto = presetDto;
     this.score = score;
     this.playedAt = playedAt;
+  }
+
+  public PresetDto getPresetDto() {
+    return presetDto;
+  }
+
+  public void setPresetDto(PresetDto presetDto) {
+    this.presetDto = presetDto;
   }
 
   public PlayerDto getPlayerDto() {
@@ -72,6 +83,16 @@ public class GameDto {
     return id;
   }
 
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  @Override
+  public String toString() {
+    return "GameDto [id=" + id + ", playerDto=" + playerDto + ", presetDto=" + presetDto
+        + ", score=" + score + ", playedAt=" + playedAt + "]";
+  }
+
   @Override
   public int hashCode() {
     final int prime = 31;
@@ -79,6 +100,7 @@ public class GameDto {
     result = prime * result + id;
     result = prime * result + ((playedAt == null) ? 0 : playedAt.hashCode());
     result = prime * result + ((playerDto == null) ? 0 : playerDto.hashCode());
+    result = prime * result + ((presetDto == null) ? 0 : presetDto.hashCode());
     result = prime * result + score;
     return result;
   }
@@ -112,6 +134,13 @@ public class GameDto {
     } else if (!playerDto.equals(other.playerDto)) {
       return false;
     }
+    if (presetDto == null) {
+      if (other.presetDto != null) {
+        return false;
+      }
+    } else if (!presetDto.equals(other.presetDto)) {
+      return false;
+    }
     if (score != other.score) {
       return false;
     }
@@ -119,9 +148,13 @@ public class GameDto {
   }
 
   @Override
-  public String toString() {
-    return "GameDto [id=" + id + ", playerDto=" + playerDto + ", score=" + score + ", playedAt="
-        + playedAt + "]";
+  public int compareTo(GameDto other) {
+    if (this.getScore() < other.getScore()) {
+      return -1;
+    } else if (this.getScore() > other.getScore()) {
+      return 1;
+    }
+    return 0;
   }
 
 }
