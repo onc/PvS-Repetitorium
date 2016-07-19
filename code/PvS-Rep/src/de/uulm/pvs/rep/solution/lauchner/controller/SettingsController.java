@@ -1,8 +1,10 @@
 package de.uulm.pvs.rep.solution.lauchner.controller;
 
 import de.uulm.pvs.rep.solution.data.GameDao;
+import de.uulm.pvs.rep.solution.data.PlayerDao;
 import de.uulm.pvs.rep.solution.data.PresetDao;
 import de.uulm.pvs.rep.solution.data.dto.GameDto;
+import de.uulm.pvs.rep.solution.data.dto.PlayerDto;
 import de.uulm.pvs.rep.solution.data.dto.PresetDto;
 import de.uulm.pvs.rep.solution.lauchner.constants.ActionConstants;
 import de.uulm.pvs.rep.solution.lauchner.widgets.SettingsWidget;
@@ -24,6 +26,9 @@ public class SettingsController implements ActionListener {
   private SettingsWidget settingsWidget;
   private GameDao gameDao = GameDao.getInstance();
   private PresetDao presetDao = PresetDao.getInstance();
+  private PlayerDao playerDao = PlayerDao.getInstance();
+
+  private GameSettingsChangeListener gameSettingsChangeListener;
 
   /**
    * TODO documentation.
@@ -33,6 +38,10 @@ public class SettingsController implements ActionListener {
     this.settingsWidget.registerListener(this);
 
     this.updateUi();
+  }
+
+  public void registerGameSettingsListener(GameSettingsChangeListener gameSettingsChangeListener) {
+    this.gameSettingsChangeListener = gameSettingsChangeListener;
   }
 
   // FIXME: implement
@@ -51,7 +60,8 @@ public class SettingsController implements ActionListener {
       case ActionConstants.SELECT_PRESET:
         System.out.println("[SettingsController] Select preset");
         String presetName = this.settingsWidget.getSelectedPresetName();
-        this.updatePresetSettings(presetName);
+        String userName = this.settingsWidget.getNameFieldText();
+        this.updatePresetSettings(presetName, userName);
         break;
 
       default:
@@ -71,10 +81,14 @@ public class SettingsController implements ActionListener {
     this.settingsWidget.setPresetList(presets);
   }
 
-  private void updatePresetSettings(String presetName) {
+  private void updatePresetSettings(String presetName, String playerName) {
 
     PresetDto preset = this.presetDao.getPresetByName(presetName);
+    PlayerDto player = this.playerDao.getPlayerByName(playerName);
     this.settingsWidget.setPresetSettings(preset);
+    if (gameSettingsChangeListener != null) {
+      this.gameSettingsChangeListener.presetChanged(preset, player);
+    }
   }
 
   /**

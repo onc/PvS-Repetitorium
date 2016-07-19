@@ -24,9 +24,6 @@ import java.util.List;
  */
 public class GameLogic {
 
-  // Default probability for spawning an asteroid and monster per round
-  private static final float DEFAULT_SPAWN_PROBABILITY = 0.99f;
-
   // Renderable entities
   private Background background;
   private Hud hud;
@@ -43,7 +40,7 @@ public class GameLogic {
 
   // initialize state variables
   private boolean isRunning = false;
-  private int points = 0;
+  private int score = 0;
   private String hudText = "";
 
   /**
@@ -86,7 +83,7 @@ public class GameLogic {
     this.renderer.addRenderable(obstacleSpawner);
 
     // initialize points and set game as 'running'
-    this.points = 0;
+    this.score = 0;
     this.isRunning = true;
   }
 
@@ -104,8 +101,8 @@ public class GameLogic {
    * 
    * @return the points a player got.
    */
-  public int getPoints() {
-    return this.points;
+  public int getScore() {
+    return this.score;
   }
 
   /**
@@ -118,7 +115,7 @@ public class GameLogic {
   /**
    * Updates the gamelogic.
    */
-  public void update() {
+  public void update(int obstacleSpawnRate, int monsterSpawnRate) {
 
     // get 'needed' stuff, so the code is more readable
     Point playerPosition = player.getPosition();
@@ -141,7 +138,7 @@ public class GameLogic {
     this.checkProjectiles(enemies, projectiles);
 
     // spawn new stuff
-    this.spawn();
+    this.spawn(obstacleSpawnRate, monsterSpawnRate);
 
     // if space is pressed, spawnProjectile. spawn-rate is handled by the spawner.
     if (input.buttonsPressed[Button.SPACE.ordinal()]) {
@@ -151,7 +148,7 @@ public class GameLogic {
     // 'build' the text for the hud
     this.hudText = String.format("#projectiles: %d | #enemies: %d | #asteroids: %d | points: %d",
         projectileSpawner.getEntityCount(), enemySpawner.getEntityCount(),
-        obstacleSpawner.getEntityCount(), points);
+        obstacleSpawner.getEntityCount(), score);
 
     // update all modules
     // FIXME: maybe update
@@ -167,11 +164,24 @@ public class GameLogic {
   /**
    * Maybe spawn some new stuff.
    */
-  private void spawn() {
+  private void spawn(int obstacleSpawnRate, int monsterSpawnRate) {
 
-    if (Math.random() > DEFAULT_SPAWN_PROBABILITY) {
+    // spawnRates are values between 0 and 100.
+    // Math.random() returns values greater or equal than 0.0 and less than 1.0.
+
+    final double normalizeValue = 100.0d;
+
+    double obstacleProbability = obstacleSpawnRate / normalizeValue;
+    double monsterProbability = monsterSpawnRate / normalizeValue;
+
+    // if we spawn a new entity everytime the probability is greater than the random
+    // we get a lot of spawn if the rate is 100 and none, of the rate is 0.
+    if (Math.random() < obstacleProbability) {
       enemySpawner
           .spawn(new Point(this.windowSize.width, (int) (Math.random() * this.windowSize.height)));
+    }
+
+    if (Math.random() < monsterProbability) {
       obstacleSpawner.spawn((int) (this.windowSize.width * Math.random()));
     }
   }
@@ -200,7 +210,8 @@ public class GameLogic {
         if (projectile.intersects(enemy)) {
           projectileSpawner.remove(projectile);
           enemySpawner.remove(enemy);
-          points++;
+          // FIXME: maybe more points for monsters or something like this...
+          score++;
         }
       }
     }

@@ -23,7 +23,7 @@ public class GameDao {
   private static GameDao instance;
 
   private static final String ID_COLUMN_NAME = "id";
-  private static final String PLAYER_ID_COLUMN_NAME = "playerid";
+  private static final String PLAYER_NAME_COLUMN_NAME = "player";
   private static final String PRESET_NAME_COLUMN_NAME = "preset";
   private static final String SCORE_COLUMN_NAME = "score";
   private static final String PLAYED_AT_COLUMN_NAME = "playedAt";
@@ -55,7 +55,7 @@ public class GameDao {
 
     List<GameDto> games = new ArrayList<>();
 
-    String query = "SELECT id, playerid, preset, score, playedAt FROM games";
+    String query = "SELECT id, player, preset, score, playedAt FROM games";
 
     try (Connection connection = DbConnector.getConnection();
         Statement statement = connection.createStatement();
@@ -64,12 +64,12 @@ public class GameDao {
       while (resultSet.next()) {
 
         int id = resultSet.getInt(ID_COLUMN_NAME);
-        int playerId = resultSet.getInt(PLAYER_ID_COLUMN_NAME);
+        String playerName = resultSet.getString(PLAYER_NAME_COLUMN_NAME);
         String presetName = resultSet.getString(PRESET_NAME_COLUMN_NAME);
         int score = resultSet.getInt(SCORE_COLUMN_NAME);
         Timestamp playedAt = resultSet.getTimestamp(PLAYED_AT_COLUMN_NAME);
 
-        PlayerDto player = PlayerDao.getInstance().getPlayerById(playerId);
+        PlayerDto player = PlayerDao.getInstance().getPlayerByName(playerName);
         PresetDto preset = PresetDao.getInstance().getPresetByName(presetName);
 
         GameDto game = new GameDto(id, player, preset, score, playedAt);

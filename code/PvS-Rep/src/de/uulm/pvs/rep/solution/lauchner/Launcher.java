@@ -36,6 +36,8 @@ public class Launcher extends JFrame {
 
     gameController = new GameController();
     settingsController = new SettingsController();
+
+    settingsController.registerGameSettingsListener(gameController);
   }
 
   /**

@@ -1,5 +1,8 @@
 package de.uulm.pvs.rep.solution.lauchner.controller;
 
+import de.uulm.pvs.rep.solution.data.dto.GameDto;
+import de.uulm.pvs.rep.solution.data.dto.PlayerDto;
+import de.uulm.pvs.rep.solution.data.dto.PresetDto;
 import de.uulm.pvs.rep.solution.game.Game;
 import de.uulm.pvs.rep.solution.game.engine.GameFinishedListener;
 import de.uulm.pvs.rep.solution.lauchner.constants.ActionConstants;
@@ -17,9 +20,12 @@ import javax.swing.JFrame;
  * 
  * @author Christian van Onzenoodt
  */
-public class GameController implements ActionListener, GameFinishedListener {
+public class GameController
+    implements ActionListener, GameFinishedListener, GameSettingsChangeListener {
 
   private Game game;
+  private PresetDto preset;
+  private PlayerDto player;
 
   private JFrame gameFrame;
 
@@ -54,6 +60,8 @@ public class GameController implements ActionListener, GameFinishedListener {
     gameFrame.setVisible(true);
     gameFrame.toFront();
 
+    game.setPreset(this.preset, this.player);
+
     Thread gameThread = new Thread(game);
     gameThread.start();
   }
@@ -61,17 +69,31 @@ public class GameController implements ActionListener, GameFinishedListener {
   @Override
   public void actionPerformed(ActionEvent event) {
 
-    // if the user pressed the 'start-game'-button, start the game
-    if (event.getActionCommand().equals(ActionConstants.START_GAME)) {
-      System.out.println("start game");
-      startGame();
+    switch (event.getActionCommand()) {
+      case ActionConstants.START_GAME:
+        System.out.println("[GameController] start game");
+        this.startGame();
+        break;
+
+      case ActionConstants.SELECT_PRESET:
+
+        break;
+
+      default:
+        break;
     }
   }
 
   @Override
-  public void gameFinished(int points) {
+  public void gameFinished(GameDto game) {
     // if the game has ended, do something
-    System.out.println(points);
+    System.out.println(game);
     gameFrame.setVisible(false);
+  }
+
+  @Override
+  public void presetChanged(PresetDto preset, PlayerDto player) {
+    this.preset = preset;
+    this.player = player;
   }
 }

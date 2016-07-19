@@ -8,38 +8,10 @@ package de.uulm.pvs.rep.solution.data.dto;
  */
 public class PlayerDto {
 
-  private int id;
   private String name;
 
-  /**
-   * TODO documentation.
-   * 
-   * @param name - name of the player
-   */
   public PlayerDto(String name) {
-
-    this.id = -1;
     this.name = name;
-  }
-
-  /**
-   * TODO documentation.
-   * 
-   * @param id - id of the player
-   * @param name - name of the player
-   */
-  public PlayerDto(int id, String name) {
-
-    this.id = id;
-    this.name = name;
-  }
-
-  public int getId() {
-    return id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
   }
 
   public String getName() {
@@ -54,7 +26,6 @@ public class PlayerDto {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + id;
     result = prime * result + ((name == null) ? 0 : name.hashCode());
     return result;
   }
@@ -71,9 +42,6 @@ public class PlayerDto {
       return false;
     }
     PlayerDto other = (PlayerDto) obj;
-    if (id != other.id) {
-      return false;
-    }
     if (name == null) {
       if (other.name != null) {
         return false;
@@ -86,7 +54,7 @@ public class PlayerDto {
 
   @Override
   public String toString() {
-    return "PlayerDto [id=" + id + ", name=" + name + "]";
+    return "PlayerDto [name=" + name + "]";
   }
 
 }

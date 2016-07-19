@@ -1,5 +1,8 @@
 package de.uulm.pvs.rep.solution.game;
 
+import de.uulm.pvs.rep.solution.data.dto.GameDto;
+import de.uulm.pvs.rep.solution.data.dto.PlayerDto;
+import de.uulm.pvs.rep.solution.data.dto.PresetDto;
 import de.uulm.pvs.rep.solution.game.engine.GameFinishedListener;
 import de.uulm.pvs.rep.solution.game.engine.GameLogic;
 import de.uulm.pvs.rep.solution.game.engine.Input;
@@ -27,6 +30,9 @@ public class Game implements Runnable {
   private Input input;
   private GameLogic gameLogic;
 
+  private PresetDto preset;
+  private PlayerDto player;
+
   private GameFinishedListener gameFinishedListener;
 
   /**
@@ -37,6 +43,11 @@ public class Game implements Runnable {
     this.input = new Input();
     this.renderer = new Renderer(WINDOW_SIZE);
     this.gameLogic = new GameLogic(renderer, input, WINDOW_SIZE);
+  }
+
+  public void setPreset(PresetDto preset, PlayerDto player) {
+    this.preset = preset;
+    this.player = player;
   }
 
   /**
@@ -81,6 +92,9 @@ public class Game implements Runnable {
   @Override
   public void run() {
 
+    System.out.println("[Game] started with preset: " + this.preset);
+    System.out.println("[Game] player: " + this.player);
+
     // initializes the game-logic by reseting points, inputs and so on.
     this.gameLogic.initGame();
 
@@ -117,13 +131,17 @@ public class Game implements Runnable {
 
       // update game logic if it is the time
       if (now > nextUpdate) {
-        this.gameLogic.update();
+        this.gameLogic.update(this.preset.getObstacleSpawnRate(),
+            this.preset.getMonsterSpawnRate());
         nextUpdate = getTime() + updateTime;
       }
     }
 
     // if where are here, the game is over. call the listener-method to notify all listeners
-    gameFinishedListener.gameFinished(this.gameLogic.getPoints());
+    int score = this.gameLogic.getScore();
+    GameDto game = new GameDto(this.player, this.preset, score);
+
+    gameFinishedListener.gameFinished(game);
   }
 
 }
