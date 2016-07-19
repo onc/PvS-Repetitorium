@@ -55,23 +55,26 @@ public class GameDao {
 
     List<GameDto> games = new ArrayList<>();
 
-    String query = "SELECT id, playerid, score, playedAt FROM game";
+    String query = "SELECT id, playerid, presetid, score, playedAt FROM games";
 
     try (Connection connection = DbConnector.getConnection();
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(query)) {
 
-      int id = resultSet.getInt(ID_COLUMN_NAME);
-      int playerId = resultSet.getInt(PLAYER_ID_COLUMN_NAME);
-      int presetId = resultSet.getInt(PRESET_ID_COLUMN_NAME);
-      int score = resultSet.getInt(SCORE_COLUMN_NAME);
-      Timestamp playedAt = resultSet.getTimestamp(PLAYED_AT_COLUMN_NAME);
+      while (resultSet.next()) {
 
-      PlayerDto player = PlayerDao.getInstance().getPlayerById(playerId);
-      PresetDto preset = PresetDao.getInstance().getPresetById(presetId);
+        int id = resultSet.getInt(ID_COLUMN_NAME);
+        int playerId = resultSet.getInt(PLAYER_ID_COLUMN_NAME);
+        int presetId = resultSet.getInt(PRESET_ID_COLUMN_NAME);
+        int score = resultSet.getInt(SCORE_COLUMN_NAME);
+        Timestamp playedAt = resultSet.getTimestamp(PLAYED_AT_COLUMN_NAME);
 
-      GameDto game = new GameDto(id, player, preset, score, playedAt);
-      games.add(game);
+        PlayerDto player = PlayerDao.getInstance().getPlayerById(playerId);
+        PresetDto preset = PresetDao.getInstance().getPresetById(presetId);
+
+        GameDto game = new GameDto(id, player, preset, score, playedAt);
+        games.add(game);
+      }
 
     } catch (SQLException exception) {
       exception.printStackTrace();

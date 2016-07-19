@@ -1,6 +1,11 @@
 package de.uulm.pvs.rep.solution.lauchner.widgets;
 
+import de.uulm.pvs.rep.solution.data.dto.GameDto;
+
 import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -90,6 +95,24 @@ public class SettingsWidget extends JPanel {
 
   public String getNameFieldText() {
     return nameField.getText();
+  }
+
+  /**
+   * TODO documentation.
+   * 
+   * @param games - games to show
+   */
+  public void setHighscoreList(List<GameDto> games) {
+
+    Collections.sort(games);
+    List<String> gamesString = new ArrayList<>();
+
+    for (GameDto game : games) {
+
+      gamesString.add(game.getPlayerDto().getName() + "   " + game.getScore());
+    }
+
+    this.highscoreList.updateList(gamesString);
   }
 
 }

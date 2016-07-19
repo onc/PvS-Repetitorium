@@ -1,5 +1,7 @@
 package de.uulm.pvs.rep.solution.lauchner.controller;
 
+import de.uulm.pvs.rep.solution.data.GameDao;
+import de.uulm.pvs.rep.solution.data.dto.GameDto;
 import de.uulm.pvs.rep.solution.lauchner.constants.ActionConstants;
 import de.uulm.pvs.rep.solution.lauchner.widgets.SettingsWidget;
 
@@ -18,9 +20,14 @@ import javax.swing.JPanel;
 public class SettingsController implements ActionListener {
 
   private SettingsWidget settingsWidget;
+  private GameDao gameDao = GameDao.getInstance();
 
+  /**
+   * TODO documentation.
+   */
   public SettingsController() {
     this.settingsWidget = new SettingsWidget();
+    this.updateUi();
   }
 
   // FIXME: implement
@@ -43,11 +50,12 @@ public class SettingsController implements ActionListener {
 
   /**
    * TODO documentation.
-   * 
-   * @param userName - name of the user
    */
-  public void updateUi(String userName, List<String> highscores) {
-    settingsWidget.setNameField(userName);
+  public void updateUi() {
+
+    List<GameDto> games = gameDao.getGames();
+    this.settingsWidget.setHighscoreList(games);
+
   }
 
   /**

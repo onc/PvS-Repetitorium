@@ -1,7 +1,6 @@
 package de.uulm.pvs.rep.solution.lauchner;
 
 import de.uulm.pvs.rep.solution.data.PlayerDao;
-import de.uulm.pvs.rep.solution.data.dto.PlayerDto;
 import de.uulm.pvs.rep.solution.lauchner.controller.GameController;
 import de.uulm.pvs.rep.solution.lauchner.controller.SettingsController;
 import de.uulm.pvs.rep.solution.lauchner.widgets.ButtonWidget;
@@ -9,9 +8,9 @@ import de.uulm.pvs.rep.solution.lauchner.widgets.SettingsWidget;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.util.List;
 
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 /**
  * Launcher for the game. This is the main class and frame for the application.
@@ -68,39 +67,40 @@ public class Launcher extends JFrame {
 
     PlayerDao.getInstance().resetDb();
 
-    List<PlayerDto> players = PlayerDao.getInstance().getPlayers();
-
-    for (PlayerDto playerDto : players) {
-      System.out.println(playerDto);
-    }
-
-    PlayerDto newPlayer = new PlayerDto("Horschde");
-    System.out.println("=================");
-    newPlayer = PlayerDao.getInstance().savePlayer(newPlayer);
-    System.out.println(newPlayer);
-    System.out.println("=================");
-
-    players = PlayerDao.getInstance().getPlayers();
-
-    for (PlayerDto playerDto : players) {
-      System.out.println(playerDto);
-    }
-
-    System.out.println("=================");
-    newPlayer.setName("bernde");
-    PlayerDao.getInstance().updatePlayer(newPlayer);
-    players = PlayerDao.getInstance().getPlayers();
-
-    for (PlayerDto playerDto : players) {
-      System.out.println(playerDto);
-    }
+    // List<PlayerDto> players = PlayerDao.getInstance().getPlayers();
+    //
+    // for (PlayerDto playerDto : players) {
+    // System.out.println(playerDto);
+    // }
+    //
+    // PlayerDto newPlayer = new PlayerDto("Horschde");
+    // System.out.println("=================");
+    // newPlayer = PlayerDao.getInstance().savePlayer(newPlayer);
+    // System.out.println(newPlayer);
+    // System.out.println("=================");
+    //
+    // players = PlayerDao.getInstance().getPlayers();
+    //
+    // for (PlayerDto playerDto : players) {
+    // System.out.println(playerDto);
+    // }
+    //
+    // System.out.println("=================");
+    // newPlayer.setName("bernde");
+    // PlayerDao.getInstance().updatePlayer(newPlayer);
+    // players = PlayerDao.getInstance().getPlayers();
+    //
+    // for (PlayerDto playerDto : players) {
+    // System.out.println(playerDto);
+    // }
 
     // create a launcher
+    Launcher launcher = new Launcher();
 
     // initialize the ui in the swing-thread
-    // SwingUtilities.invokeLater(() -> {
-    // launcher.initGui();
-    // });
+    SwingUtilities.invokeLater(() -> {
+      launcher.initGui();
+    });
 
   }
 }

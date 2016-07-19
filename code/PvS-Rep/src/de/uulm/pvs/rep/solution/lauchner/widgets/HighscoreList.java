@@ -44,6 +44,7 @@ public class HighscoreList extends JPanel {
    */
   public void updateList(List<String> highscores) {
 
+    System.out.println("update list");
     this.highscoreList.setListData(new Vector<>(highscores));
   }
 }
