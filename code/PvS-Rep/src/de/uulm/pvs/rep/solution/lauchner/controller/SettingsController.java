@@ -1,7 +1,9 @@
 package de.uulm.pvs.rep.solution.lauchner.controller;
 
 import de.uulm.pvs.rep.solution.data.GameDao;
+import de.uulm.pvs.rep.solution.data.PresetDao;
 import de.uulm.pvs.rep.solution.data.dto.GameDto;
+import de.uulm.pvs.rep.solution.data.dto.PresetDto;
 import de.uulm.pvs.rep.solution.lauchner.constants.ActionConstants;
 import de.uulm.pvs.rep.solution.lauchner.widgets.SettingsWidget;
 
@@ -21,6 +23,7 @@ public class SettingsController implements ActionListener {
 
   private SettingsWidget settingsWidget;
   private GameDao gameDao = GameDao.getInstance();
+  private PresetDao presetDao = PresetDao.getInstance();
 
   /**
    * TODO documentation.
@@ -56,6 +59,8 @@ public class SettingsController implements ActionListener {
     List<GameDto> games = gameDao.getGames();
     this.settingsWidget.setHighscoreList(games);
 
+    List<PresetDto> presets = presetDao.getPresets();
+    this.settingsWidget.setPresetList(presets);
   }
 
   /**

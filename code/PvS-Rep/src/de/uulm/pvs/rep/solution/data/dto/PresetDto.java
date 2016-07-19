@@ -8,25 +8,9 @@ package de.uulm.pvs.rep.solution.data.dto;
  */
 public class PresetDto {
 
-  private int id = -1;
   private String name;
   private int obstacleSpawnRate;
   private int monsterSpawnRate;
-
-  /**
-   * TODO documentation.
-   * 
-   * @param id - id of the preset
-   * @param name - name of the preset
-   * @param obstacleSpawnRate - rate of obstacles
-   * @param monsterSpawnRate - rate of monsters
-   */
-  public PresetDto(int id, String name, int obstacleSpawnRate, int monsterSpawnRate) {
-    this.id = id;
-    this.name = name;
-    this.obstacleSpawnRate = obstacleSpawnRate;
-    this.monsterSpawnRate = monsterSpawnRate;
-  }
 
   /**
    * TODO documentation.
@@ -39,14 +23,6 @@ public class PresetDto {
     this.name = name;
     this.obstacleSpawnRate = obstacleSpawnRate;
     this.monsterSpawnRate = monsterSpawnRate;
-  }
-
-  public int getId() {
-    return id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
   }
 
   public String getName() {
@@ -77,7 +53,6 @@ public class PresetDto {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + id;
     result = prime * result + monsterSpawnRate;
     result = prime * result + ((name == null) ? 0 : name.hashCode());
     result = prime * result + obstacleSpawnRate;
@@ -96,9 +71,6 @@ public class PresetDto {
       return false;
     }
     PresetDto other = (PresetDto) obj;
-    if (id != other.id) {
-      return false;
-    }
     if (monsterSpawnRate != other.monsterSpawnRate) {
       return false;
     }
@@ -113,6 +85,12 @@ public class PresetDto {
       return false;
     }
     return true;
+  }
+
+  @Override
+  public String toString() {
+    return "PresetDto [name=" + name + ", obstacleSpawnRate=" + obstacleSpawnRate
+        + ", monsterSpawnRate=" + monsterSpawnRate + "]";
   }
 
 }

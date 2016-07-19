@@ -46,11 +46,11 @@ public class DbConnector {
 
     final String createTablePlayers =
         "CREATE TABLE players(id INTEGER IDENTITY PRIMARY KEY, " + " name VARCHAR(30) NOT NULL);";
-    final String createTablePresets = "CREATE TABLE presets(id INTEGER IDENTITY PRIMARY KEY, "
-        + "name VARCHAR(30) NOT NULL, obstacleSpawnRate INTEGER NOT NULL, monsterSpawnRate INTEGER NOT NULL);";
+    final String createTablePresets = "CREATE TABLE presets(name VARCHAR(30) NOT NULL PRIMARY KEY, "
+        + " obstacleSpawnRate INTEGER NOT NULL, monsterSpawnRate INTEGER NOT NULL);";
     final String createTableGames =
         "CREATE TABLE games(id INTEGER IDENTITY PRIMARY KEY, playerid INTEGER NOT NULL REFERENCES players(id), "
-            + "presetid INTEGER NOT NULL REFERENCES presets(id), score INTEGER NOT NULL, "
+            + "preset VARCHAR(30) NOT NULL REFERENCES presets(name), score INTEGER NOT NULL, "
             + "playedAt TIMESTAMP DEFAULT NOW);";
 
     try (Connection connection = DbConnector.getConnection();
@@ -80,7 +80,8 @@ public class DbConnector {
     final String createPlayer = "INSERT INTO players (name) VALUES ('Bernd');";
     final String createPreset =
         "INSERT INTO presets (name, obstacleSpawnRate, monsterSpawnRate) VALUES ('Easy', 5, 5);";
-    final String createGame = "INSERT INTO games (playerid, presetid, score) VALUES (0, 0, 1000);";
+    final String createGame =
+        "INSERT INTO games (playerid, preset, score) VALUES (0, 'Easy', 1000);";
 
     try (Connection connection = DbConnector.getConnection();
         Statement statement = connection.createStatement()) {
