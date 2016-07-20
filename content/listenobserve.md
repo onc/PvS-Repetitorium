@@ -139,11 +139,37 @@ Note:![ActionListener](content/images/actioneventactionlisteneruml.gif)
 
 
 
+###Aufgabe
+Was passiert in dieser Klasse?
 ```java
-public void actionPerformed(ActionEvent event) {
-    System.out.println(inputTA.getText()); // Input of an JTextArea
+public class SomeGUI {
+    JTextArea inputTA;
+    JButton btn;
+
+    public static void main(String[] args) {
+        SomeGUI guiWindow = new SomeGUI();
+        guiWindow.btn.doClick(); // Do as if the user has clicked the component
+    }
+
+    public SomeGUI() {
+        /* ... */
+        inputTA = new JTextArea("Hallo Welt!");
+        btn = new JButton("Something");
+        btn.addActionListener(this);
+        /* ... */
+    }
+
+    public void actionPerformed(ActionEvent event) {
+        System.out.println(inputTA.getText()); // Input of an JTextArea
+    }
 }
 ```
+
+
+###Antwort
+1. Fenster wird gezeichnet & dargestellt
+2. Button wird geklickt
+2. Ausgabe des Textes der JTextArea: "Hallo Welt!"
 
 
 
