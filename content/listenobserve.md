@@ -297,6 +297,8 @@ Vorteil:
 Nachteil: 
 * Viele Fallunterscheidungen
 * Swing Komponenten müssen in Klassenvariablen zugänglich gemacht werden.
+
+ListenerKlasse kann auch die eigene Klasse sein
 Note: runter
 
 
@@ -321,3 +323,5 @@ Vorteil:
 * Übersichtlich
 Nachteil: 
 * Viele Fallunterscheidungen
+
+ListenerKlasse kann auch die eigene Klasse sein
