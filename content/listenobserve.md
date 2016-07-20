@@ -88,7 +88,7 @@ Note:![ActionListener](content/images/actioneventactionlisteneruml.gif)
 
 ```java
 public void actionPerformed(ActionEvent event) {
-    System.out.println(inputTA..getText()); // Input of an JTextArea
+    System.out.println(inputTA.getText()); // Input of an JTextArea
 }
 ```
 
@@ -107,20 +107,29 @@ public void actionPerformed(ActionEvent event) {
 
 ```java
 public void mouseReleased(MouseEvent e) {
+    System.out.println("Mouse released: X = " + e.getX() + " Y = " + e.getY());
 }
 
 public void mousePressed(MouseEvent e) {
+    System.out.println("Mouse pressed: X = " + e.getX() + " Y = " + e.getY());
 }
 
 public void mouseExited(MouseEvent e) {
+    System.out.println("Mouse exited: X = " + e.getX() + " Y = " + e.getY());
 }
 
 public void mouseEntered(MouseEvent e) {
+    System.out.println("Mouse entered: X = " + e.getX() + " Y = " + e.getY());
 }
 
 public void mouseClicked(MouseEvent e) {
+    System.out.println("Mouse clicked: X = " + e.getX() + " Y = " + e.getY());
 }
 ```
+
+
+
+mousePressed() + mouseReleased() = mouseClicked()
 
 
 
@@ -134,9 +143,10 @@ public void mouseClicked(MouseEvent e) {
 
 ```java
 public void mouseMoved(MouseEvent arg0) {
+    System.out.println("Mouse moved: X = " + e.getX() + " Y = " + e.getY());
 }
 
-@Override
 public void mouseDragged(MouseEvent arg0) {
+    System.out.println("Mouse dragging: X = " + e.getX() + " Y = " + e.getY());
 }
 ```
