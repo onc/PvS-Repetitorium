@@ -103,7 +103,6 @@ Die beteiligten Klassen und Schnittstellen folgen einer bestimmten Namenskonvent
 
 
 
-![GUI Zyklus](content/images/gui-cycle.png)
 
 
 
