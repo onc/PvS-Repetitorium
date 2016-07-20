@@ -27,8 +27,6 @@ public class Launcher extends JFrame {
   private GameController gameController;
   private SettingsController settingsController;
 
-  private ButtonWidget buttonWidget;
-
   /**
    * Create a new {@link Launcher} by creating the needed controllers.
    */
@@ -46,13 +44,9 @@ public class Launcher extends JFrame {
    */
   public void initGui() {
 
-    this.buttonWidget = new ButtonWidget();
-    this.buttonWidget.addActionListener(gameController);
-    this.buttonWidget.addActionListener(settingsController);
-
     this.setLayout(new BorderLayout());
 
-    this.add(buttonWidget, BorderLayout.SOUTH);
+    this.add(gameController.getButtonWidget(), BorderLayout.SOUTH);
     this.add(settingsController.getSettingsWidget(), BorderLayout.CENTER);
 
     this.setTitle(WINDOW_TITLE);
@@ -68,33 +62,6 @@ public class Launcher extends JFrame {
   public static void main(String[] args) {
 
     PlayerDao.getInstance().resetDb();
-
-    // List<PlayerDto> players = PlayerDao.getInstance().getPlayers();
-    //
-    // for (PlayerDto playerDto : players) {
-    // System.out.println(playerDto);
-    // }
-    //
-    // PlayerDto newPlayer = new PlayerDto("Horschde");
-    // System.out.println("=================");
-    // newPlayer = PlayerDao.getInstance().savePlayer(newPlayer);
-    // System.out.println(newPlayer);
-    // System.out.println("=================");
-    //
-    // players = PlayerDao.getInstance().getPlayers();
-    //
-    // for (PlayerDto playerDto : players) {
-    // System.out.println(playerDto);
-    // }
-    //
-    // System.out.println("=================");
-    // newPlayer.setName("bernde");
-    // PlayerDao.getInstance().updatePlayer(newPlayer);
-    // players = PlayerDao.getInstance().getPlayers();
-    //
-    // for (PlayerDto playerDto : players) {
-    // System.out.println(playerDto);
-    // }
 
     // create a launcher
     Launcher launcher = new Launcher();

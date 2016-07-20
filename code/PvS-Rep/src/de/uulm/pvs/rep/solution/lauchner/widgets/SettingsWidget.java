@@ -1,6 +1,7 @@
 package de.uulm.pvs.rep.solution.lauchner.widgets;
 
 import de.uulm.pvs.rep.solution.data.dto.GameDto;
+import de.uulm.pvs.rep.solution.data.dto.PlayerDto;
 import de.uulm.pvs.rep.solution.data.dto.PresetDto;
 import de.uulm.pvs.rep.solution.lauchner.constants.ActionConstants;
 
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -28,18 +30,22 @@ public class SettingsWidget extends JPanel {
   private static final int MAIN_GRIP_ROWS = 1;
   private static final int MAIN_GRIP_COLS = 2;
 
-  private static final int SETTINGS_GRID_ROWS = 4;
+  private static final int SETTINGS_GRID_ROWS = 5;
   private static final int SETTINGS_GRID_COLS = 2;
 
   private static final int GAPS = 16;
 
-  private static final String NAME_LABEL_CAPTION = "Name:";
+  private static final String SELECTED_PLAYER_LABEL_CAPTION = "Player:";
+  private static final String ADD_PLAYER_BUTTON_CAPTION = "Add Player";
   private static final String PRESET_LABEL_CAPTION = "Name:";
   private static final String OBSTACLE_AMOUNT_LABEL_CAPTION = "Anzahl Asteroiden:";
   private static final String MONSTER_AMOUNT_LABEL_CAPTION = "Anzahl Monster:";
 
-  private JLabel nameLabel;
-  private JTextField nameField;
+  private JTextField playerNameField;
+  private JButton addPlayerButton;
+
+  private JLabel selectedPlayerLabel;
+  private JComboBox<String> playersComboBox;
 
   private JLabel presetLabel;
   private JComboBox<String> presetComboBox;
@@ -73,8 +79,13 @@ public class SettingsWidget extends JPanel {
    */
   private JPanel buildLeftPanel() {
 
-    this.nameLabel = new JLabel(NAME_LABEL_CAPTION);
-    this.nameField = new JTextField();
+    this.playerNameField = new JTextField();
+    this.addPlayerButton = new JButton(ADD_PLAYER_BUTTON_CAPTION);
+    this.addPlayerButton.setActionCommand(ActionConstants.ADD_PLAYER);
+
+    this.selectedPlayerLabel = new JLabel(SELECTED_PLAYER_LABEL_CAPTION);
+    this.playersComboBox = new JComboBox<>();
+    this.playersComboBox.setActionCommand(ActionConstants.SELECT_PLAYER);
 
     this.presetLabel = new JLabel(PRESET_LABEL_CAPTION);
     this.presetComboBox = new JComboBox<>();
@@ -89,8 +100,11 @@ public class SettingsWidget extends JPanel {
     JPanel leftPanel = new JPanel();
     leftPanel.setLayout(new GridLayout(SETTINGS_GRID_ROWS, SETTINGS_GRID_COLS, GAPS, GAPS));
 
-    leftPanel.add(nameLabel);
-    leftPanel.add(nameField);
+    leftPanel.add(playerNameField);
+    leftPanel.add(addPlayerButton);
+
+    leftPanel.add(selectedPlayerLabel);
+    leftPanel.add(playersComboBox);
 
     leftPanel.add(presetLabel);
     leftPanel.add(presetComboBox);
@@ -105,11 +119,11 @@ public class SettingsWidget extends JPanel {
   }
 
   public void setNameField(String name) {
-    this.nameField.setText(name);
+    this.playerNameField.setText(name);
   }
 
-  public String getNameFieldText() {
-    return nameField.getText();
+  public String getPlayerNameFieldText() {
+    return playerNameField.getText();
   }
 
   /**
@@ -143,23 +157,74 @@ public class SettingsWidget extends JPanel {
   /**
    * TODO documentation.
    * 
+   * @param player - player to show
+   */
+  public void setPlayerName(PlayerDto player) {
+    this.playerNameField.setText(player.getName());
+  }
+
+  /**
+   * TODO documentation.
+   * 
    * @param presets - to show
    */
   public void setPresetList(List<PresetDto> presets) {
 
     this.presetComboBox.removeAllItems();
 
-    for (PresetDto presetDto : presets) {
-      this.presetComboBox.addItem(presetDto.getName());
+    for (PresetDto preset : presets) {
+      this.presetComboBox.addItem(preset.getName());
     }
   }
 
+  /**
+   * TODO documentation.
+   * 
+   * @param players - to show
+   */
+  public void setPlayersList(List<PlayerDto> players) {
+
+    this.playersComboBox.removeAllItems();
+
+    for (PlayerDto player : players) {
+      this.playersComboBox.addItem(player.getName());
+    }
+  }
+
+  /**
+   * TODO documentation.
+   * 
+   * @return - name of the preset or ""
+   */
   public String getSelectedPresetName() {
+    // there is no item selected -> return an empty string to prevent nullpointer on toString()
+    if (this.presetComboBox.getSelectedIndex() == -1) {
+      return "";
+    }
     return this.presetComboBox.getSelectedItem().toString();
   }
 
+  /**
+   * TODO documentation.
+   * 
+   * @return - the name or ""
+   */
+  public String getSelectedPlayerName() {
+    if (this.playersComboBox.getSelectedIndex() == -1) {
+      return "";
+    }
+    return this.playersComboBox.getSelectedItem().toString();
+  }
+
+  /**
+   * TODO documentation.
+   * 
+   * @param actionListener - listener for elements in the component
+   */
   public void registerListener(ActionListener actionListener) {
     this.presetComboBox.addActionListener(actionListener);
+    this.addPlayerButton.addActionListener(actionListener);
+    this.playersComboBox.addActionListener(actionListener);
   }
 
 }

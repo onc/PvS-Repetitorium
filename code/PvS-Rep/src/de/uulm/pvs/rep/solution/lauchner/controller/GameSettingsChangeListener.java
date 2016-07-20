@@ -11,5 +11,7 @@ import de.uulm.pvs.rep.solution.data.dto.PresetDto;
  */
 public interface GameSettingsChangeListener {
 
-  public void presetChanged(PresetDto preset, PlayerDto player);
+  public void presetChanged(PresetDto preset);
+
+  public void playerChanged(PlayerDto player);
 }

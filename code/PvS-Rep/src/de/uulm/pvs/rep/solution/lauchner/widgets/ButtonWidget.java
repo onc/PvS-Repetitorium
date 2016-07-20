@@ -32,6 +32,7 @@ public class ButtonWidget extends JPanel {
   public ButtonWidget() {
 
     startGameButton = new JButton(START_BUTTON_CAPTION);
+    startGameButton.setEnabled(false);
     importSettingsButton = new JButton(IMPORT_SETTINGS_CAPTION);
     exportSettingsButton = new JButton(EXPORT_SETTINGS_CAPTION);
 
@@ -54,6 +55,10 @@ public class ButtonWidget extends JPanel {
     this.startGameButton.addActionListener(actionListener);
     this.importSettingsButton.addActionListener(actionListener);
     this.exportSettingsButton.addActionListener(actionListener);
+  }
+
+  public void enableStartGameButton(boolean enable) {
+    this.startGameButton.setEnabled(enable);
   }
 
 }

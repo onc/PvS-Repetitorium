@@ -16,4 +16,7 @@ public class ActionConstants {
   public static final String EXPORT_SETTINGS = "EXPORT_SETTINGS";
 
   public static final String SELECT_PRESET = "SELECT_PRESET";
+  public static final String SELECT_PLAYER = "SELECT_PLAYER";
+
+  public static final String ADD_PLAYER = "ADD_PLAYER";
 }

@@ -61,7 +61,7 @@ public class PlayerDao {
 
     List<PlayerDto> players = new ArrayList<>();
 
-    String query = "SELECT id, name FROM PLAYERS;";
+    String query = "SELECT name FROM players;";
 
     try (Connection connection = DbConnector.getConnection();
         Statement statement = connection.createStatement();
@@ -121,11 +121,11 @@ public class PlayerDao {
   }
 
   /**
-   * TODO documentation.
+   * TODO documentation. FIXME: maybe return something to check, if the player are already exists.
    * 
    * @param playerDto - player to save
    */
-  public void savePlayer(PlayerDto playerDto) {
+  public void addPlayer(PlayerDto playerDto) {
 
     String query = "INSERT INTO players(name) VALUES(?)";
 
