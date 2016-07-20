@@ -5,6 +5,7 @@ import de.uulm.pvs.rep.solution.data.dto.PlayerDto;
 import de.uulm.pvs.rep.solution.data.dto.PresetDto;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -55,7 +56,7 @@ public class GameDao {
 
     List<GameDto> games = new ArrayList<>();
 
-    String query = "SELECT id, player, preset, score, playedAt FROM games";
+    final String query = "SELECT id, player, preset, score, playedAt FROM games";
 
     try (Connection connection = DbConnector.getConnection();
         Statement statement = connection.createStatement();
@@ -81,6 +82,33 @@ public class GameDao {
     }
 
     return games;
+  }
+
+  /**
+   * TODO documentation.
+   * 
+   * @param game - to add
+   */
+  public void addGame(GameDto game) {
+
+    final String query = "INSERT INTO games(player, preset, score) VALUES(?, ?, ?);";
+
+    final int playerColumnNumber = 1;
+    final int presetColumnNumber = 2;
+    final int scoreColumnNumber = 3;
+
+    try (Connection connection = DbConnector.getConnection();
+        PreparedStatement statement = connection.prepareStatement(query)) {
+
+      statement.setString(playerColumnNumber, game.getPlayerDto().getName());
+      statement.setString(presetColumnNumber, game.getPresetDto().getName());
+      statement.setInt(scoreColumnNumber, game.getScore());
+
+      statement.executeUpdate();
+
+    } catch (SQLException sqlException) {
+      sqlException.printStackTrace();
+    }
   }
 
 }

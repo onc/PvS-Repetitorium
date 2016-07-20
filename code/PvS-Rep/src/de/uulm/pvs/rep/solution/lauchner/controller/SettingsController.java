@@ -21,7 +21,7 @@ import javax.swing.JPanel;
  * @author Christian van Onzenoodt
  *
  */
-public class SettingsController implements ActionListener {
+public class SettingsController implements ActionListener, GameStateChangedListener {
 
   private SettingsWidget settingsWidget;
 
@@ -164,6 +164,12 @@ public class SettingsController implements ActionListener {
    */
   public JPanel getSettingsWidget() {
     return settingsWidget;
+  }
+
+  @Override
+  public void gameFinished(GameDto game) {
+
+    this.updateHighscoreList();
   }
 
 }

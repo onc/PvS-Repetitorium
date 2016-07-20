@@ -1,5 +1,6 @@
 package de.uulm.pvs.rep.solution.lauchner.controller;
 
+import de.uulm.pvs.rep.solution.data.GameDao;
 import de.uulm.pvs.rep.solution.data.dto.GameDto;
 import de.uulm.pvs.rep.solution.data.dto.PlayerDto;
 import de.uulm.pvs.rep.solution.data.dto.PresetDto;
@@ -29,7 +30,11 @@ public class GameController
   private PresetDto preset = null;
   private PlayerDto player = null;
 
+  private GameDao gameDao = GameDao.getInstance();
+
   private JFrame gameFrame;
+
+  private GameStateChangedListener gameStateChangedListener;
 
   private ButtonWidget buttonWidget;
 
@@ -107,10 +112,15 @@ public class GameController
     }
   }
 
+  public void registerGameStateChangedListener(GameStateChangedListener gameStateChangedListener) {
+    this.gameStateChangedListener = gameStateChangedListener;
+  }
+
   @Override
   public void gameFinished(GameDto game) {
-    // FIXME: if the game has ended, do something
-    System.out.println(game);
+    // insert the game into the database
+    this.gameDao.addGame(game);
+    this.gameStateChangedListener.gameFinished(game);
     gameFrame.setVisible(false);
   }
 
