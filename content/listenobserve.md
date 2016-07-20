@@ -48,12 +48,51 @@ Die Typen Observer/Observable bieten eine grundlegende Möglichkeit, das Beobach
 
 
 
-##Listener
-Eine zweite Variante zur Implementierung des Beobachter-Musters sind Listener. Sie lösen die beiden genannten Probleme von eben.
+##Events und Listener
 
 
 
-Es gibt Ereignisauslöser, die spezielle Ereignis-Objekte aussenden, und Interessenten, die sich bei den Auslösern an- und abmelden.
+###Events
+Die Java VM erstellt bei Auftreten eines Ereignisses, wie bspw. das Klicken eines Buttons, automatisch ein Objekt der entsprechenden Event-Klasse.
+
+
+
+###Events
+|Klassenname|Auslösung|Beispiel|
+|---|---|---|
+|ActionEvent|GUI-Komponenten werden betätigt|Betätigen eines Buttons|
+|FocusEvent|Komponente bekommt oder verliert den Fokus|Nutzer klickt in JTextArea|
+|MouseEvent|Mausaktionen werden getätigt|Maus klick|
+|TextEvent|Text einer Komponente verändert sich|In JTextArea wird Text eingegeben|
+|WindowEvent|Zustand eines Fensters ändert sich|Fenster schließen|
+|...|...|...|
+
+
+
+Nicht jedes Event ist von Relevanz, daher gibt es in Java die zugehörigen Listener, die auf bestimmte Events Reagieren
+
+ActionListener
+
+FocusListener
+
+MouseListener
+
+TextListener
+
+WindowListener
+
+
+
+###Listener
+Um Events zu handhaben gibt es nun die Listener, welche auf bestimmte Events warten und entsprechend reagieren.
+
+
+
+Die Listener-Interfaces sind alle Unterklassen des Basis-Interfaces *java.util.EventListener*. 
+
+Die Klasse, die sich für das Auftreten eines bestimmten Events interessiert, also zur Listener-Klasse wird, muss das passende Interface implementieren. 
+
+Zudem muss die jeweilige GUI-Komponente, auf die sich das Ereignis bezieht, sich beim Listener anmelden, indem ihre add...Listener-Methode aufgerufen wird.
 
 
 
