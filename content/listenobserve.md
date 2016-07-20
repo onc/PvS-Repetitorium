@@ -103,6 +103,21 @@ Die beteiligten Klassen und Schnittstellen folgen einer bestimmten Namenskonvent
 
 
 
+####Consume
+Event Objekte werden immer vom Listener abgearbeitet und anschließen konsumiert.
+
+Konsumieren bedeutet, dass das Event-Objekt nicht weitergegeben wird an andere Listener und selbst an andere Methoden innerhalb eines Listeners.
+
+Stattdessen wird es zur Entfernung markiert, sodass der GarbageCollector es aufräumen kann.
+
+
+
+Events können auch frühzeitig konsumiert und so die standardgemäße Abarbeitung unterbrochen werden.
+```java
+public void consume()
+```
+
+> Consumes this event so that it will not be processed in the default manner by the source which originated it. - java API
 
 
 
@@ -168,15 +183,6 @@ public void mouseClicked(MouseEvent e) {
 
 
 mousePressed() + mouseReleased() = mouseClicked()
-
-
-
-####Consume
-```java
-public void consume()
-```
-
-> Consumes this event so that it will not be processed in the default manner by the source which originated it. - java API
 
 
 
