@@ -133,6 +133,44 @@ mousePressed() + mouseReleased() = mouseClicked()
 
 
 
+####Consume
+```java
+public void consume()
+```
+
+> Consumes this event so that it will not be processed in the default manner by the source which originated it. - java API
+
+
+
+###Frage
+Was passier hier, wenn ein Button geklickt wird?
+```java
+public void mouseReleased(MouseEvent e) {
+    System.out.println("Mouse released");
+    consume();
+}
+
+public void mousePressed(MouseEvent e) {
+    System.out.println("Mouse pressed");
+}
+
+public void mouseExited(MouseEvent e) {
+}
+
+public void mouseEntered(MouseEvent e) {
+}
+
+public void mouseClicked(MouseEvent e) {
+    System.out.println("Mouse clicked");
+}
+```
+
+
+###Antwort
+mousePressed() und MouseReleased() werden aufgerufen, mouseClicked() aber nicht.
+
+
+
 ###MouseMotionListener
 |Rückgabewert|Methode|
 |---|---|
