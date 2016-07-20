@@ -232,3 +232,66 @@ public void mouseDragged(MouseEvent arg0) {
     System.out.println("Mouse dragging: X = " + e.getX() + " Y = " + e.getY());
 }
 ```
+
+
+
+###Listener Hinzufügen
+Anonyme Klasse
+```java
+someButton.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent arg0) {
+        System.out.println("Ok Button clicked.");
+    }});
+```
+Vorteil: 
+* Klein
+* Übersichtlich
+Nachteil: 
+* Redundanter Code, wenn gleiche Prozeduren in mehreren Listenern ausgeführt werden sollen.
+Note: runter
+
+
+Listener Klasse - Objektvergleich
+```java
+someButton.addActionListener(new SomeButtonListener());
+
+class SomeButtonListener implements ActionListener {
+    public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource().equals(someButton)) {
+            /* ... */
+        } else if (ae.getSource().equals(otherButton)) {
+            /* ... */
+        }
+    }
+}
+```
+Vorteil: 
+* Zentral
+* Übersichtlich
+Nachteil: 
+* Viele Fallunterscheidungen
+* Swing Komponenten müssen in Klassenvariablen zugänglich gemacht werden.
+Note: runter
+
+
+Listener Klasse - Commands
+```java
+someButton.setActionCommand("DoAsITellYou");
+someButton.addActionListener(new SomeButtonListener());
+
+class SomeButtonListener implements ActionListener {
+    public void actionPerformed(ActionEvent ae) {
+        String command = e.getActionCommand();  
+        if (command.equals( "DoAsITellYou" )) {
+            /* ... */
+        } else if (command.equals( "YoureNotMyBoss" )) {
+            /* ... */
+        }
+    }
+}
+```
+Vorteil: 
+* Zentral
+* Übersichtlich
+Nachteil: 
+* Viele Fallunterscheidungen
