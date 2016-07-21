@@ -43,11 +43,8 @@ Tebelle Student
 |27103|Fauler|
 
 ```sql
-SELECT * FROM Student
-```
-oder
-```sql
-SELECT Name FROM Student
+SELECT * 
+FROM Student
 ```
 
 
@@ -83,7 +80,61 @@ Tebelle Student
 |27103|Fauler|
 
 ```sql
-SELECT * FROM student WHERE MartrNr > 26000
+SELECT * 
+FROM Student 
+WHERE MartrNr > 26000
+```
+
+
+
+##SQL - Like
+LIKE filtert in der WHERE Klausel nach dem Inhalt der Zelle, wobei der Inhalt auch nur Teilweise erfüllt sein muss.
+
+
+
+##Beispiel
+Tebelle Student
+
+|MatrNr|Name|
+|---|---|
+|26120|Fichte|
+|25403|Jonas|
+|27103|Fauler|
+
+```sql
+SELECT * 
+FROM Student 
+WHERE Name LIKE 'F%'
+```
+
+
+
+##SQL - Join
+Verknüpfungen von Tabellen. Es werden mehrere Tabellen auf einer Bedingung zusammengefasst.
+
+
+
+##Beispiel
+Tebelle Student
+
+|MatrNr|Name|
+|---|---|
+|26120|Fichte|
+|25403|Jonas|
+|27103|Fauler|
+
+Tabelle Studiert
+
+|MatrNr|Fach|
+|---|---|
+|26120|Informatik|
+|25403|Informatik|
+|27103|Medieninformatik|
+
+```sql
+SELECT Student.Name, Studiert.Fach
+FROM Student JOIN Studiert
+  ON Student.MatrNr = Studiert.MatrNr
 ```
 
 
@@ -101,7 +152,7 @@ SELECT * FROM student WHERE MartrNr > 26000
 
 
 
-##Aufgabe 1
+##Aufgabe m
 Gibt aus:
 1. Alle Zeilen in denen Michael Schumacher Fahrerweltmeister wurde.
 2. Alle Zeilen in denen die Team Punkte über 150 liegen.
