@@ -1,5 +1,6 @@
 package de.uulm.pvs.rep.solution.game.entities.projectiles;
 
+import de.uulm.pvs.rep.solution.game.entities.players.Player;
 import de.uulm.pvs.rep.solution.game.entities.util.Spawner;
 
 import java.awt.Dimension;
@@ -33,7 +34,12 @@ public class ProjectileSpawner extends Spawner<Projectile> {
   public void spawn(Point spawnPoint) {
     // if it is time to spawn a new one, let it happen
     if (System.currentTimeMillis() > nextProjectileTime) {
-      super.spawn(new Projectile(spawnPoint));
+      // Move the spawnPoint a little bit, so the projectiles are spawning in front of and in the
+      // middle of the spaceship
+      Point point = new Point(spawnPoint);
+      point.y += Player.DEFAULT_SIZE / 2;
+      point.x += Player.DEFAULT_SIZE / 2;
+      super.spawn(new Projectile(point));
       // time when the next projectile can be spawned
       nextProjectileTime = System.currentTimeMillis() + SPAWNS_PER_SECOND;
     }

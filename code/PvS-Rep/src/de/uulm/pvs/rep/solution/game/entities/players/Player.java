@@ -16,7 +16,7 @@ public class Player extends Entity {
 
   private static final String PLAYER_IMAGE_PATH =
       "de/uulm/pvs/rep/solution/resources/spaceship.png";
-  private static final int DEFAULT_SIZE = 32;
+  public static final int DEFAULT_SIZE = 64;
   private Dimension windowSize;
 
   private int stepSize = 1;
