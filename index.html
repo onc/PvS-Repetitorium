@@ -89,7 +89,8 @@
                  { src: 'plugin/markdown/markdown.js' },
                  { src: 'plugin/notes/notes.js', async: true },
                  { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                 { src: 'plugin/chapter-header/chapter-header.js', async: true, callback: function() { chapterHeader.init(); } }
+                 { src: 'plugin/chapter-header/chapter-header.js', async: true, callback: function() { chapterHeader.init(); } },
+                 { src: 'plugin/line-numbers/line-numbers.js' }
              ]
          });
         </script>
