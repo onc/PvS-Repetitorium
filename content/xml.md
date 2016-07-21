@@ -492,3 +492,58 @@ Wildcards werden benutzt um unbekannte Knoten zu selektieren
 |//*|Wählt alle Elemente des Dokuments|
 |/title[@*]|Wählt alle Titel elemente aus die mindestens ein Attribut haben|
 
+
+
+###Aufgabe
+```xml
+<?xml version="1.0"?> 
+<order orderid="889923">
+  <orderperson>John Doe, Hauptstraße 7, Ulm</orderperson>
+  <item>
+    <title>Herr der Ringe Trilogie</title>
+    <note>Special Editon</note>
+    <quantity>1</quantity>
+    <price>50.90</price>
+  </item>
+  <item>
+    <title>Star Wars - BluRay</title>
+    <quantity>1</quantity>
+    <price>19.90</price>
+  </item>
+</order>
+```
+1. Wähle alle Kinder von items aus
+2. Wähle alle Kinder von orderperson aus
+3. Wähle alle price Elemente aus, die ein Attribut haben
+
+
+###Aufgabe
+```xml
+<?xml version="1.0"?> 
+<order orderid="889923">
+  <orderperson>John Doe, Hauptstraße 7, Ulm</orderperson>
+  <item>
+    <title>Herr der Ringe Trilogie</title>
+    <note>Special Editon</note>
+    <quantity>1</quantity>
+    <price>50.90</price>
+  </item>
+  <item>
+    <title>Star Wars - BluRay</title>
+    <quantity>1</quantity>
+    <price>19.90</price>
+  </item>
+</order>
+```
+1. 
+  * item/*
+  * //item/*
+  * /order/item/*
+2. 
+  * orderperson/*
+  * //orderperson/*
+  * /order/orderperson/*
+3. 
+  * price[@*]
+  * //price[@*]
+  * /order/price[@*]
