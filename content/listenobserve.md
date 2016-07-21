@@ -69,6 +69,26 @@ Die Java VM erstellt bei Auftreten eines Ereignisses, wie bspw. das Klicken eine
 
 
 
+###Event Methoden
+####ActionEvent
+|Rückgabewert|Methode|Aufruf|
+|---|---|---|
+|String|getActionCommand()|Gibt zugehörigen command-String zurück|
+|int|getModifiers()|Gibt modifizierende Keys (Strg, Umschalt, etc.) zurück|
+|long|getWhen()|Gibt Zeitstempel des Auftretens zurück|
+|...|...|...|
+
+####MouseEvent
+|Rückgabewert|Methode|Aufruf|
+|---|---|---|
+|int|getButton()|Gibt zurück welcher (wenn überhaupt) Knopf der Maus gedrückt wurde|
+|int|getClickCount()|Gibt die Anzahl der Klicks eines Events zurück|
+|int|getX()|Gibt die X Koordinate relativ zur Komponente zurück|
+|int|getY()|Gibt die Y Koordinate relativ zur Komponente zurück|
+|...|...|...|
+
+
+
 Nicht jedes Event ist von Relevanz, daher gibt es in Java die zugehörigen Listener, die auf bestimmte Events Reagieren
 
 ActionListener
