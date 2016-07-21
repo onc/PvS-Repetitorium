@@ -319,6 +319,65 @@ Selektoren werden verwendet um bestimmte Knoten, oder Attribute auszuwählen
 
 
 
+###Aufgabe
+```xml
+<?xml version="1.0"?> 
+<order orderid="889923">
+  <orderperson>John Doe, Hauptstraße 7, Ulm</orderperson>
+  <item>
+    <title>Herr der Ringe Trilogie</title>
+    <note>Special Editon</note>
+    <quantity>1</quantity>
+    <price>50.90</price>
+  </item>
+  <item>
+    <title>Star Wars - BluRay</title>
+    <quantity>1</quantity>
+    <price>19.90</price>
+  </item>
+</order>
+```
+1. Wähle den orderperson Knoten aus
+2. Wähle alle price Knoten aus
+3. Wähle die orderid aus
+4. Wähle den Vaterknoten der Knoten item aus
+
+
+###Aufgabe
+```xml
+<?xml version="1.0"?> 
+<order orderid="889923">
+  <orderperson>John Doe, Hauptstraße 7, Ulm</orderperson>
+  <item>
+    <title>Herr der Ringe Trilogie</title>
+    <note>Special Editon</note>
+    <quantity>1</quantity>
+    <price>50.90</price>
+  </item>
+  <item>
+    <title>Star Wars - BluRay</title>
+    <quantity>1</quantity>
+    <price>19.90</price>
+  </item>
+</order>
+```
+1. 
+  * orderperson
+  * //orderperson
+  * order/orderperson
+2. 
+  * price
+  * //price
+  * order/item//price
+3. 
+  * //@orderid
+  * order/@orderid
+4. 
+  * item/..
+  * order//item/..
+
+
+
 ###XPath Prädikate
 Prädikate werden benutzt um bestimmte Knoten, oder Knoten die einen bestimmten Wert haben, zu finden
 
