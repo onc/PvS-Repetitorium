@@ -11,13 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TODO documentation.
+ * DAO (Data access object) for presets in the database. This class uses the singleton pattern,
+ * since there is no need to have multiple instances.
  *
  * @author Christian van Onzenoodt
- *
+ * @see https://en.wikipedia.org/wiki/Singleton_pattern
  */
 public class PresetDao {
 
+  // only instance of PresetDao in the application
   private static PresetDao instance = null;
 
   private static final String NAME_COLUMN_NAME = "name";
@@ -25,12 +27,14 @@ public class PresetDao {
   private static final String MONSTER_SPAWN_RATE_COLUMN_NAME = "monsterSpawnRate";
 
   /**
-   * TODO documentation.
+   * Singleton-getter for the instance
    * 
    * @return - only instance in the application.
    */
   public static PresetDao getInstance() {
 
+    // if the instance has never been initialized, do it!
+    // The getInstance method is static, so this only happens once.
     if (instance == null) {
       instance = new PresetDao();
     }
@@ -38,12 +42,15 @@ public class PresetDao {
     return instance;
   }
 
+  /**
+   * Private constructor to prevent other classes from creating instances.
+   */
   private PresetDao() {
 
   }
 
   /**
-   * TODO documentation.
+   * Get all presets from the database.
    * 
    * @return - all presets from the database
    */
@@ -74,10 +81,10 @@ public class PresetDao {
   }
 
   /**
-   * TODO documentation.
+   * Get a preset from the database with the given name.
    * 
    * @param name - name of the preset
-   * @return preset with the given name
+   * @return preset with the given name or <code>null</code>, if the preset was not found
    */
   public PresetDto getPresetByName(String name) {
 

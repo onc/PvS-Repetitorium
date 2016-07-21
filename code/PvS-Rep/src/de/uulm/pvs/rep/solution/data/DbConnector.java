@@ -6,12 +6,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * TODO documentation.
+ * This class offers a connection to the database, as well as some functions for reseting and
+ * seeding the database. This class is package-private to hide it from the rest of the application.
  *
  * @author Christian van Onzenoodt
  *
  */
-public class DbConnector {
+class DbConnector {
 
   private static final String URL = "jdbc:hsqldb:file:data/db/scores.db";
   public static final String DRIVER = "org.hsqldb.jdbcDriver";
@@ -28,7 +29,8 @@ public class DbConnector {
   }
 
   /**
-   * TODO documentation.
+   * Returns a connection to the database. This method is package-private, to hide it from the rest
+   * of the application.
    * 
    * @return - Connection to the database
    * @throws SQLException - on connection error
@@ -75,6 +77,10 @@ public class DbConnector {
     }
   }
 
+  /**
+   * Add some sample entries to the database. This method is package-private to hide it from the
+   * rest of the application.
+   */
   static void seed() {
 
     final String createPlayer = "INSERT INTO players (name) VALUES ('Bernd');";

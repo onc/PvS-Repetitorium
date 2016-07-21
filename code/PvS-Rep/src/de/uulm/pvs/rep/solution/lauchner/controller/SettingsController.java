@@ -32,7 +32,7 @@ public class SettingsController implements ActionListener, GameStateChangedListe
   private GameSettingsChangeListener gameSettingsChangeListener;
 
   /**
-   * TODO documentation.
+   * Create a new {@link SettingsController}.
    */
   public SettingsController() {
     this.settingsWidget = new SettingsWidget();
@@ -45,7 +45,8 @@ public class SettingsController implements ActionListener, GameStateChangedListe
   }
 
   /**
-   * TODO documentation.
+   * Register a {@link GameSettingsChangeListener} to notify the {@link GameController} of changes
+   * made to the settings.
    * 
    * @param gameSettingsChangeListener - the listener
    */
@@ -89,17 +90,17 @@ public class SettingsController implements ActionListener, GameStateChangedListe
   }
 
   /**
-   * TODO documentation.
+   * Load all games from the database and update the HighscoreList in the {@link SettingsWidget}.
    */
   private void updateHighscoreList() {
 
     List<GameDto> games = gameDao.getGames();
     this.settingsWidget.setHighscoreList(games);
-
   }
 
   /**
-   * TODO documentation.
+   * Load all presets from the database and update the Preset-Dropdown in the
+   * {@link SettingsWidget}.
    */
   private void updatePresetList() {
 
@@ -108,7 +109,8 @@ public class SettingsController implements ActionListener, GameStateChangedListe
   }
 
   /**
-   * TODO documentation.
+   * Load all players from the database and update the player-Dropdown in the
+   * {@link SettingsWidget}.
    */
   private void updatePlayerList() {
 
@@ -117,37 +119,47 @@ public class SettingsController implements ActionListener, GameStateChangedListe
   }
 
   /**
-   * TODO documentation.
+   * If a preset was selected, update the {@link SettingsWidget} and notify the
+   * {@link GameController} via {@link GameSettingsChangeListener}.
    * 
    * @param presetName - preset to show
    */
   private void updatePresetSettings(String presetName) {
 
     PresetDto preset = this.presetDao.getPresetByName(presetName);
+    // if the listener has been set
     if (gameSettingsChangeListener != null) {
+      // update the ui
       this.settingsWidget.setPresetSettings(preset);
+      // notify the GameController
       this.gameSettingsChangeListener.presetChanged(preset);
+      // trigger update of the list
       this.updatePresetList();
     }
   }
 
   /**
-   * TODO documentation.
+   * If a player was selected, update the {@link SettingsWidget} and notify the
+   * {@link GameController} via the {@link GameSettingsChangeListener}.
    * 
    * @param playerName - name of player to show
    */
   private void updatePlayerSettings(String playerName) {
 
     PlayerDto player = this.playerDao.getPlayerByName(playerName);
+    // if the listener has been set
     if (gameSettingsChangeListener != null) {
+      // update the ui
       this.settingsWidget.setPlayerName(player);
+      // notify the GameController
       this.gameSettingsChangeListener.playerChanged(player);
+      // trigger update of the list
       this.updatePlayerList();
     }
   }
 
   /**
-   * TODO documentation.
+   * Add a player to the database.
    * 
    * @param playerName - player for database
    */
@@ -158,14 +170,17 @@ public class SettingsController implements ActionListener, GameStateChangedListe
   }
 
   /**
-   * TODO documentation.
+   * Returns the widget of the settings.
    * 
-   * @return - the jpanel?
+   * @return the {@link JPanel} of the settings
    */
   public JPanel getSettingsWidget() {
     return settingsWidget;
   }
 
+  /**
+   * Update the HighscoreList, if a game has ended.
+   */
   @Override
   public void gameFinished(GameDto game) {
 

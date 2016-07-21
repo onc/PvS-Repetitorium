@@ -151,7 +151,6 @@ public class GameLogic {
         obstacleSpawner.getEntityCount(), score);
 
     // update all modules
-    // FIXME: maybe update
     hud.setText(hudText);
 
     background.update();

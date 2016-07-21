@@ -127,7 +127,7 @@ public class SettingsWidget extends JPanel {
   }
 
   /**
-   * TODO documentation.
+   * Updates the HigscoreList with the given games.
    * 
    * @param games - games to show
    */
@@ -144,7 +144,7 @@ public class SettingsWidget extends JPanel {
   }
 
   /**
-   * TODO documentation.
+   * Update the preset {@link JTextField}s with the given preset.
    * 
    * @param preset - preset to show
    */
@@ -155,7 +155,7 @@ public class SettingsWidget extends JPanel {
   }
 
   /**
-   * TODO documentation.
+   * Sets the name of the current player in the {@link JTextField} for the PlayerName.
    * 
    * @param player - player to show
    */
@@ -164,7 +164,7 @@ public class SettingsWidget extends JPanel {
   }
 
   /**
-   * TODO documentation.
+   * Update the preset-Dropdown with with given presets.
    * 
    * @param presets - to show
    */
@@ -178,7 +178,7 @@ public class SettingsWidget extends JPanel {
   }
 
   /**
-   * TODO documentation.
+   * Update the players-Dropdown with the given players.
    * 
    * @param players - to show
    */
@@ -192,9 +192,9 @@ public class SettingsWidget extends JPanel {
   }
 
   /**
-   * TODO documentation.
+   * Returns the name of the currently selected preset.
    * 
-   * @return - name of the preset or ""
+   * @return - name of the preset or an empty {@link String}, if no preset is selected
    */
   public String getSelectedPresetName() {
     // there is no item selected -> return an empty string to prevent nullpointer on toString()
@@ -205,9 +205,9 @@ public class SettingsWidget extends JPanel {
   }
 
   /**
-   * TODO documentation.
+   * Returns the name of the currently selected player.
    * 
-   * @return - the name or ""
+   * @return - the name or an empty {@link String}, if no player is selected.
    */
   public String getSelectedPlayerName() {
     if (this.playersComboBox.getSelectedIndex() == -1) {
@@ -217,7 +217,7 @@ public class SettingsWidget extends JPanel {
   }
 
   /**
-   * TODO documentation.
+   * Registers the {@link ActionListener} to all {@link JButton} and {@link JComboBox}.
    * 
    * @param actionListener - listener for elements in the component
    */

@@ -14,14 +14,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TODO documentation.
+ * DAO (Data access object) for games in the database. This class uses the singleton pattern, since
+ * there is no need to have multiple instances.
  *
  * @author Christian van Onzenoodt
- *
+ * @see https://en.wikipedia.org/wiki/Singleton_pattern
  */
 public class GameDao {
 
-  private static GameDao instance;
+  // only instance of GameDao in the application
+  private static GameDao instance = null;
 
   private static final String ID_COLUMN_NAME = "id";
   private static final String PLAYER_NAME_COLUMN_NAME = "player";
@@ -30,12 +32,14 @@ public class GameDao {
   private static final String PLAYED_AT_COLUMN_NAME = "playedAt";
 
   /**
-   * TODO documentation.
+   * Singleton-getter for the instance.
    * 
-   * @return - only instance of the gamedao in the app
+   * @return - only instance of the {@link GameDao} in the app
    */
   public static GameDao getInstance() {
 
+    // if the instance has never been initialized, do it!
+    // The getInstance method is static, so this only happens once.
     if (instance == null) {
       instance = new GameDao();
     }
@@ -43,12 +47,15 @@ public class GameDao {
     return instance;
   }
 
+  /**
+   * Private constructor to prevent other classes from creating instances.
+   */
   private GameDao() {
 
   }
 
   /**
-   * TODO documentation.
+   * Gets all games from the database.
    * 
    * @return - all games from the database
    */
@@ -85,7 +92,7 @@ public class GameDao {
   }
 
   /**
-   * TODO documentation.
+   * Add a game to the database. This method does not store the nested player and preset objects.
    * 
    * @param game - to add
    */

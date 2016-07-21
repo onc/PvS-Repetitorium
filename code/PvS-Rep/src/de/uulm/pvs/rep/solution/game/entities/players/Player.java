@@ -19,6 +19,8 @@ public class Player extends Entity {
   private static final int DEFAULT_SIZE = 32;
   private Dimension windowSize;
 
+  private int stepSize = 1;
+
   /**
    * Creates a new player.
    * 
@@ -46,7 +48,6 @@ public class Player extends Entity {
   @Override
   public void update() {
     // We have to have this method because we are a renderable...
-    // FIXME: find a nicer solution. maybe optional parameters for update()
   }
 
   /**
@@ -80,12 +81,7 @@ public class Player extends Entity {
    */
   private void move(Button button) {
 
-    // speed of the player
-    // FIXME: class-variable
-    int stepSize = 1;
-
     // get position and size of the player to check, if the player is still visible
-    // FIXME: isVisible -> Entity?
     Point position = super.getPosition();
     Dimension size = super.getSize();
 
@@ -94,28 +90,28 @@ public class Player extends Entity {
         if (position.y <= 0) {
           break;
         }
-        super.translate(0, -1 * stepSize);
+        super.translate(0, -1 * this.stepSize);
         break;
 
       case DOWN:
         if (position.y >= windowSize.getHeight() - size.height) {
           break;
         }
-        super.translate(0, 1 * stepSize);
+        super.translate(0, 1 * this.stepSize);
         break;
 
       case LEFT:
         if (position.x <= 0) {
           break;
         }
-        super.translate(-1 * stepSize, 0);
+        super.translate(-1 * this.stepSize, 0);
         break;
 
       case RIGHT:
         if (position.x >= windowSize.getWidth() - size.width) {
           break;
         }
-        super.translate(1 * stepSize, 0);
+        super.translate(1 * this.stepSize, 0);
         break;
 
       default:

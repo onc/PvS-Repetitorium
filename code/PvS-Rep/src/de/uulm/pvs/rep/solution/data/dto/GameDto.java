@@ -3,13 +3,15 @@ package de.uulm.pvs.rep.solution.data.dto;
 import java.sql.Timestamp;
 
 /**
- * TODO documentation.
+ * DTO (Data transport object) for games in the database. This class is a mapping to the 'games'
+ * table in the database.
  *
  * @author Christian van Onzenoodt
  *
  */
 public class GameDto implements Comparable<GameDto> {
 
+  // columns in the 'games' table
   private int id;
   private PlayerDto playerDto;
   private PresetDto presetDto;
@@ -17,7 +19,8 @@ public class GameDto implements Comparable<GameDto> {
   private Timestamp playedAt;
 
   /**
-   * TODO documentation.
+   * Creates a dto object without id and timestamp. This constructor is used to create objects for
+   * storing in the database, since ids and timestamps are set by the database.
    * 
    * @param playerDto - player of the game
    * @param score - score of the player
@@ -31,7 +34,8 @@ public class GameDto implements Comparable<GameDto> {
   }
 
   /**
-   * TODO documentation.
+   * Creates a dto object including id and timestamp. This constructor is uses when objects are
+   * loaded from the database.
    * 
    * @param id - if of the game
    * @param playerDto - player of the game

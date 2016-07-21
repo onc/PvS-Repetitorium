@@ -1,7 +1,8 @@
 package de.uulm.pvs.rep.solution.data.dto;
 
 /**
- * TODO documentation.
+ * DTO (Data transport object) for players in the database. This class is mapping to the 'players'
+ * table in the database.
  *
  * @author Christian van Onzenoodt
  *

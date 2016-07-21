@@ -11,24 +11,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TODO documentation.
+ * DAO (Data access object) for players in the database. This class uses the singleton pattern,
+ * since there is no need to have multiple instances.
  *
  * @author Christian van Onzenoodt
- *
+ * @see https://en.wikipedia.org/wiki/Singleton_pattern
  */
 public class PlayerDao {
 
-  private static PlayerDao instance;
+  // only instance of PlayerDao in the application.
+  private static PlayerDao instance = null;
 
   private static final String NAME_COLUMN_NAME = "name";
 
   /**
-   * TODO documentation.
+   * Singleton-getter for the instance.
    * 
-   * @return - only intance of the playerdao in the app
+   * @return - only instance of the {@link PlayerDao} in the app
    */
   public static PlayerDao getInstance() {
 
+    // if the instance has never been initialized, do it!
+    // The getInstance method is static, so this only happens once.
     if (instance == null) {
       instance = new PlayerDao();
     }
@@ -37,14 +41,14 @@ public class PlayerDao {
   }
 
   /**
-   * TODO documentation.
+   * Private constructor to prevent other classes from creating instances.
    */
   private PlayerDao() {
 
   }
 
   /**
-   * TODO documentation.
+   * Debug method to make the {@link DbConnector} methods accessible.
    */
   public void resetDb() {
 
@@ -53,7 +57,7 @@ public class PlayerDao {
   }
 
   /**
-   * TODO documentation.
+   * Get all players from the database.
    * 
    * @return - all players from the database
    */
@@ -83,10 +87,10 @@ public class PlayerDao {
   }
 
   /**
-   * TODO documentation.
+   * Returns a player from the database by name.
    * 
    * @param name - of the player
-   * @return - player with name
+   * @return - player with name or <code>null</code>, if the player was not found
    */
   public PlayerDto getPlayerByName(String name) {
 
@@ -121,7 +125,8 @@ public class PlayerDao {
   }
 
   /**
-   * TODO documentation. FIXME: maybe return something to check, if the player are already exists.
+   * Add a player to the database.<br>
+   * FIXME: maybe return something to check, if the player already exists.
    * 
    * @param playerDto - player to save
    */
@@ -142,7 +147,7 @@ public class PlayerDao {
   }
 
   /**
-   * TODO documentation.
+   * Removes the given player from the database.
    * 
    * @param playerDto - player to delete
    */

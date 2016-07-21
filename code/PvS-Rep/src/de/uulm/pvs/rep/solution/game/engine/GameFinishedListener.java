@@ -11,9 +11,9 @@ import de.uulm.pvs.rep.solution.data.dto.GameDto;
 public interface GameFinishedListener {
 
   /**
-   * TODO documentation.
+   * Called if the games has ended.
    * 
-   * @param game - the game
+   * @param game - the game-object including the player and his score.
    */
   public void gameFinished(GameDto game);
 }

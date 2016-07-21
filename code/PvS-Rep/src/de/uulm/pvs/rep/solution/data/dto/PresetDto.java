@@ -1,7 +1,8 @@
 package de.uulm.pvs.rep.solution.data.dto;
 
 /**
- * TODO documentation.
+ * DTO (Data transport object) for the player in the database. This class is mapping to the
+ * 'presets' table in the database.
  *
  * @author Christian van Onzenoodt
  *
@@ -13,7 +14,7 @@ public class PresetDto {
   private int monsterSpawnRate;
 
   /**
-   * TODO documentation.
+   * Create a new Dto.
    * 
    * @param name - name of the preset
    * @param obstacleSpawnRate - rate of obstacles

@@ -69,6 +69,8 @@ public class GameController
    */
   private void startGame() {
 
+    // if the user selected a player and a preset, start the game
+    // since we only enable the button if both are given
     if (preset != null && player != null) {
       gameFrame.setVisible(true);
       gameFrame.toFront();
@@ -77,14 +79,6 @@ public class GameController
 
       Thread gameThread = new Thread(game);
       gameThread.start();
-    } else {
-      // FIXME: no preset or no player, show error
-      if (preset == null) {
-        System.out.println("preset is null");
-      }
-      if (player == null) {
-        System.out.println("player is null");
-      }
     }
   }
 
@@ -116,6 +110,10 @@ public class GameController
     this.gameStateChangedListener = gameStateChangedListener;
   }
 
+  /**
+   * If the {@link Game} has ended, add the game to the database, notify the
+   * {@link SettingsController} and hide the frame.
+   */
   @Override
   public void gameFinished(GameDto game) {
     // insert the game into the database
@@ -124,6 +122,9 @@ public class GameController
     gameFrame.setVisible(false);
   }
 
+  /**
+   * If both (player and preset) are set -> enable button to start the game.
+   */
   private void checkEnableStartButton() {
     if (this.preset != null && this.player != null) {
       this.buttonWidget.enableStartGameButton(true);
@@ -132,6 +133,9 @@ public class GameController
     }
   }
 
+  /**
+   * User selected a preset. This method listens for changes in the {@link SettingsController}.
+   */
   @Override
   public void presetChanged(PresetDto preset) {
     System.out.println("[GameController] preset has changed");
@@ -139,6 +143,9 @@ public class GameController
     this.checkEnableStartButton();
   }
 
+  /**
+   * User selected a player. This method listens for changes in the {@link SettingsController}.
+   */
   @Override
   public void playerChanged(PlayerDto player) {
     System.out.println("[GameController] player has changed");

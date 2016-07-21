@@ -53,7 +53,6 @@ public class Hud implements Renderable {
   @Override
   public void update() {
     // We have to have this method because we are a renderable...
-    // FIXME: find a nicer solution. maybe optional parameters for update()
   }
 
 }
