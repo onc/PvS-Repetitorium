@@ -152,7 +152,7 @@ Note:![ActionListener](content/images/actioneventactionlisteneruml.gif)
 ###Aufgabe
 Was passiert in dieser Klasse?
 ```java
-public class SomeGUI {
+public class SomeGUI implements ActionListener {
     JTextArea inputTA;
     JButton btn;
 
@@ -222,7 +222,7 @@ mousePressed() + mouseReleased() = mouseClicked()
 
 
 
-###Frage
+###Aufgabe
 Was passier hier, wenn ein Button geklickt wird?
 ```java
 public void mouseReleased(MouseEvent e) {
