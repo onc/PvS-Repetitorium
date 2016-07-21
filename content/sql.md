@@ -2,6 +2,92 @@
 
 
 
+SQL ist der Relationalen Algebra in den Grundzügen sehr Ähnlich
+
+Alle Mengenoperationen, welche wir bei der Relationalen Algebra gesehen haben gibt es auch in SQL
+
+* Vereinigung
+* Schnitt
+* Differenz
+* Kreuzprodukt
+* Projektion
+* Selektion
+* Join
+* ...
+
+
+
+SQL ist die am weitesten verbreitete Datenbanksprache (manchmal auch Programmiersprache, obwohl nur teilweise richtig) der Welt.
+
+
+
+##SQL - From
+Gibt an aus welcher Tabelle ausgewählt wird
+
+
+
+##SQL - Select
+Wählt angegebene spalten aus einer Tabelle aus
+
+Entspricht in Relationaler Algebra dem Pi &pi;
+
+
+
+##Beispiel
+Tebelle Student
+
+|MatrNr|Name|
+|---|---|
+|26120|Fichte|
+|25403|Jonas|
+|27103|Fauler|
+
+```sql
+SELECT * FROM Student
+```
+oder
+```sql
+SELECT Name FROM Student
+```
+
+
+
+Wichtig:
+
+SQL ist nicht case sensitiv
+
+SELECT * FROM student
+
+ist also das gleiche wie
+
+select * from student
+
+Der Übersichtlichkeit halber schreiben wir hier aber sie Schlüsselwörter groß
+
+
+
+##SQL - Where
+Gibt Bedingungen an, welche Zeilen ausgewählt werden.
+
+Entspricht in Relationaler Algebra dem Sigma &sigma;
+
+
+
+##Beispiel
+Tebelle Student
+
+|MatrNr|Name|
+|---|---|
+|26120|Fichte|
+|25403|Jonas|
+|27103|Fauler|
+
+```sql
+SELECT * FROM student WHERE MartrNr > 26000
+```
+
+
+
 |Saison|Fahrerweltmeister|KonstrukteursWM|WM_Punkte|Team_Punkte|
 |---|---|---|---|---|
 |1995|Michael Schumacher|Benetton-Renault|102|137|
