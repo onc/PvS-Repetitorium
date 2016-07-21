@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created by hand! -->
+<svg xmlns:svg="http://www.w3.org/2000/svg"
+     xmlns="http://www.w3.org/2000/svg"
+     version="1.0"
+     width="220"
+     height="220">
+     
+ <rect x="25" y="25" width="40" height="40" />
+ <text x="21" y="82">Rechteck</text>
+ 
+ <circle cx="160" cy="40" r="20"/>
+ <text x="141" y="81">Kreis</text>
+ 
+ <line x1="25" y1="150" x2="80" y2="120" stroke="#000" />
+ <text x="35" y="192">Linie</text>
+ 
+ <polyline points="150,120 170,150 170,180 180,130" stroke="#000" />
+ <text x="141" y="192">Polygon</text>
+ 
+</svg> 
+

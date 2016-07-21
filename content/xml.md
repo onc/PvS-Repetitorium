@@ -245,3 +245,28 @@ Schreibe eine XSD für folgende XML
   * DTD ist valides XML und kann selbst wieder überprüft werden.
   * In DTD können untere und obere Grenzen angegeben werden.
   * In XSD können Aufzählungen durchgeführt werden.
+
+
+
+##SVG
+Die **scalable vector graphics** ist die empfohlene Spezifikation zur beschreibung von 2D Vektorgrafiken.
+
+SVG basiert auf XML und ist daher für Mashinen und Menschen gut lesbar.
+
+
+
+### SVG - Elemente
+![SVG-Grundelemente](/content/images/SVG-Grundelemente.svg)
+
+|||
+|---|---|
+|< rect x="25" y="25" width="40" height="40" />|< circle cx="160" cy="40" r="20" />|
+|< line x1="25" y1="150" x2="80" y2="120" />|< polyline points="150,120 170,150 170,180 180,130" />|
+
+
+
+Mit den richtigen Tools könnten solche Bilder entstehen.
+![SVG-Grundelemente](/content/images/eleven_below_single.svg)
+
+[© Copyright 2008 Brian Lukis](http://www1.plurib.us/1shot/2008/eleven_below/)
+
