@@ -166,3 +166,56 @@ Gib die Algebra-Ausdrücke für die folgenden Anfragen an:
 ((Bestellung &#10781;<sub style="font-size:20px;">{Bestellung.LiefNr = Lieferant.LiefNr}</sub> Lieferant) &#10781;<sub style="font-size:20px;">{Bestellung.KdNr = Kunde.KdNr}</sub> Kunde)))
 6. &pi;<sub style="font-size:20px;">{Name}</sub>(Teile &#10781;<sub style="font-size:20px;">{Teile.TNR = Bestellung.TNR}</sub> (Bestellung &#10781;<sub style="font-size:20px;">{Bestellung.LiefNr = Lieferant.LiefNr ^ Bestellung.KdNr = Kunde.KdNr}</sub>
 (Lieferant &#10781;<sub style="font-size:20px;">{LiefStadt = KdStadt}</sub> Kunde)))
+
+
+
+# Normalformen & Anomalien
+Die Normalisierung eines relationalen Datenbankschemas hat den Zweck, Redundanzen zu verringern und dadurch verursachte Anomalien zu verhindern, um so die Aktualisierung einer Datenbank zu vereinfachen sowie die Konsistenz der Daten zu gewährleisten.
+
+
+
+Zu diesem Zweck gibt es die Normalformen, welche erreicht werden, wenn bestimmte Normalisierungsregeln eingehalten werden.
+
+
+
+##Beispiel
+<div style="font-size:20px;">
+
+|MatNr|Name|Studiengang|Semester|Vorlesung|Uhrzeit|
+|---|---|---|---|---|
+|42817|Mustermann, Julius|Medizin|14|Molekular Medizin, Anatomie 2, Einführung in die Informatik|18, 14, 10|
+|96514|Hansen, Stephanie|Informatik|1|Einführung in die Informatik, Lineare Algebra|10, 12|
+|79551|Fauler, Johanna|Wirtschaftsmathematik|4|Lineare DGLs 2, Einführung in die Informatik|14, 10|
+|83838|Lahmann, Tobias|Medieninformatik|5|Programmierung von Systemen|10|
+
+</div>
+Diese Relation ist nicht in der ersten Normalform aus folgenden Gründen:
+* Name besteht aus Vor- und Nachname
+* Vorlesung besteht aus einer Menge an Vorlesungen
+* Uhrzeit besteht aus einer Menge von Uhrzeiten
+
+
+
+Um in die erste Normalform zu gelangen müssen die nicht atomaren Attribute umgewandelt werden. Dies kann durch Einfügen zusätzlicher Zeilen, Spalten oder neuer Relationen erfolgen.
+
+
+
+##Beispiel
+<div style="font-size:20px;">
+
+|MatNr|Name|Vorname|Studiengang|Semester|Vorlesung|Uhrzeit|
+|---|---|---|---|---|---|
+|42817|Mustermann|Julius|Medizin|14|Molekular Medizin|18|
+|42817|Mustermann|Julius|Medizin|14|Anatomie 2|14|
+|42817|Mustermann|Julius|Medizin|14|Einführung in die Informatik|10|
+|96514|Hansen|Stephanie|Informatik|1|Einführung in die Informatik|10|
+|96514|Hansen|Stephanie|Informatik|1|Lineare Algebra|10|
+|79551|Fauler|Johanna|Wirtschaftsmathematik|4|Lineare DGLs 2|14|
+|79551|Fauler|Johanna|Wirtschaftsmathematik|4|Einführung in die Informatik|14|
+|83838|Lahmann|Tobias|Medieninformatik|5|Programmierung von Systemen|10|
+
+</div>
+Diese Relation ist jetzt in der ersten jedoch nicht in der zweiten Normalform aus folgenden Gründen:
+* Name besteht aus Vor- und Nachname
+* Vorlesung besteht aus einer Menge an Vorlesungen
+* Uhrzeit besteht aus einer Menge von Uhrzeiten
