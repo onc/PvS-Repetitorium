@@ -98,6 +98,38 @@ Ein Beispiel:
 ##Aufgabe
 Gegeben seien die folgenden Relationenschemata:
 
+|Mensa|||
+|---|---|---|
+|MensaID|GerichtID|Sitzplätze|
+
+|Gericht||||
+|---|---|---|---|
+|GerichtID|Name|Preis|Menge|
+
+|Zutaten|||
+|---|---|---|
+|ZutatID|GerichtID|Name|
+
+--------
+
+Gib die Algebra-Ausdrücke für die folgenden Anfragen an:
+1. Gib alle Namen und Preise aller Gerichte aus
+4. Gib die Preise der Gerichte aus, die in der Mensa mit 530 Sitzplätzen angeboten werden.
+3. Gib die Sitzplätze aller Mensen aus, die mit Fisch kochen
+2. Gib alle Zutaten aus, die für das Gericht *Gut & Günstig* bestellt werden müssen, aber nicht für das Gericht *Lecker & Fein*
+
+
+##Lösungsvorschlag
+1. &pi;<sub style="font-size:20px;">{Name,Preis}</sub>Gericht
+2. &pi;<sub style="font-size:20px;">{Preis}</sub>Gericht &#10781;<sub style="font-size:20px;">{GerichtID}</sub>(&sigma;<sub style="font-size:20px;">{Sitzplätze = 530}</sub>Mensa)
+3. &pi;<sub style="font-size:20px;">{Sitzplätze}</sub>Mensa &#10781;<sub style="font-size:20px;">{GerichtID}</sub> (Gericht &#10781;<sub style="font-size:20px;">{ZutatID}</sub> (&sigma;<sub style="font-size:20px;">{Zutaten.Name = Fisch}</sub>Zutaten))
+4. &pi;<sub style="font-size:20px;">{Name}</sub>Zutaten &#10781;<sub style="font-size:20px;">{GerichtID}</sub> (&sigma;<sub style="font-size:20px;">{Gericht.Name = Gut & Günstig}</sub>Gericht) - &pi;<sub style="font-size:20px;">{Name}</sub>Zutaten &#10781;<sub style="font-size:20px;">{GerichtID}</sub> (&sigma;<sub style="font-size:20px;">{Gericht.Name = Lecker & Fein}</sub>Gericht)
+
+
+
+##Aufgabe
+Gegeben seien die folgenden Relationenschemata:
+
 |Teile||||
 |---|---|---|---|
 |TNR|Name|Preis|Bestand|
