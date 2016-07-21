@@ -19,9 +19,7 @@ have a [link](http://hakim.se).
 
 
 
-```java
-class Test() {
-
+<pre><code class="line-numbers"> class Test() {
     /**
      * comment
      */
@@ -29,10 +27,7 @@ class Test() {
         // bla
         System.out.println("bla");
     }
-}
-```
-
-
+} </code></pre>
 
 | Bla  | blub  | noch was  |
 | ---- | :---: | --------: |
