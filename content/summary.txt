@@ -1,6 +1,8 @@
 Wichtigste Themen aus Altklausuren 
 
-1. Objektorientierung (tobias)
+# Dienstag
+
+1. Objektorientierung (tobias) (2h)
   * (Abstrakte)Klasse und Interfaces
   * Information Hiding und Vererbung
   * Overriding, Overloading
@@ -10,40 +12,45 @@ Wichtigste Themen aus Altklausuren
   * println von Objekten
   * UML Klassendiagramm
 
-2. Swing (christian)
+2. Swing (christian) (1h)
   * Skizze -> Code
   * Code -> Skizze
   * Swing Komponenten
 
-3. Listener und Observer (tobias)
+3. Listener und Observer (tobias) (1,5h)
   * ActionListener
   * MouseListener
   * MouseMotionListener
   * Observer-Pattern (Push-, Pull- Variante)
 
-4. JavaIO (christian)
+4. JavaIO (christian) (1h)
   * Streams
   * Serialisierung
   * Reader
 
-5. XML (tobias)
+# Mittwoch
+
+5. XML (tobias) (1,5h)
   * dtd
   * xsd
+  * xpath
 
-6. ER-Diagramme (christian)
+6. ER-Diagramme (christian) (2h)
   * (modifizierte) Chen-Notation
   * (Min:max)-Notation
   * UML-Notation
   * Zustandsautomat (2'2015)
 
-7. DB-Entwurf und SQL (tobias)
+7. DB-Entwurf und SQL (tobias) (2h) (wenns nicht reicht, dann am donnerstag fertig)
   * Relationale Algebra
   * Normalformen
   * SQL
   * JDBC
   * Löschanomalie
 
-8. Threads (christian)
+# Donnerstag
+
+8. Threads (christian) (1,5h)
   * Prozess, Thread
   * Parallelität vs. Nebenläufigkeit
   * Ausführungsreihenfolge
