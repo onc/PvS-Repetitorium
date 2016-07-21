@@ -141,16 +141,6 @@ public void consume()
 
 
 
-###Unterschiedliche Listener
-|Listener|Ereignisse|
-|---|---|
-|ActionListener|Der Benutzer aktiviert eine Schaltfläche bzw. ein Menü oder drückt [ENTER] auf einem Textfeld.|
-|WindowListener|Der Benutzer schließt ein Fenster oder möchte es verkleinern.|
-|MouseListener|Der Benutzer drückt auf eine Maustaste.|
-|MouseMotionListener|Der Benutzer bewegt die Maus.|
-
-
-
 ###ActionListener
 |Rückgabewert|Methode|
 |---|---|
