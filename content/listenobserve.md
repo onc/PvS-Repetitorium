@@ -349,3 +349,22 @@ Nachteil:
 * Viele Fallunterscheidungen
 
 ListenerKlasse kann auch die eigene Klasse sein
+
+
+
+###Aufgabe
+1. Welcher Listener könnte verwendet werden um auf Änderungen des Fensters zu reagieren?
+2. Welcher Listener könnte verwendet werden um Text einer JTextArea zu auf Validität überprüfen? Begründe.
+3. Warum kann der MouseListener auch durch den MouseAdapter ersetzt werden?
+4. Wie kann ausgeschlossen werden, dass ein Mouse Event bei einem Doppelklick bestimmte Aktionen doppelt ausführt?
+
+
+###Antwort
+1. Welcher Listener könnte verwendet werden um auf Änderungen des Fensters zu reagieren?
+  * Der WindowListener
+2. Welcher Listener könnte verwendet werden um Text einer JTextArea zu auf Validität überprüfen? Begründe.
+  * Der FocusListener. Wenn der Benutzer den Focus von der JTextArea auf eine andere Komponente verlegt wird die Überprüfung durchgeführt. [focusLost()]
+3. Warum kann der MouseListener auch durch den MouseAdapter ersetzt werden?
+  * Der MouseAdapter vereinigt den MouseListener, MouseMotionListener und MouseWheelListener
+4. Wie kann ausgeschlossen werden, dass ein Mouse Event bei einem Doppelklick bestimmte Aktionen doppelt ausführt?
+  * MouseEvent bietet die Methode getClickCount()
