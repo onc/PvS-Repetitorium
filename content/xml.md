@@ -103,7 +103,7 @@ Vorgabewerte für Attribute
 
 
 
-###Beispiel
+###Aufgabe
 Finde die Fehler (3 Stück)
 ```xml
 <?xml version="1.0"?> 
@@ -124,7 +124,7 @@ Finde die Fehler (3 Stück)
 Note: Lösung unten
 
 
-###Beispiel
+###Aufgabe
 ```xml
 <?xml version="1.0"?> 
 <order orderid="889923"> <!-- Attribute in Anführungszeichen (") oder 
@@ -147,7 +147,7 @@ Note: Lösung unten
 
 
 
-###Beispiel
+###Aufgabe
 Schreibe eine DTD für folgende XML
 ```xml
 <?xml version="1.0"?> 
@@ -185,7 +185,7 @@ Schreibe eine DTD für folgende XML
 
 
 
-###Beispiel
+###Aufgabe
 Schreibe eine XSD für folgende XML
 ```xml
 <?xml version="1.0"?> 
@@ -228,3 +228,18 @@ Schreibe eine XSD für folgende XML
   </xs:element>
 </xs:schema>
 ```
+
+###Aufgabe
+1. Nenne zwei Unterschiede zwischen XML und HTML.
+2. Nenne einen Unterschied Zwischen DTD und XSD.
+
+
+###Aufgabe
+1. Nenne zwei Unterschiede zwischen XML und HTML.
+  * XML ist ein Datenaustauschformat für Computer, HTML ist zur Präsentation von Daten für Menschen gedacht.
+  * In XML kann man neue Tags definieren, in HTML nicht.
+  * HTML ist nicht so rigoros wie XML (z.B. muss man nicht alle Tags schließen (z.B. <br>)).
+2. Nenne einen Unterschied zwischen DTD und XSD.
+  * DTD ist valides XML und kann selbst wieder überprüft werden.
+  * In DTD können untere und obere Grenzen angegeben werden.
+  * In XSD können Aufzählungen durchgeführt werden.
