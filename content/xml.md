@@ -270,3 +270,113 @@ Mit den richtigen Tools könnten solche Bilder entstehen.
 
 [© Copyright 2008 Brian Lukis](http://www1.plurib.us/1shot/2008/eleven_below/)
 
+
+
+Zur veränderung von XML, HTML, SVG etc. wurde vom W3C die XPath Syntax eingeführt.
+
+
+
+##XPath
+XPath nutzt Reguläre Ausdrücke um Knoten (nodes) in XML Dokumenten zu selektieren.
+
+
+
+###XPath Selektoren
+Selektoren werden verwendet um bestimmte Knoten, oder Attribute auszuwählen
+
+|Ausdruck|Beschreibung|
+|---|---|
+|nodename|Wählt alle Knoten mit dem Namen "nodename" aus|
+|/|Wählt den Wurzelknoten aus|
+|//|Wählt Knoten passend zum Selektor aus, unabhänging von ihrer Position|
+|.|Wählt den gegenwärtigen Knoten aus|
+|..|Wählt den Vater des gegenwärtigen Knotens aus|
+|@|Wählt Attribute|
+
+
+###XPath Selektoren
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore>
+    <book>
+        <title lang="en">Harry Potter</title>
+        <price>29.99</price>
+    </book>
+    <book>
+        <title lang="en">Learning XML</title>
+        <price>39.95</price>
+    </book>
+</bookstore>
+```
+|Ausdruck|Resultat|
+|---|---|
+|bookstore|Wählt alle Knoten mit dem Namen "bookstore" aus|
+|/bookstore|Wählt den Wurzelknoten bookstore aus|
+|bookstore/book|Wählt alle Book Knoten, die Kinder von Bookstore sind, aus|
+|//book|Wählt alle Book Knoten aus|
+|bookstore//book|Wählt alle Book Knoten (die Kinder von bookstore sind) aus, unabhängig von ihrer Position|
+|//@lang|Wählt alle *lang* Attribute aus|
+
+
+
+###XPath Prädikate
+Prädikate werden benutzt um bestimmte Knoten, oder Knoten die einen bestimmten Wert haben, zu finden
+
+Sie werden immer in eckigen Klammern geschrieben
+
+
+###XPath Prädikate
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore>
+    <book>
+        <title lang="en">Harry Potter</title>
+        <price>29.99</price>
+    </book>
+    <book>
+        <title lang="en">Learning XML</title>
+        <price>39.95</price>
+    </book>
+</bookstore>
+```
+|Ausdruck|Resultat|
+|---|---|
+|/bookstore/book[1]|Wählt den ersten book Knoten, welcher Kind von bookstore ist, aus|
+|/bookstore/book[last()]|Wählt das letzte book Kind aus bookstore aus|
+|/bookstore/book[last()-1]|Wählt das vorletzte book Kind aus bookstore aus|
+|//title[@lang]|Wählt alle Titel Knoten aus die ein Attribut *lang* haben|
+|/bookstore/book[price>35.00]|Wählt alle Book Knoten aus deren Preis über 35.00|
+|/bookstore/book[price>35.00]/title|Wählt alle title Elemente aus Book Elementen innerhalb des Bookstores aus mit einem Preis von über 35.00|
+
+
+
+###XPath Wildcards
+Wildcards werden benutzt um unbekannte Knoten zu selektieren
+
+|Ausdruck|Beschreibung|
+|---|---|
+|*|Wählt alle Knoten mit dem Namen "nodename" aus|
+|@*|Wählt den Wurzelknoten aus|
+|node()|Wählt Knoten passend zum Selektor aus, unabhänging von ihrer Position|
+
+
+###XPath Wildcards
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore>
+    <book>
+        <title lang="en">Harry Potter</title>
+        <price>29.99</price>
+    </book>
+    <book>
+        <title lang="en">Learning XML</title>
+        <price>39.95</price>
+    </book>
+</bookstore>
+```
+|Ausdruck|Resultat|
+|---|---|
+|/bookstore/*|Wählt alle Kinder des bookstore Knotens aus|
+|//*|Wählt alle Elemente des Dokuments|
+|/title[@*]|Wählt alle Titel elemente aus die mindestens ein Attribut haben|
+
