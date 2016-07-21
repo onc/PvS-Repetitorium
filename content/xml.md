@@ -409,6 +409,59 @@ Sie werden immer in eckigen Klammern geschrieben
 
 
 
+###Aufgabe
+```xml
+<?xml version="1.0"?> 
+<order orderid="889923">
+  <orderperson>John Doe, Hauptstraße 7, Ulm</orderperson>
+  <item>
+    <title>Herr der Ringe Trilogie</title>
+    <note>Special Editon</note>
+    <quantity>1</quantity>
+    <price>50.90</price>
+  </item>
+  <item>
+    <title>Star Wars - BluRay</title>
+    <quantity>1</quantity>
+    <price>19.90</price>
+  </item>
+</order>
+```
+1. Wähle das zweite item der order aus
+2. Wähle das drittletzte item der order aus
+3. Wähle alle items aus, dessen Wert über 20 liegt
+
+
+###Aufgabe
+```xml
+<?xml version="1.0"?> 
+<order orderid="889923">
+  <orderperson>John Doe, Hauptstraße 7, Ulm</orderperson>
+  <item>
+    <title>Herr der Ringe Trilogie</title>
+    <note>Special Editon</note>
+    <quantity>1</quantity>
+    <price>50.90</price>
+  </item>
+  <item>
+    <title>Star Wars - BluRay</title>
+    <quantity>1</quantity>
+    <price>19.90</price>
+  </item>
+</order>
+```
+1. 
+  * //item[2]
+  * /order/item[2]
+2. 
+  * //item[last()-2]
+  * /order/item[last()-2]
+3. 
+  * //item[price>20.00]
+  * /order/item[price>20.00]
+
+
+
 ###XPath Wildcards
 Wildcards werden benutzt um unbekannte Knoten zu selektieren
 
