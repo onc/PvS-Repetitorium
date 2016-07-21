@@ -229,6 +229,8 @@ Schreibe eine XSD für folgende XML
 </xs:schema>
 ```
 
+
+
 ###Aufgabe
 1. Nenne zwei Unterschiede zwischen XML und HTML.
 2. Nenne einen Unterschied Zwischen DTD und XSD.
@@ -238,7 +240,7 @@ Schreibe eine XSD für folgende XML
 1. Nenne zwei Unterschiede zwischen XML und HTML.
   * XML ist ein Datenaustauschformat für Computer, HTML ist zur Präsentation von Daten für Menschen gedacht.
   * In XML kann man neue Tags definieren, in HTML nicht.
-  * HTML ist nicht so rigoros wie XML (z.B. muss man nicht alle Tags schließen (z.B. <br>)).
+  * HTML ist nicht so rigoros wie XML (z.B. muss man nicht alle Tags schließen (z.B. < br>)).
 2. Nenne einen Unterschied zwischen DTD und XSD.
   * DTD ist valides XML und kann selbst wieder überprüft werden.
   * In DTD können untere und obere Grenzen angegeben werden.
