@@ -142,9 +142,9 @@ public void consume()
 
 
 ###ActionListener
-|Rückgabewert|Methode|
-|---|---|
-|void|actionPerformed(ActionEvent e)|
+|Rückgabewert|Methode|Aufruf|
+|---|---|---|
+|void|actionPerformed(ActionEvent e)|Wenn Aktionen auftreten|
 Note:![ActionListener](content/images/actioneventactionlisteneruml.gif)
 
 
@@ -184,13 +184,13 @@ public class SomeGUI {
 
 
 ###MouseListener
-|Rückgabewert|Methode|
-|---|---|
-|void|mouseClicked(MouseEvent e)|
-|void|mouseEntered(MouseEvent e)|
-|void|mouseExited(MouseEvent e)|
-|void|mousePressed(MouseEvent e)|
-|void|mouseReleased(MouseEvent e)|
+|Rückgabewert|Methode|Aufruf|
+|---|---|---|
+|void|mouseClicked(MouseEvent e)|Wenn Mausbutton gedrückt und losgelassen|
+|void|mouseEntered(MouseEvent e)|Wenn Maus eine Komponente betritt|
+|void|mouseExited(MouseEvent e)|Wenn Maus eine Komponente verlässt|
+|void|mousePressed(MouseEvent e)|Wenn Mausbutton gedrückt|
+|void|mouseReleased(MouseEvent e)|Wenn Mausbutton losgelassen|
 
 
 
