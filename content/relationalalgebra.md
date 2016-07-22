@@ -224,3 +224,63 @@ Diese Relation ist jetzt in der ersten jedoch nicht in der zweiten Normalform au
 * Name besteht aus Vor- und Nachname
 * Vorlesung besteht aus einer Menge an Vorlesungen
 * Uhrzeit besteht aus einer Menge von Uhrzeiten
+
+
+
+##Anomalien
+
+
+
+###Insertion Anomalie
+Beim Einfügen von Daten in eine Datenbank spricht man von einer Einfüge-Anomalie, wenn ein neues Tupel in die Relation nicht oder nur schwierig eingetragen werden kann, weil nicht zu allen Attributen des Primärschlüssels Werte vorliegen.
+
+
+
+###Beispiel
+|Kennzeichen|Hersteller|Vorname|Nachname|
+|---|---|---|---|
+|K-KJ 321|VW|Peter|Schmidt|
+|H-CH 333|Audi|Fritz|Schneider|
+|B-MD 321|BMW|Max|Maier|
+|B-MD 321|BMW|Tom|Lehmann|
+|A-BC 123|Škoda| ?| ?|
+|A-BC 123|Škoda| ?| ?|
+
+In dieser Tabelle wird für Fahrzeuge der jeweilige Fahrer angegeben. Die Attribute Kennzeichen und Nachname seien Identifikationsschlüssel. Hier treten Einfügeanomalien auf, wenn ein neues Fahrzeug eingefügt werden soll, aber noch kein Fahrer bestimmt wurde.
+
+
+
+###Update Anomalie
+Beim Ändern von Daten in einer Datenbank spricht man von einer Änderungs-Anomalie, wenn nicht alle (redundanten) Vorkommen eines Attributwert zugleich geändert werden. Dieses führt zu inkonsistenten Daten.
+
+
+
+###Beispiel
+|Kennzeichen|Hersteller|Farbe|Vorname|Nachname|
+|---|---|---|---|
+|K-KJ 321|VW|Blau|Peter|Schmidt|
+|H-CH 333|Opel|Rot|Fritz|Schneider|
+|B-MD 321|BMW|Schwarz|Max|Maier|
+|B-MM 473|Peugeot|Grün|Max|Maier|
+
+Es wird in dieser Tabelle davon ausgegangen, dass die Erwähnungen von „Max Maier“ für ein und dieselbe Person gelten. Wird der Name „Maier“ in „Meier“ geändert, muss dieses an zwei Stellen geschehen. Geschieht dieses nicht, spricht man von einer Update-Anomalie.
+
+
+
+###Delete Anomalie
+Eine Lösch-Anomalie entsteht, wenn durch das Löschen eines Datensatzes mehr Informationen als erwünscht verloren gehen. Sie entsteht, wenn ein Datensatz mehrere unabhängige Informationen enthält. Durch das Löschen der einen Information wird dann auch die andere gelöscht, obwohl diese noch benötigt wird.
+
+
+
+###Beispiel
+|Kennzeichen|Hersteller|Farbe|Vorname|Nachname|
+|---|---|---|---|
+|K-KJ 321|VW|Blau|Peter|Schmidt|
+|H-CH 333|Opel|Rot|Fritz|Schneider|
+|B-MD 321|BMW|Schwarz|Max|Maier|
+
+Hier kann das Fahrzeug B-MD 321 nicht gelöscht werden, ohne den Fahrer ebenfalls zu löschen.
+
+
+
+Alle Anomalien können beseitigt werden, wenn die Relationen in 3 Normalform vorliegt.
