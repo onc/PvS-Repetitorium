@@ -82,6 +82,7 @@ Ein Beispiel:
 Note: Ergebnis unten
 
 
+
 Ein Beispiel:
 
 * Zwei Alternativen
@@ -113,13 +114,28 @@ Gegeben seien die folgenden Relationenschemata:
 --------
 
 Gib die Algebra-Ausdrücke für die folgenden Anfragen an:
-1. Gib alle Namen und Preise aller Gerichte aus
+1. Gib die Namen und Preise aller Gerichte aus
 4. Gib die Preise der Gerichte aus, die in der Mensa mit 530 Sitzplätzen angeboten werden.
 3. Gib die Sitzplätze aller Mensen aus, die mit Fisch kochen
 2. Gib alle Zutaten aus, die für das Gericht *Gut & Günstig* bestellt werden müssen, aber nicht für das Gericht *Lecker & Fein*
 
 
+
 ##Lösungsvorschlag
+|Mensa|||
+|---|---|---|
+|MensaID|GerichtID|Sitzplätze|
+
+|Gericht||||
+|---|---|---|---|
+|GerichtID|Name|Preis|Menge|
+
+|Zutaten|||
+|---|---|---|
+|ZutatID|GerichtID|Name|
+
+--------
+
 1. &pi;<sub style="font-size:20px;">{Name,Preis}</sub>Gericht
 2. &pi;<sub style="font-size:20px;">{Preis}</sub>Gericht &#10781;<sub style="font-size:20px;">{GerichtID}</sub>(&sigma;<sub style="font-size:20px;">{Sitzplätze = 530}</sub>Mensa)
 3. &pi;<sub style="font-size:20px;">{Sitzplätze}</sub>Mensa &#10781;<sub style="font-size:20px;">{GerichtID}</sub> (Gericht &#10781;<sub style="font-size:20px;">{ZutatID}</sub> (&sigma;<sub style="font-size:20px;">{Zutaten.Name = Fisch}</sub>Zutaten))
@@ -157,7 +173,26 @@ Gib die Algebra-Ausdrücke für die folgenden Anfragen an:
 6. Gib die Namen aller Teile, bei denen der Kunde und Lieferant in der gleichen Stadt sind.
 
 
+
 ##Lösungsvorschlag
+|Teile||||
+|---|---|---|---|
+|TNR|Name|Preis|Bestand|
+
+|Lieferant|||
+|---|---|---|
+|LiefNr|LiefName|LiefStadt|
+
+|Bestellung|||
+|---|---|---|
+|TNR|LiefNr|KdNr|
+
+|Kunde|||
+|---|---|---|
+|KdNR|KdName|KdStadt|
+
+--------
+
 1. &pi;<sub style="font-size:20px;">{Name}</sub>(&sigma;<sub style="font-size:20px;">{Bestand<=5}</sub>Teile)
 2. &pi;<sub style="font-size:20px;">{LiefStadt}</sub>Lieferant &#x222a; &pi;<sub style="font-size:20px;">{KdStadt}</sub>(Bestellung &#10781;<sub style="font-size:20px;">{Bestellung.KdNr = Kunde.KdNr}</sub> Kunde)
 3. &pi;<sub style="font-size:20px;">{KdName}</sub>Kunde − &pi;<sub style="font-size:20px;">{LiefName}</sub>Lieferant
@@ -186,20 +221,21 @@ Zu diesem Zweck gibt es die Normalformen, welche erreicht werden, wenn bestimmte
 ##Beispiel
 <div style="font-size:20px;">
 
-|MatNr|Name|Studiengang|Semester|Vorlesung|Uhrzeit|
-|---|---|---|---|---|
-|42817|Mustermann, Julius|Medizin|14|Molekular Medizin, Anatomie 2, Einführung in die Informatik|18, 14, 10|
-|96514|Hansen, Stephanie|Informatik|1|Einführung in die Informatik, Lineare Algebra|10, 12|
-|79551|Fauler, Johanna|Wirtschaftsmathematik|4|Lineare DGLs 2, Einführung in die Informatik|14, 10|
-|83838|Lahmann, Tobias|Medieninformatik|5|Programmierung von Systemen|10|
+|Kennzeichen|Hersteller|Motor|Namen|
+|---|---|---|---|
+|K-KJ 321|VW|VW|Schmidt, Peter|
+|H-CH 333|VW|VW|Schneider, Fritz|
+|B-MD 321|BMW|BMW|Maier, Max; Lehmann, Tom|
+|A-BC 123|Mini|BMW|Fritz, Fuchs; Lustig, Peter|
 
 </div>
-Diese Relation ist nicht in der ersten Normalform aus folgenden Gründen:
-* Name besteht aus Vor- und Nachname
-* Vorlesung besteht aus einer Menge an Vorlesungen
-* Uhrzeit besteht aus einer Menge von Uhrzeiten
+Primärschlüssel(Kennzeichen)
+
+Diese Relation ist nicht in der ersten Normalform, da das Name Attribut aus Vor- und Nachname Besteht
 
 
+
+![Normalisierung](content/images/Vorgehen_3NF.png)
 
 Um in die erste Normalform zu gelangen müssen die nicht atomaren Attribute umgewandelt werden. Dies kann durch Einfügen zusätzlicher Zeilen, Spalten oder neuer Relationen erfolgen.
 
@@ -208,22 +244,138 @@ Um in die erste Normalform zu gelangen müssen die nicht atomaren Attribute umge
 ##Beispiel
 <div style="font-size:20px;">
 
-|MatNr|Name|Vorname|Studiengang|Semester|Vorlesung|Uhrzeit|
-|---|---|---|---|---|---|
-|42817|Mustermann|Julius|Medizin|14|Molekular Medizin|18|
-|42817|Mustermann|Julius|Medizin|14|Anatomie 2|14|
-|42817|Mustermann|Julius|Medizin|14|Einführung in die Informatik|10|
-|96514|Hansen|Stephanie|Informatik|1|Einführung in die Informatik|10|
-|96514|Hansen|Stephanie|Informatik|1|Lineare Algebra|10|
-|79551|Fauler|Johanna|Wirtschaftsmathematik|4|Lineare DGLs 2|14|
-|79551|Fauler|Johanna|Wirtschaftsmathematik|4|Einführung in die Informatik|14|
-|83838|Lahmann|Tobias|Medieninformatik|5|Programmierung von Systemen|10|
+|Kennzeichen|Hersteller|Motor|FahrerNr|Name|Vorname|
+|---|---|---|---|---|
+|K-KJ 321|VW|VW|001|Schmidt|Peter|
+|H-CH 333|VW|VW|002|Schneider|Fritz|
+|B-MD 321|BMW|BMW|003|Maier|Max|
+|B-MD 321|BMW|BMW|004|Lehmann|Tom|
+|A-BC 123|Mini|BMW|005|Fritz|Fuchs|
+|A-BC 123|Mini|BMW|006|Lustig|Peter|
 
 </div>
-Diese Relation ist jetzt in der ersten jedoch nicht in der zweiten Normalform aus folgenden Gründen:
-* Name besteht aus Vor- und Nachname
-* Vorlesung besteht aus einer Menge an Vorlesungen
-* Uhrzeit besteht aus einer Menge von Uhrzeiten
+Primärschlüssel(Kennzeichen, FahrerNr)
+
+Diese Relation ist jetzt in der ersten jedoch nicht in der zweiten Normalform, da der Primärschlüssel aus mehreren Teilschlüsseln besteht und die Farher von der FahrerNr abhängen, die Hersteller der Wagen jedoch nur vom Kennzeichen.
+
+
+
+![Normalisierung](content/images/Vorgehen_3NF.png)
+
+Um in die zweite Notmalform zu gelangen müssen wir die Teilschlüssel inklusive der abhängigen Attribute in eine neue Relation auslagern.
+
+
+
+##Beispiel
+<div style="font-size:20px;">
+
+|Kennzeichen|Hersteller|Motor|FahrerNr|
+|---|---|---|---|
+|K-KJ 321|VW|VW|001|
+|H-CH 333|VW|VW|002|
+|B-MD 321|BMW|BMW|003|
+|B-MD 321|BMW|BMW|004|
+|A-BC 123|Mini|BMW|005|
+|A-BC 123|Mini|BMW|006|
+
+|FahrerNr|Name|Vorname|
+|---|---|---|
+|001|Schmidt|Peter|
+|002|Schneider|Fritz|
+|003|Maier|Max|
+|004|Lehmann|Tom|
+|005|Fritz|Fuchs|
+|006|Lustig|Peter|
+
+</div>
+Primärschlüssel(Kennzeichen)
+
+Primärschlüssel(FahrerNr)
+
+Diese Relation ist jetzt in der zweiten jedoch nicht in der dritten Normalform, da das Nichtschlüsselattribut Motor funktional vom Hersteller des Wagens abhängig ist.
+
+
+
+![Normalisierung](content/images/Vorgehen_3NF.png)
+
+Um in die dritte Notmalform zu gelangen müssen wir alle abhängigen Attribute in eine neue Relation auslagern.
+
+
+
+##Beispiel
+<div style="font-size:20px;">
+
+|Kennzeichen|Hersteller|FahrerNr|
+|---|---|---|
+|K-KJ 321|VW|001|
+|H-CH 333|VW|002|
+|B-MD 321|BMW|003|
+|B-MD 321|BMW|004|
+|A-BC 123|Mini|005|
+|A-BC 123|Mini|006|
+
+|Hersteller|Motor|
+|---|---|
+|VW|VW|
+|BMW|BMW|
+|Mini|BMW|
+
+|FahrerNr|Name|Vorname|
+|---|---|---|
+|001|Schmidt|Peter|
+|002|Schneider|Fritz|
+|003|Maier|Max|
+|004|Lehmann|Tom|
+|005|Fritz|Fuchs|
+|006|Lustig|Peter|
+
+</div>
+Primärschlüssel(Kennzeichen)
+
+Primärschlüssel(FahrerNr)
+
+Diese Relation ist jetzt in der dritten Normalform
+
+**Letzte Frage:**
+Warum müssen wir hier die Hersteller nicht noch von den Fahrern trennen?
+
+
+
+##Beispiel
+<div style="font-size:20px;">
+
+|Kennzeichen|Hersteller|FahrerNr|
+|---|---|---|
+|K-KJ 321|VW|001|
+|H-CH 333|VW|002|
+|B-MD 321|BMW|003|
+|B-MD 321|BMW|004|
+|A-BC 123|Mini|005|
+|A-BC 123|Mini|006|
+
+|Hersteller|Motor|
+|---|---|
+|VW|VW|
+|BMW|BMW|
+|Mini|BMW|
+
+|FahrerNr|Name|Vorname|
+|---|---|---|
+|001|Schmidt|Peter|
+|002|Schneider|Fritz|
+|003|Maier|Max|
+|004|Lehmann|Tom|
+|005|Fritz|Fuchs|
+|006|Lustig|Peter|
+
+</div>
+Primärschlüssel(Kennzeichen)
+
+Primärschlüssel(FahrerNr)
+
+Diese Relation ist jetzt in der dritten Normalform
+
+**Antwort:** Weil die Hersteller der Wagen und die Fahrer abhängig sind von den Kennzeichen und untereinander keine Abhängigkeit besteht.
 
 
 
