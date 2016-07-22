@@ -176,6 +176,7 @@ public class SomeGUI implements ActionListener {
 ```
 
 
+
 ###Antwort
 1. Fenster wird gezeichnet & dargestellt
 2. Button wird geklickt
@@ -246,6 +247,7 @@ public void mouseClicked(MouseEvent e) {
 ```
 
 
+
 ###Antwort
 mousePressed() und MouseReleased() werden aufgerufen, mouseClicked() aber nicht.
 
@@ -298,7 +300,7 @@ Vorteil:
 * Übersichtlich
 Nachteil: 
 * Redundanter Code, wenn gleiche Prozeduren in mehreren Listenern ausgeführt werden sollen.
-Note: runter
+
 
 
 Listener Klasse - Objektvergleich
@@ -323,7 +325,7 @@ Nachteil:
 * Swing Komponenten müssen in Klassenvariablen zugänglich gemacht werden.
 
 ListenerKlasse kann auch die eigene Klasse sein
-Note: runter
+
 
 
 Listener Klasse - Commands
@@ -357,6 +359,7 @@ ListenerKlasse kann auch die eigene Klasse sein
 2. Welcher Listener könnte verwendet werden um Text einer JTextArea zu auf Validität überprüfen? Begründe.
 3. Warum kann der MouseListener auch durch den MouseAdapter ersetzt werden?
 4. Wie kann ausgeschlossen werden, dass ein Mouse Event bei einem Doppelklick bestimmte Aktionen doppelt ausführt?
+
 
 
 ###Antwort
