@@ -34,6 +34,7 @@ Wichtigste Themen aus Altklausuren
   * dtd
   * xsd
   * xpath
+  * svg
 
 6. ER-Diagramme (christian) (2h)
   * (modifizierte) Chen-Notation
