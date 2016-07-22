@@ -121,7 +121,7 @@ Finde die Fehler (3 Stück)
   </item>
 </order> 
 ```
-Note: Lösung unten
+
 
 
 ###Aufgabe
@@ -168,6 +168,8 @@ Schreibe eine DTD für folgende XML
 ```
 
 
+
+###Lösungsvorschlag
 ```xml
 <!DOCTYPE order[
   <!ELEMENT order (orderperson,item) >
@@ -206,6 +208,8 @@ Schreibe eine XSD für folgende XML
 ```
 
 
+
+###Lösungsvorschlag
 ```xml
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="order">
@@ -236,7 +240,8 @@ Schreibe eine XSD für folgende XML
 2. Nenne einen Unterschied Zwischen DTD und XSD.
 
 
-###Aufgabe
+
+###Lösungsvorschlag
 1. Nenne zwei Unterschiede zwischen XML und HTML.
   * XML ist ein Datenaustauschformat für Computer, HTML ist zur Präsentation von Daten für Menschen gedacht.
   * In XML kann man neue Tags definieren, in HTML nicht.
@@ -294,6 +299,7 @@ Selektoren werden verwendet um bestimmte Knoten, oder Attribute auszuwählen
 |@|Wählt Attribute|
 
 
+
 ###XPath Selektoren
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -343,7 +349,8 @@ Selektoren werden verwendet um bestimmte Knoten, oder Attribute auszuwählen
 4. Wähle den Vaterknoten der Knoten item aus
 
 
-###Aufgabe
+
+###Lösungsvorschlag
 ```xml
 <?xml version="1.0"?> 
 <order orderid="889923">
@@ -382,6 +389,7 @@ Selektoren werden verwendet um bestimmte Knoten, oder Attribute auszuwählen
 Prädikate werden benutzt um bestimmte Knoten, oder Knoten die einen bestimmten Wert haben, zu finden
 
 Sie werden immer in eckigen Klammern geschrieben
+
 
 
 ###XPath Prädikate
@@ -432,7 +440,8 @@ Sie werden immer in eckigen Klammern geschrieben
 3. Wähle alle items aus, dessen Wert über 20 liegt
 
 
-###Aufgabe
+
+###Lösungsvorschlag
 ```xml
 <?xml version="1.0"?> 
 <order orderid="889923">
@@ -470,6 +479,7 @@ Wildcards werden benutzt um unbekannte Knoten zu selektieren
 |*|Wählt alle Knoten mit dem Namen "nodename" aus|
 |@*|Wählt den Wurzelknoten aus|
 |node()|Wählt Knoten passend zum Selektor aus, unabhänging von ihrer Position|
+
 
 
 ###XPath Wildcards
@@ -517,7 +527,8 @@ Wildcards werden benutzt um unbekannte Knoten zu selektieren
 3. Wähle alle price Elemente aus, die ein Attribut haben
 
 
-###Aufgabe
+
+###Lösungsvorschlag
 ```xml
 <?xml version="1.0"?> 
 <order orderid="889923">
