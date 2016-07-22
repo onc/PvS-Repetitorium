@@ -31,9 +31,7 @@ Wählt angegebene spalten aus einer Tabelle aus
 
 Entspricht in Relationaler Algebra dem Pi &pi;
 
-
-
-##Beispiel
+###Beispiel
 Tebelle Student
 
 |MatrNr|Name|
@@ -68,9 +66,7 @@ Gibt Bedingungen an, welche Zeilen ausgewählt werden.
 
 Entspricht in Relationaler Algebra dem Sigma &sigma;
 
-
-
-##Beispiel
+###Beispiel
 Tebelle Student
 
 |MatrNr|Name|
