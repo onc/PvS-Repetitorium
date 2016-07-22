@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     width="1280px" height="720px" viewBox="0 0 1280 720" enable-background="new 0 0 1280 720" xml:space="preserve">
+<style>
+.student{
+    fill:#323E99;
+}
+.filled{
+    fill:#ED1C24;
+}
+.arrow{
+    fill:none;
+    stroke-width:3px;
+    stroke:#ED1C24;
+    marker-end: url(#arrow);
+    opacity: 0;
+}
+.message{
+    opacity: 0;
+}
+.button rect {
+    width: 150px;
+    height:30px;
+    fill:#BE701C;/*#EE8C24;*/
+    opacity:0.2;
+    cursor:pointer;
+} 
+.button text{
+    font-family:'Arial';
+    font-size:18px;
+    cursor:pointer;
+}
+</style>
+
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L8,4 L0,0" class="filled" />
+  </marker>
+  
+  <circle id="Student" class="student" stroke="#71BBE8" stroke-width="5" r="30">
+  </circle>
+  
+  <g id="Message" class="message">
+    <rect x="20" y="0" width="27" height="27" class="filled" />
+    <text x="0" y="30" font-family="'Arial'" font-size="36" style="opacity:0;fill:#ED1C24;">!
+        <animate begin="state2.click" attributeName="opacity" from="0" to="1" dur="0.5s" fill="freeze"/>
+    </text>
+    <animate begin="state2.click" attributeName="opacity" from="0" to="1" dur="1.5s" fill="freeze"/>
+  </g>
+</defs>
+ 
+<g>
+    <path d="M330,410 L330,410" class="arrow">
+        <animate begin="state1.click" attributeName="opacity" from="0" to="1" dur="0.1s" fill="freeze"/>
+        <animate begin="state1.click" attributeName="d" from="M330,410 L330,410" to="M330,410 L730,570" dur="1s" fill="freeze"/>
+        <animate begin="state4.click" attributeName="opacity" from="1" to="0" dur="1s" fill="freeze"/>
+        <animate begin="state4.click" attributeName="d" from="M330,410 L730,570" to="M730,570 L730,570" dur="1s" fill="freeze"/>
+    </path>
+    <path d="M329,342 L712,199" class="arrow">
+        <animate begin="state1.click" attributeName="opacity" from="0" to="1" dur="0.1s" fill="freeze"/>
+        <animate begin="state1.click" attributeName="d" from="M329,342 L329,342" to="M329,342 L712,199" dur="1s" fill="freeze"/>
+        <animate begin="state4.click" attributeName="opacity" from="1" to="0" dur="1s" fill="freeze"/>
+        <animate begin="state4.click" attributeName="d" from="M329,342 L712,199" to="M712,199 L712,199" dur="1s" fill="freeze"/>
+    </path>
+    <path d="M337,376 L765,339" class="arrow">
+        <animate begin="state1.click" attributeName="opacity" from="0" to="1" dur="0.1s" fill="freeze"/>
+        <animate begin="state1.click" attributeName="d" from="M337,376 L337,376" to="M337,376 L765,339" dur="1s" fill="freeze"/>
+        <animate begin="state4.click" attributeName="opacity" from="1" to="0" dur="1s" fill="freeze"/>
+        <animate begin="state4.click" attributeName="d" from="M337,376 L765,339" to="M765,339 L765,339" dur="1s" fill="freeze"/>
+    </path>
+    <path d="M335,400 L1000,560" class="arrow">
+        <animate begin="state1.click" attributeName="opacity" from="0" to="1" dur="0.1s" fill="freeze"/>
+        <animate begin="state1.click" attributeName="d" from="M335,400 L335,400" to="M335,400 L1000,560" dur="1s" fill="freeze"/>
+        <animate begin="state4.click" attributeName="opacity" from="1" to="0" dur="1s" fill="freeze"/>
+        <animate begin="state4.click" attributeName="d" from="M335,400 L1000,560" to="M1000,560 L1000,560" dur="1s" fill="freeze"/>
+    </path>
+</g>
+
+<polygon points="227 391 271 316 314 391 " fill="#0C8441"/>
+
+<g>
+    <use x="795" y="170" xlink:href="#Student">
+    </use>
+    <use x="995" y="250" xlink:href="#Student">
+    </use>
+    <use x="840" y="340" xlink:href="#Student">
+    </use>
+    <use x="930" y="450" xlink:href="#Student">
+    </use>
+    <use x="800" y="590" xlink:href="#Student">
+    </use>
+    <use x="1070" y="580" xlink:href="#Student">
+    </use>
+</g>
+
+<use x="290" y="290" xlink:href="#Message">
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="0 0" begin="state2.click" dur="0.001s" fill="freeze"/>
+    <animate attributeName="opacity" from="1" to="1" begin="state2.click" dur="0.001s" fill="freeze"/>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="410 -70" begin="state3.click" dur="1s" id="message-anim" fill="freeze"/>
+    <animate attributeName="opacity" from="1" to="0" begin="message-anim.begin + 2s" dur="0.5s" fill="freeze"/>
+</use>
+<use x="290" y="290" xlink:href="#Message">
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="0 0" begin="state2.click" dur="0.001s" fill="freeze"/>
+    <animate attributeName="opacity" from="1" to="1" begin="state2.click" dur="0.001s" fill="freeze"/>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="465 70" begin="message-anim.begin + 0.2s" dur="1s" fill="freeze"/>
+    <animate attributeName="opacity" from="1" to="0" begin="message-anim.begin + 2.2s" dur="0.5s" fill="freeze"/>
+</use>
+<use x="290" y="290" xlink:href="#Message">
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="0 0" begin="state2.click" dur="0.001s" fill="freeze"/>
+    <animate attributeName="opacity" from="1" to="1" begin="state2.click" dur="0.001s" fill="freeze"/>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="690 290" begin="message-anim.begin + 0.4s" dur="1s" fill="freeze"/>
+    <animate attributeName="opacity" from="1" to="0" begin="message-anim.begin + 2.4s" dur="0.5s" fill="freeze"/>
+</use>
+<use x="290" y="290" xlink:href="#Message">
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="0 0" begin="state2.click" dur="0.001s" fill="freeze"/>
+    <animate attributeName="opacity" from="1" to="1" begin="state2.click" dur="0.001s" fill="freeze"/>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="420 300" begin="message-anim.begin + 0.5s" dur="1s" fill="freeze"/>
+    <animate attributeName="opacity" from="1" to="0" begin="message-anim.begin + 2.5s" dur="0.5s" fill="freeze"/>
+</use>
+
+<svg class="button" x="20" y="50">
+    <text x="10" y="20">Register</text>
+    <rect id="state1" rx="20"></rect>
+    <animate attributeName="display" from="inline" to="none" begin="state1.click" dur="0.001s" fill="freeze"/>
+    <animate attributeName="display" from="none" to="inline" begin="state4.click" dur="0.001s" fill="freeze"/>
+</svg>
+
+<svg class="button" x="20" y="50" style="display:none;">
+    <text x="10" y="20">Deregister</text>
+    <rect id="state4" rx="20"></rect>
+    <animate attributeName="display" from="none" to="inline" begin="state1.click" dur="0.001s" fill="freeze"/>
+    <animate attributeName="display" from="inline" to="none" begin="state4.click" dur="0.001s" fill="freeze"/>
+</svg>
+
+<svg class="button" x="20" y="100" style="display:none;">
+    <text x="10" y="20">New Message</text>
+    <rect id="state2" rx="20"></rect>
+    <animate attributeName="display" from="none" to="inline" begin="state1.click" dur="0.001s" fill="freeze"/>
+    <animate attributeName="display" from="inline" to="none" begin="state4.click" dur="0.001s" fill="freeze"/>
+    <animate attributeName="display" from="inline" to="none" begin="state2.click" dur="0.001s" fill="freeze"/>
+    <animate attributeName="display" from="none" to="inline" begin="state3.click" dur="0.001s" fill="freeze"/>
+</svg>
+
+<svg class="button" x="20" y="100" style="display:none;">
+    <text x="10" y="20">Notify</text>
+    <rect id="state3" rx="20"></rect>
+    <animate attributeName="display" from="inline" to="none" begin="state4.click" dur="0.001s" fill="freeze"/>
+    <animate attributeName="display" from="none" to="inline" begin="state2.click" dur="0.001s" fill="freeze"/>
+    <animate attributeName="display" from="inline" to="none" begin="state3.click" dur="0.001s" fill="freeze"/>
+</svg>
+
+</svg>
