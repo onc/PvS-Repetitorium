@@ -40,7 +40,7 @@
 
 ### FlowLayout Example
 
-<pre><code class="line-numbers java" data-highlight-lines="4-6"> public class FlowLayoutExample extends JFrame {
+<pre><code class="line-numbers java" data-highlight-lines="4-6">public class FlowLayoutExample extends JFrame {
   public FlowLayoutExample() {
     JPanel panel = new JPanel();
     panel.setLayout(new FlowLayout());
@@ -53,7 +53,7 @@
 
     this.setVisible(true);
   }
-} </code></pre>
+}</code></pre>
 
 
 
