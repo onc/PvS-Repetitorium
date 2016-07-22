@@ -86,9 +86,7 @@ WHERE MartrNr > 26000
 ##SQL - Like
 LIKE filtert in der WHERE Klausel nach dem Inhalt der Zelle, wobei der Inhalt auch nur Teilweise erfüllt sein muss.
 
-
-
-##Beispiel
+###Beispiel
 Tebelle Student
 
 |MatrNr|Name|
@@ -105,12 +103,82 @@ WHERE Name LIKE 'F%'
 
 
 
+##SQL - AND
+AND verbindet mehrere boolesche Ausdrücke einer WHERE Klausel miteinander.
+
+###Beispiel
+Tebelle Student
+
+|MatrNr|Name|
+|---|---|
+|26120|Fichte|
+|25403|Jonas|
+|27103|Fauler|
+
+```sql
+SELECT * 
+FROM Student 
+WHERE Name LIKE 'F%' AND Name LIKE 'J%'
+```
+
+
+
+Achtung!
+
+Innerhalb einer where Klausel müssen immer vollständig gültige boolesche Ausdrücke stehen
+```sql
+SELECT * 
+FROM Student 
+WHERE MatrNr > 26000 AND < 27000
+```
+funktioniert also nicht!
+
+
+
+##SQL - Between
+BETWEEN gibt einen Wertebereich an zwischen dem ein Ausdruck ausgewählt wird. Die Randbereiche werden dabei mit ausgewählt.
+
+###Beispiel
+Tebelle Student
+
+|MatrNr|Name|
+|---|---|
+|26120|Fichte|
+|25403|Jonas|
+|27103|Fauler|
+
+```sql
+SELECT * 
+FROM Student 
+WHERE MatrNr BETWEEN 26000 AND 27000
+```
+
+
+
+##SQL - Order By
+ORDER BY gibt an nach welcher Spalte sortiert werden soll
+
+###Beispiel
+Tebelle Student
+
+|MatrNr|Name|
+|---|---|
+|26120|Fichte|
+|25403|Jonas|
+|27103|Fauler|
+
+```sql
+SELECT * 
+FROM Student 
+ORDER BY Name
+```
+
+
+
 ##SQL - Join
 Verknüpfungen von Tabellen. Es werden mehrere Tabellen auf einer Bedingung zusammengefasst.
 
-
-
-##Beispiel
+###Beispiel
 Tebelle Student
 
 |MatrNr|Name|
@@ -135,6 +203,92 @@ FROM Student JOIN Studiert
 
 
 
+##SQL - Insert Into
+INSERT INTO fügt Werte in eine Tabelle ein.
+
+###Beispiel
+Tebelle Student
+
+|MatrNr|Name|
+|---|---|
+|26120|Fichte|
+|25403|Jonas|
+|27103|Fauler|
+
+```sql
+INSERT INTO Student 
+VALUES (30000, Hansen)
+```
+```sql
+INSERT INTO Student (MatrNr)
+VALUES (30001)
+```
+
+
+
+##SQL - Update
+UPDATE aktualisiert werte einer Tabelle.
+
+###Beispiel
+Tebelle Student
+
+|MatrNr|Name|
+|---|---|
+|26120|Fichte|
+|25403|Jonas|
+|27103|Fauler|
+
+```sql
+UPDATE Student 
+SET Name = 'Faula' 
+WHERE MatrNr = 27103
+```
+
+
+
+##SQL - Aggregatfunktionen
+Aggregatfunktionen sind Funktionen in SQL mit denen mit Werten gerechnet werden kann.
+* AVG() - Gibt den Durchschnitt zurück
+* COUNT() - Gibt die Anzahl der Zeilen zurück
+* FIRST() - Gibt die erste Zeile zurück
+* LAST() - Gibt die letzte Zeile zurück
+* MAX() - Gibt das Maximum zurück
+* MIN() - Gibt das Minimum zurück
+* SUM() - Gibt die Summe zurück
+
+###Beispiel
+Tebelle Student
+
+|MatrNr|Name|
+|---|---|
+|26120|Fichte|
+|25403|Jonas|
+|27103|Fauler|
+
+```sql
+SELECT MIN(MatrNr)
+FROM Student 
+```
+
+
+
+##SQL - GROUP BY
+GROUP BY geht mit den Aggregatfunktionen einher. Für das Gruppieren von Werten werden zwangsläufig Aggregatfunktionen benötigt
+
+###Beispiel
+Tebelle Student
+
+|MatrNr|Name|Semester|
+|---|---|---|
+|26120|Fichte|2|
+|25403|Jonas|3|
+|27103|Fauler|3|
+
+```sql
+SELECT MIN(MatrNr)
+FROM Student 
+GROUP BY Semester
+```
 |Saison|Fahrerweltmeister|KonstrukteursWM|WM_Punkte|Team_Punkte|
 |---|---|---|---|---|
 |1995|Michael Schumacher|Benetton-Renault|102|137|
