@@ -178,6 +178,11 @@ Zu diesem Zweck gibt es die Normalformen, welche erreicht werden, wenn bestimmte
 
 
 
+##Vorgehen
+![Normalisierung](content/images/Vorgehen_3NF.png)
+
+
+
 ##Beispiel
 <div style="font-size:20px;">
 
