@@ -289,6 +289,12 @@ SELECT MIN(MatrNr)
 FROM Student 
 GROUP BY Semester
 ```
+
+
+
+##Aufgabe
+Tabelle **Formel1**
+
 |Saison|Fahrerweltmeister|KonstrukteursWM|WM_Punkte|Team_Punkte|
 |---|---|---|---|---|
 |1995|Michael Schumacher|Benetton-Renault|102|137|
@@ -300,9 +306,6 @@ GROUP BY Semester
 |2001|Michael Schumacher|Ferrari|123|179|
 |2002|Michael Schumacher|Ferrari|144|221|
 
-
-
-##Aufgabe m
 Gibt aus:
 1. Alle Zeilen in denen Michael Schumacher Fahrerweltmeister wurde.
 2. Alle Zeilen in denen die Team Punkte über 150 liegen.
@@ -312,7 +315,118 @@ Gibt aus:
 
 
 
-##Aufgabe n
+##Lösungsvorschlag
+Tabelle **Formel1**
+
+|Saison|Fahrerweltmeister|KonstrukteursWM|WM_Punkte|Team_Punkte|
+|---|---|---|---|---|
+|1995|Michael Schumacher|Benetton-Renault|102|137|
+|1996|Damon Hill|Williams-Renault|97|175|
+|1997|Jaques Villeneuve|Williams-Renault|81|123|
+|1998|Mika Häkinnen|McLaren-Mercedes|100|156|
+|1999|Mika Häkinnen|Ferrari|76|128|
+|2000|Michael Schumacher|Ferrari|108|170|
+|2001|Michael Schumacher|Ferrari|123|179|
+|2002|Michael Schumacher|Ferrari|144|221|
+
+Gibt aus:
+
+1. Alle Zeilen in denen Michael Schumacher Fahrerweltmeister wurde.
+```sql
+SELECT * FROM Formel1 WHERE Fahrerweltmeister = 'Michael Schumacher'
+```
+2. Alle Zeilen in denen die Team Punkte über 150 liegen.
+```sql
+SELECT * FROM Formel1 WHERE Team_Punkte > 150
+```
+3. Das Jahr mit der Höchsten WM-Punktzahl
+```sql
+SELECT Saison, MAX(WM_Punkte) FROM Formel1
+```
+4. Die Namen aller Fahrer die Weltmeister wurden (eindeutig)
+```sql
+SELECT DISTINCT Fahrerweltmeister FROM Formel1
+```
+5. Die Jahre aufsteigend sortiert nach Team Punkten
+```sql
+SELECT Saison FROM Formel1 ORDER BY Team_Punkte
+```
+
+
+
+##Aufgabe
+Missionen
+
+|MissionID|Name|Datum|
+|---|---|---|
+|1968-089A|Apollo 7|11. Oktober 1968|
+|1969-059A|Apollo 11|16. Juli 1969|
+|1970-029A|Apollo 13|11. April 1970|
+|1973-032A|Skylab 2|25. Mai 1973|
+
+Besatzung
+
+|MissionID|Kommandant|Pilot|ErsterOffizier|
+|---|---|
+|1968-089A|Donn Eisele|Walter Schirra|Walter Cunningham|
+|1969-059A|Neil Armstrong|Edwin „Buzz“ Aldrin|Michael Collins|
+|1970-029A|Jim Lovell|John Swigert|Fred Haise|
+|1973-032A|Joseph Kerwin|Charles Conrad|Paul Weitz|
+
+Wähle aus:
+1. Die Mission die nach Apollo benannt wurden
+2. Die Missionen die nach 1969 aber vor 1973 stattgefunden haben.
+3. Alle Daten der Mission in der Jim Lovell Kommandant war.
+4. Die MissionID in der 2 Walters mitgeflogen sind.
+
+
+
+##Lösungsvorschlag
+Missionen
+
+|MissionID|Name|Datum|
+|---|---|---|
+|1968-089A|Apollo 7|11. Oktober 1968|
+|1969-059A|Apollo 11|16. Juli 1969|
+|1970-029A|Apollo 13|11. April 1970|
+|1973-032A|Skylab 2|25. Mai 1973|
+
+Besatzung
+
+|MissionID|Kommandant|Pilot|ErsterOffizier|
+|---|---|
+|1968-089A|Donn Eisele|Walter Schirra|Walter Cunningham|
+|1969-059A|Neil Armstrong|Edwin „Buzz“ Aldrin|Michael Collins|
+|1970-029A|Jim Lovell|John Swigert|Fred Haise|
+|1973-032A|Joseph Kerwin|Charles Conrad|Paul Weitz|
+
+Wähle aus:
+1. Die Mission die nach Apollo benannt wurden
+```sql
+SELECT * FROM Missionen WHERE Name LIKE 'Apollo%'
+```
+2. Die Missionen die nach 1969 aber vor 1973 stattgefunden haben.
+```sql
+SELECT * FROM Missionen WHERE YEAR(Datum) > 1969 AND YEAR(Datum) < 1973
+```
+3. Den Namen der Mission in der Jim Lovell Kommandant war.
+```sql
+SELECT Mission.* FROM Missionen J
+OIN Besatzung 
+    ON Mission.MissionID = Besatzung.MissionID 
+WHERE Kommandant = 'Jim Lovell'
+```
+4. Die MissionID in der 2 Walters mitgeflogen sind.
+```sql
+SELECT MissionID FROM Besatzung where 
+    (Kommandant LIKE '%Walter%' AND Pilot LIKE '%Walter%') OR 
+    (Kommandant LIKE '%Walter%' AND ErsterOffizier LIKE '%Walter%') OR
+    (Pilot LIKE '%Walter%' AND ErsterOffizier LIKE '%Walter%') 
+```
+
+
+
+##Aufgabe
 Quiz von w3school
 
 
@@ -734,7 +848,3 @@ Quiz von w3school
   * **CREATE TABLE**
   * CREATE DB
   * CREATE DATABASE TAB
-
-
-
-
