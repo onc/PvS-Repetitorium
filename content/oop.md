@@ -114,6 +114,7 @@ class Foo {
 ```
 
 
+
 ###Aufgabe 1 - Lösung
 ```java
 public abstact class Body {
@@ -134,6 +135,7 @@ class Foo {
 }
 ```
 Geht nicht, da Body *abstract* ist.
+
 
 
 ###Aufgabe 2
@@ -166,6 +168,7 @@ class Foo {
 ```
 
 
+
 ###Aufgabe 2 - Lösung
 ```java
 public class Person extends Body {
@@ -192,6 +195,7 @@ class Foo {
 }
 ```
 Nein, da height final ist.
+
 
 
 ###Aufgabe 3
@@ -225,6 +229,7 @@ class Foo {
 ```
 
 
+
 ###Aufgabe 3 - Lösung
 ```java
 public class Person extends Body {
@@ -256,6 +261,7 @@ class Foo {
 1. Ja, denn die Klasse *Person* erbt von *Body*.
 
 
+
 ###Aufgabe 4
 Funktioniert die main-Methode der Klasse Foo so?
 
@@ -283,6 +289,7 @@ class Foo {
 ```
 
 
+
 ###Aufgabe 4 - Lösung
 ```java
 public abstact class Body {
@@ -308,6 +315,7 @@ class Foo {
 Jain, der Aufruf der Methode ist erlaubt.
 
 **Aber!** Die kompilierung wird fehlschlagen, da die Methode nicht implementiert ist.
+
 
 
 ###Aufgabe 5
@@ -355,6 +363,7 @@ public class Person extends Body {
 ```
 
 
+
 ###Aufgabe 5 - Lösung
 ```java
 public abstract class Body {
@@ -399,6 +408,7 @@ public class Person extends Body {
 1. Ja, alles in Ordnung.
 
 
+
 ###Aufgabe 6
 Sind die Aufrufe von *saySomething()* so möglich? 
 
@@ -422,6 +432,7 @@ class Foo {
     }
 }
 ```
+
 
 
 ###Aufgabe 6 - Lösung
@@ -611,7 +622,6 @@ class Treasure {
     public void setValue(Object val){ this.value = Integer.parseInt(val); }
 }
 ```
-
 ```java
 class Treasure<T> {
     private T value;
@@ -621,7 +631,6 @@ class Treasure<T> {
     public void setValue(T val){ this.value = val; }
 }
 ```
-
 ```java
 Treasure<String> goldSchatz = new Treasure<String>();
 Treasure<Integer> silberSchatz = new Treasure<Integer>();
@@ -670,7 +679,7 @@ public static void main(String[] args) {
     System.out.println(Arrays.asList(charArray));
 }
 ```
-Note: Lösung unten
+
 
 
 ##println von Objekten
@@ -716,7 +725,7 @@ public class Tupel<T> {
     }
 }
 ```
-Note: Lösung unten
+
 
 
 ##println von Objekten
@@ -765,7 +774,7 @@ public class Tupel<T> {
     }
 }
 ```
-Note: Lösung unten
+
 
 
 ##println von Objekten
@@ -791,6 +800,7 @@ public class Tupel<T> {
 ```
 
 
+
 ##println von Objekten
 ###Aufgabe 4
 ```java
@@ -814,7 +824,7 @@ public class Cell {
     }
 }
 ```
-Note: Lösung unten
+
 
 
 ##println von Objekten
@@ -894,8 +904,10 @@ class Konto extends AbstraktesKonto {
 ```
 
 
+
 ###Aufgabe 1 - Lösung
 ![Beziehung Klassendiagramm](content/images/UML-A1-Klassendiagramm.png)
+
 
 
 ###Aufgabe 2
@@ -923,6 +935,7 @@ final class E extends C implements B {
 class F extends D implements B {
 }
 ```
+
 
 
 ###Aufgabe 2 - Lösung
