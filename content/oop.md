@@ -95,7 +95,7 @@ Funktioniert die main-Methode der Klasse Foo so?
 
 Ja, oder nein. Warum?
 
-<pre><code class="line-numbers"> public abstact class Body {
+<pre><code class="line-numbers">public abstact class Body {
     int limbs;
     int eyes;
 
@@ -104,18 +104,17 @@ Ja, oder nein. Warum?
         this.eyes = eye;
     }
 }
-</code></pre>
-<pre><code class="line-numbers"> class Foo {
+
+class Foo {
     public static void main(String[] args){
         Body albert = new Body(10, 2);
     }
-}
-</code></pre>
+}</code></pre>
 
 
 
 ###Aufgabe 1 - Lösung
-<pre><code class="line-numbers"> public abstact class Body {
+<pre><code class="line-numbers">public abstact class Body {
     int limbs;
     int eyes;
 
@@ -123,8 +122,9 @@ Ja, oder nein. Warum?
         this.limbs = limb;
         this.eyes = eye;
     }
-}</code></pre>
-<pre><code class="line-numbers"> class Foo {
+}
+
+class Foo {
     public static void main(String[] args){
         Body albert = new Body(10, 2);
     }
@@ -137,7 +137,7 @@ Geht nicht, da Body *abstract* ist.
 Funktioniert die main-Methode der Klasse Foo so?
 
 Ja, oder nein. Warum?
-<pre><code class="line-numbers"> public class Person extends Body {
+<pre><code class="line-numbers">public class Person extends Body {
     final int height;
     int weight;
 
@@ -150,8 +150,9 @@ Ja, oder nein. Warum?
     public void grow(final int distance) {
         this.height += distance;
     }
-}</code></pre>
-<pre><code class="line-numbers"> class Foo {
+}
+
+class Foo {
     public static void main(String[] args){
         Person albert = new Person(180, 70);
         albert.grow(10);
@@ -161,7 +162,7 @@ Ja, oder nein. Warum?
 
 
 ###Aufgabe 2 - Lösung
-<pre><code class="line-numbers"> public class Person extends Body {
+<pre><code class="line-numbers">public class Person extends Body {
     final int height;
     int weight;
 
@@ -174,8 +175,9 @@ Ja, oder nein. Warum?
     public void grow(final int distance) {
         this.height += distance;
     }
-}</code></pre>
-<pre><code class="line-numbers"> class Foo {
+}
+
+class Foo {
     public static void main(String[] args){
         Person albert = new Person(180, 70);
         albert.grow(10);
@@ -189,7 +191,7 @@ Nein, da height final ist.
 Funktioniert die main-Methode der Klasse Foo so?
 
 Ja, oder nein. Warum?
-<pre><code class="line-numbers"> public class Person extends Body {
+<pre><code class="line-numbers">public class Person extends Body {
     int height;
     int weight;
 
@@ -202,8 +204,9 @@ Ja, oder nein. Warum?
     public void grow(final int distance) {
         this.height += distance;
     }
-}</code></pre>
-<pre><code class="line-numbers"> class Foo {
+}
+
+class Foo {
     public static void main(String[] args){
         Body albert = new Body(2, 2);
         Person bernd = new Body(2, 2);
@@ -214,7 +217,7 @@ Ja, oder nein. Warum?
 
 
 ###Aufgabe 3 - Lösung
-<pre><code class="line-numbers"> public class Person extends Body {
+<pre><code class="line-numbers">public class Person extends Body {
     final int height;
     int weight;
 
@@ -227,8 +230,9 @@ Ja, oder nein. Warum?
     public void grow(final int distance) {
         this.height += distance;
     }
-}</code></pre>
-<pre><code class="line-numbers"> class Foo {
+}
+
+class Foo {
     public static void main(String[] args){
         Body albert = new Body(2, 2);
         Person bernd = new Body(2, 2);
@@ -245,7 +249,7 @@ Ja, oder nein. Warum?
 Funktioniert die main-Methode der Klasse Foo so?
 
 Ja, oder nein. Warum?
-<pre><code class="line-numbers"> public abstact class Body {
+<pre><code class="line-numbers">public abstact class Body {
     int limbs;
     int eyes;
 
@@ -255,8 +259,9 @@ Ja, oder nein. Warum?
     }
     
     abstract int walk();
-}</code></pre>
-<pre><code class="line-numbers"> class Foo {
+}
+
+class Foo {
     public static void main(String[] args){
         Person albert = new Person(180, 70);
         albert.walk();
@@ -266,7 +271,7 @@ Ja, oder nein. Warum?
 
 
 ###Aufgabe 4 - Lösung
-<pre><code class="line-numbers"> public abstact class Body {
+<pre><code class="line-numbers">public abstact class Body {
     int limbs;
     int eyes;
 
@@ -276,8 +281,9 @@ Ja, oder nein. Warum?
     }
     
     abstract int walk();
-}</code></pre>
-<pre><code class="line-numbers"> class Foo {
+}
+
+class Foo {
     public static void main(String[] args){
         Person albert = new Person(180, 70);
         albert.walk();
@@ -293,7 +299,7 @@ Jain, der Aufruf der Methode ist erlaubt.
 Können die beiden Methoden *growAnotherArm* überschrieben werden?
 
 Ja, oder nein. Warum?
-<pre><code class="line-numbers"> public abstract class Body {
+<pre><code class="line-numbers">public abstract class Body {
     int limbs;
     int eyes;
 
@@ -309,8 +315,9 @@ Ja, oder nein. Warum?
     void growAnotherArm(int arms){
         this.limbs = this.limbs + arms;
     }
-}</code></pre>
-<pre><code class="line-numbers"> public class Person extends Body {
+}
+
+ public class Person extends Body {
     int height;
     int weight;
 
@@ -332,7 +339,7 @@ Ja, oder nein. Warum?
 
 
 ###Aufgabe 5 - Lösung
-<pre><code class="line-numbers"> public abstract class Body {
+<pre><code class="line-numbers">public abstract class Body {
     int limbs;
     int eyes;
 
@@ -348,8 +355,9 @@ Ja, oder nein. Warum?
     void growAnotherArm(int arms){
         this.limbs = this.limbs + arms;
     }
-}</code></pre>
-<pre><code class="line-numbers"> public class Person extends Body {
+}
+
+ public class Person extends Body {
     int height;
     int weight;
 
@@ -376,7 +384,7 @@ Ja, oder nein. Warum?
 Sind die Aufrufe von *saySomething()* so möglich? 
 
 Ja, oder nein. Warum?
-<pre><code class="line-numbers"> class Foo {
+<pre><code class="line-numbers">class Foo {
     public static void main(String[] args) {
         saySomething("Tobias");
         this.saySomething("Tobias");
@@ -397,7 +405,7 @@ Ja, oder nein. Warum?
 
 
 ###Aufgabe 6 - Lösung
-<pre><code class="line-numbers"> class Foo {
+<pre><code class="line-numbers">class Foo {
     public static void main(String[] args) {
         saySomething("Tobias");
         this.saySomething("Tobias");
@@ -423,19 +431,21 @@ Ja, oder nein. Warum?
 
 ###Vererbung
 Durch den Vererbungsmechanismus werden alle sichtbaren Eigenschaften der Oberklasse auf die Unterklasse übertragen.
-<pre><code class="line-numbers"> public class GameObject {
+<pre><code class="line-numbers">public class GameObject {
     public String name;
-}</code></pre>
-<pre><code class="line-numbers"> public class Player extends GameObject {
-}</code></pre>
-<pre><code class="line-numbers"> public class Room extends GameObject {
+}
+
+ public class Player extends GameObject {
+}
+
+ public class Room extends GameObject {
     public int size;
 }</code></pre>
 
 
 
 ##Overriding, Overloading
-<pre><code class="line-numbers"> public class GameObject
+<pre><code class="line-numbers">public class GameObject
 {
     private String name;
 
@@ -446,8 +456,9 @@ Durch den Vererbungsmechanismus werden alle sichtbaren Eigenschaften der Oberkla
     public void setName( String name ) {
         this.name = name;
     }
-}</code></pre>
-<pre><code class="line-numbers"> public class Room extends GameObject
+}
+
+ public class Room extends GameObject
 {
     private int size;
 
@@ -478,7 +489,7 @@ ist für alle Datentypen so definiert, dass er die vollständige Übereinstimmun
 
 
 
-<pre><code class="line-numbers"> Point p = new Point(10, 10);
+<pre><code class="line-numbers">Point p = new Point(10, 10);
 Point q = p;
 Point r = new Point(10, 10);
 System.out.println(p==q); // true, da p und q dasselbe Objekt referenzieren
@@ -497,7 +508,7 @@ implementieren, die Exemplare dieser Klasse mit beliebigen anderen Objekten verg
 
 
 
-<pre><code class="line-numbers"> Point p = new Point(10, 10);
+<pre><code class="line-numbers">Point p = new Point(10, 10);
 Point q = p;
 Point r = new Point(10, 10);
 System.out.println(p.equals(q)); // true, da p und q dasselbe Objekt referenzieren
@@ -535,7 +546,9 @@ Note: TODO: erklärung schreiben
 ##Generics
 > Generics realisieren das Prinzip des Stellvertreters
 
-<pre><code class="line-numbers"> List<T></code></pre>
+```java
+List<T>
+```
 
 Eine liste ist genereisch, weil sie alle Arten von Daten in sich tragen kann.
 
@@ -556,26 +569,33 @@ Typumwandlungen und (teilweise) Exception Handling kann so vermieden werden.
 
 
 
-<pre><code class="line-numbers"> class Treasure {
+```java
+class Treasure {
     private int value;  
     public Treasure(){ ... }
     public Treasure(int val){ ... }
     public int getValue(){ return this.value; }
     public void setValue(Object val){ this.value = Integer.parseInt(val); }
-}</code></pre>
-<pre><code class="line-numbers"> class Treasure<T> {
+}
+```
+```java
+class Treasure<T> {
     private T value;
     public Treasure(){ ... }
     public Treasure(T val){ ... }
     public T getValue(){ return this.value; }
     public void setValue(T val){ this.value = val; }
-}</code></pre>
-<pre><code class="line-numbers"> Treasure<String> goldSchatz = new Treasure<String>();
-Treasure<Integer> silberSchatz = new Treasure<Integer>();</code></pre>
+}
+```
+```java
+Treasure<String> goldSchatz = new Treasure<String>();
+Treasure<Integer> silberSchatz = new Treasure<Integer>();
+```
 
 
 
-<pre><code class="line-numbers"> public class Tupel<T> {
+```
+public class Tupel<T> {
     private T object1;
     private T object2;
     public Tupel<T>(T object1,T object2) {
@@ -589,13 +609,14 @@ Treasure<Integer> silberSchatz = new Treasure<Integer>();</code></pre>
         this.object1 = this.object1 + other.object1;
         this.object2 = this.object2 + other.object2;
     }
-}</code></pre>
+}
+```
 
 
 
 ##println von Objekten
 ###Aufgabe 1
-<pre><code class="line-numbers"> public static void main(String[] args) {
+<pre><code class="line-numbers">public static void main(String[] args) {
     System.out.println("foo");
     System.out.println("bar".charAt(0));
     System.out.println(new String("foobar") == new String("foobar"));
@@ -617,7 +638,7 @@ Treasure<Integer> silberSchatz = new Treasure<Integer>();</code></pre>
 
 ##println von Objekten
 ###Aufgabe 1 - Lösung
-<pre><code class="line-numbers"> public static void main(String[] args) {
+<pre><code class="line-numbers">public static void main(String[] args) {
     System.out.println("foo");                                              // foo
     System.out.println("bar".charAt(0));                                    // b
     System.out.println(new String("foobar") == new String("foobar"));       // false
@@ -638,7 +659,8 @@ Treasure<Integer> silberSchatz = new Treasure<Integer>();</code></pre>
 
 ##println von Objekten
 ###Aufgabe 2
-<pre><code class="line-numbers"> public class Tupel<T> {
+```java
+public class Tupel<T> {
     private T object1;
     private T object2;
 
@@ -653,13 +675,15 @@ Treasure<Integer> silberSchatz = new Treasure<Integer>();</code></pre>
         System.out.println(coords.object1);
         System.out.println(coords.object2);
     }
-}</code></pre>
+}
+```
 
 
 
 ##println von Objekten
 ###Aufgabe 2 - Lösung
-<pre><code class="line-numbers"> public class Tupel<T> {
+```java
+public class Tupel<T> {
     private T object1;
     private T object2;
 
@@ -674,12 +698,14 @@ Treasure<Integer> silberSchatz = new Treasure<Integer>();</code></pre>
         System.out.println(coords.object1);                                   // 10
         System.out.println(coords.object2);                                   // -3
     }
-}</code></pre>
+}
+```
 
 
 ##println von Objekten
 ###Aufgabe 3
-<pre><code class="line-numbers"> public class Tupel<T> {
+```java
+public class Tupel<T> {
     private T object1;
     private T object2;
 
@@ -698,13 +724,15 @@ Treasure<Integer> silberSchatz = new Treasure<Integer>();</code></pre>
         System.out.println(coords.object1);
         System.out.println(coords.object2);
     }
-}</code></pre>
+}
+```
 
 
 
 ##println von Objekten
 ###Aufgabe 3 - Lösung
-<pre><code class="line-numbers"> public class Tupel<T> {
+```java
+public class Tupel<T> {
     private T object1;
     private T object2;
     public Tupel(T obj1,T obj2) {
@@ -715,18 +743,19 @@ Treasure<Integer> silberSchatz = new Treasure<Integer>();</code></pre>
         return this.object1 + ": " + this.object2;
     }
     public static void main(String[] args) {
-    Tupel<Integer> coords = new Tupel<Integer>(10, -3);
+        Tupel<Integer> coords = new Tupel<Integer>(10, -3);
         System.out.println(coords);                                           // 10: -3
         System.out.println(coords.object1);                                   // 10
         System.out.println(coords.object2);                                   // -3
     }
-}</code></pre>
+}
+```
 
 
 
 ##println von Objekten
 ###Aufgabe 4
-<pre><code class="line-numbers"> public class Cell {
+<pre><code class="line-numbers">public class Cell {
     public int row;
     public int col;
     public Cell(int row, int column) {
@@ -750,7 +779,7 @@ Treasure<Integer> silberSchatz = new Treasure<Integer>();</code></pre>
 
 ##println von Objekten
 ###Aufgabe 4 - Lösung
-<pre><code class="line-numbers"> public class Cell {
+<pre><code class="line-numbers">public class Cell {
     public int row;
     public int col;
     public Cell(int row, int column) {
@@ -788,12 +817,13 @@ Note: TODO: erweiterung schreiben. (Klasse-Attribute-Methoden) (Sichtbarkeiten) 
 
 
 ###Aufgabe 1
-<pre><code class="line-numbers"> interface Buchbar {
+<pre><code class="line-numbers">interface Buchbar {
     public void abheben(float betrag);
 
     public void einzahlen(float betrag);
-}</code></pre>
-<pre><code class="line-numbers"> abstract class AbstraktesKonto implements Buchbar {
+}
+
+ abstract class AbstraktesKonto implements Buchbar {
     private int kontonummer;
 
     AbstraktesKonto(int kNr) { /*...*/ }
@@ -801,8 +831,9 @@ Note: TODO: erweiterung schreiben. (Klasse-Attribute-Methoden) (Sichtbarkeiten) 
     public int getKontonummer() { /*...*/ }
     
     public int setKontonummer() { /*...*/ }
-}</code></pre>
-<pre><code class="line-numbers"> class Konto extends AbstraktesKonto {
+}
+
+class Konto extends AbstraktesKonto {
     private float kontostand;
 
     Konto(int kontonummer, float betrag) { /*...*/ }
@@ -824,17 +855,22 @@ Note: TODO: erweiterung schreiben. (Klasse-Attribute-Methoden) (Sichtbarkeiten) 
 
 
 ###Aufgabe 2
-<pre><code class="line-numbers"> interface A {
-}</code></pre>
-<pre><code class="line-numbers"> interface B {
-}</code></pre>
-<pre><code class="line-numbers"> abstract class C implements A {
-}</code></pre>
-<pre><code class="line-numbers"> abstract class D extends C {
-}</code></pre>
-<pre><code class="line-numbers"> final class E extends C implements B {
-}</code></pre>
-<pre><code class="line-numbers"> class F extends D implements B {
+<pre><code class="line-numbers">interface A {
+}
+
+ interface B {
+}
+
+ abstract class C implements A {
+}
+
+ abstract class D extends C {
+}
+
+ final class E extends C implements B {
+}
+
+class F extends D implements B {
 }</code></pre>
 
 
