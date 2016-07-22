@@ -355,7 +355,7 @@ SELECT Saison FROM Formel1 ORDER BY Team_Punkte
 
 
 ##Aufgabe
-Missionen
+Tabelle **Missionen**
 
 |MissionID|Name|Datum|
 |---|---|---|
@@ -364,7 +364,7 @@ Missionen
 |1970-029A|Apollo 13|11. April 1970|
 |1973-032A|Skylab 2|25. Mai 1973|
 
-Besatzung
+Tabelle **Besatzung**
 
 |MissionID|Kommandant|Pilot|ErsterOffizier|
 |---|---|
@@ -382,7 +382,7 @@ Wähle aus:
 
 
 ##Lösungsvorschlag
-Missionen
+Tabelle **Missionen**
 
 |MissionID|Name|Datum|
 |---|---|---|
@@ -391,7 +391,7 @@ Missionen
 |1970-029A|Apollo 13|11. April 1970|
 |1973-032A|Skylab 2|25. Mai 1973|
 
-Besatzung
+Tabelle **Besatzung**
 
 |MissionID|Kommandant|Pilot|ErsterOffizier|
 |---|---|
@@ -422,6 +422,83 @@ SELECT MissionID FROM Besatzung where
     (Kommandant LIKE '%Walter%' AND Pilot LIKE '%Walter%') OR 
     (Kommandant LIKE '%Walter%' AND ErsterOffizier LIKE '%Walter%') OR
     (Pilot LIKE '%Walter%' AND ErsterOffizier LIKE '%Walter%') 
+```
+
+
+
+##Aufgabe
+Tabelle **Arenen**
+
+|ArenaID|Ort|BesitzendesTeam|
+|---|---|---|
+|ARN2732|BerlinHauptbahnhof|Team Intuition|
+|ARN7231|WüsteGobi|Team Wagemut|
+|ARN8329|UlmerMünster|Team Weisheit|
+|ARN6723|Eiffelturm|Team Wagemut|
+
+Tabelle **ArenaPokemon**
+
+|ArenaID|Name|Kampfpunkte|
+|---|---|---|
+|ARN7231|Ratzfratz|68|
+|ARN6723|Taubsi|121|
+|ARN2732|Zubat|10|
+
+Tabelle **Teams**
+
+|TeamName|Farbe|
+|---|---|
+|Team Intuition|Gelb|
+|Team Weisheit|Blau|
+|Team Wagemut|Rot|
+
+Wähle aus:
+1. Die Farbe des Teams von dem das Taubsi die Arena bewacht
+2. Alle Daten des Teams mit dem schwächsten Pokemon (formuliert als Subquery)
+
+
+
+##Aufgabe
+Tabelle **Arenen**
+
+|ArenaID|Ort|BesitzendesTeam|
+|---|---|---|
+|ARN2732|BerlinHauptbahnhof|Team Intuition|
+|ARN7231|WüsteGobi|Team Wagemut|
+|ARN8329|UlmerMünster|Team Weisheit|
+|ARN6723|Eiffelturm|Team Wagemut|
+
+Tabelle **ArenaPokemon**
+
+|ArenaID|Name|Kampfpunkte|
+|---|---|---|
+|ARN7231|Ratzfratz|68|
+|ARN6723|Taubsi|121|
+|ARN2732|Zubat|10|
+
+Tabelle **Teams**
+
+|TeamName|Farbe|
+|---|---|
+|Team Intuition|Gelb|
+|Team Weisheit|Blau|
+|Team Wagemut|Rot|
+
+Wähle aus:
+1. Die Farbe des Teams von dem das Taubsi die Arena bewacht
+```sql
+SELECT t.Farbe FROM Teams AS t
+JOIN Arenen AS a ON t.TeamName = a.BesitzendesTeam
+JOIN ArenaPokemon AS ap ON a.ArenaID = ap.ArenaID
+WHERE ap.Name = 'Taubsi'
+```
+2. Alle Daten des Teams mit dem schwächsten Pokemon (formuliert als Subquery)
+```sql
+SELECT t.* FROM Teams AS t
+WHERE TeamName IN (
+    SELECT BesitzendesTeam FROM Arenen AS a
+    JOIN ArenaPokemon AS ap on a.ArenaID = ap.ArenaID
+    WHERE ap.Kampfpunkte = ( SELECT MIN(Kampfpunkte) FROM ArenaPokemon ) )
 ```
 
 
