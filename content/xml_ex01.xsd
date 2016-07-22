@@ -1,0 +1,20 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="order">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="orderperson"/>
+        <xs:element name="item" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="title"/>
+              <xs:element type="xs:string" name="note" minOccurs="0"/>
+              <xs:element type="xs:byte" name="quantity"/>
+              <xs:element type="xs:float" name="price"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:int" name="orderid"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
