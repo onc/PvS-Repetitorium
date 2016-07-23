@@ -19,7 +19,7 @@ have a [link](http://hakim.se).
 
 
 
-<pre><code class="line-numbers"> 
+<pre><code class="line-numbers">
 class Test() {
     /**
      * comment
