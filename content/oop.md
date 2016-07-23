@@ -94,8 +94,8 @@ Statische Eigenschaften haben gegenüber Objekteigenschaften den Vorteil, dass s
 Funktioniert die main-Methode der Klasse Foo so?
 
 Ja, oder nein. Warum?
-
-<pre><code class="line-numbers">public abstact class Body {
+```java
+public abstact class Body {
     int limbs;
     int eyes;
 
@@ -104,17 +104,20 @@ Ja, oder nein. Warum?
         this.eyes = eye;
     }
 }
-
+```
+```java
 class Foo {
     public static void main(String[] args){
         Body albert = new Body(10, 2);
     }
-}</code></pre>
+}
+```
 
 
 
 ###Aufgabe 1 - Lösung
-<pre><code class="line-numbers">public abstact class Body {
+```java
+public abstact class Body {
     int limbs;
     int eyes;
 
@@ -123,12 +126,14 @@ class Foo {
         this.eyes = eye;
     }
 }
-
+```
+```java
 class Foo {
     public static void main(String[] args){
         Body albert = new Body(10, 2);
     }
-}</code></pre>
+}
+```
 Geht nicht, da Body *abstract* ist.
 
 
@@ -137,7 +142,8 @@ Geht nicht, da Body *abstract* ist.
 Funktioniert die main-Methode der Klasse Foo so?
 
 Ja, oder nein. Warum?
-<pre><code class="line-numbers">public class Person extends Body {
+```java
+public class Person extends Body {
     final int height;
     int weight;
 
@@ -151,18 +157,21 @@ Ja, oder nein. Warum?
         this.height += distance;
     }
 }
-
+```
+```java
 class Foo {
     public static void main(String[] args){
         Person albert = new Person(180, 70);
         albert.grow(10);
     }
-}</code></pre>
+}
+```
 
 
 
 ###Aufgabe 2 - Lösung
-<pre><code class="line-numbers">public class Person extends Body {
+```java
+public class Person extends Body {
     final int height;
     int weight;
 
@@ -176,13 +185,15 @@ class Foo {
         this.height += distance;
     }
 }
-
+```
+```java
 class Foo {
     public static void main(String[] args){
         Person albert = new Person(180, 70);
         albert.grow(10);
     }
-}</code></pre>
+}
+```
 Nein, da height final ist.
 
 
@@ -191,33 +202,8 @@ Nein, da height final ist.
 Funktioniert die main-Methode der Klasse Foo so?
 
 Ja, oder nein. Warum?
-<pre><code class="line-numbers">public class Person extends Body {
-    int height;
-    int weight;
-
-    public Person(int height, int weight){
-        super(4, 2);
-        this.height = height;
-        this.weight = weight;
-    }
-    
-    public void grow(final int distance) {
-        this.height += distance;
-    }
-}
-
-class Foo {
-    public static void main(String[] args){
-        Body albert = new Body(2, 2);
-        Person bernd = new Body(2, 2);
-        Body carmen = new Person(180, 70);
-    }
-}</code></pre>
-
-
-
-###Aufgabe 3 - Lösung
-<pre><code class="line-numbers">public class Person extends Body {
+```java
+public class Person extends Body {
     final int height;
     int weight;
 
@@ -231,14 +217,45 @@ class Foo {
         this.height += distance;
     }
 }
-
+```
+```java
 class Foo {
     public static void main(String[] args){
         Body albert = new Body(2, 2);
         Person bernd = new Body(2, 2);
         Body carmen = new Person(180, 70);
     }
-}</code></pre>
+}
+```
+
+
+
+###Aufgabe 3 - Lösung
+```java
+public class Person extends Body {
+    final int height;
+    int weight;
+
+    public Person(int height, int weight){
+        super(4, 2);
+        this.height = height;
+        this.weight = weight;
+    }
+    
+    public void grow(final int distance) {
+        this.height += distance;
+    }
+}
+```
+```java
+class Foo {
+    public static void main(String[] args){
+        Body albert = new Body(2, 2);
+        Person bernd = new Body(2, 2);
+        Body carmen = new Person(180, 70);
+    }
+}
+```
 1. Nein, *Body* kann nicht instanziiert werden.
 1. Nein, *Body* kann nicht instanziiert werden.
 1. Ja, denn die Klasse *Person* erbt von *Body*.
@@ -249,7 +266,8 @@ class Foo {
 Funktioniert die main-Methode der Klasse Foo so?
 
 Ja, oder nein. Warum?
-<pre><code class="line-numbers">public abstact class Body {
+```java
+public abstact class Body {
     int limbs;
     int eyes;
 
@@ -260,18 +278,21 @@ Ja, oder nein. Warum?
     
     abstract int walk();
 }
-
+```
+```java
 class Foo {
     public static void main(String[] args){
         Person albert = new Person(180, 70);
         albert.walk();
     }
-}</code></pre>
+}
+```
 
 
 
 ###Aufgabe 4 - Lösung
-<pre><code class="line-numbers">public abstact class Body {
+```java
+public abstact class Body {
     int limbs;
     int eyes;
 
@@ -282,16 +303,18 @@ class Foo {
     
     abstract int walk();
 }
-
+```
+```java
 class Foo {
     public static void main(String[] args){
         Person albert = new Person(180, 70);
         albert.walk();
     }
-}</code></pre>
-Jain, der Aufruf der Methode ist erlaubt.
+}
+```
+Jain, Compiler meckert nicht beim Aufruf der Methode.
 
-**Aber!** Die kompilierung wird fehlschlagen, da die Methode nicht implementiert ist.
+**Aber!** Die Kompilierung wird fehlschlagen, da die Methode nicht implementiert ist.
 
 
 
@@ -299,7 +322,8 @@ Jain, der Aufruf der Methode ist erlaubt.
 Können die beiden Methoden *growAnotherArm* überschrieben werden?
 
 Ja, oder nein. Warum?
-<pre><code class="line-numbers">public abstract class Body {
+```java
+public abstract class Body {
     int limbs;
     int eyes;
 
@@ -316,8 +340,9 @@ Ja, oder nein. Warum?
         this.limbs = this.limbs + arms;
     }
 }
-
- public class Person extends Body {
+```
+```java
+public class Person extends Body {
     int height;
     int weight;
 
@@ -334,12 +359,13 @@ Ja, oder nein. Warum?
     void growAnotherArm(int arms){
         this.limbs = this.limbs + (arms*2);
     }
-}</code></pre>
-
+}
+```
 
 
 ###Aufgabe 5 - Lösung
-<pre><code class="line-numbers">public abstract class Body {
+```java
+public abstract class Body {
     int limbs;
     int eyes;
 
@@ -356,8 +382,9 @@ Ja, oder nein. Warum?
         this.limbs = this.limbs + arms;
     }
 }
-
- public class Person extends Body {
+```
+```java
+public class Person extends Body {
     int height;
     int weight;
 
@@ -374,7 +401,8 @@ Ja, oder nein. Warum?
     void growAnotherArm(int arms){
         this.limbs = this.limbs + (arms*2);
     }
-}</code></pre>
+}
+```
 1. Nein, da die Methode growAnotherArm() in der Klasse *Body* final ist.
 1. Ja, alles in Ordnung.
 
@@ -384,7 +412,8 @@ Ja, oder nein. Warum?
 Sind die Aufrufe von *saySomething()* so möglich? 
 
 Ja, oder nein. Warum?
-<pre><code class="line-numbers">class Foo {
+```java
+class Foo {
     public static void main(String[] args) {
         saySomething("Tobias");
         this.saySomething("Tobias");
@@ -400,12 +429,14 @@ Ja, oder nein. Warum?
     static void saySomething(String s) {
         System.out.println("Hallo, " + s);
     }
-}</code></pre>
+}
+```
 
 
 
 ###Aufgabe 6 - Lösung
-<pre><code class="line-numbers">class Foo {
+```java
+class Foo {
     public static void main(String[] args) {
         saySomething("Tobias");
         this.saySomething("Tobias");
@@ -421,7 +452,8 @@ Ja, oder nein. Warum?
     static void saySomething(String s) {
         System.out.println("Hallo, " + s);
     }
-}</code></pre>
+}
+```
 1. Ja, da die statische Methode aufgerufen wird.
 2. Nein, das Schlüsselwort *this* ist im statischen kontext nicht erlaubt.
 3. Ja, alles in Ordnung.
@@ -431,21 +463,26 @@ Ja, oder nein. Warum?
 
 ###Vererbung
 Durch den Vererbungsmechanismus werden alle sichtbaren Eigenschaften der Oberklasse auf die Unterklasse übertragen.
-<pre><code class="line-numbers">public class GameObject {
+```java
+public class GameObject {
     public String name;
 }
-
- public class Player extends GameObject {
+```
+```java
+public class Player extends GameObject {
 }
-
- public class Room extends GameObject {
+```
+```java
+public class Room extends GameObject {
     public int size;
-}</code></pre>
+}
+```
 
 
 
 ##Overriding, Overloading
-<pre><code class="line-numbers">public class GameObject
+```java
+public class GameObject
 {
     private String name;
 
@@ -457,8 +494,9 @@ Durch den Vererbungsmechanismus werden alle sichtbaren Eigenschaften der Oberkla
         this.name = name;
     }
 }
-
- public class Room extends GameObject
+```
+```java
+public class Room extends GameObject
 {
     private int size;
 
@@ -474,7 +512,8 @@ Durch den Vererbungsmechanismus werden alle sichtbaren Eigenschaften der Oberkla
     @Override public String toString() {
         return String.format( "Room[name=%s, size=%d]", getName(), getSize() );
     }
-}</code></pre>
+}
+```
 
 
 
@@ -657,6 +696,7 @@ public class Tupel<T> {
 }</code></pre>
 
 
+
 ##println von Objekten
 ###Aufgabe 2
 ```java
@@ -700,6 +740,7 @@ public class Tupel<T> {
     }
 }
 ```
+
 
 
 ##println von Objekten
@@ -817,13 +858,15 @@ Note: TODO: erweiterung schreiben. (Klasse-Attribute-Methoden) (Sichtbarkeiten) 
 
 
 ###Aufgabe 1
-<pre><code class="line-numbers">interface Buchbar {
+```java
+interface Buchbar {
     public void abheben(float betrag);
 
     public void einzahlen(float betrag);
 }
-
- abstract class AbstraktesKonto implements Buchbar {
+```
+```java
+abstract class AbstraktesKonto implements Buchbar {
     private int kontonummer;
 
     AbstraktesKonto(int kNr) { /*...*/ }
@@ -832,7 +875,8 @@ Note: TODO: erweiterung schreiben. (Klasse-Attribute-Methoden) (Sichtbarkeiten) 
     
     public int setKontonummer() { /*...*/ }
 }
-
+```
+```java
 class Konto extends AbstraktesKonto {
     private float kontostand;
 
@@ -845,7 +889,8 @@ class Konto extends AbstraktesKonto {
     public void abheben(float betrag) { /*...*/ }
 
     public void einzahlen(float betrag) { /*...*/ }
-}</code></pre>
+}
+```
 
 
 
@@ -855,23 +900,30 @@ class Konto extends AbstraktesKonto {
 
 
 ###Aufgabe 2
-<pre><code class="line-numbers">interface A {
+```java
+interface A {
 }
-
+```
+```java
  interface B {
 }
-
+```
+```java
  abstract class C implements A {
 }
-
+```
+```java
  abstract class D extends C {
 }
-
+```
+```java
  final class E extends C implements B {
 }
-
+```
+```java
 class F extends D implements B {
-}</code></pre>
+}
+```
 
 
 
