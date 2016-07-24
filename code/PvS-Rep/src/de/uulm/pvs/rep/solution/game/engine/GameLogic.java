@@ -176,12 +176,12 @@ public class GameLogic {
     // if we spawn a new entity everytime the probability is greater than the random
     // we get a lot of spawn if the rate is 100 and none, of the rate is 0.
     if (Math.random() < obstacleProbability) {
-      enemySpawner
-          .spawn(new Point(this.windowSize.width, (int) (Math.random() * this.windowSize.height)));
+      obstacleSpawner.spawn((int) (this.windowSize.width * Math.random()));
     }
 
     if (Math.random() < monsterProbability) {
-      obstacleSpawner.spawn((int) (this.windowSize.width * Math.random()));
+      enemySpawner
+          .spawn(new Point(this.windowSize.width, (int) (Math.random() * this.windowSize.height)));
     }
   }
 
