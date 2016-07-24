@@ -476,9 +476,9 @@ Wildcards werden benutzt um unbekannte Knoten zu selektieren
 
 |Ausdruck|Beschreibung|
 |---|---|
-|*|Wählt alle Knoten mit dem Namen "nodename" aus|
-|@*|Wählt den Wurzelknoten aus|
-|node()|Wählt Knoten passend zum Selektor aus, unabhänging von ihrer Position|
+|*|Wählt jedes beliebige Elemente|
+|@*|Wählt jedes beliebige Attribut|
+|node()|Wählt irgendeinen beliebigen Knoten|
 
 
 
