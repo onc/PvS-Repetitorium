@@ -90,3 +90,42 @@ Problem: Die Operation ++ ist nicht atomar!
 Nur jeweils ein Thread darf gleichzeitig innerhalb der Methode getAndIncrement() sein.
 
 Lösung: Methode muss synchronized sein.
+
+
+
+# Übungen
+
+
+
+## Was gibt dieses Programm aus?
+
+<pre><code class="line-numbers">public class Foo {
+
+  private static class MyRunnable implements Runnable {
+    @Override
+    public void run() {
+      Thread.sleep(5);
+      System.out.println("I'm here");
+    }
+  }
+
+  public static void main(String[] args) {
+    Thread thread = new Thread(new Runnable() {
+      @Override
+      public void run() { System.out.println("and here"); }
+    });
+    System.out.println("do it!");
+    new Thread(new MyRunnable()).start();
+    thread.start();
+  }
+}</code></pre>
+
+
+
+## Lösung
+
+```
+do it!
+and here
+I'm here
+```
