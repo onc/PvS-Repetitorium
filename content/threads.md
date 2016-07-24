@@ -129,3 +129,60 @@ do it!
 and here
 I'm here
 ```
+
+
+
+## Was gibt dieses Programm aus?
+
+<pre><code class="line-numbers">public class Foo extends Thread {
+
+  private String name;
+  private AtomicInteger content;
+  private static final int ITERATIONS = 1000;
+
+  public Foo(String name, AtomicInteger content) {
+    this.name = name; this.content = content;
+  }
+
+  @Override
+  public void run() {
+    for (int i = 0; i < ITERATIONS; i++) {
+      if (this.name.equals("F")) {
+        content.set(1);
+      } else if (this.name.equals("B")) {
+        content.set(0);
+      }
+    }
+  }
+
+  public static void main(String[] args) {
+
+    AtomicInteger integer = new AtomicInteger(2);
+
+    Foo foo = new Foo("F", integer);
+    Foo fooBar = new Foo("B", integer);
+    foo.start();
+    fooBar.start();
+
+    try {
+      foo.join();
+      fooBar.join();
+    } catch (InterruptedException exception) {
+      exception.printStackTrace();
+    }
+
+    System.out.println(integer.get());
+  }
+}</code></pre>
+
+
+
+## Lösung
+
+Kann man nicht sagen! Neue Frage: Warum? Da wurde doch AtomicInteger verwendet.
+
+
+
+## Lösung 2
+
+Scheduler
