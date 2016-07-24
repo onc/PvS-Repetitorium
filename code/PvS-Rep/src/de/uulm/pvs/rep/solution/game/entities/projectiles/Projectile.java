@@ -13,8 +13,7 @@ import java.awt.Point;
  */
 public class Projectile extends Entity {
 
-  private static final String PROJECTILE_IMAGE_PATH =
-      "de/uulm/pvs/rep/solution/resources/projectile.png";
+  private static final String PROJECTILE_IMAGE_PATH = "de/uulm/pvs/rep/resources/projectile.png";
 
   private static final int DEFAULT_SPEED = 3;
   private static final int DEFAULT_SIZE = 16;

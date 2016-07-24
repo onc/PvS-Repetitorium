@@ -18,8 +18,7 @@ import javax.imageio.ImageIO;
  */
 public class Background implements Renderable {
 
-  private static final String BACKGROUND_IMAGE_PATH =
-      "de/uulm/pvs/rep/solution/resources/background.png";
+  private static final String BACKGROUND_IMAGE_PATH = "de/uulm/pvs/rep/resources/background.png";
 
   private BufferedImage backgroundImage;
   private Dimension windowSize;

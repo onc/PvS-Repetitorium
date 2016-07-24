@@ -14,7 +14,7 @@ import java.awt.Point;
 public class Enemy extends Entity {
 
   // defaults for size and image
-  private static final String ENEMY_IMAGE_PATH = "de/uulm/pvs/rep/solution/resources/monster.png";
+  private static final String ENEMY_IMAGE_PATH = "de/uulm/pvs/rep/resources/monster.png";
   private static final int DEFAULT_SIZE = 64;
 
   /**

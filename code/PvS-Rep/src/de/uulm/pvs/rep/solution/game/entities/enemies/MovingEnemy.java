@@ -11,8 +11,7 @@ import java.awt.Point;
  */
 public class MovingEnemy extends Enemy {
 
-  private static final String MOVING_ENEMY_IMAGE_PATH =
-      "de/uulm/pvs/rep/solution/resources/monster.png";
+  private static final String MOVING_ENEMY_IMAGE_PATH = "de/uulm/pvs/rep/resources/monster.png";
 
   private static final int DEFAULT_SIZE = 64;
 

@@ -13,8 +13,7 @@ import java.awt.Point;
  */
 public class Asteroid extends Entity {
 
-  private static final String ASTEROID_IMAGE_PATH =
-      "de/uulm/pvs/rep/solution/resources/asteroid.png";
+  private static final String ASTEROID_IMAGE_PATH = "de/uulm/pvs/rep/resources/asteroid.png";
 
   private static final int DEFAULT_SPEED_X = -2;
   private static final int DEFAULT_SPEED_Y = 1;
