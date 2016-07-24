@@ -96,10 +96,62 @@ Vorgabewerte für Attribute
 
 
 ##XML Schema - XSD
+Vorteile von XML Schemas:
+* XML Schemas unterstützen Datentypen
+* XML Schemas verwenden XML Syntax
 
 
 
 ###Datentypen
+Einfache Elemente:
+
+```xml
+<xs:element ...
+```
+Komplexe Elemente:
+
+```xml
+<xs:complexType ...
+```
+Innerhalb dieser; Sequenzen, Auflistungen:
+
+```xml
+<xs:sequence>
+...
+</xs:sequence>
+```
+beziehungsweise
+```xml
+<xs:any>
+...
+</xs:any>
+```
+
+
+
+###Attribute
+Überlicherweise werden diese Attribute am häufigsten verwendet:
+* name - Der Name des Elements
+* type - der Typ der Daten, die innerhalb des Elements stehen
+  * `xs:string`
+  * `xs:integer`
+  * `xs:positiveInteger`
+* minOccurs, maxOccurs - Minimums- und Maximumsangabe
+
+
+
+
+###Beispiel
+```xml
+<xs:element name="employee">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="firstname" type="xs:string"/>
+      <xs:element name="lastname" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+```
 
 
 
@@ -127,13 +179,11 @@ Finde die Fehler (3 Stück)
 ###Aufgabe
 ```xml
 <?xml version="1.0"?> 
-<order orderid="889923"> <!-- Attribute in Anführungszeichen (") oder 
-                              Hochkomma (')-->
+<order orderid="889923"> <!-- Attribute in Anführungszeichen (") oder Hochkomma (')-->
   <orderperson>John Doe, Hauptstraße 7, Ulm</orderperson>
   <item>
     <title>Herr der Ringe Trilogie</title>
-    <note>Special Editon</note> <!-- Selbstschließende Tags können keinen 
-                                     Inhalt haben-->
+    <note>Special Editon</note> <!-- Selbstschließende Tags können keinen Inhalt haben-->
     <quantity>1</quantity>
     <price>50.90</price>
   </item> <!-- Tags schließen, bevor das selbe wieder geöffnet wird-->
