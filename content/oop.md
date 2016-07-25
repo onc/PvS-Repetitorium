@@ -682,10 +682,117 @@ System.out.println(p.equals(r)); // true, da p und r identisch sind</code></pre>
 
 
 
-## Exception Handling (checked - unchecked)
+## Exceptions
+Exceptions, zu deutsch Ausnahmen, sind ungewollte Funktionalitäten des Programms, weche vielleicht, vielleicht aber auch nicht auftreten können.
+
+
+
+* Eine Exception kann auftreten, wenn bspw. eine Datei geöffnet werden soll, welche im Filesystem aber nicht vorhanden ist. (FileNotFoundException)
+* Eine Exception kann auch auftreten, wenn auf ein uninstanziiertes Objekt zugegriffen werden soll. (NullPointerException)
+* Eine Exception kann auftreten, wenn ein Array durchlaufen wird und dabei das Ende überschritten wird. (ArrayIndexOutOfBoundsException)
+
+All diese Beispiele sind schwierig, vielleicht sogar unmöglich vorherzusehen.
+
+
+
+Aber was soll das Programm machen, wenn ein solcher Fall eintritt?
+
+
+
+In Objektorientierten Programmiersprachen hat sich das Konzept des `Exception Handling` durchgesetzt.
+
+Sollten Fehler auftreten wird ein spezieller Programmabschnitt druchlaufen, welcher den Fehler behebt, umgeht oder anders angemessen darauf reagiert.
+
+
+
+## Try - Catch
 
 ![Exception Handling](content/images/06_001.png)
-Note: TODO: Exceptions generell erklären
+
+
+
+`Try` - versuche diesen Programmabschnitt durchzuführen
+
+`Catch` - falls eine Exception auftritt, fang sie hier auf
+
+
+
+## Beispiel
+Wass kann hier schiefgehen?
+```java
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Punkt point = null;
+        int val = point.getX();
+    }
+}
+```
+
+
+
+## Beispiel
+NullPointerException!
+```java
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Punkt point = null;
+        try {
+            int val = point.getX();
+        }
+        catch (NullPointerException npe) {
+            System.out.println("Es existiert kein Punkt, von dem X abgerufen werden kann.");
+        }
+    }
+}
+```
+
+
+
+## Beispiel
+Wass kann hier schiefgehen?
+```java
+public class Main
+{
+    public static void main(String[] args)
+    {
+        int i = 1;
+        char[] txt = new char[]{'h','e','y'};
+        while (i <= txt.length) {
+            System.out.print(txt[i]);
+            i++;
+        }
+    }
+}
+```
+
+
+
+## Beispiel
+ArrayIndexOutOfBoundsException! Da das Array Indizes von 0-2 hat.
+```java
+public class Main
+{
+    public static void main(String[] args)
+    {
+        int i = 1;
+        char[] txt = new char[]{'h','e','y'};
+        try {
+            while (i <= txt.length) {
+                System.out.print(txt[i]);
+                i++;
+            }
+        }
+        catch (ArrayIndexOutOfBoundsException aioobe) {
+            System.out.println("Stoopid, why you do that?");
+        }
+    }
+}
+```
+Ist natürlich einfach zu finden, allerdings nur, wenn man auch weiß, wie groß das Array ist.
 
 
 
