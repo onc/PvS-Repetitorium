@@ -1,27 +1,21 @@
-# PVS Rep
+# PvS Repetitorium
 
-Please note: the markdown files in `content/` need to have unix line-endings!
+Dieses Repo enthält alle Folien und Übungen des PvS Repetitorium im Sommersemester 2016 an der Universität Ulm.
+Wenn du irgendwelche Fehler finden solltest, erstelle gerne einen [issue](https://github.com/onc/PvS-Repetitorium/issues/new). 
 
-This repository is used to publish all slides used in the PVS review course at Ulm University.
-If you find any mistake, please feel free to create an [issue](https://github.com/onc/PvS-Repetitorium/issues/new). 
-We also welcome pull requests!
-
-## Content of this repository
-
-This repository contains the slides of the PVS review course in summers term 2016 at ulm university as well as a lot of code samples.
-This code samples are packed into an eclipse project which can be found in the `code`-folder.
+Bitte beachte: Die Markdown-Dateien in `content/` müssen uni line-endings haben!
 
 ## Setup
 
-- Install `Node.js`
-- Clone the repository
-- Navigate to the project folder 
-- Install dependencies
+- `Node.js` installieren
+- Das Repo clonen
+- In den projekt-ordner wechseln
+- Abhängigkeiten installieren
 
     ```
     $ npm install
     ```
-- Serve the presentation and monitor source files for changes
+- Startet die Präsentation und läd sie neu, sobald eine Datei in `content/` verändert wird
 
     ```
     $ npm start
@@ -30,5 +24,3 @@ This code samples are packed into an eclipse project which can be found in the `
 ## Keybindings
 
 S - Speaker-View
-
-## Licence
