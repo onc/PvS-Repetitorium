@@ -481,7 +481,9 @@ public class Room extends GameObject {
 
 
 ## Overriding, Overloading
-TODO: edit
+
+
+
 ```java
 public class GameObject {
 
@@ -519,6 +521,127 @@ public class Room extends GameObject {
 
 
 
+## Overriding
+Wenn Klassen Methoden von einer Superklasse erben können diese auch überschrieben werden.
+
+Überschreiben dient dazu eine andere Funktionalität einer Methode zu implementieren, sollte dies in einer Klasse gewünscht sein.
+
+
+
+Überschriebene Methoden werden vom Compiler priorisiert. Dies bedeutet, dass das Linking einer Methode immer zuerst die Klasse, in der der Aufruf stattfindet, und danach die Superklasse beachtet.
+
+Die Superklasse jeder Klasse ist in Java die `Object` Klasse.
+
+
+
+Das Beispiel von eben:
+```java
+public class Room extends GameObject {
+
+    private int size;
+
+    public void setSize( int size ) {
+        if ( size > 0 )
+            this.size = size;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    @Override 
+    public String toString() {
+        return String.format( "Room[name=%s, size=%d]", getName(), getSize() );
+    }
+}
+```
+enthält die überschriebene Methode `toString();`, welche von `Object` geerbt wurde.
+
+
+
+## Overloading
+Als overloaded (überladen) werden Methoden bezeichnet, welche sich nur in der Anzahl der übergebenen Parameter unterscheiden.
+
+Das Overloading dient dazu Methoden, welche eine ähnliche Funktionalität haben nicht komplett unterschiedich benennen zu müssen.
+
+
+
+```java
+public class Foo {
+    public static int add(int num1) {
+        return num1 + num1;
+    }
+
+    public static int add(int num1, int num2) {
+        return num1 + num2;
+    }
+
+    public static void main(String[] args){
+        System.out.printpl(add(15));
+        System.out.printpl(add(15, 10));
+    }
+}
+```
+Die Methode `add` ist überladen.
+
+
+
+## Aufgabe
+Wo geschiet hier overloading, wo overriding?
+```java
+public class Foo {
+    public int add(int num1) {
+        return add(num1, num1);
+    }
+
+    public int add(int num1, int num2) {
+        return num1 + num2;
+    }
+}
+```
+```java
+public class Bar extends Foo {
+    public int add(int num1) {
+        return num1*2;
+    }
+    
+    public float add(float num1, float num2) {
+        return num2 + num1;
+    }
+}
+```
+
+
+
+## Lösungsvorschlag
+```java
+public class Foo {
+    public int add(int num1) {
+        return add(num1, num1);
+    }
+
+    public int add(int num1, int num2) {
+        return num1 + num2;
+    }
+}
+```
+```java
+public class Bar extends Foo {
+    public int add(int num1) {
+        return num1*2;
+    }
+    
+    public float add(float num1, float num2) {
+        return num2 + num1;
+    }
+}
+```
+* `Foo:add` ist überladen
+* `Foo:add(1)` ist überschrieben in `Bar`
+* `Bar:add(2)` ist eine vollkommen neue Methode
+
+
+
 ## Identität und Gleichheit
 ### Identität
 Der Vergleichsoperator
@@ -539,7 +662,7 @@ System.out.println(p==r); // false, da p und r zwei unterschiedliche
 
 
 
-###Gleichheit
+### Gleichheit
 Jede Klasse kann eine Methode
 >**equals()**
 
