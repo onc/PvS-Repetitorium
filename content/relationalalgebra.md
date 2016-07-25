@@ -96,7 +96,7 @@ Ein Beispiel:
 
 
 
-##Aufgabe
+## Aufgabe
 Gegeben seien die folgenden Relationenschemata:
 
 |Mensa|||
@@ -121,7 +121,7 @@ Gib die Algebra-Ausdrücke für die folgenden Anfragen an:
 
 
 
-##Lösungsvorschlag
+## Lösungsvorschlag
 |Mensa|||
 |---|---|---|
 |MensaID|GerichtID|Sitzplätze|
@@ -143,7 +143,7 @@ Gib die Algebra-Ausdrücke für die folgenden Anfragen an:
 
 
 
-##Aufgabe
+## Aufgabe
 Gegeben seien die folgenden Relationenschemata:
 
 |Teile||||
@@ -174,7 +174,7 @@ Gib die Algebra-Ausdrücke für die folgenden Anfragen an:
 
 
 
-##Lösungsvorschlag
+## Lösungsvorschlag
 |Teile||||
 |---|---|---|---|
 |TNR|Name|Preis|Bestand|
@@ -213,12 +213,12 @@ Zu diesem Zweck gibt es die Normalformen, welche erreicht werden, wenn bestimmte
 
 
 
-##Vorgehen
+## Vorgehen
 ![Normalisierung](content/images/Vorgehen_3NF.png)
 
 
 
-##Beispiel
+## Beispiel
 <div style="font-size:20px;">
 
 |Kennzeichen|Hersteller|Motor|Namen|
@@ -241,7 +241,7 @@ Um in die erste Normalform zu gelangen müssen die nicht atomaren Attribute umge
 
 
 
-##Beispiel
+## Beispiel
 <div style="font-size:20px;">
 
 |Kennzeichen|Hersteller|Motor|FahrerNr|Name|Vorname|
@@ -266,7 +266,7 @@ Um in die zweite Notmalform zu gelangen müssen wir die Teilschlüssel inklusive
 
 
 
-##Beispiel
+## Beispiel
 <div style="font-size:20px;">
 
 |Kennzeichen|Hersteller|Motor|FahrerNr|
@@ -302,7 +302,7 @@ Um in die dritte Notmalform zu gelangen müssen wir alle abhängigen Attribute i
 
 
 
-##Beispiel
+## Beispiel
 <div style="font-size:20px;">
 
 |Kennzeichen|Hersteller|FahrerNr|
@@ -341,7 +341,7 @@ Warum müssen wir hier die Hersteller nicht noch von den Fahrern trennen?
 
 
 
-##Beispiel
+## Beispiel
 <div style="font-size:20px;">
 
 |Kennzeichen|Hersteller|FahrerNr|
@@ -380,16 +380,16 @@ Diese Relation ist jetzt in der dritten Normalform
 Note: kein abhaenigkeiten von primärschlüsseln / nur von nicht primärschlüsseln
 
 
-##Anomalien
+## Anomalien
 
 
 
-###Insertion Anomalie
+### Insertion Anomalie
 Beim Einfügen von Daten in eine Datenbank spricht man von einer Einfüge-Anomalie, wenn ein neues Tupel in die Relation nicht oder nur schwierig eingetragen werden kann, weil nicht zu allen Attributen des Primärschlüssels Werte vorliegen.
 
 
 
-###Beispiel
+### Beispiel
 |Kennzeichen|Hersteller|Vorname|Nachname|
 |---|---|---|---|
 |K-KJ 321|VW|Peter|Schmidt|
@@ -403,12 +403,12 @@ In dieser Tabelle wird für Fahrzeuge der jeweilige Fahrer angegeben. Die Attrib
 
 
 
-###Update Anomalie
+### Update Anomalie
 Beim Ändern von Daten in einer Datenbank spricht man von einer Änderungs-Anomalie, wenn nicht alle (redundanten) Vorkommen eines Attributwert zugleich geändert werden. Dieses führt zu inkonsistenten Daten.
 
 
 
-###Beispiel
+### Beispiel
 |Kennzeichen|Hersteller|Farbe|Vorname|Nachname|
 |---|---|---|---|
 |K-KJ 321|VW|Blau|Peter|Schmidt|
@@ -420,12 +420,12 @@ Es wird in dieser Tabelle davon ausgegangen, dass die Erwähnungen von „Max Ma
 
 
 
-###Delete Anomalie
+### Delete Anomalie
 Eine Lösch-Anomalie entsteht, wenn durch das Löschen eines Datensatzes mehr Informationen als erwünscht verloren gehen. Sie entsteht, wenn ein Datensatz mehrere unabhängige Informationen enthält. Durch das Löschen der einen Information wird dann auch die andere gelöscht, obwohl diese noch benötigt wird.
 
 
 
-###Beispiel
+### Beispiel
 |Kennzeichen|Hersteller|Farbe|Vorname|Nachname|
 |---|---|---|---|
 |K-KJ 321|VW|Blau|Peter|Schmidt|

@@ -2,7 +2,7 @@
 
 
 
-##XML
+## XML
 E**X**tensible **M**arkup **L**anguage - erweiterbare Auszeichnungssprache
 
 Entwickelt um Daten zu transportieren.
@@ -22,16 +22,16 @@ In der Grundidee ist XML häufig wiederzufinden:
 
 
 
-##Begriffe
-####Wohlgeformtheit
-####Parser
-####Element
-####Attribut
-####Valide
+## Begriffe
+#### Wohlgeformtheit
+#### Parser
+#### Element
+#### Attribut
+#### Valide
 
 
 
-###Wohlgeformtheit
+### Wohlgeformtheit
 Ein XML-Dokument heißt *wohlgeformt*, wenn es alle XML-Regeln einhält. Beispielhaft seien hier folgende genannt:
 * Das Dokument besitzt genau ein Wurzelelement.
 * Alle Elemente mit Inhalt besitzen einen Beginn- und einen End-Auszeichner.
@@ -42,31 +42,31 @@ Ein XML-Dokument heißt *wohlgeformt*, wenn es alle XML-Regeln einhält. Beispie
 
 
 
-###Valide
+### Valide
 Ein XML-Dokument ist valide, wenn es die Regeln einer DTD oder XSD erfüllt.
 
 
 
-###Parser
+### Parser
 Ein Parser ist ein Computerprogramm, das in der Informatik für die Zerlegung und Umwandlung einer Eingabe in ein für die Weiterverarbeitung geeigneteres Format zuständig ist.
 
 
 
-###Element
+### Element
 Wichtigste Struktureinheit einer XML-Anwendung ist das Element. Der Name eines XML-Elements kann weitgehend frei gewählt werden. Elemente können weitere Elemente, Text- und andere Knoten – ggfs. auch vermischt – enthalten.
 
 
 
-###Attribut
+### Attribut
 Attribute dienen als bei einem Start-Tag oder Empty-Element-Tag geschriebene Schlüsselwort-Werte-Paare (Attribut-Name="Attribut-Wert") für Zusatz-Informationen über Elemente (eine Art Meta-Information).
 
 
 
-##Dokumenttypdefinition - DTD
+## Dokumenttypdefinition - DTD
 
 
 
-###DTD-Element Definition
+### DTD-Element Definition
 ```xml
 <!ELEMENT                   Schlüsselwort
   <name>                    Bezeichner des Tags
@@ -92,7 +92,7 @@ Inhaltsspezifizierung:
 
 
 
-####Attribut Definition
+#### Attribut Definition
 Vorgabewerte für Attribute
 * \#REQUIRED Das Attribut muss angegeben werden
 * \#IMPLIED  Das Attribut ist optional
@@ -101,14 +101,14 @@ Vorgabewerte für Attribute
 
 
 
-##XML Schema - XSD
+## XML Schema - XSD
 Vorteile von XML Schemas:
 * XML Schemas unterstützen Datentypen
 * XML Schemas verwenden XML Syntax
 
 
 
-###Datentypen
+### Datentypen
 Einfache Elemente:
 
 ```xml
@@ -135,7 +135,7 @@ beziehungsweise
 
 
 
-###Attribute
+### Attribute
 Überlicherweise werden diese Attribute am häufigsten verwendet:
 * name - Der Name des Elements
 * type - der Typ der Daten, die innerhalb des Elements stehen
@@ -147,7 +147,7 @@ beziehungsweise
 
 
 
-###Beispiel
+### Beispiel
 ```xml
 <xs:element name="employee">
   <xs:complexType>
@@ -161,7 +161,7 @@ beziehungsweise
 
 
 
-###Aufgabe
+### Aufgabe
 Finde die Fehler (3 Stück)
 ```xml
 <?xml version="1.0"?> 
@@ -182,7 +182,7 @@ Finde die Fehler (3 Stück)
 
 
 
-###Aufgabe
+### Aufgabe
 ```xml
 <?xml version="1.0"?> 
 <order orderid="889923"> <!-- Attribute in Anführungszeichen (") oder Hochkomma (')-->
@@ -203,7 +203,7 @@ Finde die Fehler (3 Stück)
 
 
 
-###Aufgabe
+### Aufgabe
 Schreibe eine DTD für folgende XML
 ```xml
 <?xml version="1.0"?> 
@@ -225,7 +225,7 @@ Schreibe eine DTD für folgende XML
 
 
 
-###Lösungsvorschlag
+### Lösungsvorschlag
 ```xml
 <!DOCTYPE order[
   <!ELEMENT order (orderperson,item) >
@@ -243,7 +243,7 @@ Schreibe eine DTD für folgende XML
 
 
 
-###Aufgabe
+### Aufgabe
 Schreibe eine XSD für folgende XML
 ```xml
 <?xml version="1.0"?> 
@@ -265,7 +265,7 @@ Schreibe eine XSD für folgende XML
 
 
 
-###Lösungsvorschlag
+### Lösungsvorschlag
 ```xml
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="order">
@@ -291,13 +291,13 @@ Schreibe eine XSD für folgende XML
 
 
 
-###Aufgabe
+### Aufgabe
 1. Nenne zwei Unterschiede zwischen XML und HTML.
 2. Nenne einen Unterschied Zwischen DTD und XSD.
 
 
 
-###Lösungsvorschlag
+### Lösungsvorschlag
 1. Nenne zwei Unterschiede zwischen XML und HTML.
   * XML ist ein Datenaustauschformat für Computer, HTML ist zur Präsentation von Daten für Menschen gedacht.
   * In XML kann man neue Tags definieren, in HTML nicht.
@@ -309,7 +309,7 @@ Schreibe eine XSD für folgende XML
 
 
 
-##SVG
+## SVG
 Die **scalable vector graphics** ist die empfohlene Spezifikation zur beschreibung von 2D Vektorgrafiken.
 
 SVG basiert auf XML und ist daher für Mashinen und Menschen gut lesbar.
@@ -338,12 +338,12 @@ Zur veränderung von XML, HTML, SVG etc. wurde vom W3C die XPath Syntax eingefü
 
 
 
-##XPath
+## XPath
 XPath nutzt Reguläre Ausdrücke um Knoten (nodes) in XML Dokumenten zu selektieren.
 
 
 
-###XPath Selektoren
+### XPath Selektoren
 Selektoren werden verwendet um bestimmte Knoten, oder Attribute auszuwählen
 
 |Ausdruck|Beschreibung|
@@ -357,7 +357,7 @@ Selektoren werden verwendet um bestimmte Knoten, oder Attribute auszuwählen
 
 
 
-###XPath Selektoren
+### XPath Selektoren
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <bookstore>
@@ -382,7 +382,7 @@ Selektoren werden verwendet um bestimmte Knoten, oder Attribute auszuwählen
 
 
 
-###Aufgabe
+### Aufgabe
 ```xml
 <?xml version="1.0"?> 
 <order orderid="889923">
@@ -407,7 +407,7 @@ Selektoren werden verwendet um bestimmte Knoten, oder Attribute auszuwählen
 
 
 
-###Lösungsvorschlag
+### Lösungsvorschlag
 ```xml
 <?xml version="1.0"?> 
 <order orderid="889923">
@@ -442,14 +442,14 @@ Selektoren werden verwendet um bestimmte Knoten, oder Attribute auszuwählen
 
 
 
-###XPath Prädikate
+### XPath Prädikate
 Prädikate werden benutzt um bestimmte Knoten, oder Knoten die einen bestimmten Wert haben, zu finden
 
 Sie werden immer in eckigen Klammern geschrieben
 
 
 
-###XPath Prädikate
+### XPath Prädikate
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <bookstore>
@@ -474,7 +474,7 @@ Sie werden immer in eckigen Klammern geschrieben
 
 
 
-###Aufgabe
+### Aufgabe
 ```xml
 <?xml version="1.0"?> 
 <order orderid="889923">
@@ -498,7 +498,7 @@ Sie werden immer in eckigen Klammern geschrieben
 
 
 
-###Lösungsvorschlag
+### Lösungsvorschlag
 ```xml
 <?xml version="1.0"?> 
 <order orderid="889923">
@@ -528,7 +528,7 @@ Sie werden immer in eckigen Klammern geschrieben
 
 
 
-###XPath Wildcards
+### XPath Wildcards
 Wildcards werden benutzt um unbekannte Knoten zu selektieren
 
 |Ausdruck|Beschreibung|
@@ -539,7 +539,7 @@ Wildcards werden benutzt um unbekannte Knoten zu selektieren
 
 
 
-###XPath Wildcards
+### XPath Wildcards
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <bookstore>
@@ -561,7 +561,7 @@ Wildcards werden benutzt um unbekannte Knoten zu selektieren
 
 
 
-###Aufgabe
+### Aufgabe
 ```xml
 <?xml version="1.0"?> 
 <order orderid="889923">
@@ -585,7 +585,7 @@ Wildcards werden benutzt um unbekannte Knoten zu selektieren
 
 
 
-###Lösungsvorschlag
+### Lösungsvorschlag
 ```xml
 <?xml version="1.0"?> 
 <order orderid="889923">

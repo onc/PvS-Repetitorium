@@ -2,12 +2,12 @@
 
 
 
-##(Abstrakte-)
-##Klassen und Interfaces
+## (Abstrakte-)
+## Klassen und Interfaces
 
 
 
-###Klassen
+### Klassen
 Klassen sind das wichtigste Merkmal objektorientierter Programmiersprachen.
 
 In Klassen werden Methoden und Attribute (Felder) festgelegt (oder beschrieben)
@@ -20,7 +20,7 @@ Klassen können instanziiert werden.
 
 
 
-###Abstrakte Klassen
+### Abstrakte Klassen
 Abstrakte Klassen können Implementationen und Felder enthalten, aber keine Konstruktoren.
 
 Eine Klasse *erbt* von einer abstrakten Klasse. (`extends`)
@@ -29,7 +29,7 @@ Abstrakte Klassen können **nicht** instanziiert werden.
 
 
 
-###Interfaces
+### Interfaces
 Interface enthält nur Methodensignaturen (keine Implementation, keine Felder, keine Konstruktoren).
 
 Eine Klasse *implementiert* ein Interface. (`implements`)
@@ -38,11 +38,11 @@ Interfaces können **nicht** instanziiert werden.
 
 
 
-##Information Hiding und Vererbung
+## Information Hiding und Vererbung
 
 
 
-###Zugriffsmodifizierer 
+### Zugriffsmodifizierer 
 |           | Die Klasse selbst, innere Klassen | Klassen im selben Package | Unterklassen | Sonstige Klassen |
 |-----------|-----------------------------------|---------------------------|--------------|------------------|
 | private   | Ja                                | Nein                      | Nein         | Nein             |
@@ -50,17 +50,17 @@ Interfaces können **nicht** instanziiert werden.
 | protected | Ja                                | Ja                        | Ja           | Nein             |
 | public    | Ja                                | Ja                        | Ja           | Ja               |
 
-Note:Den Unterschied zwischen innerer Klasse und Unterklasse (extends) erklären
+Note: Den Unterschied zwischen innerer Klasse und Unterklasse (extends) erklären
 
 
 
-###Polymorphie-Modifizierer
+### Polymorphie-Modifizierer
 **abstract, final, static**
 Note:Polymorphie: griechisch: Vielgestaltigkeit
 
 
 
-###abstract
+### abstract
 Abstract sagt aus, dass es sich um eine allgemeine Klasse handelt zu der keine konkreten Objekte existieren.
 
 * Abstrakte Klasse kann nicht instanziiert werden.
@@ -72,7 +72,7 @@ Note: Definition:
 
 
 
-###final
+### final
 Einfach ausgedrückt bedeutet final in Java "kann nicht überschrieben werden".
 
 * Finale Methoden lassen sich nicht überschreiben.
@@ -83,7 +83,7 @@ Einfach ausgedrückt bedeutet final in Java "kann nicht überschrieben werden".
 
 
 
-###static
+### static
 Statische Eigenschaften haben gegenüber Objekteigenschaften den Vorteil, dass sie im Programm ausdrücken, keinen Zustand vom Objekt zu nutzen.
 
 * Statische Methoden und Variablen benötigen keinerlei Instanzen einer Klasse, um aufgerufen zu werden.
@@ -91,7 +91,7 @@ Statische Eigenschaften haben gegenüber Objekteigenschaften den Vorteil, dass s
 
 
 
-###Aufgabe 1
+### Aufgabe 1
 Funktioniert die main-Methode der Klasse Foo so?
 
 Ja, oder nein. Warum?
@@ -116,7 +116,7 @@ class Foo {
 
 
 
-###Aufgabe 1 - Lösung
+### Aufgabe 1 - Lösung
 ```java
 public abstact class Body {
     int limbs;
@@ -139,7 +139,7 @@ Geht nicht, da Body *abstract* ist.
 
 
 
-###Aufgabe 2
+### Aufgabe 2
 Funktioniert die main-Methode der Klasse Foo so?
 
 Ja, oder nein. Warum?
@@ -170,7 +170,7 @@ class Foo {
 
 
 
-###Aufgabe 2 - Lösung
+### Aufgabe 2 - Lösung
 ```java
 public class Person extends Body {
     final int height;
@@ -199,7 +199,7 @@ Nein, da height final ist.
 
 
 
-###Aufgabe 3
+### Aufgabe 3
 Funktioniert die main-Methode der Klasse Foo so?
 
 Ja, oder nein. Warum?
@@ -231,7 +231,7 @@ class Foo {
 
 
 
-###Aufgabe 3 - Lösung
+### Aufgabe 3 - Lösung
 ```java
 public class Person extends Body {
     final int height;
@@ -263,7 +263,7 @@ class Foo {
 
 
 
-###Aufgabe 4
+### Aufgabe 4
 Funktioniert die main-Methode der Klasse Foo so?
 
 Ja, oder nein. Warum?
@@ -291,7 +291,7 @@ class Foo {
 
 
 
-###Aufgabe 4 - Lösung
+### Aufgabe 4 - Lösung
 ```java
 public abstact class Body {
     int limbs;
@@ -317,7 +317,7 @@ Nein, die Kompilierung wird fehlschlagen, da die Methode nicht implementiert ist
 
 
 
-###Aufgabe 5
+### Aufgabe 5
 Können die beiden Methoden *growAnotherArm* überschrieben werden?
 
 Ja, oder nein. Warum?
@@ -363,7 +363,7 @@ public class Person extends Body {
 
 
 
-###Aufgabe 5 - Lösung
+### Aufgabe 5 - Lösung
 ```java
 public abstract class Body {
     int limbs;
@@ -408,7 +408,7 @@ public class Person extends Body {
 
 
 
-###Aufgabe 6
+### Aufgabe 6
 Sind die Aufrufe von *saySomething()* so möglich? 
 
 Ja, oder nein. Warum?
@@ -434,7 +434,7 @@ class Foo {
 
 
 
-###Aufgabe 6 - Lösung
+### Aufgabe 6 - Lösung
 ```java
 class Foo {
     public static void main(String[] args) {
@@ -461,7 +461,7 @@ class Foo {
 
 
 
-###Vererbung
+### Vererbung
 Durch den Vererbungsmechanismus werden alle sichtbaren Eigenschaften der Oberklasse auf die Unterklasse übertragen.
 ```java
 public class GameObject {
@@ -480,7 +480,7 @@ public class Room extends GameObject {
 
 
 
-##Overriding, Overloading
+## Overriding, Overloading
 TODO: edit
 ```java
 public class GameObject {
@@ -519,8 +519,8 @@ public class Room extends GameObject {
 
 
 
-##Identität und Gleichheit
-###Identität
+## Identität und Gleichheit
+### Identität
 Der Vergleichsoperator
 >**==**
 
@@ -559,13 +559,14 @@ System.out.println(p.equals(r)); // true, da p und r identisch sind</code></pre>
 
 
 
-##Exception Handling (checked - unchecked)
+## Exception Handling (checked - unchecked)
+
 ![Exception Handling](content/images/06_001.png)
 Note: TODO: Exceptions generell erklären
 
 
 
-###Checked Exceptions
+### Checked Exceptions
 Checked Esceptions müssen beim programmieren beachtet werden. Der Compiler meckert, wenn dies nicht geschiet.
 + IOException
 + FileNotFoundException
@@ -578,7 +579,7 @@ Note: TODO: erklärung schreiben
 
 
 
-###Unchecked Exceptions
+### Unchecked Exceptions
 Unchecked Esceptions werden vom Compiler ignoriert, können aber dennoch im Programmablauf auftreten.
 + ArrayIndexOutOfBoundsException
 + IllegalArgumentException
@@ -592,7 +593,7 @@ Note: TODO: erklärung schreiben
 
 
 
-##Generics
+## Generics
 > Generics realisieren das Prinzip des Stellvertreters
 
 ```java
@@ -675,8 +676,8 @@ public class Tupel<T> {
 
 
 
-##println von Objekten
-###Aufgabe 1
+## println von Objekten
+### Aufgabe 1
 <pre><code class="line-numbers">public static void main(String[] args) {
     System.out.println("foo");
     System.out.println("bar".charAt(0));
@@ -697,8 +698,8 @@ public class Tupel<T> {
 
 
 
-##println von Objekten
-###Aufgabe 1 - Lösung
+## println von Objekten
+### Aufgabe 1 - Lösung
 <pre><code class="line-numbers">public static void main(String[] args) {
     System.out.println("foo");                                              // foo
     System.out.println("bar".charAt(0));                                    // b
@@ -719,8 +720,8 @@ public class Tupel<T> {
 
 
 
-##println von Objekten
-###Aufgabe 2
+## println von Objekten
+### Aufgabe 2
 ```java
 public class Tupel<T> {
     private T object1;
@@ -742,8 +743,8 @@ public class Tupel<T> {
 
 
 
-##println von Objekten
-###Aufgabe 2 - Lösung
+## println von Objekten
+### Aufgabe 2 - Lösung
 ```java
 public class Tupel<T> {
     private T object1;
@@ -765,8 +766,8 @@ public class Tupel<T> {
 
 
 
-##println von Objekten
-###Aufgabe 3
+## println von Objekten
+### Aufgabe 3
 ```java
 public class Tupel<T> {
     private T object1;
@@ -792,8 +793,8 @@ public class Tupel<T> {
 
 
 
-##println von Objekten
-###Aufgabe 3 - Lösung
+## println von Objekten
+### Aufgabe 3 - Lösung
 ```java
 public class Tupel<T> {
     private T object1;
@@ -816,8 +817,8 @@ public class Tupel<T> {
 
 
 
-##println von Objekten
-###Aufgabe 4
+## println von Objekten
+### Aufgabe 4
 <pre><code class="line-numbers">public class Cell {
     public int row;
     public int col;
@@ -840,8 +841,8 @@ public class Tupel<T> {
 
 
 
-##println von Objekten
-###Aufgabe 4 - Lösung
+## println von Objekten
+### Aufgabe 4 - Lösung
 <pre><code class="line-numbers">public class Cell {
     public int row;
     public int col;
@@ -865,7 +866,7 @@ public class Tupel<T> {
 
 
 
-##UML Klassendiagramm
+## UML Klassendiagramm
 Klassen und Schnittstellen werden durch Rechtecke dargestellt.
 * \+ für public
 * \# für protected
@@ -879,7 +880,7 @@ Note: TODO: erweiterung schreiben. (Klasse-Attribute-Methoden) (Sichtbarkeiten) 
 
 
 
-###Aufgabe 1
+### Aufgabe 1
 ```java
 interface Buchbar {
     public void abheben(float betrag);
@@ -916,12 +917,12 @@ class Konto extends AbstraktesKonto {
 
 
 
-###Aufgabe 1 - Lösung
+### Aufgabe 1 - Lösung
 ![Beziehung Klassendiagramm](content/images/UML-A1-Klassendiagramm.png)
 
 
 
-###Aufgabe 2
+### Aufgabe 2
 ```java
 interface A {
 }
@@ -949,5 +950,5 @@ class F extends D implements B {
 
 
 
-###Aufgabe 2 - Lösung
+### Aufgabe 2 - Lösung
 ![Beziehung Klassendiagramm](content/images/UML-A2-Klassendiagramm.png)

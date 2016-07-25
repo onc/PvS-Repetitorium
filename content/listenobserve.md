@@ -1,9 +1,9 @@
-#Listener und Observer
+# Listener und Observer
 
 
 
-##Observer Pattern
-###Das Beobachter-Muster
+## Observer Pattern
+### Das Beobachter-Muster
 Wir erläutern das Observer-Pattern anhand des PvS-Repetitoriums. 
 
 In diesem Beispiel sind die Tutoren (*wir*) die Erzähler und erklären den Stoff von Programmierung von Systemen. Die Zuhörer (*ihr*) seid diejenigen, welche sich für den Stoff interessieren und aufmerksam zuhören. Wir nennen die Tutoren jetzt Observable (beobachtbar) und die Studenten Observer(Beobachter).
@@ -16,48 +16,48 @@ Note: Vorlesen!
 
 
 
-###Beispiel: Die Push Variante
+### Beispiel: Die Push Variante
 Im Push-Modell übergibt der Observable der update()-Methode detaillierte Informationen über die Änderung als Parameter.
 
 Der Vorteil hierbei ist, dass Observer und Observable stärker entkoppelt sind, da der Observer keine Informationen über den Observable benötigt.
 
 
 
-###Beispiel: Die Push Variante
+### Beispiel: Die Push Variante
 ![Observer](content/images/Observer_push.svg)
 Note: ANIMIERT! Seperat öffnen, da die Animation sonst nicht funktioniert.
 
 
 
 
-###Beispiel: Die Pull Variante
+### Beispiel: Die Pull Variante
 Beim Pull-Modell erhält der Observer nur eine minimale Benachrichtigung und muss sich die benötigten Informationen selber aus vom Observable holen. Dazu erhält/besitzt es eine Referenz auf diesen (entweder in einer Instanzvariable beim Registrieren gespeichert oder via Argument der update()-Methode).
 
 
 
-###Beispiel: Die Pull Variante
+### Beispiel: Die Pull Variante
 ![Observer](content/images/Observer_pull.svg)
 Note: ANIMIERT! Seperat öffnen, da die Animation sonst nicht funktioniert.
 
 
 
-###Schwierigkeiten von Observer/Observable
+### Schwierigkeiten von Observer/Observable
 Die Typen Observer/Observable bieten eine grundlegende Möglichkeit, das Beobachter-Muster in Java zu realisieren. Allerdings gibt es ein paar Dinge, die Entwickler sich noch zusätzlich wünschen:
 * Die Typen Observer/Observable sind nicht generisch deklariert, was dazu führt, dass bei update() immer nur alles als Object übergeben werden kann.
 * Oder Observer deklariert nur genau eine update()-Methode. Wenn der Ereignisauslöser unterschiedliche Ereignisse melden möchte, gibt es nur eine Lösung: unterschiedliche Ergebnis-Objekte. Das wiederum führt zu Fallunterscheidungen in der update()-Methode, und die Codequalität verschlechtert sich.
 
 
 
-##Events und Listener
+## Events und Listener
 
 
 
-###Events
+### Events
 Die Java VM erstellt bei Auftreten eines Ereignisses, wie bspw. das Klicken eines Buttons, automatisch ein Objekt der entsprechenden Event-Klasse.
 
 
 
-###Events
+### Events
 |Klassenname|Auslösung|Beispiel|
 |---|---|---|
 |ActionEvent|GUI-Komponenten werden betätigt|Betätigen eines Buttons|
@@ -69,8 +69,8 @@ Die Java VM erstellt bei Auftreten eines Ereignisses, wie bspw. das Klicken eine
 
 
 
-###Event Methoden
-####ActionEvent
+### Event Methoden
+#### ActionEvent
 |Rückgabewert|Methode|Aufruf|
 |---|---|---|
 |String|getActionCommand()|Gibt zugehörigen command-String zurück|
@@ -78,7 +78,7 @@ Die Java VM erstellt bei Auftreten eines Ereignisses, wie bspw. das Klicken eine
 |long|getWhen()|Gibt Zeitstempel des Auftretens zurück|
 |...|...|...|
 
-####MouseEvent
+#### MouseEvent
 |Rückgabewert|Methode|Aufruf|
 |---|---|---|
 |int|getButton()|Gibt zurück welcher (wenn überhaupt) Knopf der Maus gedrückt wurde|
@@ -103,7 +103,7 @@ WindowListener
 
 
 
-###Listener
+### Listener
 Um Events zu handhaben gibt es nun die Listener, welche auf bestimmte Events warten und entsprechend reagieren.
 
 
@@ -123,7 +123,7 @@ Die beteiligten Klassen und Schnittstellen folgen einer bestimmten Namenskonvent
 
 
 
-####Consume
+#### Consume
 Event Objekte werden immer vom Listener abgearbeitet und anschließen konsumiert.
 
 Konsumieren bedeutet, dass das Event-Objekt nicht weitergegeben wird an andere Listener und selbst an andere Methoden innerhalb eines Listeners.
@@ -141,7 +141,7 @@ public void consume()
 
 
 
-###ActionListener
+### ActionListener
 |Rückgabewert|Methode|Aufruf|
 |---|---|---|
 |void|actionPerformed(ActionEvent e)|Wenn Aktionen auftreten|
@@ -149,7 +149,7 @@ Note:![ActionListener](content/images/actioneventactionlisteneruml.gif)
 
 
 
-###Aufgabe
+### Aufgabe
 Was passiert in dieser Klasse?
 ```java
 public class SomeGUI implements ActionListener {
@@ -177,14 +177,14 @@ public class SomeGUI implements ActionListener {
 
 
 
-###Antwort
+### Antwort
 1. Fenster wird gezeichnet & dargestellt
 2. Button wird geklickt
 2. Ausgabe des Textes der JTextArea: "Hallo Welt!"
 
 
 
-###MouseListener
+### MouseListener
 |Rückgabewert|Methode|Aufruf|
 |---|---|---|
 |void|mouseClicked(MouseEvent e)|Wenn Mausbutton gedrückt und losgelassen|
@@ -223,7 +223,7 @@ mousePressed() + mouseReleased() = mouseClicked()
 
 
 
-###Aufgabe
+### Aufgabe
 Was passiert hier, wenn die Maus geklickt wird?
 ```java
 public void mouseReleased(MouseEvent e) {
@@ -248,12 +248,12 @@ public void mouseClicked(MouseEvent e) {
 
 
 
-###Antwort
+### Antwort
 mousePressed() und MouseReleased() werden aufgerufen, mouseClicked() aber nicht.
 
 
 
-###MouseMotionListener
+### MouseMotionListener
 |Rückgabewert|Methode|
 |---|---|
 |void|mouseDragged(MouseEvent e)|
@@ -273,7 +273,7 @@ public void mouseDragged(MouseEvent arg0) {
 
 
 
-###Adapter Klassen
+### Adapter Klassen
 Vereinigen mehrere Interfaces zu einem Interface.
 
 MouseAdapter: MouseListener, MouseMotionListener, MouseWheelListener
@@ -287,7 +287,7 @@ Durch die einmalige implementierung bleibt der Code übersichtlicher.
 
 
 
-###Listener Hinzufügen
+### Listener Hinzufügen
 Anonyme Klasse
 ```java
 someButton.addActionListener(new ActionListener(){
@@ -298,6 +298,7 @@ someButton.addActionListener(new ActionListener(){
 Vorteil: 
 * Klein
 * Übersichtlich
+
 Nachteil: 
 * Redundanter Code, wenn gleiche Prozeduren in mehreren Listenern ausgeführt werden sollen.
 
@@ -356,7 +357,7 @@ ListenerKlasse kann auch die eigene Klasse sein
 
 
 
-###Aufgabe
+### Aufgabe
 1. Welcher Listener könnte verwendet werden um auf Änderungen des Fensters zu reagieren?
 2. Welcher Listener könnte verwendet werden um Text einer JTextArea auf Validität zu überprüfen? Begründe.
 3. Warum kann der MouseListener auch durch den MouseAdapter ersetzt werden?
@@ -364,7 +365,7 @@ ListenerKlasse kann auch die eigene Klasse sein
 
 
 
-###Antwort
+### Antwort
 1. Welcher Listener könnte verwendet werden um auf Änderungen des Fensters zu reagieren?
   * Der WindowListener
 2. Welcher Listener könnte verwendet werden um Text einer JTextArea auf Validität zu überprüfen? Begründe.
