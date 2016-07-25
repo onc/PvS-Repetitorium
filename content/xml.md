@@ -317,7 +317,7 @@ SVG basiert auf XML und ist daher für Mashinen und Menschen gut lesbar.
 
 
 ### SVG - Elemente
-![SVG-Grundelemente](/content/images/SVG-Grundelemente.svg)
+![SVG-Grundelemente](content/images/SVG-Grundelemente.svg)
 
 |||
 |---|---|
@@ -328,7 +328,7 @@ SVG basiert auf XML und ist daher für Mashinen und Menschen gut lesbar.
 
 Mit den richtigen Tools könnten solche Bilder entstehen.
 
-![SVG-Grundelemente](/content/images/eleven_below_single.svg)
+![SVG-Grundelemente](content/images/eleven_below_single.svg)
 
 [© Copyright 2008 Brian Lukis](http://www1.plurib.us/1shot/2008/eleven_below/)
 
