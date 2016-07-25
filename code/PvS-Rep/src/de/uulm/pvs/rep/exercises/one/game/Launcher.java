@@ -42,7 +42,7 @@ public class Launcher extends JFrame {
   }
 
   /**
-   * TODO documentation.
+   * Start the Launcher.
    * 
    * @param args - arguments
    */

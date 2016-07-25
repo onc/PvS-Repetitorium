@@ -126,7 +126,6 @@ public class PlayerDao {
 
   /**
    * Add a player to the database.<br>
-   * FIXME: maybe return something to check, if the player already exists.
    * 
    * @param playerDto - player to save
    */

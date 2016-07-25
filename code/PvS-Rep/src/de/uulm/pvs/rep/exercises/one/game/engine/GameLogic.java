@@ -192,7 +192,6 @@ public class GameLogic {
         if (projectile.intersects(enemy)) {
           projectileSpawner.remove(projectile);
           enemySpawner.remove(enemy);
-          // FIXME: maybe more points for monsters or something like this...
           score++;
         }
       }

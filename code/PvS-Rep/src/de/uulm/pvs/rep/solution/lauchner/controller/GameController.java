@@ -93,12 +93,10 @@ public class GameController
 
       case ActionConstants.IMPORT_SETTINGS:
         System.out.println("[SettingsController] Import");
-        // FIXME: implement
         break;
 
       case ActionConstants.EXPORT_SETTINGS:
         System.out.println("[SettingsController] Export");
-        // FIXME: implement
         break;
 
       default:

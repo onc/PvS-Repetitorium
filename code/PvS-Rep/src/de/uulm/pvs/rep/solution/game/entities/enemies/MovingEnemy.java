@@ -32,7 +32,6 @@ public class MovingEnemy extends Enemy {
    * Updates the enemy. using cos to let the enemy moving up and down.
    */
   public void update() {
-    // FIXME: ugly, but it works...
     iterator++;
     // use cos-function to get the entity moving up and down.
     int offsetY = Math.round(AMPLITUTE * (float) Math.cos(MULTIPLICATOR * iterator));
