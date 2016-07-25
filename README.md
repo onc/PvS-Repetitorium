@@ -3,7 +3,7 @@
 Dieses Repo enthält alle Folien und Übungen des PvS Repetitorium im Sommersemester 2016 an der Universität Ulm.
 Wenn du irgendwelche Fehler finden solltest, erstelle gerne einen [Issue](https://github.com/onc/PvS-Repetitorium/issues/new). 
 
-Bitte beachte: Die Markdown-Dateien in `content/` müssen uni line-endings haben!
+Bitte beachte: Die Markdown-Dateien in `content/` müssen unix line-endings haben!
 
 ## PDF-Export
 
