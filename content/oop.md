@@ -805,8 +805,6 @@ Checked Esceptions müssen beim programmieren beachtet werden. Der Compiler meck
 
 => Alles was von `Exception` erbt.
 
-Note: TODO: erklärung schreiben
-
 
 
 ### Unchecked Exceptions
@@ -819,7 +817,15 @@ Unchecked Esceptions werden vom Compiler ignoriert, können aber dennoch im Prog
 
 => Alles was von `RuntimeException` erbt.
 
-Note: TODO: erklärung schreiben
+
+
+Als Java im letzten Jahrtausend entworfen wurde, galt diese Unterscheidung als chic und modern. Man wollte Fehler danach unterscheiden, ob der Aufrufer sie hätte vermeiden können.
+
+
+
+Fehler wie NullPointerException (unchecked) oder IllegalArgumentException (unchecked) liegen an fehlerhafter Verwendung einer Klasse und können quasi überall auftreten. Sie zu deklarieren bringt also quasi keinen Nutzen.
+
+Wenn ein Fehler für den Aufrufer aber unvorhersehbar ist – I/O, Validierung etc. (checked) – dann sollte er zu einem expliziten Teil des Aufrufkontrakts werden.
 
 
 
