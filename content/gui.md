@@ -24,6 +24,9 @@
 
 ### Layouts
 
+LayoutManager verwalten das Layout des Fensters. 
+Alle Komponenten werden dem Layout entsprechend skaliert und positioniert, auch wenn sich die Fenstergröße ändert.
+
 * `JFlowLayout` (!)
 * `JGridLayout` (!)
 * `JBorderLayout` (!)
