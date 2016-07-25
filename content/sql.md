@@ -21,17 +21,17 @@ SQL ist die am weitesten verbreitete Datenbanksprache (manchmal auch Programmier
 
 
 
-##SQL - From
+## SQL - From
 Gibt an aus welcher Tabelle ausgewählt wird
 
 
 
-##SQL - Select
+## SQL - Select
 Wählt angegebene spalten aus einer Tabelle aus
 
 Entspricht in Relationaler Algebra dem Pi &pi;
 
-###Beispiel
+### Beispiel
 Tebelle Student
 
 |MatrNr|Name|
@@ -61,12 +61,12 @@ Der Übersichtlichkeit halber schreiben wir hier aber sie Schlüsselwörter gro�
 
 
 
-##SQL - Where
+## SQL - Where
 Gibt Bedingungen an, welche Zeilen ausgewählt werden.
 
 Entspricht in Relationaler Algebra dem Sigma &sigma;
 
-###Beispiel
+### Beispiel
 Tebelle Student
 
 |MatrNr|Name|
@@ -83,10 +83,10 @@ WHERE MartrNr > 26000
 
 
 
-##SQL - Like
+## SQL - Like
 LIKE filtert in der WHERE Klausel nach dem Inhalt der Zelle, wobei der Inhalt auch nur Teilweise erfüllt sein muss.
 
-###Beispiel
+### Beispiel
 Tebelle Student
 
 |MatrNr|Name|
@@ -103,10 +103,10 @@ WHERE Name LIKE 'F%'
 
 
 
-##SQL - AND
+## SQL - AND
 AND verbindet mehrere boolesche Ausdrücke einer WHERE Klausel miteinander.
 
-###Beispiel
+### Beispiel
 Tebelle Student
 
 |MatrNr|Name|
@@ -135,10 +135,10 @@ funktioniert also nicht!
 
 
 
-##SQL - Between
+## SQL - Between
 BETWEEN gibt einen Wertebereich an zwischen dem ein Ausdruck ausgewählt wird. Die Randbereiche werden dabei mit ausgewählt.
 
-###Beispiel
+### Beispiel
 Tebelle Student
 
 |MatrNr|Name|
@@ -155,10 +155,10 @@ WHERE MatrNr BETWEEN 26000 AND 27000
 
 
 
-##SQL - Order By
+## SQL - Order By
 ORDER BY gibt an nach welcher Spalte sortiert werden soll
 
-###Beispiel
+### Beispiel
 Tebelle Student
 
 |MatrNr|Name|
@@ -175,10 +175,10 @@ ORDER BY Name
 
 
 
-##SQL - Join
+## SQL - Join
 Verknüpfungen von Tabellen. Es werden mehrere Tabellen auf einer Bedingung zusammengefasst.
 
-###Beispiel
+### Beispiel
 Tebelle Student
 
 |MatrNr|Name|
@@ -203,10 +203,10 @@ FROM Student JOIN Studiert
 
 
 
-##SQL - Insert Into
+## SQL - Insert Into
 INSERT INTO fügt Werte in eine Tabelle ein.
 
-###Beispiel
+### Beispiel
 Tebelle Student
 
 |MatrNr|Name|
@@ -226,10 +226,10 @@ VALUES (30001)
 
 
 
-##SQL - Update
+## SQL - Update
 UPDATE aktualisiert werte einer Tabelle.
 
-###Beispiel
+### Beispiel
 Tebelle Student
 
 |MatrNr|Name|
@@ -246,7 +246,7 @@ WHERE MatrNr = 27103
 
 
 
-##SQL - Aggregatfunktionen
+## SQL - Aggregatfunktionen
 Aggregatfunktionen sind Funktionen in SQL mit denen mit Werten gerechnet werden kann.
 * AVG() - Gibt den Durchschnitt zurück
 * COUNT() - Gibt die Anzahl der Zeilen zurück
@@ -256,7 +256,7 @@ Aggregatfunktionen sind Funktionen in SQL mit denen mit Werten gerechnet werden 
 * MIN() - Gibt das Minimum zurück
 * SUM() - Gibt die Summe zurück
 
-###Beispiel
+### Beispiel
 Tebelle Student
 
 |MatrNr|Name|
@@ -272,10 +272,10 @@ FROM Student
 
 
 
-##SQL - GROUP BY
+## SQL - GROUP BY
 GROUP BY geht mit den Aggregatfunktionen einher. Für das Gruppieren von Werten werden zwangsläufig Aggregatfunktionen benötigt
 
-###Beispiel
+### Beispiel
 Tebelle Student
 
 |MatrNr|Name|Semester|
@@ -292,7 +292,7 @@ GROUP BY Semester
 
 
 
-##Aufgabe
+## Aufgabe
 Tabelle **Formel1**
 
 |Saison|Fahrerweltmeister|KonstrukteursWM|WM_Punkte|Team_Punkte|
@@ -315,7 +315,7 @@ Gibt aus:
 
 
 
-##Lösungsvorschlag
+## Lösungsvorschlag
 Tabelle **Formel1**
 
 |Saison|Fahrerweltmeister|KonstrukteursWM|WM_Punkte|Team_Punkte|
@@ -354,7 +354,7 @@ SELECT Saison FROM Formel1 ORDER BY Team_Punkte
 
 
 
-##Aufgabe
+## Aufgabe
 Tabelle **Missionen**
 
 |MissionID|Name|Datum|
@@ -381,7 +381,7 @@ Wähle aus:
 
 
 
-##Lösungsvorschlag
+## Lösungsvorschlag
 Tabelle **Missionen**
 
 |MissionID|Name|Datum|
@@ -426,7 +426,7 @@ SELECT MissionID FROM Besatzung where
 
 
 
-##Aufgabe
+## Aufgabe
 Tabelle **Arenen**
 
 |ArenaID|Ort|BesitzendesTeam|
@@ -458,7 +458,7 @@ Wähle aus:
 
 
 
-##Aufgabe
+## Aufgabe
 Tabelle **Arenen**
 
 |ArenaID|Ort|BesitzendesTeam|
@@ -503,29 +503,12 @@ WHERE TeamName IN (
 
 
 
-##Aufgabe
+## Aufgabe
 Quiz von w3school
 
 
 
-1.)
-* What does SQL stand for?
-  * Structured Query Language
-  * Structured Question Language
-  * Strong Question Language
-
-
-
-1.)
-* What does SQL stand for?
-  * **Structured Query Language**
-  * Structured Question Language
-  * Strong Question Language
-
-
-
-2.)
-* Which SQL statement is used to extract data from a database?
+* Womit werden Daten aus einer Tabelle ausgewählt?
   * GET
   * OPEN
   * SELECT
@@ -533,8 +516,7 @@ Quiz von w3school
 
 
 
-2.)
-* Which SQL statement is used to extract data from a database?
+* Womit werden Daten aus einer Tabelle ausgewählt?
   * GET
   * OPEN
   * **SELECT**
@@ -542,8 +524,7 @@ Quiz von w3school
 
 
 
-3.)
-* Which SQL statement is used to update data in a database?
+* Womit werden Daten in einer Tabelle verändert?
   * SAVE AS
   * UPDATE
   * SAVE
@@ -551,8 +532,7 @@ Quiz von w3school
 
 
 
-3.)
-* Which SQL statement is used to update data in a database?
+* Womit werden Daten in einer Tabelle verändert?
   * SAVE AS
   * **UPDATE**
   * SAVE
@@ -560,24 +540,21 @@ Quiz von w3school
 
 
 
-4.)
-* Which SQL statement is used to delete data from a database?
+* Womit werden Daten aus einer Tabelle gelöscht?
   * REMOVE
   * DELETE
   * COLLAPSE
 
 
 
-4.)
-* Which SQL statement is used to delete data from a database?
+* Womit werden Daten aus einer Tabelle gelöscht?
   * REMOVE
   * **DELETE**
   * COLLAPSE
 
 
 
-5.)
-* Which SQL statement is used to insert new data in a database?
+* Womit werden Daten in eine Tabelle eingefügt?
   * ADD RECORD
   * ADD NEW
   * INSERT INTO
@@ -585,8 +562,7 @@ Quiz von w3school
 
 
 
-5.)
-* Which SQL statement is used to insert new data in a database?
+* Womit werden Daten in eine Tabelle eingefügt?
   * ADD RECORD
   * ADD NEW
   * **INSERT INTO**
@@ -594,24 +570,21 @@ Quiz von w3school
 
 
 
-6.)
-* With SQL, how do you select a column named "FirstName" from a table named "Persons"?
+* Wie kann man die Spalte `FirstName` aus einer Tabelle mit dem Namen `Persons` auswählen?
   * EXTRACT FirstName FROM Persons
   * SELECT Persons.FirstName
   * SELECT FirstName FROM Persons
 
 
 
-6.)
-* With SQL, how do you select a column named "FirstName" from a table named "Persons"?
+* Wie kann man die Spalte `FirstName` aus einer Tabelle mit dem Namen `Persons` auswählen?
   * EXTRACT FirstName FROM Persons
   * SELECT Persons.FirstName
   * **SELECT FirstName FROM Persons**
 
 
 
-7.)
-* With SQL, how do you select all the columns from a table named "Persons"?
+* Wie kann man alle Spalten aus der Tabelle `Persons` auswählen?
   * SELECT Persons
   * SELECT *.Persons
   * SELECT [all] FROM Persons
@@ -619,8 +592,7 @@ Quiz von w3school
 
 
 
-7.)
-* With SQL, how do you select all the columns from a table named "Persons"?
+* Wie kann man alle Spalten aus der Tabelle `Persons` auswählen?
   * SELECT Persons
   * SELECT *.Persons
   * SELECT [all] FROM Persons
@@ -628,8 +600,7 @@ Quiz von w3school
 
 
 
-8.)
-* With SQL, how do you select all the records from a table named "Persons" where the value of the column "FirstName" is "Peter"?
+* Wie kann man aus eine Tabelle `Persons` alle Zeilen auswählen, in denen die Spalte `FirstName` den Wert `Peter` hat?
   * SELECT * FROM Persons WHERE FirstName<>'Peter'
   * SELECT [all] FROM Persons WHERE FirstName='Peter'
   * SELECT * FROM Persons WHERE FirstName='Peter'
@@ -637,8 +608,7 @@ Quiz von w3school
 
 
 
-8.)
-* With SQL, how do you select all the records from a table named "Persons" where the value of the column "FirstName" is "Peter"?
+* Wie kann man aus eine Tabelle `Persons` alle Zeilen auswählen, in denen die Spalte `FirstName` den Wert `Peter` hat?
   * SELECT * FROM Persons WHERE FirstName<>'Peter'
   * SELECT [all] FROM Persons WHERE FirstName='Peter'
   * **SELECT * FROM Persons WHERE FirstName='Peter'**
@@ -646,8 +616,7 @@ Quiz von w3school
 
 
 
-9.)
-* With SQL, how do you select all the records from a table named "Persons" where the value of the column "FirstName" starts with an "a"?
+* Wie kann man aus eine Tabelle `Persons` alle Zeilen auswählen, in denen die Spalte `FirstName` mit einem `a` beginnt?
   * SELECT * FROM Persons WHERE FirstName LIKE 'a%'
   * SELECT * FROM Persons WHERE FirstName LIKE '%a'
   * SELECT * FROM Persons WHERE FirstName='%a%'
@@ -655,8 +624,7 @@ Quiz von w3school
 
 
 
-9.)
-* With SQL, how do you select all the records from a table named "Persons" where the value of the column "FirstName" starts with an "a"?
+* Wie kann man aus eine Tabelle `Persons` alle Zeilen auswählen, in denen die Spalte `FirstName` mit einem `a` beginnt?
   * **SELECT * FROM Persons WHERE FirstName LIKE 'a%'**
   * SELECT * FROM Persons WHERE FirstName LIKE '%a'
   * SELECT * FROM Persons WHERE FirstName='%a%'
@@ -664,70 +632,49 @@ Quiz von w3school
 
 
 
-10.)
-* The OR operator displays a record if ANY conditions listed are true. The AND operator displays a record if ALL of the conditions listed are true
-  * False
-  * True
-
-
-
-10.)
-* The OR operator displays a record if ANY conditions listed are true. The AND operator displays a record if ALL of the conditions listed are true
-  * False
-  * **True**
-
-
-
-11.)
-* With SQL, how do you select all the records from a table named "Persons" where the "FirstName" is "Peter" and the "LastName" is "Jackson"?
+* Wie kann man aus eine Tabelle `Persons` alle Zeilen auswählen, in denen die Spalte `FirstName` den Wert `Peter` und die Spalte `LastName` den Wert `Jackson` hat?
   * SELECT FirstName='Peter', LastName='Jackson' FROM Persons
   * SELECT * FROM Persons WHERE FirstName='Peter' AND LastName='Jackson'
   * SELECT * FROM Persons WHERE FirstName<>'Peter' AND LastName<>'Jackson'
 
 
 
-11.)
-* With SQL, how do you select all the records from a table named "Persons" where the "FirstName" is "Peter" and the "LastName" is "Jackson"?
+* Wie kann man aus eine Tabelle `Persons` alle Zeilen auswählen, in denen die Spalte `FirstName` den Wert `Peter` und die Spalte `LastName` den Wert `Jackson` hat?
   * SELECT FirstName='Peter', LastName='Jackson' FROM Persons
   * **SELECT * FROM Persons WHERE FirstName='Peter' AND LastName='Jackson'**
   * SELECT * FROM Persons WHERE FirstName<>'Peter' AND LastName<>'Jackson'
 
 
 
-12.)
-* With SQL, how do you select all the records from a table named "Persons" where the "LastName" is alphabetically between (and including) "Hansen" and "Pettersen"?
+* Wie kann man aus eine Tabelle `Persons` alle Zeilen auswählen, in denen die Spalte `LastName` alphabetisch zwischen `Hansen` und `Pettersen` (jeweils inklusive) liegt?
   * SELECT * FROM Persons WHERE LastName>'Hansen' AND LastName<'Pettersen'
   * SELECT * FROM Persons WHERE LastName BETWEEN 'Hansen' AND 'Pettersen'
   * SELECT LastName>'Hansen' AND LastName<'Pettersen' FROM Persons
 
 
 
-12.)
-* With SQL, how do you select all the records from a table named "Persons" where the "LastName" is alphabetically between (and including) "Hansen" and "Pettersen"?
+* Wie kann man aus eine Tabelle `Persons` alle Zeilen auswählen, in denen die Spalte `LastName` alphabetisch zwischen `Hansen` und `Pettersen` (jeweils inklusive) liegt?
   * SELECT * FROM Persons WHERE LastName>'Hansen' AND LastName<'Pettersen'
   * **SELECT * FROM Persons WHERE LastName BETWEEN 'Hansen' AND 'Pettersen'**
   * SELECT LastName>'Hansen' AND LastName<'Pettersen' FROM Persons
 
 
 
-13.)
-* Which SQL statement is used to return only different values?
+* Mit welchem SQL-Ausdruck kann man spezifizieren, dass nur eindeutige Werte zurückgegeben werden?
   * SELECT DISTINCT
   * SELECT DIFFERENT
   * SELECT UNIQUE
 
 
 
-13.)
-* Which SQL statement is used to return only different values?
+* Mit welchem SQL-Ausdruck kann man spezifizieren, dass nur eindeutige Werte zurückgegeben werden?
   * **SELECT DISTINCT**
   * SELECT DIFFERENT
   * SELECT UNIQUE
 
 
 
-14.)
-* Which SQL keyword is used to sort the result-set?
+* Welches SQL-Schlüsselwort kann benutzt werden, um die Ergebnisse zu sortieren?
   * SORT BY
   * ORDER
   * ORDER BY
@@ -735,8 +682,7 @@ Quiz von w3school
 
 
 
-14.)
-* Which SQL keyword is used to sort the result-set?
+* Welches SQL-Schlüsselwort kann benutzt werden, um die Ergebnisse zu sortieren?
   * SORT BY
   * ORDER
   * **ORDER BY**
@@ -744,8 +690,7 @@ Quiz von w3school
 
 
 
-15.)
-* With SQL, how can you return all the records from a table named "Persons" sorted descending by "FirstName"?
+* Wie lassen sich alle Einträge der Tabelle `Persons` alphabetisch absteigend anhand der Spalte `FirstName` ausgeben?
   * SELECT * FROM Persons SORT 'FirstName' DESC
   * SELECT * FROM Persons ORDER FirstName DESC
   * SELECT * FROM Persons ORDER BY FirstName DESC
@@ -753,8 +698,7 @@ Quiz von w3school
 
 
 
-15.)
-* With SQL, how can you return all the records from a table named "Persons" sorted descending by "FirstName"?
+* Wie lassen sich alle Einträge der Tabelle `Persons` alphabetisch absteigend anhand der Spalte `FirstName` ausgeben?
   * SELECT * FROM Persons SORT 'FirstName' DESC
   * SELECT * FROM Persons ORDER FirstName DESC
   * **SELECT * FROM Persons ORDER BY FirstName DESC**
@@ -762,40 +706,35 @@ Quiz von w3school
 
 
 
-16.)
-* With SQL, how can you insert a new record into the "Persons" table?
+* Wie kann man einen neuen Eintrag in die Tabelle `Persons` einfügen?
   * INSERT VALUES ('Jimmy', 'Jackson') INTO Persons
   * INSERT ('Jimmy', 'Jackson') INTO Persons
   * INSERT INTO Persons VALUES ('Jimmy', 'Jackson')
 
 
 
-16.)
-* With SQL, how can you insert a new record into the "Persons" table?
+* Wie kann man einen neuen Eintrag in die Tabelle `Persons` einfügen?
   * INSERT VALUES ('Jimmy', 'Jackson') INTO Persons
   * INSERT ('Jimmy', 'Jackson') INTO Persons
   * **INSERT INTO Persons VALUES ('Jimmy', 'Jackson')**
 
 
 
-17.)
-* With SQL, how can you insert "Olsen" as the "LastName" in the "Persons" table?
+* Wie kann man eine Person mit dem Nachnamen `Olsen` in die Tabelle `Persons` einfügen?
   * INSERT INTO Persons (LastName) VALUES ('Olsen')
   * INSERT INTO Persons ('Olsen') INTO LastName
   * INSERT ('Olsen') INTO Persons (LastName)
 
 
 
-17.)
-* With SQL, how can you insert "Olsen" as the "LastName" in the "Persons" table?
+* Wie kann man eine Person mit dem Nachnamen `Olsen` in die Tabelle `Persons` einfügen?
   * **INSERT INTO Persons (LastName) VALUES ('Olsen')**
   * INSERT INTO Persons ('Olsen') INTO LastName
   * INSERT ('Olsen') INTO Persons (LastName)
 
 
 
-18.)
-* How can you change "Hansen" into "Nilsen" in the "LastName" column in the Persons table?
+* Mit welcher SQL-Anfrage lassen sich alle Personen in der Tabelle die den Nachnamen `Hansen` tragen nach `Nilsen` umbennen?
   * MODIFY Persons SET LastName='Hansen' INTO LastName='Nilsen
   * UPDATE Persons SET LastName='Nilsen' WHERE LastName='Hansen'
   * UPDATE Persons SET LastName='Hansen' INTO LastName='Nilsen'
@@ -803,8 +742,7 @@ Quiz von w3school
 
 
 
-18.)
-* How can you change "Hansen" into "Nilsen" in the "LastName" column in the Persons table?
+* Mit welcher SQL-Anfrage lassen sich alle Personen in der Tabelle die den Nachnamen `Hansen` tragen nach `Nilsen` umbennen?
   * MODIFY Persons SET LastName='Hansen' INTO LastName='Nilsen
   * **UPDATE Persons SET LastName='Nilsen' WHERE LastName='Hansen'**
   * UPDATE Persons SET LastName='Hansen' INTO LastName='Nilsen'
@@ -812,24 +750,21 @@ Quiz von w3school
 
 
 
-19.)
-* With SQL, how can you delete the records where the "FirstName" is "Peter" in the Persons Table?
+* Mit welcher Anfrage lassen sich alle Einträge löschen, bei denen die Spalte `FirstName` den Wert `Peter` hat?
   * DELETE FROM Persons WHERE FirstName = 'Peter'
   * DELETE ROW FirstName='Peter' FROM Persons
   * DELETE FirstName='Peter' FROM Persons
 
 
 
-19.)
-* With SQL, how can you delete the records where the "FirstName" is "Peter" in the Persons Table?
+* Mit welcher Anfrage lassen sich alle Einträge löschen, bei denen die Spalte `FirstName` den Wert `Peter` hat?
   * **DELETE FROM Persons WHERE FirstName = 'Peter'**
   * DELETE ROW FirstName='Peter' FROM Persons
   * DELETE FirstName='Peter' FROM Persons
 
 
 
-20.)
-* With SQL, how can you return the number of records in the "Persons" table?
+* Wie kann man ermitteln, wieviele Einträge die Tabelle `Persons` hat?
   * SELECT COLUMNS(*) FROM Persons
   * SELECT COUNT(*) FROM Persons
   * SELECT COLUMNS() FROM Persons
@@ -837,8 +772,7 @@ Quiz von w3school
 
 
 
-20.)
-* With SQL, how can you return the number of records in the "Persons" table?
+* Wie kann man ermitteln, wieviele Einträge die Tabelle `Persons` hat?
   * SELECT COLUMNS(*) FROM Persons
   * **SELECT COUNT(*) FROM Persons**
   * SELECT COLUMNS() FROM Persons
@@ -846,72 +780,47 @@ Quiz von w3school
 
 
 
-21.)
-* What is the most common type of join?
-  * JOINED
-  * INSIDE JOIN
-  * INNER JOIN
-  * JOINED TABLE
-
-
-
-21.)
-* What is the most common type of join?
-  * JOINED
-  * INSIDE JOIN
-  * **INNER JOIN**
-  * JOINED TABLE
-
-
-
-22.)
-* Which operator is used to select values within a range?
+* Mit welchem Operator lassen sich Werte innerhalb von Grenzen auswählen?
   * WITHIN
   * BETWEEN
   * RANGE
 
 
 
-22.)
-* Which operator is used to select values within a range?
+* Mit welchem Operator lassen sich Werte innerhalb von Grenzen auswählen?
   * WITHIN
   * **BETWEEN**
   * RANGE
 
 
 
-23.)
-* The NOT NULL constraint enforces a column to not accept null values.
+* Die NOT NULL Anweisung erzwingt, dass in dieser Spalte keine NULL-Werte erlaubt sind?
   * True
   * False
 
 
 
-23.)
-* The NOT NULL constraint enforces a column to not accept null values.
+* Die NOT NULL Anweisung erzwingt, dass in dieser Spalte keine NULL-Werte erlaubt sind?
   * **True**
   * False
 
 
 
-24.)
-* Which operator is used to search for a specified pattern in a column?
+* Welcher Operator kann benutzt werden um nach einem bestimmten Muster zu suchen?
   * GET
   * FROM
   * LIKE
 
 
 
-24.)
-* Which operator is used to search for a specified pattern in a column?
+* Welcher Operator kann benutzt werden um nach einem bestimmten Muster zu suchen?
   * GET
   * FROM
   * **LIKE**
 
 
 
-25.)
-* Which SQL statement is used to create a table in a database?
+* Mit welcher Anweisung kann man eine Tabelle erzeugen?
   * CREATE DATABASE TABLE
   * CREATE TABLE
   * CREATE DB
@@ -919,8 +828,7 @@ Quiz von w3school
 
 
 
-25.)
-* Which SQL statement is used to create a table in a database?
+* Mit welcher Anweisung kann man eine Tabelle erzeugen?
   * CREATE DATABASE TABLE
   * **CREATE TABLE**
   * CREATE DB
