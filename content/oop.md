@@ -885,21 +885,18 @@ Treasure<Integer> silberSchatz = new Treasure<Integer>();
 
 
 
-TODO: vielleicht 2 typen
 ```java
-public class Tupel<T> {
+public class Tupel<T, V> {
     private T object1;
-    private T object2;
-    public Tupel<T>(T object1,T object2) {
-        this.object1 = object1;
-        this.object2 = object2;
+    private V object2;
+
+    public Tupel(T obj1, V obj2) {
+        this.object1 = obj1;
+        this.object2 = obj2;
     }
+
     public String toString() {
         return this.object1 + ", " + this.object2;
-    }
-    public void add(Tupel<T> other) {
-        this.object1 = this.object1 + other.object1;
-        this.object2 = this.object2 + other.object2;
     }
 }
 ```
@@ -953,11 +950,11 @@ public class Tupel<T> {
 ## println von Objekten
 ### Aufgabe 2
 ```java
-public class Tupel<T> {
+public class Tupel<T, V> {
     private T object1;
-    private T object2;
+    private V object2;
 
-    public Tupel(T obj1,T obj2) {
+    public Tupel(T obj1, V obj2) {
         this.object1 = obj1;
         this.object2 = obj2;
     }
@@ -976,11 +973,11 @@ public class Tupel<T> {
 ## println von Objekten
 ### Aufgabe 2 - Lösung
 ```java
-public class Tupel<T> {
+public class Tupel<T, V> {
     private T object1;
-    private T object2;
+    private V object2;
 
-    public Tupel(T obj1,T obj2) {
+    public Tupel(T obj1, V obj2) {
         this.object1 = obj1;
         this.object2 = obj2;
     }
@@ -999,11 +996,11 @@ public class Tupel<T> {
 ## println von Objekten
 ### Aufgabe 3
 ```java
-public class Tupel<T> {
+public class Tupel<T, V> {
     private T object1;
-    private T object2;
+    private V object2;
 
-    public Tupel(T obj1,T obj2) {
+    public Tupel(T obj1, V obj2) {
         this.object1 = obj1;
         this.object2 = obj2;
     }
@@ -1026,16 +1023,19 @@ public class Tupel<T> {
 ## println von Objekten
 ### Aufgabe 3 - Lösung
 ```java
-public class Tupel<T> {
+public class Tupel<T, V> {
     private T object1;
-    private T object2;
-    public Tupel(T obj1,T obj2) {
+    private V object2;
+
+    public Tupel(T obj1, V obj2) {
         this.object1 = obj1;
         this.object2 = obj2;
     }
+
     public String toString() {
         return this.object1 + ": " + this.object2;
     }
+
     public static void main(String[] args) {
         Tupel<Integer> coords = new Tupel<Integer>(10, -3);
         System.out.println(coords);                                           // 10: -3
