@@ -45,6 +45,8 @@ inputStream.close();</code></pre>
 
 Output: 72971081081113287101108116100000000...
 
+72 -> H, 97 -> a, 108 -> l, ...
+
 
 
 ## Reader

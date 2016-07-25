@@ -27,6 +27,7 @@ In der Grundidee ist XML häufig wiederzufinden:
 ####Parser
 ####Element
 ####Attribut
+####Valide
 
 
 
@@ -38,6 +39,11 @@ Ein XML-Dokument heißt *wohlgeformt*, wenn es alle XML-Regeln einhält. Beispie
 * Ein Element darf nicht mehrere Attribute mit demselben Namen besitzen.
 * Attributeigenschaften müssen in Anführungszeichen stehen.
 * Die Beginn- und End-Auszeichner beachten die Groß- und Kleinschreibung.
+
+
+
+###Valide
+Ein XML-Dokument ist valide, wenn es die Regeln einer DTD oder XSD erfüllt.
 
 
 
@@ -321,6 +327,7 @@ SVG basiert auf XML und ist daher für Mashinen und Menschen gut lesbar.
 
 
 Mit den richtigen Tools könnten solche Bilder entstehen.
+
 ![SVG-Grundelemente](/content/images/eleven_below_single.svg)
 
 [© Copyright 2008 Brian Lukis](http://www1.plurib.us/1shot/2008/eleven_below/)

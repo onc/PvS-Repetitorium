@@ -45,10 +45,6 @@ Mögliche Kombinationen: 1 - 1 / x..\* - 1 / 0..\* - \*
 
 
 
-### Mehrstellige Beziehungen???
-
-
-
 ### EER-Diagramme - Beziehungen mit Attributen
 
 ![EER-Diagramm mit Attributen an Beziehungen](content/images/eer-diagram-attribute-an-beziehungen.svg)

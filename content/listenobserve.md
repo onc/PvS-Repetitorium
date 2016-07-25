@@ -224,7 +224,7 @@ mousePressed() + mouseReleased() = mouseClicked()
 
 
 ###Aufgabe
-Was passier hier, wenn ein Button geklickt wird?
+Was passiert hier, wenn die Maus geklickt wird?
 ```java
 public void mouseReleased(MouseEvent e) {
     System.out.println("Mouse released");
@@ -320,6 +320,7 @@ class SomeButtonListener implements ActionListener {
 Vorteil: 
 * Zentral
 * Übersichtlich
+
 Nachteil: 
 * Viele Fallunterscheidungen
 * Swing Komponenten müssen in Klassenvariablen zugänglich gemacht werden.
@@ -347,6 +348,7 @@ class SomeButtonListener implements ActionListener {
 Vorteil: 
 * Zentral
 * Übersichtlich
+
 Nachteil: 
 * Viele Fallunterscheidungen
 
@@ -356,7 +358,7 @@ ListenerKlasse kann auch die eigene Klasse sein
 
 ###Aufgabe
 1. Welcher Listener könnte verwendet werden um auf Änderungen des Fensters zu reagieren?
-2. Welcher Listener könnte verwendet werden um Text einer JTextArea zu auf Validität überprüfen? Begründe.
+2. Welcher Listener könnte verwendet werden um Text einer JTextArea auf Validität zu überprüfen? Begründe.
 3. Warum kann der MouseListener auch durch den MouseAdapter ersetzt werden?
 4. Wie kann ausgeschlossen werden, dass ein Mouse Event bei einem Doppelklick bestimmte Aktionen doppelt ausführt?
 
@@ -365,7 +367,7 @@ ListenerKlasse kann auch die eigene Klasse sein
 ###Antwort
 1. Welcher Listener könnte verwendet werden um auf Änderungen des Fensters zu reagieren?
   * Der WindowListener
-2. Welcher Listener könnte verwendet werden um Text einer JTextArea zu auf Validität überprüfen? Begründe.
+2. Welcher Listener könnte verwendet werden um Text einer JTextArea auf Validität zu überprüfen? Begründe.
   * Der FocusListener. Wenn der Benutzer den Focus von der JTextArea auf eine andere Komponente verlegt wird die Überprüfung durchgeführt. [focusLost()]
 3. Warum kann der MouseListener auch durch den MouseAdapter ersetzt werden?
   * Der MouseAdapter vereinigt den MouseListener, MouseMotionListener und MouseWheelListener

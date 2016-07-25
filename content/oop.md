@@ -23,7 +23,7 @@ Klassen können instanziiert werden.
 ###Abstrakte Klassen
 Abstrakte Klassen können Implementationen und Felder enthalten, aber keine Konstruktoren.
 
-Eine Klasse *erbt* von einer abstrakten Klasse. (extends)
+Eine Klasse *erbt* von einer abstrakten Klasse. (`extends`)
 
 Abstrakte Klassen können **nicht** instanziiert werden.
 
@@ -32,7 +32,7 @@ Abstrakte Klassen können **nicht** instanziiert werden.
 ###Interfaces
 Interface enthält nur Methodensignaturen (keine Implementation, keine Felder, keine Konstruktoren).
 
-Eine Klasse *implementiert* ein Interface. (implements)
+Eine Klasse *implementiert* ein Interface. (`implements`)
 
 Interfaces können **nicht** instanziiert werden.
 
@@ -43,13 +43,14 @@ Interfaces können **nicht** instanziiert werden.
 
 
 ###Zugriffsmodifizierer 
-||Die Klasse selbst, innere Klassen|Klassen im selben Package|Unterklassen|Sonstige Klassen|
-|---|:-:|:-:|:-:|:-:|
-|private|Ja|Nein|Nein|Nein|
-|(default)|Ja|Ja|Nein|Nein|
-|protected|Ja|Ja|Ja|Nein|
-|public|Ja|Ja|Ja|Ja|
-Note:Den Unterschied zwischen innerer Klasse und Unterklasse erklären
+|           | Die Klasse selbst, innere Klassen | Klassen im selben Package | Unterklassen | Sonstige Klassen |
+|-----------|-----------------------------------|---------------------------|--------------|------------------|
+| private   | Ja                                | Nein                      | Nein         | Nein             |
+| (default) | Ja                                | Ja                        | Nein         | Nein             |
+| protected | Ja                                | Ja                        | Ja           | Nein             |
+| public    | Ja                                | Ja                        | Ja           | Ja               |
+
+Note:Den Unterschied zwischen innerer Klasse und Unterklasse (extends) erklären
 
 
 
@@ -312,9 +313,7 @@ class Foo {
     }
 }
 ```
-Jain, Compiler meckert nicht beim Aufruf der Methode.
-
-**Aber!** Die Kompilierung wird fehlschlagen, da die Methode nicht implementiert ist.
+Nein, die Kompilierung wird fehlschlagen, da die Methode nicht implementiert ist.
 
 
 
@@ -361,6 +360,7 @@ public class Person extends Body {
     }
 }
 ```
+
 
 
 ###Aufgabe 5 - Lösung
@@ -481,9 +481,10 @@ public class Room extends GameObject {
 
 
 ##Overriding, Overloading
+TODO: edit
 ```java
-public class GameObject
-{
+public class GameObject {
+
     private String name;
 
     public String getName() {
@@ -496,8 +497,8 @@ public class GameObject
 }
 ```
 ```java
-public class Room extends GameObject
-{
+public class Room extends GameObject {
+
     private int size;
 
     public void setSize( int size ) {
@@ -505,11 +506,12 @@ public class Room extends GameObject
             this.size = size;
     }
 
-    public int getSize() {s
+    public int getSize() {
         return size;
     }
 
-    @Override public String toString() {
+    @Override 
+    public String toString() {
         return String.format( "Room[name=%s, size=%d]", getName(), getSize() );
     }
 }
@@ -545,6 +547,8 @@ implementieren, die Exemplare dieser Klasse mit beliebigen anderen Objekten verg
 
 "equals()" liefert true, wenn die Objektvariablen einer Instanz vollständig übereinstimmen.
 
+**ABER:** Dies ist nur für die default-implementierung wahr. Equals kann auch überschrieben werden!
+
 
 
 <pre><code class="line-numbers">Point p = new Point(10, 10);
@@ -567,6 +571,9 @@ Checked Esceptions müssen beim programmieren beachtet werden. Der Compiler meck
 + FileNotFoundException
 + ParseException
 + ...
+
+=> Alles was von `Exception` erbt.
+
 Note: TODO: erklärung schreiben
 
 
@@ -578,6 +585,9 @@ Unchecked Esceptions werden vom Compiler ignoriert, können aber dennoch im Prog
 + NullPointerException
 + NumberFormatException
 + ...
+
+=> Alles was von `RuntimeException` erbt.
+
 Note: TODO: erklärung schreiben
 
 
@@ -608,22 +618,33 @@ Typumwandlungen und (teilweise) Exception Handling kann so vermieden werden.
 
 
 
+Treasure soll alles mögliche enthalten können!
 ```java
 class Treasure {
-    private int value;  
-    public Treasure(){ ... }
-    public Treasure(int val){ ... }
-    public int getValue(){ return this.value; }
-    public void setValue(Object val){ this.value = Integer.parseInt(val); }
+  private int value;
+  public Treasure(){ ... }
+  public Treasure(int val){ ... }
+  public int getValue(){ return this.value; }
+  public void setValue(Object val){ this.value = Integer.parseInt(val); }
 }
 ```
+Geht aber nicht... Objects übergeben, casten, exceptions, alles doof :(
+
+
+
+Kann man auch so machen!
 ```java
 class Treasure<T> {
-    private T value;
-    public Treasure(){ ... }
-    public Treasure(T val){ ... }
-    public T getValue(){ return this.value; }
-    public void setValue(T val){ this.value = val; }
+  private T value;
+  public Treasure(T val) { 
+    this.value = val; 
+  }
+  public T getValue() { 
+   return this.value; 
+  }
+  public void setValue(T val){ 
+    this.value = val; 
+  }
 }
 ```
 ```java
@@ -633,7 +654,8 @@ Treasure<Integer> silberSchatz = new Treasure<Integer>();
 
 
 
-```
+TODO: vielleicht 2 typen
+```java
 public class Tupel<T> {
     private T object1;
     private T object2;
@@ -686,13 +708,13 @@ public class Tupel<T> {
     System.out.println(0.9999f==0.9999d);                                   // false
     System.out.println(new Integer(1).equals(1));                           // true
     int i = 3;
-    System.out.println(i++);                                                // 3, aber Wert von i = 4   
+    System.out.println(i++);                                                // 3, aber Wert von i = 4
     while(--i>0){
-        System.out.println(i);                                                // 3 2 1
+        System.out.println(i);                                              // 3 2 1
     }
     char[] charArray = new char[]{'p','v','s',' ','r','e','p'};
     System.out.println(charArray);                                          // pvs rep
-    System.out.println(Arrays.asList(charArray));                           // anonymerName@Speicheradresse
+    System.out.println(Arrays.asList(charArray));                           // anonymerName@hash
 }</code></pre>
 
 
@@ -734,7 +756,7 @@ public class Tupel<T> {
 
     public static void main(String[] args) {
         Tupel<Integer> coords = new Tupel<Integer>(10, -3);
-        System.out.println(coords);                                           // package.Class@Speicheradresse
+        System.out.println(coords);                                           // package.Class@hash
         System.out.println(coords.object1);                                   // 10
         System.out.println(coords.object2);                                   // -3
     }

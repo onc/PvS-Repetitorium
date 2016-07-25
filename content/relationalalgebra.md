@@ -377,6 +377,7 @@ Diese Relation ist jetzt in der dritten Normalform
 
 **Antwort:** Weil die Hersteller der Wagen und die Fahrer abhängig sind von den Kennzeichen und untereinander keine Abhängigkeit besteht.
 
+Note: kein abhaenigkeiten von primärschlüsseln / nur von nicht primärschlüsseln
 
 
 ##Anomalien
