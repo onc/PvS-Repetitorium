@@ -21,6 +21,7 @@ Bitte beachte: Die Markdown-Dateien in `content/` müssen unix line-endings habe
     ```
     $ npm install
     ```
+
 - Startet die Präsentation und läd sie neu, sobald eine Datei in `content/` verändert wird
 
     ```

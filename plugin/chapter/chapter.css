@@ -1,0 +1,55 @@
+#chapter-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    background: white;
+    border-right: 2px solid #b10135;
+}
+
+.chapter-panel-hidden {
+    display: none;
+}
+
+.chapter-panel-show {
+    display: block;
+}
+
+#chapter-panel > ul {
+    list-style: none;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+#chapter-panel > ul > li {
+    margin: 8px;
+    margin-bottom: 16px;
+}
+
+#chapter-panel > ul > li > a {
+    color: black;
+    text-decoration: none;
+}
+
+#chapter-panel > ul > li > a:hover {
+    color: #b10135;
+}
+
+#toggle-chapter {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 32px;
+    height: 32px;
+    background-color: #b10135;
+    text-align: center;
+    line-height: 32px;
+    color: black;
+    z-index: 1002;
+    border-top-right-radius: 8px;
+}
+
+#toggle-chapter:hover {
+    cursor: pointer;
+}

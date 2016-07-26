@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="css/theme/white.css">
 
         <link rel="stylesheet" href="plugin/chapter-header/chapter-header.css">
+        <link rel="stylesheet" href="plugin/chapter/chapter.css">
 
         <!-- Theme used for syntax highlighting of code -->
         <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -135,6 +136,7 @@
                  { src: 'plugin/notes/notes.js', async: true },
                  { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
                  { src: 'plugin/chapter-header/chapter-header.js', async: true, callback: function() { chapterHeader.init(); } },
+                 { src: 'plugin/chapter/chapter.js', async: true, callback: function() { chapter.init(); } },
                  { src: 'plugin/line-numbers/line-numbers.js' }
              ]
          });
