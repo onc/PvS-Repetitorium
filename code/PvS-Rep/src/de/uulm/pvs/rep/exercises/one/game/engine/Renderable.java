@@ -37,11 +37,8 @@ public interface Renderable extends Comparable<Renderable> {
    */
   @Override
   public default int compareTo(Renderable other) {
-    if (this.getZindex() < other.getZindex()) {
-      return -1;
-    } else if (this.getZindex() > other.getZindex()) {
-      return 1;
-    }
+
+    // TODO Renderable's sollen anhand des z-index richtig sortiert werden.
     return 0;
   }
 

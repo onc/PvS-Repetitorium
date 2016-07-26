@@ -6,6 +6,7 @@ package de.uulm.pvs.rep.exercises.one.game.engine;
  * @author Christian van Onzenoodt
  *
  */
+// TODO: fuege einen neuen Button hinzu
 public enum Button {
-  UP, DOWN, LEFT, RIGHT, SPACE
+  UP, DOWN, LEFT, RIGHT
 }

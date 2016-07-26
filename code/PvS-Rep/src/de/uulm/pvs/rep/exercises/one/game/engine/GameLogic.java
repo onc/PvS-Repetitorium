@@ -72,10 +72,10 @@ public class GameLogic {
     this.input.clear();
 
     // add the rendererable to the renderer
-    this.renderer.addRenderable(background);
     this.renderer.addRenderable(player);
     this.renderer.addRenderable(enemySpawner);
     this.renderer.addRenderable(projectileSpawner);
+    this.renderer.addRenderable(background);
     this.renderer.addRenderable(hud);
 
     // initialize points and set game as 'running'
@@ -131,9 +131,7 @@ public class GameLogic {
     this.spawn();
 
     // if space is pressed, spawnProjectile. spawn-rate is handled by the spawner.
-    if (input.buttonsPressed[Button.SPACE.ordinal()]) {
-      projectileSpawner.spawn(playerPosition);
-    }
+    // TODO: wenn dein button gedrueckt ist, spawne ein neues Projectile
 
     // 'build' the text for the hud
     this.hudText = String.format("#projectiles: %d | #enemies: %d | points: %d",
