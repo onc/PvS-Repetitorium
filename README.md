@@ -11,6 +11,15 @@ Bitte beachte: Die Markdown-Dateien in `content/` müssen unix line-endings habe
 - Strg-P um in die Druck-Vorschau zu kommen
 - `Speichern als PDF` als "Drucker" auswählen und speichern
 
+## Inhalt
+
+| Ordner       | Inhalt                                                      |
+|--------------|-------------------------------------------------------------|
+| checks       | Checkstyle-Konfiguration und Google Style-Guide für Eclipse |
+| code/PvS-Rep | Eclipse-Projekt für die Übungen                             |
+| content      | Folien                                                      |
+| exercises    | Übungsblätter und Lösungen                                  |
+
 ## Setup
 
 - `Node.js` installieren
