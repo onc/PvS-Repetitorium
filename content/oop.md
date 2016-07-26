@@ -1132,18 +1132,18 @@ abstract class AbstraktesKonto implements Buchbar {
 
     public int getKontonummer() { /*...*/ }
     
-    public int setKontonummer() { /*...*/ }
+    public int setKontonummer(int kNr) { /*...*/ }
 }
 ```
 ```java
 class Konto extends AbstraktesKonto {
     private float kontostand;
 
-    Konto(int kontonummer, float betrag) { /*...*/ }
+    Konto(int kNr) { /*...*/ }
 
     public float getKontostand() { /*...*/ }
     
-    public float setKontostand() { /*...*/ }
+    public float setKontostand(float betrag) { /*...*/ }
 
     public void abheben(float betrag) { /*...*/ }
 
