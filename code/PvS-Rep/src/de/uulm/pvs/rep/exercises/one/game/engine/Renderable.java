@@ -30,11 +30,6 @@ public interface Renderable extends Comparable<Renderable> {
    */
   public void update();
 
-  /**
-   * Java 8 provides the option to provide default implementations in interfaces. Since all
-   * renderables should share the same compareTo method implementation to have Collections.sort()
-   * work properly, we provide this default implementation bases on the z-index.
-   */
   @Override
   public default int compareTo(Renderable other) {
 

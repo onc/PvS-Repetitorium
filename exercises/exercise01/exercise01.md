@@ -26,6 +26,7 @@ Ziel der folgenden Übungen ist ein kleines Spiel. Das Spiel ist ein kleines sid
      Am HUD kannst du erkennen, dass bereits monster erstellt werden, du kannst sie allerdings nicht sehen.
      Dies liegt daran, dass die zu zeichnenden Elemente nicht in der Richtigen Reihenfolge gemalt werden.
      Navigiere in die Datei `exercises/one/game/engine/Renderable.java` und implementiere die `compareTo()`-Methode.
+     Frage hierzu außerdem: Was fällt die an der `compareTo` auf und wofür steht das `default`?
      
      Wenn du alles richtig gemacht hast, solltest du nun ein Raumschiff und Monster sehen.
    
