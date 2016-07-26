@@ -150,7 +150,8 @@ panel.add(leftPanel, BorderLayout.CENTER);
 panel.add(new JButton("Login"), BorderLayout.SOUTH);
 
 Container contentPane = this.getContentPane();
-contentPane.add(panel);</code></pre>
+contentPane.add(panel);
+this.setVisible(true);</code></pre>
 
 
 
@@ -169,7 +170,8 @@ panel.add(new JTextArea(), BorderLayout.CENTER);
 panel.add(bottomPanel, BorderLayout.SOUTH);
 
 Container container = this.getContentPane();
-container.add(panel);</code></pre>
+container.add(panel);
+this.setVisible(true);</code></pre>
 
 
 
