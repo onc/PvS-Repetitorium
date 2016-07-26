@@ -28,7 +28,7 @@ chapter.createListElement = function(chapter) {
   
   var listItem = document.createElement('li');
   var chapterLink = document.createElement('a');
-  chapterLink.setAttribute('href', '/#/' + chapter.startingSlide);
+  chapterLink.setAttribute('href', '#/' + chapter.startingSlide);
   chapterLink.innerHTML = chapter.title;
 
   listItem.appendChild(chapterLink);
