@@ -62,6 +62,48 @@ Attribute dienen als bei einem Start-Tag oder Empty-Element-Tag geschriebene Sch
 
 
 
+### Aufgabe
+Finde die Fehler (3 Stück)
+```xml
+<?xml version="1.0"?> 
+<order orderid=889923>
+  <orderperson>John Doe, Hauptstraße 7, Ulm</orderperson>
+  <item>
+    <title>Herr der Ringe Trilogie</title>
+    <note/>Special Editon</note>
+    <quantity>1</quantity>
+    <price>50.90</price>
+  <item>
+    <title>Star Wars - BluRay</title>
+    <quantity>1</quantity>
+    <price>19.90</price>
+  </item>
+</order> 
+```
+
+
+
+### Lösungsvorschlag
+```xml
+<?xml version="1.0"?> 
+<order orderid="889923"> <!-- Attribute in Anführungszeichen (") oder Hochkomma (')-->
+  <orderperson>John Doe, Hauptstraße 7, Ulm</orderperson>
+  <item>
+    <title>Herr der Ringe Trilogie</title>
+    <note>Special Editon</note> <!-- Selbstschließende Tags können keinen Inhalt haben-->
+    <quantity>1</quantity>
+    <price>50.90</price>
+  </item> <!-- Tags schließen, bevor das selbe wieder geöffnet wird-->
+  <item>
+    <title>Star Wars - BluRay</title>
+    <quantity>1</quantity>
+    <price>19.90</price>
+  </item>
+</order>
+```
+
+
+
 ## Dokumenttypdefinition - DTD
 
 
@@ -107,6 +149,46 @@ Vorgabewerte für Attribute
   <!ELEMENT employee (firstName, LastName)>
   <!ELEMENT firstName (#PCDATA)>
   <!ELEMENT lastName (#PCDATA)>
+]>
+```
+
+
+
+### Aufgabe
+Schreibe eine DTD für folgende XML
+```xml
+<?xml version="1.0"?> 
+<order orderid="889923">
+  <orderperson>John Doe, Hauptstraße 7, Ulm</orderperson>
+  <item>
+    <title>Herr der Ringe Trilogie</title>
+    <note>Special Editon</note>
+    <quantity>1</quantity>
+    <price>50.90</price>
+  </item>
+  <item>
+    <title>Star Wars - BluRay</title>
+    <quantity>1</quantity>
+    <price>19.90</price>
+  </item>
+</order>
+```
+
+
+
+### Lösungsvorschlag
+```xml
+<!DOCTYPE order[
+  <!ELEMENT order (orderperson,item) >
+  <!ATTLIST img
+    orderid  ID  #REQUIRED
+  >
+  <!ELEMENT orderperson (#PCDATA) >
+  <!ELEMENT item (title, note, quantity, price)* >
+  <!ELEMENT title (#PCDATA) >
+  <!ELEMENT note (#PCDATA)? >
+  <!ELEMENT quantity (#PCDATA) >
+  <!ELEMENT price (#PCDATA) >
 ]>
 ```
 
@@ -168,88 +250,6 @@ beziehungsweise
     </xs:sequence>
   </xs:complexType>
 </xs:element>
-```
-
-
-
-### Aufgabe
-Finde die Fehler (3 Stück)
-```xml
-<?xml version="1.0"?> 
-<order orderid=889923>
-  <orderperson>John Doe, Hauptstraße 7, Ulm</orderperson>
-  <item>
-    <title>Herr der Ringe Trilogie</title>
-    <note/>Special Editon</note>
-    <quantity>1</quantity>
-    <price>50.90</price>
-  <item>
-    <title>Star Wars - BluRay</title>
-    <quantity>1</quantity>
-    <price>19.90</price>
-  </item>
-</order> 
-```
-
-
-
-### Aufgabe
-```xml
-<?xml version="1.0"?> 
-<order orderid="889923"> <!-- Attribute in Anführungszeichen (") oder Hochkomma (')-->
-  <orderperson>John Doe, Hauptstraße 7, Ulm</orderperson>
-  <item>
-    <title>Herr der Ringe Trilogie</title>
-    <note>Special Editon</note> <!-- Selbstschließende Tags können keinen Inhalt haben-->
-    <quantity>1</quantity>
-    <price>50.90</price>
-  </item> <!-- Tags schließen, bevor das selbe wieder geöffnet wird-->
-  <item>
-    <title>Star Wars - BluRay</title>
-    <quantity>1</quantity>
-    <price>19.90</price>
-  </item>
-</order>
-```
-
-
-
-### Aufgabe
-Schreibe eine DTD für folgende XML
-```xml
-<?xml version="1.0"?> 
-<order orderid="889923">
-  <orderperson>John Doe, Hauptstraße 7, Ulm</orderperson>
-  <item>
-    <title>Herr der Ringe Trilogie</title>
-    <note>Special Editon</note>
-    <quantity>1</quantity>
-    <price>50.90</price>
-  </item>
-  <item>
-    <title>Star Wars - BluRay</title>
-    <quantity>1</quantity>
-    <price>19.90</price>
-  </item>
-</order>
-```
-
-
-
-### Lösungsvorschlag
-```xml
-<!DOCTYPE order[
-  <!ELEMENT order (orderperson,item) >
-  <!ATTLIST img
-    orderid  ID  #REQUIRED
-  >
-  <!ELEMENT orderperson (#PCDATA) >
-  <!ELEMENT item (title, note, quantity, price)* >
-  <!ELEMENT title (#PCDATA) >
-  <!ELEMENT note (#PCDATA)? >
-  <!ELEMENT quantity (#PCDATA) >
-  <!ELEMENT price (#PCDATA) >
-]>
 ```
 
 
