@@ -101,6 +101,17 @@ Vorgabewerte für Attribute
 
 
 
+### Beispiel
+```xml
+<!DOCTYPE employees [
+  <!ELEMENT employee (firstName, LastName)>
+  <!ELEMENT firstName (#PCDATA)>
+  <!ELEMENT lastName (#PCDATA)>
+]>
+```
+
+
+
 ## XML Schema - XSD
 Vorteile von XML Schemas:
 * XML Schemas unterstützen Datentypen
