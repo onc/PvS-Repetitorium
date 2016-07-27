@@ -294,6 +294,7 @@ GROUP BY Semester
 
 ## Aufgabe
 Tabelle **Formel1**
+<div style="font-size:20px;">
 
 |Saison|Fahrerweltmeister|KonstrukteursWM|WM_Punkte|Team_Punkte|
 |---|---|---|---|---|
@@ -306,6 +307,7 @@ Tabelle **Formel1**
 |2001|Michael Schumacher|Ferrari|123|179|
 |2002|Michael Schumacher|Ferrari|144|221|
 
+</div>
 Gibt aus:
 1. Alle Zeilen in denen Michael Schumacher Fahrerweltmeister wurde.
 2. Alle Zeilen in denen die Team Punkte über 150 liegen.
@@ -317,6 +319,7 @@ Gibt aus:
 
 ## Lösungsvorschlag
 Tabelle **Formel1**
+<div style="font-size:20px;">
 
 |Saison|Fahrerweltmeister|KonstrukteursWM|WM_Punkte|Team_Punkte|
 |---|---|---|---|---|
@@ -329,6 +332,7 @@ Tabelle **Formel1**
 |2001|Michael Schumacher|Ferrari|123|179|
 |2002|Michael Schumacher|Ferrari|144|221|
 
+</div>
 Gibt aus:
 
 1. Alle Zeilen in denen Michael Schumacher Fahrerweltmeister wurde.
@@ -356,6 +360,7 @@ SELECT Saison FROM Formel1 ORDER BY Team_Punkte
 
 ## Aufgabe
 Tabelle **Missionen**
+<div style="font-size:20px;">
 
 |MissionID|Name|Datum|
 |---|---|---|
@@ -364,7 +369,9 @@ Tabelle **Missionen**
 |1970-029A|Apollo 13|11. April 1970|
 |1973-032A|Skylab 2|25. Mai 1973|
 
+</div>
 Tabelle **Besatzung**
+<div style="font-size:20px;">
 
 |MissionID|Kommandant|Pilot|ErsterOffizier|
 |---|---|
@@ -373,6 +380,7 @@ Tabelle **Besatzung**
 |1970-029A|Jim Lovell|John Swigert|Fred Haise|
 |1973-032A|Joseph Kerwin|Charles Conrad|Paul Weitz|
 
+</div>
 Wähle aus:
 1. Die Mission die nach Apollo benannt wurden
 2. Die Missionen die nach 1969 aber vor 1973 stattgefunden haben.
@@ -383,6 +391,7 @@ Wähle aus:
 
 ## Lösungsvorschlag
 Tabelle **Missionen**
+<div style="font-size:20px;">
 
 |MissionID|Name|Datum|
 |---|---|---|
@@ -391,7 +400,9 @@ Tabelle **Missionen**
 |1970-029A|Apollo 13|11. April 1970|
 |1973-032A|Skylab 2|25. Mai 1973|
 
+</div>
 Tabelle **Besatzung**
+<div style="font-size:20px;">
 
 |MissionID|Kommandant|Pilot|ErsterOffizier|
 |---|---|
@@ -400,6 +411,7 @@ Tabelle **Besatzung**
 |1970-029A|Jim Lovell|John Swigert|Fred Haise|
 |1973-032A|Joseph Kerwin|Charles Conrad|Paul Weitz|
 
+</div>
 Wähle aus:
 1. Die Mission die nach Apollo benannt wurden
 ```sql
@@ -428,6 +440,7 @@ SELECT MissionID FROM Besatzung where
 
 ## Aufgabe
 Tabelle **Arenen**
+<div style="font-size:20px;">
 
 |ArenaID|Ort|BesitzendesTeam|
 |---|---|---|
@@ -436,7 +449,9 @@ Tabelle **Arenen**
 |ARN8329|UlmerMünster|Team Weisheit|
 |ARN6723|Eiffelturm|Team Wagemut|
 
+</div>
 Tabelle **ArenaPokemon**
+<div style="font-size:20px;">
 
 |ArenaID|Name|Kampfpunkte|
 |---|---|---|
@@ -444,7 +459,9 @@ Tabelle **ArenaPokemon**
 |ARN6723|Taubsi|121|
 |ARN2732|Zubat|10|
 
+</div>
 Tabelle **Teams**
+<div style="font-size:20px;">
 
 |TeamName|Farbe|
 |---|---|
@@ -452,6 +469,7 @@ Tabelle **Teams**
 |Team Weisheit|Blau|
 |Team Wagemut|Rot|
 
+</div>
 Wähle aus:
 1. Die Farbe des Teams von dem das Taubsi die Arena bewacht
 2. Alle Daten des Teams mit dem schwächsten Pokemon (formuliert als Subquery)
@@ -460,6 +478,7 @@ Wähle aus:
 
 ## Aufgabe
 Tabelle **Arenen**
+<div style="font-size:20px;">
 
 |ArenaID|Ort|BesitzendesTeam|
 |---|---|---|
@@ -468,7 +487,9 @@ Tabelle **Arenen**
 |ARN8329|UlmerMünster|Team Weisheit|
 |ARN6723|Eiffelturm|Team Wagemut|
 
+</div>
 Tabelle **ArenaPokemon**
+<div style="font-size:20px;">
 
 |ArenaID|Name|Kampfpunkte|
 |---|---|---|
@@ -476,7 +497,9 @@ Tabelle **ArenaPokemon**
 |ARN6723|Taubsi|121|
 |ARN2732|Zubat|10|
 
+</div>
 Tabelle **Teams**
+<div style="font-size:20px;">
 
 |TeamName|Farbe|
 |---|---|
@@ -484,6 +507,7 @@ Tabelle **Teams**
 |Team Weisheit|Blau|
 |Team Wagemut|Rot|
 
+</div>
 Wähle aus:
 1. Die Farbe des Teams von dem das Taubsi die Arena bewacht
 ```sql
