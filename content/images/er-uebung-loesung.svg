@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<svg version="1.2" baseProfile="tiny" width="297mm" height="210mm" viewBox="0 0 29700 21000" preserveAspectRatio="xMidYMid" fill-rule="evenodd" stroke-width="28.222" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" xmlns:ooo="http://xml.openoffice.org/svg/export" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:presentation="http://sun.com/xmlns/staroffice/presentation" xmlns:smil="http://www.w3.org/2001/SMIL20/" xmlns:anim="urn:oasis:names:tc:opendocument:xmlns:animation:1.0" xml:space="preserve">
+<svg version="1.2" baseProfile="tiny" width="277.01mm" height="190.01mm" viewBox="1000 1000 27701 19001" preserveAspectRatio="xMidYMid" fill-rule="evenodd" stroke-width="28.222" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" xmlns:ooo="http://xml.openoffice.org/svg/export" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:presentation="http://sun.com/xmlns/staroffice/presentation" xmlns:smil="http://www.w3.org/2001/SMIL20/" xmlns:anim="urn:oasis:names:tc:opendocument:xmlns:animation:1.0" xml:space="preserve">
  <defs class="ClipPathGroup">
   <clipPath id="presentation_clip_path" clipPathUnits="userSpaceOnUse">
-   <rect x="0" y="0" width="29700" height="21000"/>
+   <rect x="1000" y="1000" width="27701" height="19001"/>
   </clipPath>
  </defs>
  <defs>
@@ -100,12 +100,6 @@
   </g>
  </defs>
  <defs class="TextEmbeddedBitmaps"/>
- <g>
-  <g id="id2" class="Master_Slide">
-   <g id="bg-id2" class="Background"/>
-   <g id="bo-id2" class="BackgroundObjects"/>
-  </g>
- </g>
  <g class="SlideGroup">
   <g>
    <g id="id1" class="Slide" clip-path="url(#presentation_clip_path)">
@@ -472,7 +466,7 @@
      <g class="com.sun.star.drawing.TextShape">
       <g id="id27">
        <rect class="BoundingBox" stroke="none" fill="none" x="7907" y="3700" width="1494" height="1226"/>
-       <text class="TextShape"><tspan class="TextParagraph" font-family="Source Sans Pro, sans-serif" font-size="776px" font-weight="400"><tspan class="TextPosition" x="8157" y="4588"/><tspan class="TextPosition" x="8157" y="4588"><tspan fill="rgb(0,0,0)" stroke="none">1</tspan></tspan></tspan></text>
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Source Sans Pro, sans-serif" font-size="776px" font-weight="400"><tspan class="TextPosition" x="8157" y="4588"/><tspan class="TextPosition" x="8157" y="4588"><tspan fill="rgb(0,0,0)" stroke="none">1..*</tspan></tspan></tspan></text>
       </g>
      </g>
      <g class="com.sun.star.drawing.TextShape">

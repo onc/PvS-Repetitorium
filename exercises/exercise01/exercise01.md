@@ -45,6 +45,3 @@ Ziel der folgenden Übungen ist ein kleines Spiel. Das Spiel ist ein kleines sid
      Implementiere nun, dass ein neues `Projectile` gespawned wird, wenn der Key gedrückt ist.
      
      Wenn du alles richtig gemacht hast, solltest du nun in der Lage sein, einen Schuss zu erstellen, der sich über den Bildschirm bewegt.
-
-   
-

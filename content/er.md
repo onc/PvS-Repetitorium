@@ -26,7 +26,7 @@ Mögliche Kombinationen: 1 - 1 / 1 - n / n - m
 * Ein Studierender besucht **null bis beliebig viele** Repetitorien
 * Ein Repetitorium wird von **einem bis beliebig vielen** Studierenden besucht
 
-Mögliche Kombinationen: (1, 1) - (1, 1) / (x, *) - (1, 1) / (x, *) - (x, x)
+Mögliche Kombinationen: (1, 1) - (1, 1) / (x, \*) - (1, 1) / (x, \*) - (x, x)
 
 **x** steht hierbei (im gegensatz zu n:m) für eine echte beliebige Zahl
 

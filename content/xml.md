@@ -179,14 +179,14 @@ Schreibe eine DTD für folgende XML
 ### Lösungsvorschlag
 ```xml
 <!DOCTYPE order[
-  <!ELEMENT order (orderperson,item) >
-  <!ATTLIST img
+  <!ELEMENT order (orderperson, item*) >
+  <!ATTLIST order
     orderid  ID  #REQUIRED
   >
   <!ELEMENT orderperson (#PCDATA) >
-  <!ELEMENT item (title, note, quantity, price)* >
+  <!ELEMENT item (title, note?, quantity, price) >
   <!ELEMENT title (#PCDATA) >
-  <!ELEMENT note (#PCDATA)? >
+  <!ELEMENT note (#PCDATA) >
   <!ELEMENT quantity (#PCDATA) >
   <!ELEMENT price (#PCDATA) >
 ]>
@@ -283,7 +283,7 @@ Schreibe eine XSD für folgende XML
     <xs:complexType>
       <xs:sequence>
         <xs:element type="xs:string" name="orderperson"/>
-        <xs:element name="item" maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="item" maxOccurs="unbounded" minOccurs="1">
           <xs:complexType>
             <xs:sequence>
               <xs:element type="xs:string" name="title"/>
@@ -314,8 +314,8 @@ Schreibe eine XSD für folgende XML
   * In XML kann man neue Tags definieren, in HTML nicht.
   * HTML ist nicht so rigoros wie XML (z.B. muss man nicht alle Tags schließen (z.B. < br>)).
 2. Nenne einen Unterschied zwischen DTD und XSD.
-  * DTD ist valides XML und kann selbst wieder überprüft werden.
-  * In DTD können untere und obere Grenzen angegeben werden.
+  * XSD ist valides XML und kann selbst wieder überprüft werden.
+  * In XSD können untere und obere Grenzen angegeben werden.
   * In XSD können Aufzählungen durchgeführt werden.
 
 
@@ -625,4 +625,4 @@ Wildcards werden benutzt um unbekannte Knoten zu selektieren
 3. 
   * price[@*]
   * //price[@*]
-  * /order/price[@*]
+  * /order/item/price[@*]

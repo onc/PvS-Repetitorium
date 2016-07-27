@@ -290,6 +290,7 @@ FROM Student
 GROUP BY Semester
 ```
 
+Gibt die kleinste Matrikelnummer **pro Semester** zurück.
 
 
 ## Aufgabe
