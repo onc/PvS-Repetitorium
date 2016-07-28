@@ -302,6 +302,104 @@ Schreibe eine XSD für folgende XML
 
 
 
+# Weitere Übungen
+
+
+
+Schreibe eine DTD und eine XSD für folgendes XML.
+```xml
+<kochbuch>
+  <rezept id="id_001">
+    <name>Schnitzel</name>
+    <dauer einheit="minuten">20</dauer>
+    <zutaten>
+      <zutat>Kalb</zutat>
+      <zutat>Semmeln</zutat>
+      <zutat>Ei</zutat>
+      <zutat>Salz</zutat>
+      <zutat>Pfeffer</zutat>
+    </zutaten>
+  </rezept>
+  <rezept id="id_002">
+    <name>Pommes</name>
+    <vegan/>
+    <zutaten>
+      <zutat>Kartoffeln</zutat>
+      <zutat>Salz</zutat>
+    </zutaten>
+  </rezept>
+</kochbuch>
+```
+
+
+
+# Lösungsvorschlag
+
+Die DTD
+```xml
+<!DOCTYPE kochbuch[
+    <!ELEMENT kochbuch (rezept)+>
+    <!ELEMENT rezept (name, dauer?, vegan?, zutaten)>
+    <!ATTLIST rezept
+              id ID #REQUIRED>
+    <!ELEMENT zutaten (zutat)+>
+    <!ELEMENT zutat (#PCDATA)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT dauer (#PCDATA)>
+    <!ATTLIST dauer
+              einheit CDATA #REQUIRED>
+    <!ELEMENT vegan EMPTY>
+]>
+```
+
+
+
+Die XSD
+```xml
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="kochbuch">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="rezept" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="name" />
+              <xs:element type="xs:string" name="vegan" minOccurs="0" fixed=""/>
+
+              <xs:element name="dauer" minOccurs="0">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:integer">
+                      <xs:attribute name="einheit" type="xs:string" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+```
+```xml
+
+              <xs:element name="zutaten">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="zutat" maxOccurs="unbounded" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+
+            </xs:sequence>
+            <xs:attribute type="xs:ID" name="id" />
+          </xs:complexType>
+        </xs:element>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+```
+
+
+
 ### Aufgabe
 1. Nenne zwei Unterschiede zwischen XML und HTML.
 2. Nenne einen Unterschied Zwischen DTD und XSD.

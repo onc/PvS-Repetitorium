@@ -219,165 +219,128 @@ Zu diesem Zweck gibt es die Normalformen, welche erreicht werden, wenn bestimmte
 
 
 ## Beispiel
+
+Primärschlüssel ist CD_ID
+
 <div style="font-size:20px;">
 
-|Kennzeichen|Hersteller|Motor|Namen|
-|---|---|---|---|
-|K-KJ 321|VW|VW|Schmidt, Peter|
-|H-CH 333|VW|VW|Schneider, Fritz|
-|B-MD 321|BMW|BMW|Maier, Max; Lehmann, Tom|
-|A-BC 123|Mini|BMW|Fritz, Fuchs; Lustig, Peter|
+| *CD_ID* | Album                                  | Erscheinungsjahr | Titel                                                  |
+|     --- | ---                                    |              --- | ---                                                    |
+|       1 | Michael Jackson - Thriller             |             1982 | {1. Baby Be Mine, 2. The Girl Is Mine, 3. Thriller }   |
+|       2 | AC/DC - Back in Black                  |             1980 | {1. Hells Bells, 2. Shoot to Thrill, 3. Back in Black} |
+|       3 | Pink Floyd - The Dark Side of the Moon |             1973 | {1. Speak to Me, 2. On the Run}                        |
 
-</div>
-Primärschlüssel(Kennzeichen)
-
-Diese Relation ist nicht in der ersten Normalform, da das Name Attribut aus Vor- und Nachname Besteht
+### 1. NF verletzt! (Album, Titel) nicht atomar!
 
 
 
-![Normalisierung](content/images/Vorgehen_3NF.png)
+### Jetzt in 1. Normalform 
 
-Um in die erste Normalform zu gelangen müssen die nicht atomaren Attribute umgewandelt werden. Dies kann durch Einfügen zusätzlicher Zeilen, Spalten oder neuer Relationen erfolgen.
+Primärschlüssel ist jetzt CD_ID **und** Track, da auf einer CD nicht zwei mal Track 1.
 
-
-
-## Beispiel
 <div style="font-size:20px;">
 
-|Kennzeichen|Hersteller|Motor|FahrerNr|Name|Vorname|
-|---|---|---|---|---|
-|K-KJ 321|VW|VW|001|Schmidt|Peter|
-|H-CH 333|VW|VW|002|Schneider|Fritz|
-|B-MD 321|BMW|BMW|003|Maier|Max|
-|B-MD 321|BMW|BMW|004|Lehmann|Tom|
-|A-BC 123|Mini|BMW|005|Fritz|Fuchs|
-|A-BC 123|Mini|BMW|006|Lustig|Peter|
-
-</div>
-Primärschlüssel(Kennzeichen, FahrerNr)
-
-Diese Relation ist jetzt in der ersten jedoch nicht in der zweiten Normalform, da der Primärschlüssel aus mehreren Teilschlüsseln besteht und die Farher von der FahrerNr abhängen, die Hersteller der Wagen jedoch nur vom Kennzeichen.
+| *CD_ID* | Album                     | Interpret       | Geburtsjahr | *Track* | Titel            |
+|     --- | ---                       | ---             |         --- |     --- | ---              |
+|       1 | Thriller                  | Michael Jackson |        1982 |       1 | Baby Be Mine     |
+|       1 | Thriller                  | Michael Jackson |        1982 |       2 | The Girl Is Mine |
+|       1 | Thriller                  | Michael Jackson |        1982 |       3 | Thriller         |
+|       2 | Back in Black             | AC/DC           |        1980 |       1 | Hells Bells      |
+|       2 | Back in Black             | AC/DC           |        1980 |       2 | Shoot to Thrill  |
+|       2 | Back in Black             | AC/DC           |        1980 |       3 | Back in Black    |
+|       3 | The Dark Side of the Moon | Pink Floyd      |        1973 |       1 | Speak to Me      |
+|       3 | The Dark Side of the Moon | Pink Floyd      |        1973 |       2 | On the Run, Time |
 
 
 
-![Normalisierung](content/images/Vorgehen_3NF.png)
+### 2. NF verletzt!
 
-Um in die zweite Notmalform zu gelangen müssen wir die Teilschlüssel inklusive der abhängigen Attribute in eine neue Relation auslagern.
+Album, Interpret, Erscheinungsjahr hängen von CD_ID ab, Titel nicht. Titel ist aber Schlüssel!
 
-
-
-## Beispiel
 <div style="font-size:20px;">
 
-|Kennzeichen|Hersteller|Motor|FahrerNr|
-|---|---|---|---|
-|K-KJ 321|VW|VW|001|
-|H-CH 333|VW|VW|002|
-|B-MD 321|BMW|BMW|003|
-|B-MD 321|BMW|BMW|004|
-|A-BC 123|Mini|BMW|005|
-|A-BC 123|Mini|BMW|006|
-
-|FahrerNr|Name|Vorname|
-|---|---|---|
-|001|Schmidt|Peter|
-|002|Schneider|Fritz|
-|003|Maier|Max|
-|004|Lehmann|Tom|
-|005|Fritz|Fuchs|
-|006|Lustig|Peter|
-
-</div>
-Primärschlüssel(Kennzeichen)
-
-Primärschlüssel(FahrerNr)
-
-Diese Relation ist jetzt in der zweiten jedoch nicht in der dritten Normalform, da das Nichtschlüsselattribut Motor funktional vom Hersteller des Wagens abhängig ist.
+| *CD_ID* | Album                     | Interpret           | Geburtsjahr | *Track* | Titel            |
+|     --- | ---                       | ---                 |         --- |     --- | ---              |
+|       1 | **Thriller**              | **Michael Jackson** |    **1982** |       1 | Baby Be Mine     |
+|       1 | **Thriller**              | **Michael Jackson** |    **1982** |       2 | The Girl Is Mine |
+|       1 | **Thriller**              | **Michael Jackson** |    **1982** |       3 | Thriller         |
+|       2 | Back in Black             | AC/DC               |        1980 |       1 | Hells Bells      |
+|       2 | Back in Black             | AC/DC               |        1980 |       2 | Shoot to Thrill  |
+|       2 | Back in Black             | AC/DC               |        1980 |       3 | Back in Black    |
+|       3 | The Dark Side of the Moon | Pink Floyd          |        1973 |       1 | Speak to Me      |
+|       3 | The Dark Side of the Moon | Pink Floyd          |        1973 |       2 | On the Run, Time |
 
 
 
-![Normalisierung](content/images/Vorgehen_3NF.png)
+### Jetzt in 2. Normalform
 
-Um in die dritte Notmalform zu gelangen müssen wir alle abhängigen Attribute in eine neue Relation auslagern.
-
-
-
-## Beispiel
 <div style="font-size:20px;">
 
-|Kennzeichen|Hersteller|FahrerNr|
-|---|---|---|
-|K-KJ 321|VW|001|
-|H-CH 333|VW|002|
-|B-MD 321|BMW|003|
-|B-MD 321|BMW|004|
-|A-BC 123|Mini|005|
-|A-BC 123|Mini|006|
+| *CD_ID* | Album                     | Interpret       | Geburtsjahr |
+|     --- | ---                       | ---             |         --- |
+|       1 | Thriller                  | Michael Jackson |        1982 |
+|       2 | Back in Black             | AC/DC           |        1980 |
+|       3 | The Dark Side of the Moon | Pink Floyd      |        1973 |
+|       4 | Highway to Hell           | AC/DC           |        1980 |
 
-|Hersteller|Motor|
-|---|---|
-|VW|VW|
-|BMW|BMW|
-|Mini|BMW|
-
-|FahrerNr|Name|Vorname|
-|---|---|---|
-|001|Schmidt|Peter|
-|002|Schneider|Fritz|
-|003|Maier|Max|
-|004|Lehmann|Tom|
-|005|Fritz|Fuchs|
-|006|Lustig|Peter|
-
-</div>
-Primärschlüssel(Kennzeichen)
-
-Primärschlüssel(FahrerNr)
-
-Diese Relation ist jetzt in der dritten Normalform
-
-**Letzte Frage:**
-Warum müssen wir hier die Hersteller nicht noch von den Fahrern trennen?
+| *CD_ID* | *Track* | Titel            |
+|     --- |     --- | ---              |
+|       1 |       1 | Baby Be Mine     |
+|       1 |       2 | The Girl Is Mine |
+|       1 |       3 | Thriller         |
+|       1 |       1 | Hells Bells      |
+|       2 |       2 | Shoot to Thrill  |
+|       2 |       3 | Back in Black    |
+|       3 |       1 | Speak to Me      |
+|       3 |       2 | On the Run, Time |
 
 
 
-## Beispiel
+### 3. NF verletzt
+
+Interpret einer CD lässt sich über CD_ID bestimmen. Das Geburtsjahr hängt aber vom Interpreten ab. Beides sind keine Schlüssel.
+
 <div style="font-size:20px;">
 
-|Kennzeichen|Hersteller|FahrerNr|
-|---|---|---|
-|K-KJ 321|VW|001|
-|H-CH 333|VW|002|
-|B-MD 321|BMW|003|
-|B-MD 321|BMW|004|
-|A-BC 123|Mini|005|
-|A-BC 123|Mini|006|
+| *CD_ID* | Album                     | Interpret       | Geburtsjahr |
+|     --- | ---                       | ---             | ---         |
+|       1 | Thriller                  | Michael Jackson | 1982        |
+|       2 | Back in Black             | **AC/DC**       | **1980**    |
+|       3 | The Dark Side of the Moon | Pink Floyd      | 1973        |
+|       4 | Highway to Hell           | **AC/DC**       | **1980**    |
 
-|Hersteller|Motor|
-|---|---|
-|VW|VW|
-|BMW|BMW|
-|Mini|BMW|
+| *CD_ID* | *Track* | Titel            |
+|     --- |     --- | ---              |
+|       1 |       1 | Baby Be Mine     |
+|       1 |       2 | The Girl Is Mine |
+|       1 |       3 | Thriller         |
+|       1 |       1 | Hells Bells      |
+|       2 |       2 | Shoot to Thrill  |
+|       2 |       3 | Back in Black    |
+|       3 |       1 | Speak to Me      |
+|       3 |       2 | On the Run, Time |
 
-|FahrerNr|Name|Vorname|
-|---|---|---|
-|001|Schmidt|Peter|
-|002|Schneider|Fritz|
-|003|Maier|Max|
-|004|Lehmann|Tom|
-|005|Fritz|Fuchs|
-|006|Lustig|Peter|
 
-</div>
-Primärschlüssel(Kennzeichen)
 
-Primärschlüssel(FahrerNr)
+### Jetzt in 3. Normalform
 
-Diese Relation ist jetzt in der dritten Normalform
+Titel Tabelle wie oben.
 
-**Antwort:** Weil die Hersteller der Wagen und die Fahrer abhängig sind von den Kennzeichen und untereinander keine Abhängigkeit besteht.
+<div style="font-size:20px;">
 
-Note: kein abhaenigkeiten von primärschlüsseln / nur von nicht primärschlüsseln
+| *CD_ID* | Album                     | Interpret_ID |
+|     --- | ---                       |          --- |
+|       1 | Thriller                  |            1 |
+|       2 | Back in Black             |            2 |
+|       3 | The Dark Side of the Moon |            3 |
+|       4 | Highway to Hell           |            2 |
+
+| Interpret_ID | Interpret       | Geburtsjahr |
+|          --- | ---             |         --- |
+|            1 | Michael Jackson |        1982 |
+|            2 | AC/DC           |        1980 |
+|            3 | Pink Floyd      |        1973 |
+
 
 
 ## Anomalien

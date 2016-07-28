@@ -47,7 +47,7 @@ Farben dienen hier nur der übersichtlichkeit. Statechart nur für das umschalte
 
 
 
-Sollten wir jetzt die Zustände der Buttons modelieren, oder doch besser die Zusände der Kontakte?
+Sollten wir jetzt die Zustände der Buttons modelieren, oder doch besser die Zustände der Kontakte?
 
 
 
@@ -66,7 +66,7 @@ Mit der abgebildeten GUI ist es möglich, einen Scheinwerfer zu steuern.
 
 ![Ampel](content/images/Statechart_simple.png)
 
-Die beiden Schalter steuern zwei verschieden farbige Lichtquellen, die getrennt von einander ein- bzw. ausgeschaltet werden können um rotes, grünes, gelbes oder gar kein Licht zu erzeugen. 
+Die beiden Schalter steuern **eine** farbige Lichtquelle die rotes, grünes, gelbes oder gar kein Licht erzeugen kann. 
 
 Erstelle ein Statechart, der alle möglichen Zustände sowie deren Übergänge beinhaltet.
 
