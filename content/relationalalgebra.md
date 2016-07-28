@@ -314,7 +314,7 @@ Interpret einer CD lässt sich über CD_ID bestimmen. Das Geburtsjahr hängt abe
 |       1 |       1 | Baby Be Mine     |
 |       1 |       2 | The Girl Is Mine |
 |       1 |       3 | Thriller         |
-|       1 |       1 | Hells Bells      |
+|       2 |       1 | Hells Bells      |
 |       2 |       2 | Shoot to Thrill  |
 |       2 |       3 | Back in Black    |
 |       3 |       1 | Speak to Me      |

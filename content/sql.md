@@ -422,16 +422,16 @@ SELECT * FROM Missionen WHERE Name LIKE 'Apollo%'
 ```sql
 SELECT * FROM Missionen WHERE YEAR(Datum) > 1969 AND YEAR(Datum) < 1973
 ```
-3. Den Namen der Mission in der Jim Lovell Kommandant war.
+3. Alle Daten der Mission in der Jim Lovell Kommandant war.
 ```sql
-SELECT Mission.* FROM Missionen J
-OIN Besatzung 
+SELECT Mission.* FROM Missionen 
+JOIN Besatzung 
     ON Mission.MissionID = Besatzung.MissionID 
 WHERE Kommandant = 'Jim Lovell'
 ```
 4. Die MissionID in der 2 Walters mitgeflogen sind.
 ```sql
-SELECT MissionID FROM Besatzung where 
+SELECT MissionID FROM Besatzung WHERE 
     (Kommandant LIKE '%Walter%' AND Pilot LIKE '%Walter%') OR 
     (Kommandant LIKE '%Walter%' AND ErsterOffizier LIKE '%Walter%') OR
     (Pilot LIKE '%Walter%' AND ErsterOffizier LIKE '%Walter%') 
