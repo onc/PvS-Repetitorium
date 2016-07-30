@@ -293,6 +293,7 @@ GROUP BY Semester
 Gibt die kleinste Matrikelnummer **pro Semester** zurück.
 
 
+
 ## Aufgabe
 Tabelle **Formel1**
 <div style="font-size:20px;">

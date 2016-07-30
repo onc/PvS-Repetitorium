@@ -152,6 +152,15 @@ Vorgabewerte für Attribute
 ]>
 ```
 
+ist die DTD zur folgenden XML-Datei:
+
+```xml
+<employee>
+  <firstname>John</firstname>
+  <lastname>Smith</lastname>
+</employee>
+```
+
 
 
 ### Aufgabe
@@ -205,12 +214,16 @@ Vorteile von XML Schemas:
 Einfache Elemente:
 
 ```xml
-<xs:element ...
+<xs:element>
+...
+</xs:element>
 ```
 Komplexe Elemente:
 
 ```xml
-<xs:complexType ...
+<xs:complexType>
+...
+</xs:complexType>
 ```
 Innerhalb dieser; Sequenzen, Auflistungen:
 
@@ -250,6 +263,15 @@ beziehungsweise
     </xs:sequence>
   </xs:complexType>
 </xs:element>
+```
+
+ist die XSD zur folgenden XML-Datei:
+
+```xml
+<employee>
+  <firstname>John</firstname>
+  <lastname>Smith</lastname>
+</employee>
 ```
 
 
@@ -302,7 +324,7 @@ Schreibe eine XSD für folgende XML
 
 
 
-# Weitere Übungen
+# Aufgaben
 
 
 
@@ -509,10 +531,10 @@ Selektoren werden verwendet um bestimmte Knoten, oder Attribute auszuwählen
   </item>
 </order>
 ```
-1. Wähle den orderperson Knoten aus
-2. Wähle alle price Knoten aus
-3. Wähle die orderid aus
-4. Wähle den Vaterknoten der Knoten item aus
+1. Wähle den `orderperson` Knoten aus
+2. Wähle alle `price` Knoten aus
+3. Wähle die `orderid` aus
+4. Wähle den Vaterknoten der Knoten `item` aus
 
 
 
@@ -535,19 +557,19 @@ Selektoren werden verwendet um bestimmte Knoten, oder Attribute auszuwählen
 </order>
 ```
 1. 
-  * orderperson
-  * //orderperson
-  * order/orderperson
+  * `orderperson`
+  * `//orderperson`
+  * `order/orderperson`
 2. 
-  * price
-  * //price
-  * order/item//price
+  * `price`
+  * `//price`
+  * `order/item//price`
 3. 
-  * //@orderid
-  * order/@orderid
+  * `//@orderid`
+  * `order/@orderid`
 4. 
-  * item/..
-  * order//item/..
+  * `item/..`
+  * `order//item/..`
 
 
 
@@ -601,9 +623,9 @@ Sie werden immer in eckigen Klammern geschrieben
   </item>
 </order>
 ```
-1. Wähle das zweite item der order aus
-2. Wähle das drittletzte item der order aus
-3. Wähle alle items aus, dessen Wert über 20 liegt
+1. Wähle das zweite `item` der `order` aus
+2. Wähle das drittletzte `item` der `order` aus
+3. Wähle alle `items` aus, dessen Wert über 20 liegt
 
 
 
@@ -626,14 +648,14 @@ Sie werden immer in eckigen Klammern geschrieben
 </order>
 ```
 1. 
-  * //item[2]
-  * /order/item[2]
+  * `//item[2]`
+  * `/order/item[2]`
 2. 
-  * //item[last()-2]
-  * /order/item[last()-2]
+  * `//item[last()-2]`
+  * `/order/item[last()-2]`
 3. 
-  * //item[price>20.00]
-  * /order/item[price>20.00]
+  * `//item[price>20.00]`
+  * `/order/item[price>20.00]`
 
 
 
@@ -688,9 +710,9 @@ Wildcards werden benutzt um unbekannte Knoten zu selektieren
   </item>
 </order>
 ```
-1. Wähle alle Kinder von items aus
-2. Wähle alle Kinder von orderperson aus
-3. Wähle alle price Elemente aus, die ein Attribut haben
+1. Wähle alle Kinder von `items` aus
+2. Wähle alle Kinder von `orderperson` aus
+3. Wähle alle `price` Elemente aus, die ein Attribut haben
 
 
 
@@ -713,14 +735,14 @@ Wildcards werden benutzt um unbekannte Knoten zu selektieren
 </order>
 ```
 1. 
-  * item/*
-  * //item/*
-  * /order/item/*
+  * `item/*`
+  * `//item/*`
+  * `/order/item/*`
 2. 
-  * orderperson/*
-  * //orderperson/*
-  * /order/orderperson/*
+  * `orderperson/*`
+  * `//orderperson/*`
+  * `/order/orderperson/*`
 3. 
-  * price[@*]
-  * //price[@*]
-  * /order/item/price[@*]
+  * `price[@*]`
+  * `//price[@*]`
+  * `/order/price[@*]`

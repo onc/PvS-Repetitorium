@@ -274,7 +274,7 @@ public void mouseDragged(MouseEvent arg0) {
 
 
 ### Adapter Klassen
-Vereinigen mehrere Interfaces zu einem Interface.
+Vereinigen mehrere Interfaces zu einer Klasse.
 
 MouseAdapter: MouseListener, MouseMotionListener, MouseWheelListener
 WindowAdapter: WindowFocusListener, WindowListener, WindowStateListener
@@ -283,7 +283,7 @@ WindowAdapter: WindowFocusListener, WindowListener, WindowStateListener
 
 Adapter sind nützlich, wenn Funktionen aus mehreren Listenern genutz werden sollen.
 
-Durch die einmalige implementierung bleibt der Code übersichtlicher.
+Durch die einmalige Implementierung bleibt der Code übersichtlicher.
 
 
 

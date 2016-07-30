@@ -55,7 +55,7 @@ Note: Den Unterschied zwischen innerer Klasse und Unterklasse (extends) erkläre
 
 
 ### Polymorphie-Modifizierer
-**abstract, final, static**
+`abstract, final, static`
 Note:Polymorphie: griechisch: Vielgestaltigkeit
 
 
@@ -92,7 +92,7 @@ Statische Eigenschaften haben gegenüber Objekteigenschaften den Vorteil, dass s
 
 
 ### Aufgabe 1
-Funktioniert die main-Methode der Klasse Foo so?
+Funktioniert die main-Methode der Klasse `Foo` so?
 
 Ja, oder nein. Warum?
 ```java
@@ -135,12 +135,12 @@ class Foo {
     }
 }
 ```
-Geht nicht, da Body *abstract* ist.
+Geht nicht, da Body `abstract` ist.
 
 
 
 ### Aufgabe 2
-Funktioniert die main-Methode der Klasse Foo so?
+Funktioniert die main-Methode der Klasse `Foo` so?
 
 Ja, oder nein. Warum?
 ```java
@@ -200,7 +200,7 @@ Nein, da height final ist.
 
 
 ### Aufgabe 3
-Funktioniert die main-Methode der Klasse Foo so?
+Funktioniert die main-Methode der Klasse `Foo` so?
 
 Ja, oder nein. Warum?
 ```java
@@ -257,14 +257,14 @@ class Foo {
     }
 }
 ```
-1. Nein, *Body* kann nicht instanziiert werden.
-1. Nein, *Body* kann nicht instanziiert werden.
-1. Ja, denn die Klasse *Person* erbt von *Body*.
+1. Nein, `Body` kann nicht instanziiert werden.
+1. Nein, `Body` kann nicht instanziiert werden.
+1. Ja, denn die Klasse `Person` erbt von `Body`.
 
 
 
 ### Aufgabe 4
-Funktioniert die main-Methode der Klasse Foo so?
+Funktioniert die main-Methode der Klasse `Foo` so?
 
 Ja, oder nein. Warum?
 ```java
@@ -318,7 +318,7 @@ Nein, die Kompilierung wird fehlschlagen, da die Methode nicht implementiert ist
 
 
 ### Aufgabe 5
-Können die beiden Methoden *growAnotherArm* überschrieben werden?
+Können die beiden Methoden `growAnotherArm` überschrieben werden?
 
 Ja, oder nein. Warum?
 ```java
@@ -403,13 +403,13 @@ public class Person extends Body {
     }
 }
 ```
-1. Nein, da die Methode growAnotherArm() in der Klasse *Body* final ist.
+1. Nein, da die Methode `growAnotherArm()` in der Klasse `Body` final ist.
 1. Ja, alles in Ordnung.
 
 
 
 ### Aufgabe 6
-Sind die Aufrufe von *saySomething()* so möglich? 
+Sind die Aufrufe von `saySomething()` so möglich? 
 
 Ja, oder nein. Warum?
 ```java
@@ -455,7 +455,7 @@ class Foo {
 }
 ```
 1. Ja, da die statische Methode aufgerufen wird.
-2. Nein, das Schlüsselwort *this* ist im statischen kontext nicht erlaubt.
+2. Nein, das Schlüsselwort `this` ist im statischen Kontext nicht erlaubt.
 3. Ja, alles in Ordnung.
 4. Ja, aber auf eine statische Methode sollte auch statisch zugegriffen werden.
 
@@ -718,7 +718,7 @@ Sollten Fehler auftreten wird ein spezieller Programmabschnitt druchlaufen, welc
 
 
 ## Beispiel
-Wass kann hier schiefgehen?
+Was kann hier schiefgehen?
 ```java
 public class Main
 {
@@ -753,7 +753,7 @@ public class Main
 
 
 ## Beispiel
-Wass kann hier schiefgehen?
+Was kann hier schiefgehen?
 ```java
 public class Main
 {
