@@ -140,7 +140,7 @@ Output: Hallo Welt
 ### Unterscheidung
 Wann sind Ströme byte- wann char-basiert.
 
-Eine Methode ist alle Streams die *'Print'* im Namen tragen als Character-Basiert zu verstehen, da mit ihnen die Anzeige für die 
+Eine Methode ist alle Streams die *'Print'* im Namen tragen als Character-Basiert zu verstehen, da mit ihnen die Anzeige für den Benutzer formatiert werden soll.
 
 
 
