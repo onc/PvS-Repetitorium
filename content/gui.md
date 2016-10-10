@@ -126,13 +126,14 @@ Alle Komponenten werden dem Layout entsprechend skaliert und positioniert, auch 
 
 
 
+### Aufgabe 1
 Schreibe ein Programm, dass die folgende GUI erzeugt
 
 ![Swing Übung](content/images/swing-uebung.png)
 
 
 
-Lösung
+### Lösung 1
 
 <pre><code class="line-numbers java">JPanel topPanel = new JPanel();
 topPanel.setLayout(new GridLayout(2, 2));
@@ -155,6 +156,7 @@ this.setVisible(true);</code></pre>
 
 
 
+### Aufgabe 2
 Welche GUI erzeugt das folgende Programm?
 
 <pre><code class="line-numbers java">JPanel panel = new JPanel();
@@ -175,7 +177,68 @@ this.setVisible(true);</code></pre>
 
 
 
-Lösung
+### Lösung 2
 
 ![Swing Übung](content/images/swing-uebung-zwei.png)
 
+
+
+### Aufgabe 3
+Schreibe ein Programm, dass die folgende GUI erzeugt
+
+![Swing Übung](content/images/swing-uebung-drei.png)
+
+
+
+### Lösung 3
+
+<pre><code class="line-numbers java">Container cp = getContentPane();
+cp.setLayout(new BorderLayout());
+
+JPanel top = new JPanel();
+top.add(new JLabel("Celsius"));
+top.add(new JTextField("", 14));
+
+JPanel bottom = new JPanel();
+bottom.add(new JLabel("Fahrenheit"));
+bottom.add(new JTextField("", 14));
+
+cp.add(top, BorderLayout.NORTH);
+cp.add(bottom, BorderLayout.SOUTH);
+cp.add(new JButton("Convert"), BorderLayout.CENTER);
+setSize(250, 200);
+setTitle("Converter");
+setVisible(true);</code></pre>
+
+
+
+
+### Aufgabe 4
+Welche GUI erzeugt das folgende Programm?
+
+<pre><code class="line-numbers java">String[] solmisation = new String[] {"do", "re", "mi", "fa", "sol", "la", "si", "do"};
+
+private Nested() {
+    JPanel top = new JPanel();
+    addPanel(top, 0);
+    getContentPane().setLayout(new BorderLayout());
+    getContentPane().add(top, BorderLayout.CENTER);
+    this.pack();
+    this.setVisible(true);
+}
+
+private JPanel addPanel(JPanel parent, int depth) {
+    if (depth >= solmisation.length)
+        return null;
+    JPanel child = new JPanel();
+    child.add(new JButton(solmisation[depth]));
+    parent.setBorder(BorderFactory.createLineBorder(Color.black));
+    parent.add(child);
+    return addPanel(child, depth+1);
+}</code></pre>
+
+
+
+### Lösung 4
+
+![Swing Übung](content/images/swing-uebung-vier.png)
