@@ -461,6 +461,55 @@ class Foo {
 
 
 
+### Aufgabe 7
+![A7](content/images/UML-A3-Klassendiagramm.png)
+
+
+
+### Aufgabe 7
+```java
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Animal(2, 2, false);
+        Person p = new Person(2, 2);
+        Body b1 = new Animal(2, 2, false);
+        Body b2 = new Person(2, 2);
+        Object o1 = new Animal(2, 2, false);
+        Object o2 = new Person(2, 2);
+
+        // 1.                   // 2.                   // 3.
+        a.hunt();               b1.hunt();              o1.hunt();
+        a.mutate();             b1.mutate();            o1.mutate();
+
+        p.grow();               b2.grow();              o2.grow();
+        p.mutate();             b2.mutate();            o2.mutate();
+    }
+}
+```
+
+
+
+### Aufgabe 8
+![A7](content/images/UML-A3-Klassendiagramm.png)
+
+
+
+### Aufgabe 8
+```java
+public class Main {
+  public static void main(String[] args) {
+    Object a = new Body(2, 2);
+    Object p = new Body(2, 2);
+    Animal b1 = new Object();
+    Person b2 = new Object();
+    Body o1 = (Body)new Animal();
+    Person o2 = (Person)new Person();
+  }
+}
+```
+
+
+
 ### Vererbung
 Durch den Vererbungsmechanismus werden alle sichtbaren Eigenschaften der Oberklasse auf die Unterklasse übertragen.
 ```java
@@ -826,6 +875,76 @@ Als Java im letzten Jahrtausend entworfen wurde, galt diese Unterscheidung als c
 Fehler wie NullPointerException (unchecked) oder IllegalArgumentException (unchecked) liegen an fehlerhafter Verwendung einer Klasse und können quasi überall auftreten. Sie zu deklarieren bringt also quasi keinen Nutzen.
 
 Wenn ein Fehler für den Aufrufer aber unvorhersehbar ist – I/O, Validierung etc. (checked) – dann sollte er zu einem expliziten Teil des Aufrufkontrakts werden.
+
+
+
+### Aufgabe 1
+Was gibt diese Methode zurück?
+```java
+static boolean ccc(){
+    try {
+      return false;
+    } catch (Exception e) {
+    } finally {
+      return true;
+    }
+}
+```
+true oder false ?
+
+
+
+### Lösung 1
+Was gibt diese Methode zurück?
+```java
+static boolean ccc(){
+    try {
+      return false;
+    } catch (Exception e) {
+    } finally {
+      return true;
+    }
+}
+```
+**true** oder false ?
+
+
+
+### Aufgabe 2
+Was gibt diese Methode zurück?
+```java
+public static int aaa() {
+    int x = 1;
+
+    try {
+      return ++x;
+    } catch (Exception e) {
+    } finally {
+      ++x;
+    }
+    return x;
+}
+```
+x = 2 oder x = 3 ?
+
+
+
+### Lösung 2
+Was gibt diese Methode zurück?
+```java
+public static int aaa() {
+    int x = 1;
+
+    try {
+      return ++x;
+    } catch (Exception e) {
+    } finally {
+      ++x;
+    }
+    return x;
+}
+```
+**x = 2** oder x = 3 ?
 
 
 
