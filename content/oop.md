@@ -1251,7 +1251,7 @@ abstract class AbstraktesKonto implements Buchbar {
 
     public int getKontonummer() { /*...*/ }
     
-    public int setKontonummer(int kNr) { /*...*/ }
+    public void setKontonummer(int kNr) { /*...*/ }
 }
 ```
 ```java
@@ -1262,7 +1262,7 @@ class Konto extends AbstraktesKonto {
 
     public float getKontostand() { /*...*/ }
     
-    public float setKontostand(float betrag) { /*...*/ }
+    public void setKontostand(float betrag) { /*...*/ }
 
     public void abheben(float betrag) { /*...*/ }
 
