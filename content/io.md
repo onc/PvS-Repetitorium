@@ -15,7 +15,7 @@ Beispiele sind: `FileOutputStream`, `ObjectOutputStream`, `OutputStream`</dd>
 </dl>
 <br>
 <br>
-### Streams sind zunächst einmal byte-basiert!
+### Alle Streams sind zunächst einmal byte-basiert!
 
 
 
@@ -134,3 +134,137 @@ bufferedReader.close();
 reader.close();</code></pre>
 
 Output: Hallo Welt
+
+
+
+### Unterscheidung
+Wann sind Ströme byte- wann char-basiert.
+
+Eine Methode ist alle Streams die *'Print'* im Namen tragen als Character-Basiert zu verstehen, da mit ihnen die Anzeige für die 
+
+
+
+### PrintStream Beispiel
+```java
+public static void main(String[] args){
+    System.out.print( "Verhaften Sie die üblichen Verdächtigen!" );
+    System.out.print( true );
+    System.out.print( -273 );
+    System.out.print('\n');
+    System.out.print( 1.6180339887498948 );
+}
+```
+`System.out.print` ist ein PrintStream, also ein Strom von Daten-Werten.
+
+```java
+Verhaften Sie die üblichen Verdächtigen!true-273
+1.618033988749895
+```
+
+
+
+### OutputStream Beispiel
+```java
+public static void main(String[] args){
+    FileOutputStream fos = new FileOutputStream("t.tmp");
+    ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+    oos.writeInt(12345);
+    oos.writeObject("Today");
+    oos.writeObject(new Date());
+
+    oos.close();
+}
+```
+`ObjectOutputStream` ist ein OutputStream, also ein Strom von bytes.
+
+```java
+¬í w  09t Todaysr java.util.DatehjKYt  xpw  W¯æhx
+```
+
+
+
+### Aufgabe 1
+Was wird ausgegeben?
+```java
+public static void main(String[] args) throws IOException {
+    DataOutputStream out = new DataOutputStream(System.out);
+
+    out.writeBoolean(true);
+    out.writeFloat(3.1415f);
+    out.writeInt(250177);
+    out.writeChar('a');
+
+    if (out != null) {
+      out.close();
+    }
+}
+```
+
+
+
+### Antwort 1
+Was wird ausgegeben?
+```java
+public static void main(String[] args) throws IOException {
+    DataOutputStream out = new DataOutputStream(System.out);
+
+    out.writeBoolean(true);
+    out.writeFloat(3.1415f);
+    out.writeInt(250177);
+    out.writeChar('a');
+
+    if (out != null) {
+      out.close();
+    }
+}
+```
+@IV ÑA a
+
+
+
+### Aufgabe 2
+Was wird ausgegeben?
+```java
+public static void main(String[] args) throws IOException {
+    PrintStream out = new PrintStream(System.out);
+
+    out.print(true);
+    out.print(3.1415f);
+    out.print(250177);
+    out.print('a');
+
+    if (out != null) {
+      out.close();
+    }
+}
+```
+
+
+
+### Antwort 2
+Was wird ausgegeben?
+```java
+public static void main(String[] args) throws IOException {
+    PrintStream out = new PrintStream(System.out);
+
+    out.print(true);
+    out.print(3.1415f);
+    out.print(250177);
+    out.print('a');
+
+    if (out != null) {
+      out.close();
+    }
+}
+```
+true3.1415250177a
+
+
+
+### Flushing
+Manche Implementierungen von Writern und Readern buffern bytes automatisch. 
+
+Sollte die Ausgabe zu einem bestimmten Zeitpunkt gewünscht sein muss die `flush()` Methode verwendet werden.
+
+Wenn die Methode `close()` aufgerufen wird, wird üblicherweise vom Reader/Writer auch die Methode `flush()` ausgeführt um alle auf dem Buffer befindlichen Daten an den Empfänger zu geben.
