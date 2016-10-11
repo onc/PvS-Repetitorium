@@ -147,7 +147,7 @@ topPanel.add(new JPasswordField());
 JPanel panel = new JPanel();
 panel.setLayout(new BorderLayout());
 
-panel.add(leftPanel, BorderLayout.CENTER);
+panel.add(topPanel, BorderLayout.CENTER);
 panel.add(new JButton("Login"), BorderLayout.SOUTH);
 
 Container contentPane = this.getContentPane();
