@@ -96,7 +96,7 @@ Funktioniert die main-Methode der Klasse `Foo` so?
 
 Ja, oder nein. Warum?
 ```java
-public abstact class Body {
+public abstract class Body {
     int limbs;
     int eyes;
 
@@ -118,7 +118,7 @@ class Foo {
 
 ### Aufgabe 1 - Lösung
 ```java
-public abstact class Body {
+public abstract class Body {
     int limbs;
     int eyes;
 
@@ -673,8 +673,8 @@ public class Foo {
     }
 
     public static void main(String[] args){
-        System.out.printpl(add(15));
-        System.out.printpl(add(15, 10));
+        System.out.println(add(15));
+        System.out.println(add(15, 10));
     }
 }
 ```
