@@ -1132,7 +1132,7 @@ public class Tupel<T, V> {
     }
 
     public static void main(String[] args) {
-        Tupel<Integer> coords = new Tupel<Integer>(10, -3);
+        Tupel<Integer,Integer> coords = new Tupel<Integer,Integer>(10, -3);
         System.out.println(coords);
         System.out.println(coords.object1);
         System.out.println(coords.object2);
@@ -1155,7 +1155,7 @@ public class Tupel<T, V> {
     }
 
     public static void main(String[] args) {
-        Tupel<Integer> coords = new Tupel<Integer>(10, -3);
+        Tupel<Integer,Integer> coords = new Tupel<Integer,Integer>(10, -3);
         System.out.println(coords);                                           // package.Class@hash
         System.out.println(coords.object1);                                   // 10
         System.out.println(coords.object2);                                   // -3
@@ -1182,7 +1182,7 @@ public class Tupel<T, V> {
     }
 
     public static void main(String[] args) {
-        Tupel<Integer> coords = new Tupel<Integer>(10, -3);
+        Tupel<Integer,Integer> coords = new Tupel<Integer,Integer>(10, -3);
         System.out.println(coords);
         System.out.println(coords.object1);
         System.out.println(coords.object2);
@@ -1209,7 +1209,7 @@ public class Tupel<T, V> {
     }
 
     public static void main(String[] args) {
-        Tupel<Integer> coords = new Tupel<Integer>(10, -3);
+        Tupel<Integer,Integer> coords = new Tupel<Integer,Integer>(10, -3);
         System.out.println(coords);                                           // 10: -3
         System.out.println(coords.object1);                                   // 10
         System.out.println(coords.object2);                                   // -3
