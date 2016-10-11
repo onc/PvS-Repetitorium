@@ -489,6 +489,36 @@ public class Main {
 
 
 
+### Aufgabe 7 - Lösung
+```java
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Animal(2, 2, false);
+        Person p = new Person(2, 2);
+        Body b1 = new Animal(2, 2, false);
+        Body b2 = new Person(2, 2);
+        Object o1 = new Animal(2, 2, false);
+        Object o2 = new Person(2, 2);
+
+        // 1.                   // 2.                   // 3.
+        a.hunt();               b1.hunt();              o1.hunt();
+        a.mutate();             b1.mutate();            o1.mutate();
+
+        p.grow();               b2.grow();              o2.grow();
+        p.mutate();             b2.mutate();            o2.mutate();
+    }
+}
+```
+1. Ok
+2. * `b1.hunt()` existiert nicht für einen `Body`
+  * `b2.grow()` existiert nicht für einen `Body`
+3. * `o1.hunt()` existiert nicht für ein `Object`
+  * `o1.mutate()` existiert nicht für ein `Object`
+  * `o2.grow()` existiert nicht für ein `Object`
+  * `o2.mutate()` existiert nicht für ein `Object`
+
+
+
 ### Aufgabe 8
 ![A7](content/images/UML-A3-Klassendiagramm.png)
 
@@ -507,6 +537,23 @@ public class Main {
   }
 }
 ```
+
+
+
+### Aufgabe 8 - Lösung
+```java
+public class Main {
+  public static void main(String[] args) {
+    Object a = new Body(2, 2);
+    Object p = new Body(2, 2);
+    Animal b1 = new Object();
+    Person b2 = new Object();
+    Body o1 = (Body)new Animal();
+    Person o2 = (Person)new Person();
+  }
+}
+```
+Keiner dieser Aufrufe funktioniert so.
 
 
 
