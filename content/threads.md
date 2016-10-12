@@ -2,16 +2,31 @@
 
 
 
-## Wichtige Begriffe und Schlüsselwörter
+## Essenzielle Unterscheidung
 
-* Thread
-* Runnable
-* start
-* synchronized
-* volatile
-* atomic
-* join
-* sleep
+Bei modernen Betriebssystemen gehört zu jedem **Prozess** mindestens ein **Thread** (zu Deutsch *Faden* oder *Ausführungsstrang*), der den Programmcode ausführt. Damit werden also genau genommen die Prozesse nicht mehr parallel ausgeführt, sondern nur die Threads. 
+
+Innerhalb eines Prozesses kann es mehrere Threads geben, die alle zusammen in demselben Adressraum ablaufen. Die einzelnen Threads eines Prozesses können untereinander auf ihre öffentlichen Daten zugreifen.
+
+----
+
+Beispiel (Prozess): Prozess basiertes Multitasking ermöglicht, dass der Java Compiler zusammen mit einem Text-Editor genutzt werden kann.
+
+Beispiel (Thread): Im selben Prozess (bspw. Texteditor) kann die automatische Rechtschreibprüfung und automatisches Speichern einer Datei ausgeführt werden.
+
+
+
+## Wichtige Begriffe und Schlüsselwörter
+| Schlüsselwort | Funktion |
+|---|---|
+| Thread | *Klasse*, welche unterschiedliche Methoden für die Handhabung von Nebenläufigkeit anbietet. |
+| Runnable | *Interface*, welches die `run()`-Methode vorgibt. |
+| start | Bewirkt das starten eines Threads. Die Java VM ruft intern die `run()`-Methode des `Runnable` Interfaces auf. |
+| synchronized | Markiert kritische Programmabschnitte |
+| volatile | Markiert Variablen um zu verhindern, dass diese zwischengespeichert werden. |
+| atomic | *Klasse*, die Bspw. `AtomicInteger` nutz um Funktionen Atomar auszuführen. |
+| join | Bewirkt, dass Threads auf einander warten. |
+| sleep | Verzögert die Ausführung eines Threads |
 
 
 
@@ -55,6 +70,7 @@ new Thread(runnableOne).start();
 new Thread(runnableTwo).start();</code></pre>
 
 Dies startet zwei Threads die dann nebenläufig abgearbeitet werden.
+
 Ouput: [T2] 0, [T2] 1, [T1] 0, [T1] 3, [T2] 2, [T1] 4, [T2] 5, ...
 
 ## Was ist mit den nummern los? Da sind manche doppelt!!11!
@@ -86,10 +102,11 @@ public static void main(String[] args) {
   new Thread(runnableTwo).start();
 }</code></pre>
 
-Problem: Die Operation ++ ist nicht atomar!
+**Problem**: Die Operation `++` ist nicht atomar!
+
 Nur jeweils ein Thread darf gleichzeitig innerhalb der Methode getAndIncrement() sein.
 
-Lösung: Methode muss synchronized sein.
+**Lösung**: Methode muss synchronized sein.
 
 
 
@@ -162,7 +179,9 @@ I'm here
 
 ## Lösung
 
-Kann man nicht sagen! Neue Frage: Warum? Da wurde doch AtomicInteger verwendet.
+Kann man nicht sagen! 
+
+Neue Frage: Warum? Da wurde doch AtomicInteger verwendet...
 
 
 
