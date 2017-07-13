@@ -4,7 +4,7 @@
 
 ## Zeitplan
 
-| Dienstag            | Mittwoch           | Donnerstag |
+| Montag              | Dienstag           | Mittwoch   |
 | ---                 | ---                | ---        |
 | OOP                 | XML                | Threads    |
 | Swing               | ER-Diagramme       | Fragen?    |
@@ -17,8 +17,8 @@
 
 [https://onc.github.io/PvS-Repetitorium](https://onc.github.io/PvS-Repetitorium)
 
+maria.aufheimer@uni-ulm.de
+
 christian.van-onzenoodt@uni-ulm.de
 
-tobias.lahmann@uni-ulm.de
-
-Bitte immer an BEIDE schreiben!
+Am besten immer an BEIDE schreiben!

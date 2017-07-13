@@ -21,18 +21,44 @@ Klassen können instanziiert werden.
 
 
 ### Abstrakte Klassen
-Abstrakte Klassen können Implementationen und Felder enthalten, aber keine Konstruktoren.
+**VEREINFACHT:**
 
-Eine Klasse *erbt* von einer abstrakten Klasse. (`extends`)
+Abstrakte Klassen können Implementierungen und Felder enthalten
+
+Eine Klasse **erbt** von einer abstrakten Klasse. (`extends`)
+
+Abstrakte Klassen können **nicht** instanziiert werden.
+
+
+
+### Abstrakte Klassen
+**ABER:**
+
+Abstrakte Klassen können Implementierungen und Felder enthalten, **auch Konstruktoren**
+
+Eine Klasse **erbt** von einer abstrakten Klasse. (`extends`)
 
 Abstrakte Klassen können **nicht** instanziiert werden.
 
 
 
 ### Interfaces
-Interface enthält nur Methodensignaturen (keine Implementation, keine Felder, keine Konstruktoren).
+**VEREINFACHT:**
 
-Eine Klasse *implementiert* ein Interface. (`implements`)
+Ein Interface enthält nur Methodensignaturen (keine Implementierungen, keine Felder, keine Konstruktoren).
+
+Eine Klasse **implementiert** ein Interface. (`implements`)
+
+Interfaces können **nicht** instanziiert werden.
+
+
+
+### Interfaces
+**ABER:**
+
+Ein Interface enthält nur Methodensignaturen und **statische** Implementierungen und Felder (keine Konstruktoren).
+
+Eine Klasse **implementiert** ein Interface. (`implements`)
 
 Interfaces können **nicht** instanziiert werden.
 
@@ -43,12 +69,12 @@ Interfaces können **nicht** instanziiert werden.
 
 
 ### Zugriffsmodifizierer 
-|           | Die Klasse selbst, innere Klassen | Klassen im selben Package | Unterklassen | Sonstige Klassen |
-|-----------|-----------------------------------|---------------------------|--------------|------------------|
-| private   | Ja                                | Nein                      | Nein         | Nein             |
-| (default) | Ja                                | Ja                        | Nein         | Nein             |
-| protected | Ja                                | Ja                        | Ja           | Nein             |
-| public    | Ja                                | Ja                        | Ja           | Ja               |
+|                | Die Klasse selbst, innere Klassen | Klassen im selben Package | Unterklassen | Sonstige Klassen |
+|--------------|-----------------------------------|---------------------------|--------------|------------------|
+| private "-"  | Ja                                | Nein                      | Nein         | Nein             |
+| (default) "~"| Ja                                | Ja                        | Nein         | Nein             |
+| protected "#"| Ja                                | Ja                        | Ja           | Nein             |
+| public "+"   | Ja                                | Ja                        | Ja           | Ja               |
 
 Note: Den Unterschied zwischen innerer Klasse und Unterklasse (extends) erklären
 
@@ -64,7 +90,7 @@ Note:Polymorphie: griechisch: Vielgestaltigkeit
 Abstract sagt aus, dass es sich um eine allgemeine Klasse handelt zu der keine konkreten Objekte existieren.
 
 * Abstrakte Klasse kann nicht instanziiert werden.
-* *'abstract'* kann sich auf Klassen und Methoden beziehen.
+* `abstract` kann sich auf Klassen und Methoden beziehen.
 
 Note: Definition:
 1. (besonders Philosophie) die wesentlichen, gesetzmäßigen o.ä. Züge aus etwas Konkretem, sinnlich Wahrnehmbarem ableitend
@@ -79,15 +105,16 @@ Einfach ausgedrückt bedeutet final in Java "kann nicht überschrieben werden".
 * Von finalen Klassen kann nicht geerbt werden.
 * Finale Attribute und Klassen-Variablen können nur ein einziges Mal gesetzt werden.
 * Finale Parameter können nur den beim Methodenaufruf übergebenen Wert haben.
-* *'final'* bezieht sich auf Methoden, Attribute und Klassen.
+* `final` bezieht sich auf Methoden, Attribute und Klassen.
 
 
 
 ### static
-Statische Eigenschaften haben gegenüber Objekteigenschaften den Vorteil, dass sie im Programm ausdrücken, keinen Zustand vom Objekt zu nutzen.
+Statische Eigenschaften gelten für die Klasse an sich, unabhängig von Instanzen.
 
 * Statische Methoden und Variablen benötigen keinerlei Instanzen einer Klasse, um aufgerufen zu werden.
-* *'static'* bezieht sich auf Methoden und Klassenvariablen.
+* Statische Methoden und Variablen sind für alle Instanzen einer Klasse gültig
+* `static` bezieht sich auf Methoden und Klassenvariablen.
 
 
 
@@ -618,15 +645,15 @@ public class Room extends GameObject {
 
 
 ## Overriding
-Wenn Klassen Methoden von einer Superklasse erben können diese auch überschrieben werden.
+Eine 'geerbte' Methode kann überschrieben werden.
 
-Überschreiben dient dazu eine andere Funktionalität einer Methode zu implementieren, sollte dies in einer Klasse gewünscht sein.
+Überschreiben dient dazu die Funktionalität einer Methode zu ändern, falls nötig.
 
 
 
-Überschriebene Methoden werden vom Compiler priorisiert. Dies bedeutet, dass das Linking einer Methode immer zuerst die Klasse, in der der Aufruf stattfindet, und danach die Superklasse beachtet.
+Überschriebene Methoden werden vom Compiler priorisiert. Es wird also immer zuerst in der Klasse nach der ensprechenden Methode gesucht, in der der Aufruf stattfindet.
 
-Die Superklasse jeder Klasse ist in Java die `Object` Klasse.
+Die Superklasse **jeder** Klasse ist in Java die `Object` Klasse.
 
 
 
@@ -656,7 +683,7 @@ enthält die überschriebene Methode `toString();`, welche von `Object` geerbt w
 
 
 ## Overloading
-Als overloaded (überladen) werden Methoden bezeichnet, welche sich nur in der Anzahl der übergebenen Parameter unterscheiden.
+Als overloaded (überladen) werden Methoden bezeichnet, welche sich nur in der Anzahl und/oder dem Typ der übergebenen Parameter unterscheiden.
 
 Das Overloading dient dazu Methoden, welche eine ähnliche Funktionalität haben nicht komplett unterschiedich benennen zu müssen.
 
@@ -756,17 +783,19 @@ System.out.println(p==q); // true, da p und q dasselbe Objekt referenzieren
 System.out.println(p==r); // false, da p und r zwei unterschiedliche
                           // Punkt-Objekte referenzieren</code></pre>
 
+Note: Referenzen an die Tafel malen
+
 
 
 ### Gleichheit
 Jede Klasse kann eine Methode
->**equals()**
+>**`equals()`**
 
 implementieren, die Exemplare dieser Klasse mit beliebigen anderen Objekten vergleichen kann.
 
-"equals()" liefert true, wenn die Objektvariablen einer Instanz vollständig übereinstimmen.
+`equals()` liefert true, wenn die Objektvariablen einer Instanz vollständig übereinstimmen.
 
-**ABER:** Dies ist nur für die default-implementierung wahr. Equals kann auch überschrieben werden!
+**ABER:** Das entspricht der default-Implementierung wahr. `equals()` kann auch überschrieben werden!
 
 
 
@@ -779,25 +808,29 @@ System.out.println(p.equals(r)); // true, da p und r identisch sind</code></pre>
 
 
 ## Exceptions
-Exceptions, zu deutsch Ausnahmen, sind ungewollte Funktionalitäten des Programms, weche vielleicht, vielleicht aber auch nicht auftreten können.
+Exceptions, zu deutsch Ausnahmen, sind ungewolltes Verhalten eines Programms, das auftreten **kann**.
 
 
 
-* Eine Exception kann auftreten, wenn bspw. eine Datei geöffnet werden soll, welche im Filesystem aber nicht vorhanden ist. (FileNotFoundException)
-* Eine Exception kann auch auftreten, wenn auf ein uninstanziiertes Objekt zugegriffen werden soll. (NullPointerException)
-* Eine Exception kann auftreten, wenn ein Array durchlaufen wird und dabei das Ende überschritten wird. (ArrayIndexOutOfBoundsException)
+Eine Exception kann auftreten, wenn zum Beispiel
 
-All diese Beispiele sind schwierig, vielleicht sogar unmöglich vorherzusehen.
+* eine Datei geöffnet werden soll, die im Filesystem nicht vorhanden ist. (`FileNotFoundException`)
+* auf ein nicht instanziiertes Objekt zugegriffen werden soll. (`NullPointerException`)
+* beim Zugriff auf Elemente in einem Array der minimale oder maximale Index unter- bzw. überschritten wird (`ArrayIndexOutOfBoundsException`)
 
 
 
-Aber was soll das Programm machen, wenn ein solcher Fall eintritt?
+Solche Fälle sind schwierig bis unmöglich vorherzusehen.
+
+
+
+Also – was tun?
 
 
 
 In Objektorientierten Programmiersprachen hat sich das Konzept des `Exception Handling` durchgesetzt.
 
-Sollten Fehler auftreten wird ein spezieller Programmabschnitt druchlaufen, welcher den Fehler behebt, umgeht oder anders angemessen darauf reagiert.
+Sollten Fehler auftreten wird ein spezieller Programmabschnitt druchlaufen, der angemessen auf den Fehler reagiert (beheben, umgehen, ...).
 
 
 
@@ -807,9 +840,9 @@ Sollten Fehler auftreten wird ein spezieller Programmabschnitt druchlaufen, welc
 
 
 
-`Try` - versuche diesen Programmabschnitt durchzuführen
+`try` – versuche diesen Programmabschnitt durchzuführen
 
-`Catch` - falls eine Exception auftritt, fang sie hier auf
+`catch` – falls eine Exception auftritt, fang sie hier auf
 
 
 
@@ -888,12 +921,12 @@ public class Main
     }
 }
 ```
-Ist natürlich einfach zu finden, allerdings nur, wenn man auch weiß, wie groß das Array ist.
+Ist natürlich einfach zu finden, wenn man weiß wie groß das Array ist.
 
 
 
 ### Checked Exceptions
-Checked Esceptions müssen beim programmieren beachtet werden. Der Compiler meckert, wenn dies nicht geschiet.
+Checked Esceptions müssen beim Programmieren behandelt werden, anderfalls wird der Code nicht kompilieren.
 + IOException
 + FileNotFoundException
 + ParseException
@@ -904,7 +937,7 @@ Checked Esceptions müssen beim programmieren beachtet werden. Der Compiler meck
 
 
 ### Unchecked Exceptions
-Unchecked Esceptions werden vom Compiler ignoriert, können aber dennoch im Programmablauf auftreten.
+Unchecked Esceptions werden vom Compiler ignoriert, können aber dennoch im Programmablauf auftreten und behandelt werden.
 + ArrayIndexOutOfBoundsException
 + IllegalArgumentException
 + NullPointerException
@@ -915,13 +948,19 @@ Unchecked Esceptions werden vom Compiler ignoriert, können aber dennoch im Prog
 
 
 
-Als Java im letzten Jahrtausend entworfen wurde, galt diese Unterscheidung als chic und modern. Man wollte Fehler danach unterscheiden, ob der Aufrufer sie hätte vermeiden können.
+Als Java im letzten Jahrtausend entworfen wurde, galt diese Unterscheidung als chic und modern. 
+
+Man wollte Fehler danach unterscheiden, ob der Aufrufer sie hätte vermeiden können oder nicht.
 
 
 
-Fehler wie NullPointerException (unchecked) oder IllegalArgumentException (unchecked) liegen an fehlerhafter Verwendung einer Klasse und können quasi überall auftreten. Sie zu deklarieren bringt also quasi keinen Nutzen.
+Fehler wie `NullPointerException` (unchecked) oder `IllegalArgumentException` (unchecked) liegen an einer fehlerhaften Verwendung der betreffenden Klasse und können prinzipiell überall auftreten. 
 
-Wenn ein Fehler für den Aufrufer aber unvorhersehbar ist – I/O, Validierung etc. (checked) – dann sollte er zu einem expliziten Teil des Aufrufkontrakts werden.
+Sie zu behandeln bringt hat folglich eine sehr schlecht "Kosten-Nutzen-Ratio"
+
+
+
+Wenn ein Fehler für den Aufrufer aber unvorhersehbar ist – I/O, Validierung etc. (checked) – dann sollte er zu einem expliziten Teil des Ablaufes (und damit behandelt) werden.
 
 
 
@@ -953,7 +992,7 @@ static boolean ccc(){
     }
 }
 ```
-**true** oder false ?
+**true**
 
 
 
@@ -991,7 +1030,7 @@ public static int aaa() {
     return x;
 }
 ```
-**x = 2** oder x = 3 ?
+**x = 2** 
 
 
 
@@ -1002,22 +1041,30 @@ public static int aaa() {
 List<T>
 ```
 
-Eine liste ist genereisch, weil sie alle Arten von Daten in sich tragen kann.
+Eine generische Liste kann alle möglichen Arten von Daten beinhalten.
 
 
 
-Wenn angegeben wird, dass die Liste nur Contacts speichern soll sagst der Programmierer damit, dass alle Elemente in dieser Liste vom Typ Contact sind. 
+Während des Instanziierens wird dann der Typ der Listenelemente festgelegt.
+
+z.B. `List<Integer> = new ArrayList<>()` 
+
+oder 
+
+`List<Contact> = new LinkedList<>()`
 
 
 
-Der Compiler behandelt Generics dann so: 
->"Das was hier behandelt wird ist vom Typ XY und, wenn das nicht so ist, dann kann ich damit nicht umgehen und werfe mit Exceptions um mich"
+Der Compiler behandelt behandelt die Liste dann nach dem Motto:
+>"Diese Liste ist vom Typ XY und wenn man mir einen anderen Typen gibt, dann komme ich nicht klar und werfe Exceptions!"
 
 
 
-Generics vereinfachen also unter umständen das Programmieren, da der Programmierer angeben kann mit welchen Datentypen ein Programmabschnitt umgehen kann. 
+Generics vereinfachen also unter Umständen das Programmieren, da die generelle Implementierung an sich typunabhängig sein kann, bei der Verwendung aber ein fester Typ angegeben wird.
 
-Typumwandlungen und (teilweise) Exception Handling kann so vermieden werden.
+Die Angabe dieses Typen bei der Verwendung hilft, Fehlerquellen einzugrenzen.
+
+Typumwandlungen und (teilweise auch) Exception Handling kann so vermieden werden.
 
 
 
@@ -1273,7 +1320,7 @@ Klassen und Schnittstellen werden durch Rechtecke dargestellt.
 * \+ für public
 * \# für protected
 * \- für private
-* ~ für package
+* ~ für package private
 
 ![Komponenten Klassendiagramm](content/images/UmlCd_Klasse-3.svg.png)
 
@@ -1330,19 +1377,19 @@ interface A {
 }
 ```
 ```java
- interface B {
+interface B {
 }
 ```
 ```java
- abstract class C implements A {
+abstract class C implements A {
 }
 ```
 ```java
- abstract class D extends C {
+abstract class D extends C {
 }
 ```
 ```java
- final class E extends C implements B {
+final class E extends C implements B {
 }
 ```
 ```java
