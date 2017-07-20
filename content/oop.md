@@ -14,9 +14,13 @@ In Klassen werden Methoden und Attribute (Felder) festgelegt (oder beschrieben)
 
 Klassen können instanziiert werden.
 
+Note: Schablone, eigener Datentyp/Datenstruktur
+
 
 
 ![Objektinstanzen](content/images/728px-Autos.png)
+
+Note: Kuchenform – Durchmesser/Volumen immer gleich, aber Teig verschieden; *evtl Bild malen*
 
 
 
@@ -40,6 +44,8 @@ Eine Klasse **erbt** von einer abstrakten Klasse. (`extends`)
 
 Abstrakte Klassen können **nicht** instanziiert werden.
 
+Note: default-Konstruktor!
+
 
 
 ### Interfaces
@@ -62,6 +68,8 @@ Eine Klasse **implementiert** ein Interface. (`implements`)
 
 Interfaces können **nicht** instanziiert werden.
 
+Note: Kuchenform: Volumen und Durchmesser statisch
+
 
 
 ## Information Hiding und Vererbung
@@ -76,8 +84,7 @@ Interfaces können **nicht** instanziiert werden.
 | protected "#"| Ja                                | Ja                        | Ja           | Nein             |
 | public "+"   | Ja                                | Ja                        | Ja           | Ja               |
 
-Note: Den Unterschied zwischen innerer Klasse und Unterklasse (extends) erklären
-
+Note: Erklären: mehrere Klassen in einer Datei, innere Klassen, Unterklassen; default == package private
 
 
 ### Polymorphie-Modifizierer
@@ -103,7 +110,7 @@ Einfach ausgedrückt bedeutet final in Java "kann nicht überschrieben werden".
 
 * Finale Methoden lassen sich nicht überschreiben.
 * Von finalen Klassen kann nicht geerbt werden.
-* Finale Attribute und Klassen-Variablen können nur ein einziges Mal gesetzt werden.
+* Finale Attribute und Klassenvariablen können nur ein einziges Mal gesetzt werden.
 * Finale Parameter können nur den beim Methodenaufruf übergebenen Wert haben.
 * `final` bezieht sich auf Methoden, Attribute und Klassen.
 
@@ -115,6 +122,29 @@ Statische Eigenschaften gelten für die Klasse an sich, unabhängig von Instanze
 * Statische Methoden und Variablen benötigen keinerlei Instanzen einer Klasse, um aufgerufen zu werden.
 * Statische Methoden und Variablen sind für alle Instanzen einer Klasse gültig
 * `static` bezieht sich auf Methoden und Klassenvariablen.
+
+
+
+### Quick-Quiz
+* Attribut
+* Variable
+* Klassenvariable
+* Objektattribut
+* Objektvariable
+* Klassenattribut
+* Feld
+
+
+
+### Quick-Quiz 
+*Erfahrungsgemäßer Sprachgebrauch*
+* Attribut **Objekt**
+* Variable **Methode**
+* Klassenvariable **Klasse**
+* Objektattribut **Objekt**
+* Objektvariable **Objekt**
+* Klassenattribut **Klasse**
+* Feld **Klasse**
 
 
 
@@ -222,7 +252,7 @@ class Foo {
     }
 }
 ```
-Nein, da height final ist.
+Nein, da `height` final ist.
 
 
 
@@ -288,6 +318,7 @@ class Foo {
 1. Nein, `Body` kann nicht instanziiert werden.
 1. Ja, denn die Klasse `Person` erbt von `Body`.
 
+Note: abstract -> konkret geht, andersrum nicht!
 
 
 ### Aufgabe 4
@@ -340,12 +371,12 @@ class Foo {
     }
 }
 ```
-Nein, die Kompilierung wird fehlschlagen, da die Methode nicht implementiert ist.
+Nein, es wird einen Fehler beim Kompilieren geben,  da die Methode `walk()` nicht implementiert ist.
 
 
 
 ### Aufgabe 5
-Können die beiden Methoden `growAnotherArm` überschrieben werden?
+Können die beiden Methoden `growAnotherArm()` überschrieben werden?
 
 Ja, oder nein. Warum?
 ```java
@@ -489,11 +520,8 @@ class Foo {
 
 
 ### Aufgabe 7
-![A7](content/images/UML-A3-Klassendiagramm.png)
+![A7](content/images/UML-A3-Klassendiagramm.png)<!-- .element height="50%" width="50%" -->
 
-
-
-### Aufgabe 7
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -547,11 +575,8 @@ public class Main {
 
 
 ### Aufgabe 8
-![A7](content/images/UML-A3-Klassendiagramm.png)
+![A7](content/images/UML-A3-Klassendiagramm.png)<!-- .element height="50%" width="50%" -->
 
-
-
-### Aufgabe 8
 ```java
 public class Main {
   public static void main(String[] args) {
@@ -616,7 +641,7 @@ public class GameObject {
         return name;
     }
 
-    public void setName( String name ) {
+    public void setName(String name) {
         this.name = name;
     }
 }
@@ -626,8 +651,8 @@ public class Room extends GameObject {
 
     private int size;
 
-    public void setSize( int size ) {
-        if ( size > 0 )
+    public void setSize(int size) {
+        if (size > 0)
             this.size = size;
     }
 
@@ -637,7 +662,7 @@ public class Room extends GameObject {
 
     @Override 
     public String toString() {
-        return String.format( "Room[name=%s, size=%d]", getName(), getSize() );
+        return String.format("Room[name=%s, size=%d]", getName(), getSize());
     }
 }
 ```
@@ -663,8 +688,8 @@ public class Room extends GameObject {
 
     private int size;
 
-    public void setSize( int size ) {
-        if ( size > 0 )
+    public void setSize(int size) {
+        if (size > 0)
             this.size = size;
     }
 
@@ -674,11 +699,11 @@ public class Room extends GameObject {
 
     @Override 
     public String toString() {
-        return String.format( "Room[name=%s, size=%d]", getName(), getSize() );
+        return String.format("Room[name=%s, size=%d]", getName(), getSize());
     }
 }
 ```
-enthält die überschriebene Methode `toString();`, welche von `Object` geerbt wurde.
+enthält die überschriebene Methode `toString()`, welche von `Object` geerbt wurde.
 
 
 
@@ -849,10 +874,8 @@ Sollten Fehler auftreten wird ein spezieller Programmabschnitt druchlaufen, der 
 ## Beispiel
 Was kann hier schiefgehen?
 ```java
-public class Main
-{
-    public static void main(String[] args)
-    {
+public class Main {
+    public static void main(String[] args) {
         Punkt point = null;
         int val = point.getX();
     }
@@ -864,10 +887,8 @@ public class Main
 ## Beispiel
 NullPointerException!
 ```java
-public class Main
-{
-    public static void main(String[] args)
-    {
+public class Main {
+    public static void main(String[] args) {
         Punkt point = null;
         try {
             int val = point.getX();
@@ -884,10 +905,8 @@ public class Main
 ## Beispiel
 Was kann hier schiefgehen?
 ```java
-public class Main
-{
-    public static void main(String[] args)
-    {
+public class Main {
+    public static void main(String[] args) {
         int i = 1;
         char[] txt = new char[]{'h','e','y'};
         while (i <= txt.length) {
@@ -903,10 +922,8 @@ public class Main
 ## Beispiel
 ArrayIndexOutOfBoundsException! Da das Array Indizes von 0-2 hat.
 ```java
-public class Main
-{
-    public static void main(String[] args)
-    {
+public class Main {
+    public static void main(String[] args) {
         int i = 1;
         char[] txt = new char[]{'h','e','y'};
         try {
@@ -967,7 +984,7 @@ Wenn ein Fehler für den Aufrufer aber unvorhersehbar ist – I/O, Validierung e
 ### Aufgabe 1
 Was gibt diese Methode zurück?
 ```java
-static boolean ccc(){
+static boolean ccc() {
     try {
       return false;
     } catch (Exception e) {
@@ -983,7 +1000,7 @@ true oder false ?
 ### Lösung 1
 Was gibt diese Methode zurück?
 ```java
-static boolean ccc(){
+static boolean ccc() {
     try {
       return false;
     } catch (Exception e) {
@@ -1134,7 +1151,7 @@ public class Tupel<T, V> {
     System.out.println(new Integer(1).equals(1));
     int i = 3;
     System.out.println(i++);
-    while(--i>0){
+    while(--i > 0){
         System.out.println(i);
     }
     char[] charArray = new char[]{'p','v','s',' ','r','e','p'};
@@ -1156,7 +1173,7 @@ public class Tupel<T, V> {
     System.out.println(new Integer(1).equals(1));                           // true
     int i = 3;
     System.out.println(i++);                                                // 3, aber Wert von i = 4
-    while(--i>0){
+    while(--i > 0){
         System.out.println(i);                                              // 3 2 1
     }
     char[] charArray = new char[]{'p','v','s',' ','r','e','p'};
@@ -1320,12 +1337,13 @@ Klassen und Schnittstellen werden durch Rechtecke dargestellt.
 * \+ für public
 * \# für protected
 * \- für private
-* ~ für package private
+* ~ für package private (default)
 
 ![Komponenten Klassendiagramm](content/images/UmlCd_Klasse-3.svg.png)
 
 ![Beziehung Klassendiagramm](content/images/UML-Beziehungen.png)
-Note: TODO: erweiterung schreiben. (Klasse-Attribute-Methoden) (Sichtbarkeiten) (Vererbung) (Kardinalitäten?)
+
+Note: durchgezogen: extends, gestrichelt implements; vom kind zum parent
 
 
 

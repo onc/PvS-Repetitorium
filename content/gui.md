@@ -1,26 +1,42 @@
-<!-- # Swing -->
 # JavaFX
 
 
 
-<!-- ### Übersicht der Swing-Hierarchie -->
 ### Übersicht der JavaFX-Hierarchie
 
-<!-- ![Swing](content/images/swing.svg) -->
 ![JavaFX](content/images/javafx.svg)<!-- .element height="50%" width="50%" -->
 
 
-### Swing Komponenten
 
-* `JButton`
-* `JLabel`
-* `JMenuBar`, `JMenu`, `JMenuItem`
-* `JCheckBox`
-* `JRadioButton`
-* `JTextField`
-* `JTextArea`
-* `JPasswordField`
-* `JScrollPane`
+### Setup im Code
+
+```java
+public class ExampleClass extends Application {
+
+  public static void main(String[] args) {
+    launch(args);
+  }
+
+  @Override
+  public void start(Stage primaryStage) throws Exception {
+    // Hier steht der primäre GUI Code
+  }
+}```
+
+
+
+### FX Komponenten
+
+* `Button`
+* `Label`
+* `MenuBar`, `Menu`, `MenuItem`
+* `CheckBox`
+* `RadioButton`
+* `TextField`
+* `TextArea`
+* `PasswordField`
+* `ScrollPane`
+* ...
 
 
 
@@ -29,98 +45,132 @@
 LayoutManager verwalten das Layout des Fensters. 
 Alle Komponenten werden dem Layout entsprechend skaliert und positioniert, auch wenn sich die Fenstergröße ändert.
 
-* `JFlowLayout` (!)
-* `JGridLayout` (!)
-* `JBorderLayout` (!)
-* `JBoxLayout`
-* `JCardLayout`
+* `VBox`, `HBox` *nebeneinander/übereinander*
+* `StackPane` *aufeinander*
+* `BorderPane` *Bereiche*
+* `TilePane`, `FlowPane` *von links nach rechts*
+* `AnchorPane` *absolut oder relativ zu umgebenden Rändern*
+* `GridPane` *Gitternetz*
+
+Note: TilePane: alle so groß wie die Größte, FlowPane: alle nur so viel groß wie nötig
 
 
 
-### FlowLayout
+### BorderPane
 
-![Swing FlowLayout](content/images/swing-flow-layout.png)
+![FX_BorderPane](content/images/fx-borderPane.png)<!-- .element height="50%" width="50%" -->
 
 
 
-### FlowLayout Example
+### BorderPane Example
 
-<pre><code class="line-numbers java" data-highlight-lines="4-6">public class FlowLayoutExample extends JFrame {
-  public FlowLayoutExample() {
-    JPanel panel = new JPanel();
-    panel.setLayout(new FlowLayout());
+```java
+public class BorderPaneExample extends Application {
+  ...
+  @Override
+  public void start(Stage primaryStage) throws Exception {
+    primaryStage.setTitle("BorderPaneExample");
+    BorderPane rootLayout = new BorderPane();
 
-    panel.add(new JButton("Button"));
-    // ...
-
-    Container container = this.getContentPane();
-    container.add(panel);
-
-    this.setVisible(true);
+    Button top = new Button("top");
+    BorderPane.setAlignment(top, Pos.CENTER);
+    rootLayout.setTop(top);
+    ... // das gleiche noch für left, right, center und bottom
+    
+    primaryStage.setScene(new Scene(rootLayout, 300, 300));
+    primaryStage.show();
   }
-}</code></pre>
+}```
 
 
 
-### BorderLayout
+### TilePane
 
-![Swing BorderLayout](content/images/swing-border-layout.png)
-
-
-
-### BorderLayout Example
-
-<pre><code class="line-numbers java" data-highlight-lines="5-10"> public class BorderLayoutExample extends JFrame {
-
-  public BorderLayoutExample() {
-    JPanel panel = new JPanel();
-    panel.setLayout(new BorderLayout());
-  
-    panel.add(new JButton("North"), BorderLayout.NORTH);
-    panel.add(new JButton("South"), BorderLayout.SOUTH);
-    panel.add(new JButton("West"), BorderLayout.WEST);
-    panel.add(new JButton("Center"), BorderLayout.CENTER);
-  
-    Container container = this.getContentPane();
-    container.add(panel);
-  
-    this.setVisible(true);
-  }
-}</code></pre>
+![FX-TilePane](content/images/fx-tilePane.png)
 
 
 
+### TilePane Example
 
-### GridLayout
+```java
+public class TilePaneExample extends Application{
+    ...
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		primaryStage.setTitle("TilePaneExample");
+		TilePane rootLayout = new TilePane();
+		
+		Button button = new Button("I'm a Button!");
+		TextArea textArea = new TextArea("I'm a TextArea!");
+		TextField textField = new TextField("I'm a TextField!");
+		RadioButton radioButton = new RadioButton("I'm a RadioButton!");
 
-![Swing GridLayout](content/images/swing-grid-layout.png)
+		rootLayout.getChildren().addAll(button, textArea, textField, radioButton);
+		primaryStage.setScene(new Scene(rootLayout, 1076, 400));
+		primaryStage.show();
+	}
+}```
 
 
 
-### GridLayout Example
+### FlowPane
 
-<pre><code class="line-numbers java" data-highlight-lines="8-15">public class GridLayoutExample extends JFrame {
+![FX-FlowPane](content/images/fx-flowPane.png)<!-- .element height="50%" width="50%" -->
 
-  private static final int GRID_ROWS = 5;
-  private static final int GRID_COLS = 3;
 
-  public GridLayoutExample() {
-    JPanel panel = new JPanel();
-    panel.setLayout(new GridLayout(GRID_ROWS, GRID_COLS, GRID_GAP));
 
-    for (int y = 0; y < GRID_ROWS; y++) {
-      for (int x = 0; x < GRID_COLS; x++) {
-        JButton button = new JButton("Button at (x: " + x + ", y: " + y + ")");
-        panel.add(button);
-      }
-    }
+### FlowPane Example
 
-    Container container = this.getContentPane();
-    container.add(panel);
+```java
+public class FlowPaneExample extends Application{
+    ...
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		primaryStage.setTitle("FlowPaneExample");
+		FlowPane rootLayout = new FlowPane();
+		
+		Button button = new Button("I'm a Button!");
+		TextArea textArea = new TextArea("I'm a TextArea!");
+		TextField textField = new TextField("I'm a TextField!");
+		RadioButton radioButton = new RadioButton("I'm a RadioButton!");
 
-    this.setVisible(true);
-  }
-}</code></pre>
+		rootLayout.getChildren().addAll(button, textArea, textField, radioButton);
+		primaryStage.setScene(new Scene(rootLayout, 400, 400));
+		primaryStage.show();
+	}
+}```
+
+
+
+### GridPane
+
+![FX-GridPane](content/images/fx-gridPane.png)<!-- .element height="50%" width="50%" -->
+
+
+
+### GridPane Example
+
+```java
+public class GridPaneExample extends Application{
+    ...
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		primaryStage.setTitle("GridPaneExample");
+		GridPane rootLayout = new GridPane();
+		
+		Button button = new Button("I'm a Button!");
+		TextArea textArea = new TextArea("I'm a TextArea!");
+		TextField textField = new TextField("I'm a TextField!");
+
+		rootLayout.add(button, 1, 5, 1, 1);
+		rootLayout.add(textArea, 1, 1, 3, 2);
+		rootLayout.add(textField, 3, 4, 2, 1);
+		
+		primaryStage.setScene(new Scene(rootLayout, 500, 400));
+		primaryStage.show();
+		
+	}
+}```
 
 
 

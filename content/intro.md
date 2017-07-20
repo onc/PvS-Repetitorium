@@ -7,9 +7,11 @@
 | Montag              | Dienstag           | Mittwoch   |
 | ---                 | ---                | ---        |
 | OOP                 | XML                | Threads    |
-| Swing               | ER-Diagramme       | Fragen?    |
+| JavaFX              | ER-Diagramme       | Fragen?    |
 | Listener & Observer | DB-Entwurf und SQL | Wünsche?   |
 | JavaIO              |                    |            |
+
+Note: GEPLANTER Zeitplan, muss nicht eingehalten werden
 
 
 
