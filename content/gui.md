@@ -179,118 +179,147 @@ public class GridPaneExample extends Application{
 
 
 ### Aufgabe 1
-Schreibe ein Programm, dass die folgende GUI erzeugt
+Schreibe ein Programm, das die folgende GUI erzeugt 
 
-![Swing Übung](content/images/swing-uebung.png)
+![FX-Übung](content/images/fx-uebung01.png)<!-- .element height="50%" width="50%" -->
 
 
 
-### Lösung 1
+### Lösung 1 (1/2)
 
-<pre><code class="line-numbers java">JPanel topPanel = new JPanel();
-topPanel.setLayout(new GridLayout(2, 2));
+```java
+		primaryStage.setTitle("FX-Übung 01");
+		BorderPane root = new BorderPane();
+		GridPane grid = new GridPane();
+				
+		Label name = new Label("Name: ");
+		name.setPrefSize(150, 75);
+		TextField nameInput = new TextField();
+		nameInput.setPrefSize(150, 75);
+		
+		Label pass = new Label("Password: ");
+		pass.setPrefSize(150, 75);
+		TextField passInput = new TextField();
+		passInput.setPrefSize(150, 75);
 
-topPanel.add(new JLabel("Name: "));
-topPanel.add(new JTextField());
+		Button login = new Button("Login");
+		login.setPrefSize(300, 50);
+        ...```
 
-topPanel.add(new JLabel("Passwort: "));
-topPanel.add(new JPasswordField());
 
-JPanel panel = new JPanel();
-panel.setLayout(new BorderLayout());
 
-panel.add(topPanel, BorderLayout.CENTER);
-panel.add(new JButton("Login"), BorderLayout.SOUTH);
+### Lösung 1 (2/2)
 
-Container contentPane = this.getContentPane();
-contentPane.add(panel);
-this.setVisible(true);</code></pre>
+```java
+        ...
+		grid.addColumn(1, name, pass);
+		grid.addColumn(2, nameInput, passInput);
+		
+		root.setCenter(grid);
+		root.setBottom(login);
+		
+		BorderPane.setAlignment(grid, Pos.CENTER);
+		BorderPane.setAlignment(login, Pos.TOP_CENTER);
+	
+		primaryStage.setScene(new Scene(root, 300, 200));
+		primaryStage.show();	
+```
 
 
 
 ### Aufgabe 2
 Welche GUI erzeugt das folgende Programm?
 
-<pre><code class="line-numbers java">JPanel panel = new JPanel();
-panel.setLayout(new BorderLayout());
-
-JPanel bottomPanel = new JPanel();
-bottomPanel.setLayout(new FlowLayout());
-
-bottomPanel.add(new JButton("Abbrechen"));
-bottomPanel.add(new JButton("Ok"));
-
-panel.add(new JTextArea(), BorderLayout.CENTER);
-panel.add(bottomPanel, BorderLayout.SOUTH);
-
-Container container = this.getContentPane();
-container.add(panel);
-this.setVisible(true);</code></pre>
+```java
+		primaryStage.setTitle("FX-Übung 02");
+		BorderPane root = new BorderPane();
+		FlowPane flow = new FlowPane();
+		
+		Button cancel = new Button("Abbrechen");
+		Button okay = new Button("OK");
+		
+		TextArea textArea = new TextArea();
+		
+		flow.getChildren().addAll(cancel, okay);
+		root.setCenter(textArea);
+		root.setBottom(flow);
+	
+		primaryStage.setScene(new Scene(root, 500, 500));
+		primaryStage.show();
+```
 
 
 
 ### Lösung 2
 
-![Swing Übung](content/images/swing-uebung-zwei.png)
+![FX-Übung](content/images/fx-uebung02.png)<!-- .element height="50%" width="50%" -->
 
 
 
 ### Aufgabe 3
 Schreibe ein Programm, dass die folgende GUI erzeugt
 
-![Swing Übung](content/images/swing-uebung-drei.png)
+![FX-Übung](content/images/fx-uebung03.png)<!-- .element height="50%" width="50%" -->
 
 
 
 ### Lösung 3
 
-<pre><code class="line-numbers java">Container cp = getContentPane();
-cp.setLayout(new BorderLayout());
-
-JPanel top = new JPanel();
-top.add(new JLabel("Celsius"));
-top.add(new JTextField("", 14));
-
-JPanel bottom = new JPanel();
-bottom.add(new JLabel("Fahrenheit"));
-bottom.add(new JTextField("", 14));
-
-cp.add(top, BorderLayout.NORTH);
-cp.add(bottom, BorderLayout.SOUTH);
-cp.add(new JButton("Convert"), BorderLayout.CENTER);
-setSize(250, 200);
-setTitle("Converter");
-setVisible(true);</code></pre>
-
+```java
+		primaryStage.setTitle("FX-Übung 03");
+		BorderPane root = new BorderPane();
+		TilePane top = new TilePane();
+		FlowPane bottom = new FlowPane();
+		
+		Label c = new Label("Celsius");
+		TextField celsius = new TextField();
+		Label f = new Label("Fahrenheit");
+		TextField fahrenheit = new TextField();
+		Button button = new Button("Convert");
+		button.prefWidthProperty().bind(root.widthProperty());
+		button.prefHeightProperty().bind(root.heightProperty());
+		
+		top.getChildren().addAll(c, celsius);
+		bottom.getChildren().addAll(f, fahrenheit);
+		root.setCenter(button);
+		root.setTop(top);
+		root.setBottom(bottom);
+	
+		primaryStage.setScene(new Scene(root, 500, 500));
+		primaryStage.show();
+```
 
 
 
 ### Aufgabe 4
 Welche GUI erzeugt das folgende Programm?
 
-<pre><code class="line-numbers java">String[] solmisation = new String[] {"do", "re", "mi", "fa", "sol", "la", "si", "do"};
+```java
+	String[] solmisation = new String[] {"do", "re", "mi", "fa", "sol"};
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		primaryStage.setTitle("FX-Übung 04");
+		HBox root = new HBox();
+		addHBox(root, 0);
 
-private Nested() {
-    JPanel top = new JPanel();
-    addPanel(top, 0);
-    getContentPane().setLayout(new BorderLayout());
-    getContentPane().add(top, BorderLayout.CENTER);
-    this.pack();
-    this.setVisible(true);
-}
-
-private JPanel addPanel(JPanel parent, int depth) {
-    if (depth >= solmisation.length)
-        return null;
-    JPanel child = new JPanel();
-    child.add(new JButton(solmisation[depth]));
-    parent.setBorder(BorderFactory.createLineBorder(Color.black));
-    parent.add(child);
-    return addPanel(child, depth+1);
-}</code></pre>
+		primaryStage.setScene(new Scene(root, 500, 500));
+		primaryStage.show();	
+	}
+	
+	private HBox addHBox(HBox parent, int depth) {
+		if(depth >= solmisation.length) {
+			return null;
+		} else {
+			HBox child = new HBox();
+			child.getChildren().add(new Button(solmisation[depth]));
+			parent.getChildren().add(child);
+			return addHBox(child, depth+1);
+		}
+	}```
 
 
 
 ### Lösung 4
 
-![Swing Übung](content/images/swing-uebung-vier.png)
+![FX-Übung](content/images/fx-uebung04.png)<!-- .element height="50%" width="50%" -->
+
