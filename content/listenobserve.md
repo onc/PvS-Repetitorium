@@ -4,22 +4,34 @@
 
 ## Observer Pattern
 ### Das Beobachter-Muster
-Wir erläutern das Observer-Pattern anhand des PvS-Repetitoriums. 
+Am Beispiel dieses Repetitoriums
 
-In diesem Beispiel sind die Tutoren (*wir*) die Erzähler und erklären den Stoff von Programmierung von Systemen. Die Zuhörer (*ihr*) seid diejenigen, welche sich für den Stoff interessieren und aufmerksam zuhören. Wir nennen die Tutoren jetzt Observable (beobachtbar) und die Studenten Observer(Beobachter).
 
-Solange ein Observable einen oder mehrere Observer hat erzählt er, sendet also Mitteilungen. Wenn allerdings kein Observer dem Observable zuhört, dann schweigt er auch. 
 
-Die Observer sind vielleicht nicht immer am Stoff interessiert, dann können sie sich beim Observer abmelden und bekommen keine neuen Nachrichten.
-Sollten neue Observer hinzu kommen, können sich diese beim Observable anmelden und werden auch informiert.
-Note: Vorlesen!
+In diesem Beispiel ist der Tutor (*ich*) der Erzähler, der den Stoff von PvS erklärt. 
+
+Die Zuhörer (*ihr*) sind diejenigen, die sich für den Stoff interessieren und aufmerksam zuhören. 
+
+Wir nennen den Tutor jetzt **observable** (beobachtbar) und die Studenten **Observer** (Beobachter).
+
+
+
+Solange ein Observable einen oder mehrere Observer hat erzählt er, sendet also Mitteilungen. 
+
+Wenn allerdings kein Observer dem Observable zuhört, dann schweigt er auch. 
+
+
+
+Sind Observer nicht mehr am Stoff interessiert, dann können sie sich abmelden (den Raum verlassen) und bekommen keine neuen Nachrichten.
+
+Sollten neue/abgemeldete Observer (wieder) Interesse am Stoff haben, können sie sich beim Observable anmelden (den Raum betreten) und werden (wieder) informiert.
 
 
 
 ### Beispiel: Die Push Variante
-Im Push-Modell übergibt der Observable der update()-Methode detaillierte Informationen über die Änderung als Parameter.
+Im Push-Modell übergibt der Observable der `update()`-Methode detaillierte Informationen über die Änderung als Parameter.
 
-Der Vorteil hierbei ist, dass Observer und Observable stärker entkoppelt sind, da der Observer keine Informationen über den Observable benötigt.
+Der Vorteil hierbei ist, dass Observer und Observable stärker entkoppelt sind, da der Observer keine Informationen über das Observable benötigt.
 
 
 
@@ -31,7 +43,9 @@ Note: ANIMIERT! Seperat öffnen, da die Animation sonst nicht funktioniert.
 
 
 ### Beispiel: Die Pull Variante
-Beim Pull-Modell erhält der Observer nur eine minimale Benachrichtigung und muss sich die benötigten Informationen selber aus vom Observable holen. Dazu erhält/besitzt es eine Referenz auf diesen (entweder in einer Instanzvariable beim Registrieren gespeichert oder via Argument der update()-Methode).
+Beim Pull-Modell erhält der Observer nur eine minimale Benachrichtigung und muss sich die benötigten Informationen selbst vom Observable *holen*. 
+
+Dazu erhält/besitzt der Observer eine Referenz auf das Observable, die entweder in einer Instanzvariable beim Registrieren gespeichert wurde oder als Argument der `update()`-Methode übergeben wird.
 
 
 
@@ -41,19 +55,30 @@ Note: ANIMIERT! Seperat öffnen, da die Animation sonst nicht funktioniert.
 
 
 
+### Was kann beobachtet werden?
+* Eigene Klassen
+    * StudentBoard Beispiel aus der Übung
+    * ...
+* Collections von javaFX 
+    * ObservableList
+    * ObservableMap
+    * ...
+* ...
+
+
 ### Schwierigkeiten von Observer/Observable
-Die Typen Observer/Observable bieten eine grundlegende Möglichkeit, das Beobachter-Muster in Java zu realisieren. Allerdings gibt es ein paar Dinge, die Entwickler sich noch zusätzlich wünschen:
-* Die Typen Observer/Observable sind nicht generisch deklariert, was dazu führt, dass bei update() immer nur alles als Object übergeben werden kann.
-* Oder Observer deklariert nur genau eine update()-Methode. Wenn der Ereignisauslöser unterschiedliche Ereignisse melden möchte, gibt es nur eine Lösung: unterschiedliche Ergebnis-Objekte. Das wiederum führt zu Fallunterscheidungen in der update()-Methode, und die Codequalität verschlechtert sich.
+Die Typen Observer/Observable bieten eine grundlegende Möglichkeit, das Beobachter-Muster in Java zu realisieren. ABER: 
+* Die Typen Observer/Observable sind nicht generisch deklariert; `update()` kann immer nur ein Object übergeben werden.
+* Alternativ deklariert der Observer genau eine `update()`-Methode. Sollen jetzt unterschiedliche Ereignisse gemeldet werden, können verschiedene Objekte verwendet werden. Das führt allerdings zu Fallunterscheidungen in der `update()`-Methode, und die Codequalität verschlechtert sich.
 
 
 
-## Events und Listener
+## Events und Handler
 
 
 
 ### Events
-Die Java VM erstellt bei Auftreten eines Ereignisses, wie bspw. das Klicken eines Buttons, automatisch ein Objekt der entsprechenden Event-Klasse.
+Die Java VM erstellt beim Auftreten eines Ereignisses (z.B. Button-Klick) automatisch ein Objekt der entsprechenden Event-Klasse.
 
 
 
@@ -61,74 +86,184 @@ Die Java VM erstellt bei Auftreten eines Ereignisses, wie bspw. das Klicken eine
 |Klassenname|Auslösung|Beispiel|
 |---|---|---|
 |ActionEvent|GUI-Komponenten werden betätigt|Betätigen eines Buttons|
-|FocusEvent|Komponente bekommt oder verliert den Fokus|Nutzer klickt in JTextArea|
+|FocusEvent|Komponente bekommt oder verliert den Fokus|Nutzer klickt in TextArea|
 |MouseEvent|Mausaktionen werden getätigt|Maus klick|
-|TextEvent|Text einer Komponente verändert sich|In JTextArea wird Text eingegeben|
+|TextEvent|Text einer Komponente verändert sich|In TextArea wird Text eingegeben|
 |WindowEvent|Zustand eines Fensters ändert sich|Fenster schließen|
+|XXXEvent|...|...|
 |...|...|...|
 
 
 
-### Event Methoden
+### Event Methoden(1/2)
 #### ActionEvent
 |Rückgabewert|Methode|Aufruf|
 |---|---|---|
-|String|getActionCommand()|Gibt zugehörigen command-String zurück|
-|int|getModifiers()|Gibt modifizierende Keys (Strg, Umschalt, etc.) zurück|
-|long|getWhen()|Gibt Zeitstempel des Auftretens zurück|
+|String|`getActionCommand()`|Gibt zugehörigen command-String zurück|
+|int|`getModifiers()`|Gibt modifizierende Keys (Strg, Umschalt, etc.) zurück|
+|long|`getWhen()`|Gibt Zeitstempel des Auftretens zurück|
 |...|...|...|
 
+
+
+### Event Methoden(2/2)
 #### MouseEvent
 |Rückgabewert|Methode|Aufruf|
 |---|---|---|
-|int|getButton()|Gibt zurück welcher (wenn überhaupt) Knopf der Maus gedrückt wurde|
-|int|getClickCount()|Gibt die Anzahl der Klicks eines Events zurück|
-|int|getX()|Gibt die X Koordinate relativ zur Komponente zurück|
-|int|getY()|Gibt die Y Koordinate relativ zur Komponente zurück|
+|int|`getButton()`|Gibt zurück welcher (wenn überhaupt) Knopf der Maus gedrückt wurde|
+|int|`getClickCount()`|Gibt die Anzahl der Klicks eines Events zurück|
+|int|`getX()`|Gibt die X Koordinate relativ zur Komponente zurück|
+|int|`getY()`|Gibt die Y Koordinate relativ zur Komponente zurück|
 |...|...|...|
 
 
 
-Nicht jedes Event ist von Relevanz, daher gibt es in Java die zugehörigen Listener, die auf bestimmte Events Reagieren
-
-ActionListener
-
-FocusListener
-
-MouseListener
-
-TextListener
-
-WindowListener
-
-
-
-### Listener
-Um Events zu handhaben gibt es nun die Listener, welche auf bestimmte Events warten und entsprechend reagieren.
+Nicht jedes Event ist relevant, daher gibt es in Java fertige Handler, die auf die wichtigsten Events reagieren:
+* ActionEvent.ANY
+* InputEvent.ANY
+    * MouseEvent.ANY
+        * MouseEvent.MOUSE_PRESSED
+        * MouseEVent.MOUSE_RELEASED
+        * ...
+    * KeyEvent.ANY
+    * ...
+* WindowEvent.ANY
+    * ...
+* ...
 
 
 
-Die Listener-Interfaces sind alle Unterklassen des Basis-Interfaces *java.util.EventListener*. 
-
-Die Klasse, die sich für das Auftreten eines bestimmten Events interessiert, also zur Listener-Klasse wird, muss das passende Interface implementieren. 
-
-Zudem muss die jeweilige GUI-Komponente, auf die sich das Ereignis bezieht, sich beim Listener anmelden, indem ihre add...Listener-Methode aufgerufen wird.
+## Event Processing
+Wichtig sind hier die **Event Capturing Phase** in der das Event 'aufgenommen' wird und die **Event Bubbling Phase** in der das Event weiter verarbeitet wird
 
 
 
-Die beteiligten Klassen und Schnittstellen folgen einer bestimmten Namenskonvention; XXX steht im Folgenden stellvertretend für einen Ereignisnamen:
-* Eine Klasse für die Ereignisobjekte heißt XXXEvent.
-* Die Interessenten implementieren als Listener eine Java-Schnittstelle, die XXXListener heißt.
-* Der Ereignisauslöser bietet Methoden addXXXListener(XXXListener) und removeXXXListener(XXXListener) an, um Interessenten an- und abzumelden.
+### Filter und Handler
+Filter und Handler reagieren beim Eintreten eines Events entsprechend (wie programmiert).
+
+Der große Unterschied liegt darin, dass Events zuerst beim Filter ankommen.
+
+
+
+#### Filter
+Während der Event Capturing Phase
+
+Ein Filter auf einem Eltern-Knoten kann die Verarbeitung eines Events für mehrere Kind-Knoten bereitstellen
+
+
+
+#### Handler
+Während der Event Bubbling Phase
+
+Wenn ein Handler auf einem Kind-Knoten das Event nicht konsumiert (`consume()`) kann das Event vom Eltern-Knoten weiter verarbeitet werden.
+
+
+
+Filter sind im Grunde Handler
+```java
+myButton.addEventFilter(MouseEvent.ANY), new EventHandler<MouseEvent>() {
+    ...
+}
+
+myButton.addEventHandler(MouseEvent.ANY, new EventHandler<MouseEvent>() {
+    ...
+}
+```
+
+Ein Handler wir sozusagen als Filter oder Handler registriert.
+
+Note: deswegen besprechen wir nur handler stellvertretend
+
+
+
+### Handler
+
+Jeder Hanlder implementiert das EventHandler-Interface
+
+Ein Handler kann eine eigene Klasse, eine anonyme Klasse oder ein Funktionsparameter (Lambda) sein.
+
+Note: Allgemeine Handler!
+
+
+
+#### Eigene Klasse
+```java
+public class MyHandler implements EventHandler<MouseEvent> {
+	@Override
+	public void handle(MouseEvent event) {
+		System.out.println("Mouse Event");
+	}
+
+```
+
+```java 
+MyHandler handler = new MyHandler();
+myButton.addEventHandler(MouseEvent.ANY, handler);
+
+myButton.addEventHandler(MouseEvent.ANY, new MyHandler());
+```
+
+Note: innerhalb der handle-methode if-block für spezifische events
+
+
+
+#### Anonyme Klasse
+```java
+myButton.addEventHandler(MouseEvent.ANY, new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+                System.out.println("Mouse Event");
+			}
+		});
+```
+
+
+
+#### Anonyme Funktion (Lambda)
+```java
+myButton.setOnMousePressed((MouseEvent event) -> {
+    System.out.println("Mouse Event: Mouse Pressed!");
+});
+```
+
+Note: hier dann keine allgemeinen Handler mehr!
+
+
+
+#### Vordefinierte Methoden
+Statt einen allgemeinen Handler hinzuzufügen und ein bestimmtes Event als Parameter zu definieren, kann ein Handler auch gleich für ein bestimmtes Event hinzugefügt werden!
+
+
+
+#### Vordefinierte Methoden
+* setOnAction
+* setOnMouseClicked
+* setOnMouseMoved
+* setOnKeyPressed
+* ...
+
+
+
+#### Beispiele:
+```java
+myButton.setOnAction(new EventHandler<ActionEvent>(){
+    @Override
+    public void handle(ActionEvent event) {
+        // your code
+    }
+});
+
+myButton.setOnMouseClicked((MouseEvent event) -> {
+    // your code
+});
+```
 
 
 
 #### Consume
-Event Objekte werden immer vom Listener abgearbeitet und anschließen konsumiert.
+Konsumieren bedeutet, dass das Event-Objekt nicht weitergegeben wird. 
 
-Konsumieren bedeutet, dass das Event-Objekt nicht weitergegeben wird an andere Listener und selbst an andere Methoden innerhalb eines Listeners.
-
-Stattdessen wird es zur Entfernung markiert, sodass der GarbageCollector es aufräumen kann.
+Stattdessen wird es als entfernbar markiert und vom GarbageCollector aufgeräumt.
 
 
 
@@ -141,37 +276,35 @@ public void consume()
 
 
 
-### ActionListener
-|Rückgabewert|Methode|Aufruf|
-|---|---|---|
-|void|actionPerformed(ActionEvent e)|Wenn Aktionen auftreten|
-Note:![ActionListener](content/images/actioneventactionlisteneruml.gif)
+## ActionEvent
+* ActionEvent.ANY
+* ActionEvent.ACTION
 
 
 
 ### Aufgabe
 Was passiert in dieser Klasse?
 ```java
-public class SomeGUI implements ActionListener {
-    JTextArea inputTA;
-    JButton btn;
+public class HandlerExample01 extends Application implements EventHandler<ActionEvent>{
+	Button myButton;
+	TextArea myTextArea;
+	
+	public static void main(String[] args) {...}
+	
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+        ...
+		myButton = new Button("Click me!");
+		myButton.setOnAction(this);
+		myTextArea = new TextArea("Hello World!");
+        ...
+		myButton.getOnAction().handle(new ActionEvent());
+	}
 
-    public static void main(String[] args) {
-        SomeGUI guiWindow = new SomeGUI();
-        guiWindow.btn.doClick(); // Do as if the user has clicked the component
-    }
-
-    public SomeGUI() {
-        /* ... */
-        inputTA = new JTextArea("Hallo Welt!");
-        btn = new JButton("Something");
-        btn.addActionListener(this);
-        /* ... */
-    }
-
-    public void actionPerformed(ActionEvent event) {
-        System.out.println(inputTA.getText()); // Input of an JTextArea
-    }
+	@Override
+	public void handle(ActionEvent event) {
+		System.out.println(myTextArea.getText());
+	}
 }
 ```
 
@@ -179,198 +312,112 @@ public class SomeGUI implements ActionListener {
 
 ### Antwort
 1. Fenster wird gezeichnet & dargestellt
-2. Button wird geklickt
-2. Ausgabe des Textes der JTextArea: "Hallo Welt!"
+2. Button click wird simuliert
+2. Ausgabe des Textes der TextArea: "Hallo Welt!"
 
 
 
-### MouseListener
-|Rückgabewert|Methode|Aufruf|
-|---|---|---|
-|void|mouseClicked(MouseEvent e)|Wenn Mausbutton gedrückt und losgelassen|
-|void|mouseEntered(MouseEvent e)|Wenn Maus eine Komponente betritt|
-|void|mouseExited(MouseEvent e)|Wenn Maus eine Komponente verlässt|
-|void|mousePressed(MouseEvent e)|Wenn Mausbutton gedrückt|
-|void|mouseReleased(MouseEvent e)|Wenn Mausbutton losgelassen|
-
-
-
-```java
-public void mouseReleased(MouseEvent e) {
-    System.out.println("Mouse released: X = " + e.getX() + " Y = " + e.getY());
-}
-
-public void mousePressed(MouseEvent e) {
-    System.out.println("Mouse pressed: X = " + e.getX() + " Y = " + e.getY());
-}
-
-public void mouseExited(MouseEvent e) {
-    System.out.println("Mouse exited: X = " + e.getX() + " Y = " + e.getY());
-}
-
-public void mouseEntered(MouseEvent e) {
-    System.out.println("Mouse entered: X = " + e.getX() + " Y = " + e.getY());
-}
-
-public void mouseClicked(MouseEvent e) {
-    System.out.println("Mouse clicked: X = " + e.getX() + " Y = " + e.getY());
-}
-```
-
-
-
-mousePressed() + mouseReleased() = mouseClicked()
-
+## MouseEvent
+* MouseEvent.ANY
+* MouseEvent.MOUSE_ENTERED
+* MouseEvent.MOUSE_EXITED
+* MouseEvent.MOUSE_PRESSED
+* MouseEvent.MOUSE_RELEASED
+* MouseEvent.MOUSE_CLICKED
+* MouseEvent.MOUSE_DRAGGED
+* ...
 
 
 ### Aufgabe
-Was passiert hier, wenn die Maus geklickt wird?
+Was passiert hier, wenn der Button geklickt wird?
 ```java
-public void mouseReleased(MouseEvent e) {
-    System.out.println("Mouse released");
-    consume();
-}
+		myButton.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				System.out.println("Clicked");
+				event.consume();
+			}
+		});
 
-public void mousePressed(MouseEvent e) {
-    System.out.println("Mouse pressed");
-}
-
-public void mouseExited(MouseEvent e) {
-}
-
-public void mouseEntered(MouseEvent e) {
-}
-
-public void mouseClicked(MouseEvent e) {
-    System.out.println("Mouse clicked");
-}
+		myButton.setOnMouseReleased((MouseEvent event) -> {
+			System.out.println("Released");
+		});
+		
+		myButton.setOnMousePressed((MouseEvent event) -> {
+			System.out.println("Pressed");
+		});
+		
+		myButton.setOnMouseClicked((MouseEvent event) -> {
+			System.out.println("Clicked");
+		});
 ```
 
 
 
 ### Antwort
-mousePressed() und MouseReleased() werden aufgerufen, mouseClicked() aber nicht.
+Ausgabe von Pressed, Released, Clicked; nicht zweimal Clicked
 
 
 
-### MouseMotionListener
-|Rückgabewert|Methode|
-|---|---|
-|void|mouseDragged(MouseEvent e)|
-|void|mouseMoved(MouseEvent e)|
+### Aufgabe 
+Betrachte Folgende GUI
 
+![FX-Übung](content/images/fx-uebung01.png)<!-- .element height="25%" width="25%" -->
 
-
+Was passiert beim Klick?
 ```java
-public void mouseMoved(MouseEvent arg0) {
-    System.out.println("Mouse moved: X = " + e.getX() + " Y = " + e.getY());
-}
-
-public void mouseDragged(MouseEvent arg0) {
-    System.out.println("Mouse dragging: X = " + e.getX() + " Y = " + e.getY());
-}
+		grid.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				nameInput.setText("clicked");
+				event.consume();
+			}
+		});
+		
+		passInput.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				passInput.setText("also clicked");
+			}
+		});
 ```
-
-
-
-### Adapter Klassen
-Vereinigen mehrere Interfaces zu einer Klasse.
-
-MouseAdapter: MouseListener, MouseMotionListener, MouseWheelListener
-WindowAdapter: WindowFocusListener, WindowListener, WindowStateListener
-
-
-
-Adapter sind nützlich, wenn Funktionen aus mehreren Listenern genutz werden sollen.
-
-Durch die einmalige Implementierung bleibt der Code übersichtlicher.
-
-
-
-### Listener Hinzufügen
-Anonyme Klasse
-```java
-someButton.addActionListener(new ActionListener(){
-    public void actionPerformed(ActionEvent arg0) {
-        System.out.println("Ok Button clicked.");
-    }});
-```
-Vorteil: 
-* Klein
-* Übersichtlich
-
-Nachteil: 
-* Redundanter Code, wenn gleiche Prozeduren in mehreren Listenern ausgeführt werden sollen.
-
-
-
-Listener Klasse - Objektvergleich
-```java
-someButton.addActionListener(new SomeButtonListener());
-
-class SomeButtonListener implements ActionListener {
-    public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource().equals(someButton)) {
-            /* ... */
-        } else if (ae.getSource().equals(otherButton)) {
-            /* ... */
-        }
-    }
-}
-```
-Vorteil: 
-* Zentral
-* Übersichtlich
-
-Nachteil: 
-* Viele Fallunterscheidungen
-* Swing Komponenten müssen in Klassenvariablen zugänglich gemacht werden.
-
-ListenerKlasse kann auch die eigene Klasse sein
-
-
-
-Listener Klasse - Commands
-```java
-someButton.setActionCommand("DoAsITellYou");
-someButton.addActionListener(new SomeButtonListener());
-
-class SomeButtonListener implements ActionListener {
-    public void actionPerformed(ActionEvent ae) {
-        String command = e.getActionCommand();  
-        if (command.equals( "DoAsITellYou" )) {
-            /* ... */
-        } else if (command.equals( "YoureNotMyBoss" )) {
-            /* ... */
-        }
-    }
-}
-```
-Vorteil: 
-* Zentral
-* Übersichtlich
-
-Nachteil: 
-* Viele Fallunterscheidungen
-
-ListenerKlasse kann auch die eigene Klasse sein
-
-
-
-### Aufgabe
-1. Welcher Listener könnte verwendet werden um auf Änderungen des Fensters zu reagieren?
-2. Welcher Listener könnte verwendet werden um Text einer JTextArea auf Validität zu überprüfen? Begründe.
-3. Warum kann der MouseListener auch durch den MouseAdapter ersetzt werden?
-4. Wie kann ausgeschlossen werden, dass ein Mouse Event bei einem Doppelklick bestimmte Aktionen doppelt ausführt?
 
 
 
 ### Antwort
-1. Welcher Listener könnte verwendet werden um auf Änderungen des Fensters zu reagieren?
-  * Der WindowListener
-2. Welcher Listener könnte verwendet werden um Text einer JTextArea auf Validität zu überprüfen? Begründe.
-  * Der FocusListener. Wenn der Benutzer den Focus von der JTextArea auf eine andere Komponente verlegt wird die Überprüfung durchgeführt. [focusLost()]
-3. Warum kann der MouseListener auch durch den MouseAdapter ersetzt werden?
-  * Der MouseAdapter vereinigt den MouseListener, MouseMotionListener und MouseWheelListener
-4. Wie kann ausgeschlossen werden, dass ein Mouse Event bei einem Doppelklick bestimmte Aktionen doppelt ausführt?
-  * MouseEvent bietet die Methode getClickCount()
+* Beim Button passiert nichts
+* Sonst wird immer 'clicked' in das obere Textfeld geschrieben
+
+
+
+und jetzt?
+```java
+		grid.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				nameInput.setText("clicked");
+			}
+		});
+		
+		passInput.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				passInput.setText("also clicked");
+			}
+		});
+
+		nameInput.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				nameInput.setText("clicked textfield");
+			}
+		});
+```
+
+
+
+### Antwort
+* Beim Button passiert nichts
+* Beim Klick auf das untere Textfeld wird 'also clicked' reingeschrieben
+* Beim Klick auf das obere Textfeld wird 'clicked textfield' reingeschrieben
+* Bei den Labels wird 'clicked' in das obere Feld geschrieben
