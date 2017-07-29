@@ -2,18 +2,18 @@
 
 
 
-Zustandsübergangsdiagramme, oder auch Statecharts, sind hilfreiche Modelle um Zustände eines Programms und deren Übergänge zu beschreiben.
+Zustandsübergangsdiagramme oder Statecharts sind Modelle die die **Zustände** und **Übergänge** eines Systems beschreiben
 
 
 
 ## Zustandsübergangsdiagramm - Elemente
-* ![Statechart_state](content/images/Statechart_state.svg)
+* ![Statechart_state](content/images/Statechart_state.svg)<!-- .element style="border:none; box-shadow:none"-->
 Zustand
-* ![Statechart_start](content/images/Statechart_start.svg)
-Startzustand (**Immer notwendig**)
-* ![Statechart_end](content/images/Statechart_end.svg)
+* ![Statechart_start](content/images/Statechart_start.svg)<!-- .element style="border:none; box-shadow:none"-->
+Startzustand (**immer notwendig**)
+* ![Statechart_end](content/images/Statechart_end.svg)<!-- .element style="border:none; box-shadow:none"-->
 Endzustand
-* ![Statechart_transition](content/images/Statechart_transition.svg)
+* ![Statechart_transition](content/images/Statechart_transition.svg)<!-- .element style="border:none; box-shadow:none"-->
 Zustandsübergang, 
   * meistens mit Textanmerkung, wie der Zustandsübergang zustande kommt
   * [a < 5] Wächterausdruck, gibt Bedingungen an
@@ -35,7 +35,7 @@ Auto beladen (Beispiel mit Wächterausdrücken)
 
 
 
-Statecharts sind nicht das Nonplusultra
+**Aber:** Statecharts sind nicht perfekt
 
 
 
@@ -43,15 +43,15 @@ Statecharts sind nicht das Nonplusultra
 
 ![Statechart Contactmanager](content/images/Statechart_CM1.png)
 
-Farben dienen hier nur der übersichtlichkeit. Statechart nur für das umschalten links <-> rechts.
+Statechart der der Umschalten **links <-> rechts** darstellt. Farben nur zur Übersichtlichkeit
 
 
 
-Sollten wir jetzt die Zustände der Buttons modelieren, oder doch besser die Zustände der Kontakte?
+Die Zustände der Buttons modellieren klappt nicht so gut. Wie ist es denn mit den Kontakten?
 
 
 
-### Beispiel - Buttons im Contactmanager
+### Beispiel - Kontakte im Contactmanager
 
 ![Statechart Contactmanager](content/images/Statechart_CM2.png)
 
@@ -66,9 +66,11 @@ Mit der abgebildeten GUI ist es möglich, einen Scheinwerfer zu steuern.
 
 ![Ampel](content/images/Statechart_simple.png)
 
-Die beiden Schalter steuern **eine** farbige Lichtquelle die rotes, grünes, gelbes oder gar kein Licht erzeugen kann. 
+Die beiden Schalter steuern **eine einzige** farbige Lichtquelle.
 
-Erstelle ein Statechart, der alle möglichen Zustände sowie deren Übergänge beinhaltet.
+Die Lichtquelle kann aus sein oder rotes, grünes oder gelbes Licht erzeugen.
+
+Erstelle ein Statechart, der alle möglichen Zustände sowie deren Übergänge beschreibt.
 
 
 
@@ -79,13 +81,16 @@ Erstelle ein Statechart, der alle möglichen Zustände sowie deren Übergänge b
 
 
 ### Aufgabe
-Eine Ampel
 
 ![Ampel](content/images/Statemachine_Ampel.png)
 
-kann von einem  in den nächsten Zustand übergehen, wobei die Rote und Grüne Phase jeweils 30 Sekunden dauern, der Übergang zwischen allen anderen dauert nur 5 Sekunden.
+Die Ampel kann der Reihe nach zwischen den Zuständen wechseln 
 
-Erstelle ein Statechart, welches den Sachverhalt darstellt.
+Die rote und grüne Phase dauert jeweils 30 Sekunden 
+
+Der Übergang zwischen den anderen Phasen dauert 5 Sekunden.
+
+Erstelle ein Statechart, das die Funktionsweise der Ampel beschreibt.
 
 **Tipp:** Nutze für Zeitliche Übergänge Wächterausdrücke
 
@@ -98,18 +103,21 @@ Erstelle ein Statechart, welches den Sachverhalt darstellt.
 
 
 ### Aufgabe
-Ein einfaches Faxgerät hat folgendes Benutzerinterface
+Ein einfaches Faxgerät hat folgendes Benutzerinterface:
 
 ![Faxmachine](content/images/Faxmachine.png)
 
-Mit der Taste Ein/Aus wird das Gerät ein-, bzw. ausgeschaltet. Mit der Taste Fax/Kopie kann zwischen dem Modus
-Kopieren und dem Modus Faxen umgeschaltet werden. Für beide Modi kann die Auflösung mit den Tasten Normal,
-Fein und Foto geregelt werden.
+Mit der Taste Ein/Aus wird das Gerät ein- bzw. ausgeschaltet. 
 
-Das Fax oder die Kopie werden mit weiteren Tasten gestartet, die hier aber nicht von Bedeutung sind. Wenn das
-Gerät ausgeschaltet ist, sind außer der Einschalttaste keine anderen Tasten aktiv.
+Mit der Taste Fax/Kopie kann zwischen den Modi Kopieren und Faxen umgeschaltet werden 
 
-Außerdem startet das Gerät immer in der Einstellung Fax, normal, speichert den Zustand der letzen Einstellung also nicht.
+Für beide Modi kann die Auflösung mit den Tasten Normal, Fein und Foto geregelt werden.
+
+Das Fax oder die Kopie werden mit weiteren Tasten gestartet, die hier aber nicht von Bedeutung sind. 
+
+Wenn das Gerät ausgeschaltet ist, sind außer der Einschalttaste keine anderen Tasten aktiv.
+
+Außerdem startet das Gerät immer in der Einstellung Fax und Normal, speichert den Zustand der letzen Einstellung also nicht.
 
 
 
@@ -120,7 +128,10 @@ Außerdem startet das Gerät immer in der Einstellung Fax, normal, speichert den
 
 
 ### Fazit
-Statecharts sind nicht optimal, können aber dabei helfen sich über den Zustand eines Systems Gedanken zu machen.
-So können Fehler vermieden und Fehlerhafte zustände frühzeitig erkannt werden.
+Statecharts sind nicht optimal
 
-Es ist wichtig die Zustände und deren Übergänge richtig zu definieren um ein verständliches Statechart erstellen zu können.
+Sie können aber dabei helfen, sich den Zustand eines Systems zu verdeutlichen 
+
+Die Verdeutlichung hilft, Fehler zu vermeiden und fehlerhafte Zustände frühzeitig zu erkennen
+
+Es ist wichtig die Zustände und Übergänge richtig zu definieren, um ein verständliches Statechart erstellen zu können.
