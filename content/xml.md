@@ -7,32 +7,35 @@ E**X**tensible **M**arkup **L**anguage - erweiterbare Auszeichnungssprache
 
 Entwickelt um Daten zu transportieren.
 
-Gut von Menschen und von Maschinen lesbar
+Gut für Mensch **und** Maschine lesbar
 
 
 
 XML ist in vielen Bereichen der Datenverarbeitung wiederzufinden.
 
-In der Grundidee ist XML häufig wiederzufinden: 
+Die Grundidee findet man zum Beispiel in 
 * XML
 * HTML
 * SVG
 * MathML
-* ...
+
+und vielen Anderen.
 
 
 
 ## Begriffe
 #### Wohlgeformtheit
+#### Validität
 #### Parser
 #### Element
 #### Attribut
-#### Valide
 
 
 
 ### Wohlgeformtheit
-Ein XML-Dokument heißt *wohlgeformt*, wenn es alle XML-Regeln einhält. Beispielhaft seien hier folgende genannt:
+Ein XML-Dokument heißt *wohlgeformt*, wenn es alle XML-Regeln einhält. 
+
+Regeln sind zum Beispiel:
 * Das Dokument besitzt genau ein Wurzelelement.
 * Alle Elemente mit Inhalt besitzen einen Beginn- und einen End-Auszeichner.
 * Die Beginn- und End-Auszeichner sind ebenentreu-paarig verschachtelt.
@@ -42,7 +45,7 @@ Ein XML-Dokument heißt *wohlgeformt*, wenn es alle XML-Regeln einhält. Beispie
 
 
 
-### Valide
+### Validität
 Ein XML-Dokument ist valide, wenn es die Regeln einer DTD oder XSD erfüllt.
 
 
@@ -53,17 +56,23 @@ Ein Parser ist ein Computerprogramm, das in der Informatik für die Zerlegung un
 
 
 ### Element
-Wichtigste Struktureinheit einer XML-Anwendung ist das Element. Der Name eines XML-Elements kann weitgehend frei gewählt werden. Elemente können weitere Elemente, Text- und andere Knoten – ggfs. auch vermischt – enthalten.
+Die wichtigste Struktureinheit einer XML-Anwendung ist das Element. 
+
+Der Name eines XML-Elements kann weitgehend frei gewählt werden. 
+
+Elemente können weitere Elemente, Text- und andere Knoten – ggfs. auch vermischt – enthalten.
 
 
 
 ### Attribut
-Attribute dienen als bei einem Start-Tag oder Empty-Element-Tag geschriebene Schlüsselwort-Werte-Paare (Attribut-Name="Attribut-Wert") für Zusatz-Informationen über Elemente (eine Art Meta-Information).
+Attribute sind Schlüsselwort-Wert-Paare (Attributname="Attributwert")
+
+Sie werden in Start- oder Empty-Element-Tags angegeben und beschreiben zusätzliche Eigentschaften eines Elements (Farbe, Alter, ...)
 
 
 
 ### Aufgabe
-Finde die Fehler (3 Stück)
+Finde die Fehler (3)
 ```xml
 <?xml version="1.0"?> 
 <order orderid=889923>
@@ -127,10 +136,10 @@ Inhaltsspezifizierung:
 * Sequenz: (< erstesTag \> , < zweitesTag \>)
 * Auswahl: (< erstesTag \> | < zweitesTag \>)
 * Anzahl:
-  * "_" = genau einmal (Leerzeichen)
-  *  ? = ein oder keinmal
-  * \+ = ein oder mehrmal
-  * \* = kein oder mehrmal
+  * "" = genau einmal (nichts)
+  *  ? = ein- oder keinmal
+  * \+ = mindestens einmal
+  * \* = beliebig oft (auch keinmal)
 
 
 
@@ -188,7 +197,7 @@ Schreibe eine DTD für folgende XML
 ### Lösungsvorschlag
 ```xml
 <!DOCTYPE order[
-  <!ELEMENT order (orderperson, item*) >
+  <!ELEMENT order (orderperson, item+) >
   <!ATTLIST order
     orderid  ID  #REQUIRED
   >
@@ -218,21 +227,21 @@ Einfache Elemente:
 ...
 </xs:element>
 ```
-Komplexe Elemente:
+Komplexe (zusammengesetzte) Elemente:
 
 ```xml
 <xs:complexType>
 ...
 </xs:complexType>
 ```
-Innerhalb dieser; Sequenzen, Auflistungen:
+Innerhalb komplexer Elemente Kindelemente aufzählen:
 
 ```xml
 <xs:sequence>
 ...
 </xs:sequence>
 ```
-beziehungsweise
+Oder einfach beliebige Kindelemente zulassen:
 ```xml
 <xs:any>
 ...
@@ -248,7 +257,7 @@ beziehungsweise
   * `xs:string`
   * `xs:integer`
   * `xs:positiveInteger`
-* minOccurs, maxOccurs - Minimums- und Maximumsangabe
+* `minOccurs`, `maxOccurs`: Minimums- und Maximumsangabe
 
 
 
@@ -360,7 +369,7 @@ Schreibe eine DTD und eine XSD für folgendes XML.
 Die DTD
 ```xml
 <!DOCTYPE kochbuch[
-    <!ELEMENT kochbuch (rezept)+>
+    <!ELEMENT kochbuch (rezept+)>
     <!ELEMENT rezept (name, dauer?, vegan?, zutaten)>
     <!ATTLIST rezept
               id ID #REQUIRED>
@@ -431,8 +440,8 @@ Die XSD
 ### Lösungsvorschlag
 1. Nenne zwei Unterschiede zwischen XML und HTML.
   * XML ist ein Datenaustauschformat für Computer, HTML ist zur Präsentation von Daten für Menschen gedacht.
-  * In XML kann man neue Tags definieren, in HTML nicht.
-  * HTML ist nicht so rigoros wie XML (z.B. muss man nicht alle Tags schließen (z.B. < br>)).
+  * In XML kann man neue Tags definieren, in HTML nicht (-> eigene "Datentypen")
+  * HTML ist nicht so rigoros wie XML (z.B. muss man nicht immer alle Tags schließen (z.B. < br>)).
 2. Nenne einen Unterschied zwischen DTD und XSD.
   * XSD ist valides XML und kann selbst wieder überprüft werden.
   * In XSD können untere und obere Grenzen angegeben werden.
@@ -441,7 +450,7 @@ Die XSD
 
 
 ## SVG
-Die **scalable vector graphics** ist die empfohlene Spezifikation zur beschreibung von 2D Vektorgrafiken.
+Die **S**calable **V**ector **G**raphic ist die empfohlene Spezifikation zur Beschreibung von 2D Vektorgrafiken.
 
 SVG basiert auf XML und ist daher für Mashinen und Menschen gut lesbar.
 
@@ -465,7 +474,7 @@ Mit den richtigen Tools könnten solche Bilder entstehen.
 
 
 
-Zur veränderung von XML, HTML, SVG etc. wurde vom W3C die XPath Syntax eingeführt.
+Zur Veränderung von XML, HTML, SVG etc. wurde vom W3C die XPath Syntax eingeführt.
 
 
 
@@ -475,16 +484,16 @@ XPath nutzt Reguläre Ausdrücke um Knoten (nodes) in XML Dokumenten zu selektie
 
 
 ### XPath Selektoren
-Selektoren werden verwendet um bestimmte Knoten, oder Attribute auszuwählen
+Selektoren werden verwendet um bestimmte Knoten oder Attribute auszuwählen
 
 |Ausdruck|Beschreibung|
 |---|---|
-|nodename|Wählt alle Knoten mit dem Namen "nodename" aus|
-|/|Wählt den Wurzelknoten aus|
-|//|Wählt Knoten passend zum Selektor aus, unabhänging von ihrer Position|
-|.|Wählt den gegenwärtigen Knoten aus|
-|..|Wählt den Vater des gegenwärtigen Knotens aus|
-|@|Wählt Attribute|
+|nodename|Wählt alle Knoten mit dem Namen `nodename` aus|
+|`/`|Wählt den Wurzelknoten aus|
+|`//`|Wählt Knoten passend zum Selektor aus, unabhänging von ihrer Position|
+|`.`|Wählt den gegenwärtigen Knoten aus|
+|`..`|Wählt den Vater des gegenwärtigen Knotens aus|
+|`@`|Wählt Attribute|
 
 
 
@@ -504,12 +513,12 @@ Selektoren werden verwendet um bestimmte Knoten, oder Attribute auszuwählen
 ```
 |Ausdruck|Resultat|
 |---|---|
-|bookstore|Wählt alle Knoten mit dem Namen "bookstore" aus|
-|/bookstore|Wählt den Wurzelknoten bookstore aus|
-|bookstore/book|Wählt alle Book Knoten, die Kinder von Bookstore sind, aus|
-|//book|Wählt alle Book Knoten aus|
-|bookstore//book|Wählt alle Book Knoten (die Kinder von bookstore sind) aus, unabhängig von ihrer Position|
-|//@lang|Wählt alle *lang* Attribute aus|
+|`bookstore`|Wählt alle Knoten mit dem Namen `bookstore` aus|
+|`/bookstore`|Wählt den Wurzelknoten `bookstore` aus|
+|`bookstore/book`|Wählt alle `book` Knoten aus, die Kinder von `bookstore` sind|
+|`//book`|Wählt alle `book` Knoten aus|
+|`bookstore//book`|Wählt alle `book` Knoten (die Kinder von `bookstore` sind) aus, unabhängig von ihrer Position|
+|`//@lang`|Wählt alle `lang` Attribute aus|
 
 
 
@@ -556,25 +565,25 @@ Selektoren werden verwendet um bestimmte Knoten, oder Attribute auszuwählen
   </item>
 </order>
 ```
-1. 
+1. Wähle den `orderperson` Knoten aus
   * `orderperson`
   * `//orderperson`
   * `order/orderperson`
-2. 
+2. Wähle alle `price` Knoten aus 
   * `price`
   * `//price`
   * `order/item//price`
-3. 
+3. Wähle die `orderid` aus
   * `//@orderid`
   * `order/@orderid`
-4. 
+4. Wähle die Vaterknoten der Knoten `item` aus
   * `item/..`
   * `order//item/..`
 
 
 
 ### XPath Prädikate
-Prädikate werden benutzt um bestimmte Knoten, oder Knoten die einen bestimmten Wert haben, zu finden
+Prädikate werden benutzt um bestimmte Knoten oder Knoten, die einen bestimmten Wert haben, zu finden
 
 Sie werden immer in eckigen Klammern geschrieben
 
@@ -625,7 +634,7 @@ Sie werden immer in eckigen Klammern geschrieben
 ```
 1. Wähle das zweite `item` der `order` aus
 2. Wähle das drittletzte `item` der `order` aus
-3. Wähle alle `items` aus, dessen Wert über 20 liegt
+3. Wähle alle `item`-Knoten aus, deren Wert über 20 liegt
 
 
 
@@ -647,13 +656,13 @@ Sie werden immer in eckigen Klammern geschrieben
   </item>
 </order>
 ```
-1. 
+1. Wähle das zweite `item` der `order` aus
   * `//item[2]`
   * `/order/item[2]`
-2. 
+2. Wähle das drittletzte `item` der `order` aus
   * `//item[last()-2]`
   * `/order/item[last()-2]`
-3. 
+3. Wähle alle `item`-Knoten aus, deren Wert über 20 liegt 
   * `//item[price>20.00]`
   * `/order/item[price>20.00]`
 
@@ -710,7 +719,7 @@ Wildcards werden benutzt um unbekannte Knoten zu selektieren
   </item>
 </order>
 ```
-1. Wähle alle Kinder von `items` aus
+1. Wähle alle Kinder von `item`-Knoten aus
 2. Wähle alle Kinder von `orderperson` aus
 3. Wähle alle `price` Elemente aus, die ein Attribut haben
 
@@ -734,15 +743,15 @@ Wildcards werden benutzt um unbekannte Knoten zu selektieren
   </item>
 </order>
 ```
-1. 
+1. Wähle alle Kinder von `item`-Knoten aus 
   * `item/*`
   * `//item/*`
   * `/order/item/*`
-2. 
+2. Wähle alle Kinder von `orderperson` aus 
   * `orderperson/*`
   * `//orderperson/*`
   * `/order/orderperson/*`
-3. 
+3. Wähle alle `price` Elemente aus, die ein Attribut haben 
   * `price[@*]`
   * `//price[@*]`
   * `/order/price[@*]`
