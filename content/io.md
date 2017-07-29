@@ -6,11 +6,11 @@
 
 <dl>
 <dt>`InputStream`</dt>
-<dd>ist eine **abstrakte** Super-Klasse für alle Klasen, die `bytes` als **input** haben.<br>
+<dd>ist eine **abstrakte** Super-Klasse für alle Klassen, die `bytes` als **Input** haben.<br>
 Beispiele sind: `FileInputStream`, `ObjectInputStream`, `InputStream`</dd>
 <br>
 <dt>`OutputStream`</dt>
-<dd>ist eine **abstrakte** Super-Klasse für alle Klasen, die `bytes` als **output** haben.<br>
+<dd>ist eine **abstrakte** Super-Klasse für alle Klassen, die `bytes` als **Output** haben.<br>
 Beispiele sind: `FileOutputStream`, `ObjectOutputStream`, `OutputStream`</dd>
 </dl>
 <br>
@@ -21,31 +21,31 @@ Beispiele sind: `FileOutputStream`, `ObjectOutputStream`, `OutputStream`</dd>
 
 ## Stream Beispiel
 
-<pre><code class="line-numbers java">File file = new File("hallo.txt");
-// create a new file, if the file not exists.
-file.createNewFile();
-// create an outputStream *into* the file
-OutputStream outputStream = new FileOutputStream(file);
-// write to the file
-outputStream.write(new String("Hallo Welt\n").getBytes());
-outputStream.flush();
-outputStream.close();
+```java
+    File file = new File("hallo.txt");
+    file.createNewFile(); // create a new file, if it does not exist yet
 
-// Create an inputStream *from* the file
-InputStream inputStream = new FileInputStream(file);
-// tmp array to buffer data from the stream
-byte[] buffer = new byte[BUFFER_SIZE];
-// create the content into the buffer
-inputStream.read(buffer);
-// print the content of the array
-for (byte b : buffer) {
-  System.out.print(String.valueOf(b));
-}
-inputStream.close();</code></pre>
+    OutputStream outputStream = new FileOutputStream(file); // create an outputStream *into* the file
+    outputStream.write(new String("Hallo Welt\n").getBytes()); // write to the file
+    outputStream.flush();
+    outputStream.close();
+
+    InputStream inputStream = new FileInputStream(file); // create an inputStream *from* the file
+    byte[] buffer = new byte[BUFFER_SIZE]; // tmp array to buffer data from the stream
+    inputStream.read(buffer); // read the content into the buffer
+
+    for (byte b : buffer) { // print the content of the array
+      System.out.print(String.valueOf(b));
+    }
+
+    inputStream.close();
+```
 
 Output: 72971081081113287101108116100000000...
 
-72 -> H, 97 -> a, 108 -> l, ...
+72 | 97 | 108 | ...
+
+H | a | l | ...
 
 
 
@@ -65,14 +65,14 @@ Output: 72971081081113287101108116100000000...
 
 <dl>
 <dt>`Reader` / `Writer`</dt>
-<dd>ist eine **abstrakte** Klasse um Ströme von Zeichen zu schreiben/lesen.</dd>
+<dd>ist eine **abstrakte** Klasse um Ströme von Zeichen zu lesen/schreiben.</dd>
 <br>
 <dt>`StringReader` / `StringWriter`</dt>
-<dd>wird benutzt, wenn Quelle / Ziel ein String ist.</dd>
+<dd>wird benutzt, wenn Quelle bzw. Ziel ein String ist.</dd>
 <br>
 <dt>`InputStreamReader` / `OutputStreamWriter`</dt>
 <dd>wird benutzt um einen `InputStream` / `OutputStream` zu *wrappen*.</br>
-Wandelt `bytes` aus oder in den `Stream` in `chars` um.</dd>
+liest `bytes` und wandelt sie in `chars` um / liest `chars` und wandelt sie in `bytes` um.</dd>
 <br>
 <dt>`BufferedReader` / `BufferedWriter`</dt>
 <dd>sind `Reader` / `Writer` mit einem Puffer.</dd>
@@ -82,27 +82,25 @@ Wandelt `bytes` aus oder in den `Stream` in `chars` um.</dd>
 
 ## Reader / Writer Beispiel
 
-<pre><code class="line-numbers java">File file = new File("hallo.txt");
-// create a new file, if the file not exists
-file.createNewFile();
-// writer *into* the file.
-Writer writer = new FileWriter(file);
-// Writes to the file
-writer.write("Hallo Welt\n");
-writer.flush();
-writer.close();
+```java
+    File file = new File("hallo.txt");
+    file.createNewFile(); // create a new file, if it does not exist yet
 
-// Create a reader *from* the file
-Reader reader = new FileReader(file);
-// tmp array to buffer data from the reader
-char[] buffer = new char[BUFFER_SIZE];
-// read content of file into the array
-reader.read(buffer);
-// print the content of the array
-for (char c : buffer) {
-  System.out.print(c);
-}
-reader.close();</code></pre>
+    Writer writer = new FileWriter(file); // writer *into* the file.
+    writer.write("Hallo Welt\n"); // Writes to the file
+    writer.flush();
+    writer.close();
+
+    Reader reader = new FileReader(file); // create a reader *from* the file
+    char[] buffer = new char[BUFFER_SIZE]; // tmp array to buffer data from the reader
+    reader.read(buffer); // read content of file into the array
+
+    for (char c : buffer) { // print the content of the array
+      System.out.print(c);
+    }
+
+    reader.close();</code></pre>
+```
 
 Output: Hallo Welt
 
@@ -110,37 +108,36 @@ Output: Hallo Welt
 
 ## BufferedReader / Writer Beispiel
 
-<pre><code class="line-numbers java" data-highlight-lines="6,15,18">File file = new File("hallo.txt");
-// create a new file, if the file not exists
-file.createNewFile();
-// create a (buffered) writer into the file
-Writer writer = new FileWriter(file);
-Writer bufferedWriter = new BufferedWriter(writer);
-// write to the file
-bufferedWriter.write("Hallo Welt\n");
-bufferedWriter.flush();
-bufferedWriter.close();
+```java
+    File file = new File("hallo.txt");
+    file.createNewFile(); // create a new file, if it does not exist yet 
 
-// create a (buffered) reader from the file
-Reader reader = new FileReader(file);
-// note: buffered reader has to be a BufferedReader instead of a reader to use readLine()
-BufferedReader bufferedReader = new BufferedReader(reader);
-// read line by line and print
-String line;
-while ((line = bufferedReader.readLine()) != null) {
-  System.out.println(line);
-}
-bufferedReader.close();
-reader.close();</code></pre>
+    Writer writer = new FileWriter(file); // create a (buffered) writer into the file
+    Writer bufferedWriter = new BufferedWriter(writer);
+    bufferedWriter.write("Hallo Welt\n"); // write to the file
+    bufferedWriter.flush();
+    bufferedWriter.close();
+
+    Reader reader = new FileReader(file); // create a (buffered) reader from the file
+    BufferedReader bufferedReader = new BufferedReader(reader); // it has to be a BufferedReader to use readLine()
+    String line; // read line by line and print
+
+    while ((line = bufferedReader.readLine()) != null) {
+      System.out.println(line);
+    }
+
+    bufferedReader.close();
+    reader.close();</code></pre>
+```
 
 Output: Hallo Welt
 
 
 
 ### Unterscheidung
-Wann sind Ströme byte- wann char-basiert.
+Wann ist ein Stream `byte`-basiert? Wann ist er `char`-basiert?
 
-Eine Methode ist alle Streams die *'Print'* im Namen tragen als Character-Basiert zu verstehen, da mit ihnen die Anzeige für den Benutzer formatiert werden soll.
+Streams die *`Print`* im Namen haben können als `char`-basiert betrachtet werden, da mit ihnen die Anzeige für den Benutzer formatiert werden soll.
 
 
 
@@ -263,8 +260,8 @@ true3.1415250177a
 
 
 ### Flushing
-Manche Implementierungen von Writern und Readern buffern bytes automatisch. 
+Manche Implementierungen von `Writern` und `Readern` buffern bytes automatisch. 
 
 Sollte die Ausgabe zu einem bestimmten Zeitpunkt gewünscht sein muss die `flush()` Methode verwendet werden.
 
-Wenn die Methode `close()` aufgerufen wird, wird üblicherweise vom Reader/Writer auch die Methode `flush()` ausgeführt um alle auf dem Buffer befindlichen Daten an den Empfänger zu geben.
+Wenn die Methode `close()` aufgerufen wird, wird üblicherweise vom Reader/Writer auch die Methode `flush()` ausgeführt um alle Daten aus dem Buffer an den Empfänger zu schicken.
