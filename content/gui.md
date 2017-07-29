@@ -161,7 +161,8 @@ public class GridPaneExample extends Application{
 		Button button = new Button("I'm a Button!");
 		TextArea textArea = new TextArea("I'm a TextArea!");
 		TextField textField = new TextField("I'm a TextField!");
-
+        
+        // node, column, row, columnSpan, rowSpan
 		rootLayout.add(button, 1, 5, 1, 1);
 		rootLayout.add(textArea, 1, 1, 3, 2);
 		rootLayout.add(textField, 3, 4, 2, 1);
@@ -322,4 +323,17 @@ Welche GUI erzeugt das folgende Programm?
 ### Lösung 4
 
 ![FX-Übung](content/images/fx-uebung04.png)<!-- .element height="50%" width="50%" -->
+
+
+
+### Bonus
+
+* GridPanes
+    * Was könnte `setGridLinesVisible(true)` bedeuten?
+    * Was könnte `setHgap(3.0) bedeuten`?
+* FlowPanes
+    * Was stellt ihr euch unter `getPrefWrapLength()` vor?
+* Stage
+    * Was könnte `setAlwaysOnTop(true)` bewirken?
+    * Was macht wohl `setResizable(false)`?
 
