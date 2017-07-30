@@ -4,15 +4,20 @@
 
 ## Essenzielle Unterscheidung
 
-Bei modernen Betriebssystemen gehört zu jedem **Prozess** mindestens ein **Thread** (zu Deutsch *Faden* oder *Ausführungsstrang*), der den Programmcode ausführt. Damit werden also genau genommen die Prozesse nicht mehr parallel ausgeführt, sondern nur die Threads. 
+Bei modernen Betriebssystemen gehört zu jedem **Prozess** mindestens ein **Thread** (zu Deutsch *Faden* oder *Ausführungsstrang*), der den Programmcode ausführt. 
 
-Innerhalb eines Prozesses kann es mehrere Threads geben, die alle zusammen in demselben Adressraum ablaufen. Die einzelnen Threads eines Prozesses können untereinander auf ihre öffentlichen Daten zugreifen.
+Damit werden also genau genommen nicht Prozesse parallel ausgeführt, sondern nur die Threads. 
 
-----
+Innerhalb eines Prozesses kann es mehrere Threads geben, die alle im selben Adressraum ablaufen. 
 
-Beispiel (Prozess): Prozess basiertes Multitasking ermöglicht, dass der Java Compiler zusammen mit einem Text-Editor genutzt werden kann.
+Die einzelnen Threads eines Prozesses können untereinander auf ihre öffentlichen Daten zugreifen.
 
-Beispiel (Thread): Im selben Prozess (bspw. Texteditor) kann die automatische Rechtschreibprüfung und automatisches Speichern einer Datei ausgeführt werden.
+
+
+## Beispiele
+Prozess-basiertes Multitasking ermöglicht, dass der Java Compiler zusammen mit einem Text-Editor genutzt werden kann.
+
+Im Texteditor (Prozess) kann gleichzeitig die automatische Rechtschreibprüfung und automatisches Speichern einer Datei ausgeführt werden.
 
 
 
@@ -25,88 +30,126 @@ Beispiel (Thread): Im selben Prozess (bspw. Texteditor) kann die automatische Re
 | synchronized | Markiert kritische Programmabschnitte |
 | volatile | Markiert Variablen um zu verhindern, dass diese zwischengespeichert werden. |
 | atomic | *Klasse*, die Bspw. `AtomicInteger` nutz um Funktionen Atomar auszuführen. |
-| join | Bewirkt, dass Threads auf einander warten. |
+| join | Bewirkt, dass Threads aufeinander warten. |
 | sleep | Verzögert die Ausführung eines Threads |
 
 
 
 ## Einen neuen Thread erstellen und starten
 
-<pre><code class="line-numbers">Thread clockThread = new Thread(new Runnable() {
+```java
+    Thread clockThread = new Thread(new Runnable() {
 
-  @Override
-  public void run() {
-    // do something
-  }
-});
+      @Override
+      public void run() {
+        // do something
+      }
+    });
 
-clockThread.start();</code></pre>
+    clockThread.start();
+```
 
-Wichtig: Ein `Thread` nimmt (z.B.) ein `Runnable` bei dem die `run()`-Methode überschrieben wird. Anschließend wird der Thread mit `start()` gestartet.
+### Wichtig 
+Ein `Thread` nimmt z.B. ein `Runnable` und überschreibt die `run()`-Methode. Anschließend wird der Thread mit `start()` gestartet.
 
 
 
 ## Threads gleichzeitig laufen lassen
 
-<pre><code class="line-numbers">Runnable runnableOne = new Runnable() {
-  @Override
-  public void run() {
-    for (int i = 0; i < ITERATIONS; i++) {
-      System.out.println("[T1] " + counter++);
-    }
-  }
-};
+```java
+    Runnable runnableOne = new Runnable() {
+      @Override
+      public void run() {
+        for (int i = 0; i < ITERATIONS; i++) {
+          System.out.println("[T1] " + counter++);
+        }
+      }
+    };
 
-Runnable runnableTwo = new Runnable() {
-  @Override
-  public void run() {
-    for (int i = 0; i < ITERATIONS; i++) {
-      System.out.println("[T2] " + counter++);
-    }
-  }
-};
+    Runnable runnableTwo = new Runnable() {
+      @Override
+      public void run() {
+        for (int i = 0; i < ITERATIONS; i++) {
+          System.out.println("[T2] " + counter++);
+        }
+      }
+    };
 
-new Thread(runnableOne).start();
-new Thread(runnableTwo).start();</code></pre>
+    new Thread(runnableOne).start();
+    new Thread(runnableTwo).start();
+```
 
-Dies startet zwei Threads die dann nebenläufig abgearbeitet werden.
+Startet zwei Threads die nebenläufig abgearbeitet werden.
 
 Ouput: [T2] 0, [T2] 1, [T1] 0, [T1] 3, [T2] 2, [T1] 4, [T2] 5, ...
 
-## Was ist mit den nummern los? Da sind manche doppelt!!11!
+
+
+## Threads gleichzeitig laufen lassen
+
+```java
+    Runnable runnableOne = new Runnable() {
+      @Override
+      public void run() {
+        for (int i = 0; i < ITERATIONS; i++) {
+          System.out.println("[T1] " + counter++);
+        }
+      }
+    };
+
+    Runnable runnableTwo = new Runnable() {
+      @Override
+      public void run() {
+        for (int i = 0; i < ITERATIONS; i++) {
+          System.out.println("[T2] " + counter++);
+        }
+      }
+    };
+
+    new Thread(runnableOne).start();
+    new Thread(runnableTwo).start();
+```
+
+Startet zwei Threads die nebenläufig abgearbeitet werden.
+
+Ouput: [T2] 0, [T2] 1, [T1] 0, [T1] 3, [T2] 2, [T1] 4, [T2] 5, ...
+
+## Was ist mit den Zahlen los? Da sind manche doppelt!!11!
 
 
 
 ## Synchronisieren von konkurrierenden Zugriffen
 
-<pre><code class="line-numbers" data-highlight-lines="1">private static synchronized int getAndIncrement() { return counter++; }
+```java
+    private static synchronized int getAndIncrement() { return counter++; }
 
-public static void main(String[] args) {
+    public static void main(String[] args) {
 
-  Runnable runnableOne = new Runnable() {
-    public void run() {
-      for (int i = 0; i < ITERATIONS; i++) {
-        System.out.println("[T1] " + getAndIncrement());
-      }
+      Runnable runnableOne = new Runnable() {
+        public void run() {
+          for (int i = 0; i < ITERATIONS; i++) {
+            System.out.println("[T1] " + getAndIncrement());
+          }
+        }
+      };
+
+      Runnable runnableTwo = new Runnable() {
+        public void run() {
+          for (int i = 0; i < ITERATIONS; i++) {
+            System.out.println("[T2] " + getAndIncrement());
+          }
+        }
+      };
+      new Thread(runnableOne).start();
+      new Thread(runnableTwo).start();
     }
-  };
-
-  Runnable runnableTwo = new Runnable() {
-    public void run() {
-      for (int i = 0; i < ITERATIONS; i++) {
-        System.out.println("[T2] " + getAndIncrement());
-      }
-    }
-  };
-  new Thread(runnableOne).start();
-  new Thread(runnableTwo).start();
-}</code></pre>
+```
 
 **Problem**: Die Operation `++` ist nicht atomar!
 
-Nur jeweils ein Thread darf gleichzeitig innerhalb der Methode getAndIncrement() sein.
+**Lösung**: Die Threads nicht gleichzeitig in die `getAndIncrement`- Methode lassen.
 
-**Lösung**: Methode muss synchronized sein.
+Methode muss **synchronized** sein.
 
 
 
@@ -116,7 +159,8 @@ Nur jeweils ein Thread darf gleichzeitig innerhalb der Methode getAndIncrement()
 
 ## Was gibt dieses Programm aus?
 
-<pre><code class="line-numbers">public class Foo {
+```java
+public class Foo {
 
   private static class MyRunnable implements Runnable {
     @Override
@@ -135,7 +179,8 @@ Nur jeweils ein Thread darf gleichzeitig innerhalb der Methode getAndIncrement()
     new Thread(new MyRunnable()).start();
     thread.start();
   }
-}</code></pre>
+}
+```
 
 
 
@@ -151,7 +196,8 @@ I'm here
 
 ## Was gibt dieses Programm aus?
 
-<pre><code class="line-numbers">public class Foo extends Thread {
+```java
+public class Foo extends Thread {
   private String name; private AtomicInteger content;
   public Foo(String name, AtomicInteger content) {
     this.name = name; this.content = content; 
@@ -173,7 +219,8 @@ I'm here
     foo.join(); fooBar.join();
     System.out.println(integer.get());
   }
-}</code></pre>
+}
+```
 
 
 
@@ -181,10 +228,16 @@ I'm here
 
 Kann man nicht sagen! 
 
-Neue Frage: Warum? Da wurde doch AtomicInteger verwendet...
+
+
+## Lösung
+
+Kann man nicht sagen! 
+
+**Neue Frage:** Warum? Da wurde doch `AtomicInteger` verwendet...
 
 
 
 ## Lösung 2
 
-Scheduler
+Wegen dem Scheduler
