@@ -21,51 +21,79 @@ Hierzu zählen beispielsweise:
 
 
 
+## Vereinigung
 ![Union](content/images/Union.svg)
 
+Note: alles von allem
 
 
+
+## Schnitt
 ![Intersect](content/images/Intersect.svg)
 
+Note: nur gleiches
 
 
+
+## Differenz
 ![Relative_complement](content/images/Relative_complement.svg)
 
+Note: nur verschiedenes; nur vom ersten
 
 
+
+## Kreuzprodukt
 ![Cross_product](content/images/Cross_product.svg)
+
+Note: alle zeilen von R mit der ersten Zeile von S, dann mit der zweiten Zeile, usw.
 
 
 
 ![Projection](content/images/Projection.svg)
 
+Note: ohne doppelte werte
+
 
 
 ![Selection](content/images/Selection.svg)
+
+Note: nach bestimmtem Wert ausgewählt
 
 
 
 ![Join](content/images/Join.svg)
 
+Note: Kreuzprodukt + Zeilen auswählen anhand der Bedingung
+
 
 
 ![Equi-Join](content/images/Equi-Join.svg)
+
+Note: Kreuzprodukt + Zeilen auswählen anhand von Werten die gleich sein sollen
 
 
 
 ![Natural Join](content/images/Natural_Join.svg)
 
+Note: Überschneidung finden und die Zeilen dann zusammenführen
+
 
 
 ![Semi Join](content/images/Semi_Join.svg)
+
+Note: Überschneidung finden und die Zeilen vom ersten nehmen 
 
 
 
 ![Outer Join](content/images/Outer_Join.svg)
 
+Note: Zeilen mit Überschneidung aneinander fügen, ohne mit NULL auffüllen
+
 
 
 ![Rename](content/images/Rename.svg)
+
+Note: namen ändern
 
 
 
@@ -138,7 +166,7 @@ Gib die Algebra-Ausdrücke für die folgenden Anfragen an:
 
 1. &pi;<sub style="font-size:20px;">{Name,Preis}</sub>Gericht
 2. &pi;<sub style="font-size:20px;">{Preis}</sub>Gericht &#10781;<sub style="font-size:20px;">{GerichtID}</sub>(&sigma;<sub style="font-size:20px;">{Sitzplätze = 530}</sub>Mensa)
-3. &pi;<sub style="font-size:20px;">{Sitzplätze}</sub>Mensa &#10781;<sub style="font-size:20px;">{GerichtID}</sub> (Gericht &#10781;<sub style="font-size:20px;">{ZutatID}</sub> (&sigma;<sub style="font-size:20px;">{Zutaten.Name = Fisch}</sub>Zutaten))
+3. &pi;<sub style="font-size:20px;">{Sitzplätze}</sub>Mensa &#10781;<sub style="font-size:20px;">{GerichtID}</sub> (Gericht &#10781;<sub style="font-size:20px;">{GerichtID}</sub> (&sigma;<sub style="font-size:20px;">{Zutaten.Name = Fisch}</sub>Zutaten))
 4. &pi;<sub style="font-size:20px;">{Name}</sub>Zutaten &#10781;<sub style="font-size:20px;">{GerichtID}</sub> (&sigma;<sub style="font-size:20px;">{Gericht.Name = Gut & Günstig}</sub>Gericht) - &pi;<sub style="font-size:20px;">{Name}</sub>Zutaten &#10781;<sub style="font-size:20px;">{GerichtID}</sub> (&sigma;<sub style="font-size:20px;">{Gericht.Name = Lecker & Fein}</sub>Gericht)
 
 
@@ -205,11 +233,15 @@ Gib die Algebra-Ausdrücke für die folgenden Anfragen an:
 
 
 # Normalformen & Anomalien
-Die Normalisierung eines relationalen Datenbankschemas hat den Zweck, Redundanzen zu verringern und dadurch verursachte Anomalien zu verhindern, um so die Aktualisierung einer Datenbank zu vereinfachen sowie die Konsistenz der Daten zu gewährleisten.
+Die Normalisierung eines relationalen Datenbankschemas soll Redundanzen verringern 
+
+Dadurch können Anomalien zu verhindert werden
+
+So soll die Aktualisierung einer Datenbank vereinfacht und die Konsistenz der Daten gewährleistet werden
 
 
 
-Zu diesem Zweck gibt es die Normalformen, welche erreicht werden, wenn bestimmte Normalisierungsregeln eingehalten werden.
+Dazu gibt es die Normalformen, die durch die Einhaltung von Normalisierungsregeln erreicht werden
 
 
 
@@ -224,64 +256,68 @@ Primärschlüssel ist CD_ID
 
 <div style="font-size:20px;">
 
-| *CD_ID* | Album                                  | Erscheinungsjahr | Titel                                                  |
-|     --- | ---                                    |              --- | ---                                                    |
-|       1 | Michael Jackson - Thriller             |             1982 | {1. Baby Be Mine, 2. The Girl Is Mine, 3. Thriller }   |
-|       2 | AC/DC - Back in Black                  |             1980 | {1. Hells Bells, 2. Shoot to Thrill, 3. Back in Black} |
-|       3 | Pink Floyd - The Dark Side of the Moon |             1973 | {1. Speak to Me, 2. On the Run}                        |
+| *CD_ID* | Album                                  | Gründungsjahr | Titel                                                  |
+|     --- | ---                                    |           --- | ---                                                    |
+|       1 | Michael Jackson - Thriller             |          1982 | {1. Baby Be Mine, 2. The Girl Is Mine, 3. Thriller }   |
+|       2 | AC/DC - Back in Black                  |          1980 | {1. Hells Bells, 2. Shoot to Thrill, 3. Back in Black} |
+|       3 | Pink Floyd - The Dark Side of the Moon |          1973 | {1. Speak to Me, 2. On the Run}                        |
 
-### 1. NF verletzt! (Album, Titel) nicht atomar!
-
-
-
-### Jetzt in 1. Normalform 
-
-Primärschlüssel ist jetzt CD_ID **und** Track, da auf einer CD nicht zwei mal Track 1.
-
-<div style="font-size:20px;">
-
-| *CD_ID* | Album                     | Interpret       | Geburtsjahr | *Track* | Titel            |
-|     --- | ---                       | ---             |         --- |     --- | ---              |
-|       1 | Thriller                  | Michael Jackson |        1982 |       1 | Baby Be Mine     |
-|       1 | Thriller                  | Michael Jackson |        1982 |       2 | The Girl Is Mine |
-|       1 | Thriller                  | Michael Jackson |        1982 |       3 | Thriller         |
-|       2 | Back in Black             | AC/DC           |        1980 |       1 | Hells Bells      |
-|       2 | Back in Black             | AC/DC           |        1980 |       2 | Shoot to Thrill  |
-|       2 | Back in Black             | AC/DC           |        1980 |       3 | Back in Black    |
-|       3 | The Dark Side of the Moon | Pink Floyd      |        1973 |       1 | Speak to Me      |
-|       3 | The Dark Side of the Moon | Pink Floyd      |        1973 |       2 | On the Run, Time |
+### 1. NF verletzt! Die Spalten Album und Titel sind nicht atomar!
 
 
 
-### 2. NF verletzt!
+### 1. Normalform 
 
-Album, Interpret, Erscheinungsjahr hängen von CD_ID ab, Titel nicht. Titel ist aber Schlüssel!
+Primärschlüssel ist jetzt CD_ID **und** Track, da auf einer CD nicht zwei mal Track 1 sein kann.
 
 <div style="font-size:20px;">
 
-| *CD_ID* | Album                     | Interpret           | Geburtsjahr | *Track* | Titel            |
-|     --- | ---                       | ---                 |         --- |     --- | ---              |
-|       1 | **Thriller**              | **Michael Jackson** |    **1982** |       1 | Baby Be Mine     |
-|       1 | **Thriller**              | **Michael Jackson** |    **1982** |       2 | The Girl Is Mine |
-|       1 | **Thriller**              | **Michael Jackson** |    **1982** |       3 | Thriller         |
-|       2 | Back in Black             | AC/DC               |        1980 |       1 | Hells Bells      |
-|       2 | Back in Black             | AC/DC               |        1980 |       2 | Shoot to Thrill  |
-|       2 | Back in Black             | AC/DC               |        1980 |       3 | Back in Black    |
-|       3 | The Dark Side of the Moon | Pink Floyd          |        1973 |       1 | Speak to Me      |
-|       3 | The Dark Side of the Moon | Pink Floyd          |        1973 |       2 | On the Run, Time |
+| *CD_ID* | Album                     | Interpret       | Gründungsjahr | *Track* | Titel            |
+|     --- | ---                       | ---             |           --- |     --- | ---              |
+|       1 | Thriller                  | Michael Jackson |          1982 |       1 | Baby Be Mine     |
+|       1 | Thriller                  | Michael Jackson |          1982 |       2 | The Girl Is Mine |
+|       1 | Thriller                  | Michael Jackson |          1982 |       3 | Thriller         |
+|       2 | Back in Black             | AC/DC           |          1980 |       1 | Hells Bells      |
+|       2 | Back in Black             | AC/DC           |          1980 |       2 | Shoot to Thrill  |
+|       2 | Back in Black             | AC/DC           |          1980 |       3 | Back in Black    |
+|       3 | The Dark Side of the Moon | Pink Floyd      |          1973 |       1 | Speak to Me      |
+|       3 | The Dark Side of the Moon | Pink Floyd      |          1973 |       2 | On the Run, Time |
+
+Note: Zusammengesetzter Primärschlüssel
 
 
 
-### Jetzt in 2. Normalform
+### 1. Normalform 
 
 <div style="font-size:20px;">
 
-| *CD_ID* | Album                     | Interpret       | Geburtsjahr |
-|     --- | ---                       | ---             |         --- |
-|       1 | Thriller                  | Michael Jackson |        1982 |
-|       2 | Back in Black             | AC/DC           |        1980 |
-|       3 | The Dark Side of the Moon | Pink Floyd      |        1973 |
-|       4 | Highway to Hell           | AC/DC           |        1980 |
+| *CD_ID* | Album                     | Interpret           | Gründungsjahr | *Track* | Titel            |
+|     --- | ---                       | ---                 |           --- |     --- | ---              |
+|       1 | **Thriller**              | **Michael Jackson** |      **1982** |       1 | Baby Be Mine     |
+|       1 | **Thriller**              | **Michael Jackson** |      **1982** |       2 | The Girl Is Mine |
+|       1 | **Thriller**              | **Michael Jackson** |      **1982** |       3 | Thriller         |
+|       2 | Back in Black             | AC/DC               |          1980 |       1 | Hells Bells      |
+|       2 | Back in Black             | AC/DC               |          1980 |       2 | Shoot to Thrill  |
+|       2 | Back in Black             | AC/DC               |          1980 |       3 | Back in Black    |
+|       3 | The Dark Side of the Moon | Pink Floyd          |          1973 |       1 | Speak to Me      |
+|       3 | The Dark Side of the Moon | Pink Floyd          |          1973 |       2 | On the Run, Time |
+
+### 2. NF verletzt! Album, Interpret und Erscheinungsjahr hängen von CD_ID ab, aber nicht von Track! Die Nicht-Schlüssel-Attribute dürfen nicht nur von einem Teil des Schlüssels abhängen!
+
+Note: Abhängigkeiten von Schlüsseln betrachten!
+
+
+
+### 2. Normalform
+
+<div style="font-size:20px;">
+
+| *CD_ID* | Album                     | Interpret       | Gründungsjahr |
+|     --- | ---                       | ---             |           --- |
+|       1 | Thriller                  | Michael Jackson |          1982 |
+|       2 | Back in Black             | AC/DC           |          1980 |
+|       3 | The Dark Side of the Moon | Pink Floyd      |          1973 |
+|       4 | Highway to Hell           | AC/DC           |          1980 |
 
 | *CD_ID* | *Track* | Titel            |
 |     --- |     --- | ---              |
@@ -296,18 +332,16 @@ Album, Interpret, Erscheinungsjahr hängen von CD_ID ab, Titel nicht. Titel ist 
 
 
 
-### 3. NF verletzt
-
-Interpret einer CD lässt sich über CD_ID bestimmen. Das Geburtsjahr hängt aber vom Interpreten ab. Beides sind keine Schlüssel.
+### 2. Normalform
 
 <div style="font-size:20px;">
 
-| *CD_ID* | Album                     | Interpret       | Geburtsjahr |
-|     --- | ---                       | ---             | ---         |
-|       1 | Thriller                  | Michael Jackson | 1982        |
-|       2 | Back in Black             | **AC/DC**       | **1980**    |
-|       3 | The Dark Side of the Moon | Pink Floyd      | 1973        |
-|       4 | Highway to Hell           | **AC/DC**       | **1980**    |
+| *CD_ID* | Album                     | Interpret       | Gründungsjahr |
+|     --- | ---                       | ---             | ---           |
+|       1 | Thriller                  | Michael Jackson | 1982          |
+|       2 | Back in Black             | **AC/DC**       | **1980**      |
+|       3 | The Dark Side of the Moon | Pink Floyd      | 1973          |
+|       4 | Highway to Hell           | **AC/DC**       | **1980**      |
 
 | *CD_ID* | *Track* | Titel            |
 |     --- |     --- | ---              |
@@ -320,9 +354,13 @@ Interpret einer CD lässt sich über CD_ID bestimmen. Das Geburtsjahr hängt abe
 |       3 |       1 | Speak to Me      |
 |       3 |       2 | On the Run, Time |
 
+### 3. NF verletzt! Der Interpret einer CD lässt sich über CD_ID bestimmen. Das Gründungsjahr der Band hängt aber vom Interpreten ab. Beides sind keine Schlüssel. Das Problem ist Redundanz!
+
+Note: Redundante Infos in Nicht-Schlüsseln suchen
 
 
-### Jetzt in 3. Normalform
+
+### 3. Normalform
 
 Titel Tabelle wie oben.
 
@@ -335,11 +373,11 @@ Titel Tabelle wie oben.
 |       3 | The Dark Side of the Moon |            3 |
 |       4 | Highway to Hell           |            2 |
 
-| Interpret_ID | Interpret       | Geburtsjahr |
-|          --- | ---             |         --- |
-|            1 | Michael Jackson |        1982 |
-|            2 | AC/DC           |        1980 |
-|            3 | Pink Floyd      |        1973 |
+| Interpret_ID | Interpret       | Gründungsjahr |
+|          --- | ---             |           --- |
+|            1 | Michael Jackson |          1982 |
+|            2 | AC/DC           |          1980 |
+|            3 | Pink Floyd      |          1973 |
 
 
 
@@ -353,7 +391,7 @@ Beim Einfügen von Daten in eine Datenbank spricht man von einer Einfüge-Anomal
 
 
 ### Beispiel
-|Kennzeichen|Hersteller|Vorname|Nachname|
+|*Kennzeichen*|Hersteller|Vorname|*Nachname*|
 |---|---|---|---|
 |K-KJ 321|VW|Peter|Schmidt|
 |H-CH 333|Audi|Fritz|Schneider|
@@ -372,14 +410,14 @@ Beim Ändern von Daten in einer Datenbank spricht man von einer Änderungs-Anoma
 
 
 ### Beispiel
-|Kennzeichen|Hersteller|Farbe|Vorname|Nachname|
+|*Kennzeichen*|Hersteller|Vorname|*Nachname*|
 |---|---|---|---|
 |K-KJ 321|VW|Blau|Peter|Schmidt|
 |H-CH 333|Opel|Rot|Fritz|Schneider|
 |B-MD 321|BMW|Schwarz|Max|Maier|
 |B-MM 473|Peugeot|Grün|Max|Maier|
 
-Es wird in dieser Tabelle davon ausgegangen, dass die Erwähnungen von „Max Maier“ für ein und dieselbe Person gelten. Wird der Name „Maier“ in „Meier“ geändert, muss dieses an zwei Stellen geschehen. Geschieht dieses nicht, spricht man von einer Update-Anomalie.
+Wir gehen davon aus, dass beide "Max Meier" die selbe Person sind. Ändern wir nun seinen Namen in "Maier", muss dieses an zwei Stellen geschehen. Falls nicht, spricht man von einer Update-Anomalie.
 
 
 
@@ -389,7 +427,7 @@ Eine Lösch-Anomalie entsteht, wenn durch das Löschen eines Datensatzes mehr In
 
 
 ### Beispiel
-|Kennzeichen|Hersteller|Farbe|Vorname|Nachname|
+|*Kennzeichen*|Hersteller|Vorname|*Nachname*|
 |---|---|---|---|
 |K-KJ 321|VW|Blau|Peter|Schmidt|
 |H-CH 333|Opel|Rot|Fritz|Schneider|
@@ -399,4 +437,4 @@ Hier kann das Fahrzeug B-MD 321 nicht gelöscht werden, ohne den Fahrer ebenfall
 
 
 
-Alle Anomalien können beseitigt werden, wenn die Relationen in 3 Normalform vorliegt.
+Alle Anomalien können beseitigt werden, wenn die Datenbank in der 3. Normalform vorliegt.
