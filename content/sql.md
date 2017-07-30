@@ -2,9 +2,9 @@
 
 
 
-SQL ist der Relationalen Algebra in den Grundzügen sehr Ähnlich
+**SQL ist der Relationalen Algebra in den Grundzügen sehr Ähnlich**
 
-Alle Mengenoperationen, welche wir bei der Relationalen Algebra gesehen haben gibt es auch in SQL
+Die Mengenoperationen, die wir bei der Relationalen Algebra gesehen haben gibt es auch in SQL
 
 * Vereinigung
 * Schnitt
@@ -17,7 +17,7 @@ Alle Mengenoperationen, welche wir bei der Relationalen Algebra gesehen haben gi
 
 
 
-SQL ist die am weitesten verbreitete Datenbanksprache (manchmal auch Programmiersprache, obwohl nur teilweise richtig) der Welt.
+SQL ist die am weitesten verbreitete Datenbanksprache der Welt.
 
 
 
@@ -27,12 +27,14 @@ Gibt an aus welcher Tabelle ausgewählt wird
 
 
 ## SQL - Select
-Wählt angegebene spalten aus einer Tabelle aus
+Wählt die angegebenen Spalten aus einer Tabelle aus
 
 Entspricht in Relationaler Algebra dem Pi &pi;
 
+
+
 ### Beispiel
-Tebelle Student
+Tabelle Student
 
 |MatrNr|Name|
 |---|---|
@@ -45,17 +47,23 @@ SELECT *
 FROM Student
 ```
 
+|MatrNr|Name|
+|---|---|
+|26120|Fichte|
+|25403|Jonas|
+|27103|Fauler|
 
 
-Wichtig:
+
+## Wichtig:
 
 SQL ist nicht case sensitiv
 
-SELECT * FROM student
+**SELECT * FROM student**
 
-ist also das gleiche wie
+ist also das Gleiche wie
 
-select * from student
+**select * from student**
 
 Der Übersichtlichkeit halber schreiben wir hier aber sie Schlüsselwörter groß
 
@@ -66,8 +74,10 @@ Gibt Bedingungen an, welche Zeilen ausgewählt werden.
 
 Entspricht in Relationaler Algebra dem Sigma &sigma;
 
+
+
 ### Beispiel
-Tebelle Student
+Tabelle Student
 
 |MatrNr|Name|
 |---|---|
@@ -81,13 +91,20 @@ FROM Student
 WHERE MartrNr > 26000
 ```
 
+|MatrNr|Name|
+|---|---|
+|26120|Fichte|
+|27103|Fauler|
+
 
 
 ## SQL - Like
 LIKE filtert in der WHERE Klausel nach dem Inhalt der Zelle, wobei der Inhalt auch nur Teilweise erfüllt sein muss.
 
+
+
 ### Beispiel
-Tebelle Student
+Tabelle Student
 
 |MatrNr|Name|
 |---|---|
@@ -101,13 +118,20 @@ FROM Student
 WHERE Name LIKE 'F%'
 ```
 
+|MatrNr|Name|
+|---|---|
+|26120|Fichte|
+|27103|Fauler|
+
 
 
 ## SQL - AND
 AND verbindet mehrere boolesche Ausdrücke einer WHERE Klausel miteinander.
 
+
+
 ### Beispiel
-Tebelle Student
+Tabelle Student
 
 |MatrNr|Name|
 |---|---|
@@ -121,11 +145,17 @@ FROM Student
 WHERE Name LIKE 'F%' AND Name LIKE 'J%'
 ```
 
+|MatrNr|Name|
+|---|---|
+|26120|Fichte|
+|25403|Jonas|
+|27103|Fauler|
 
 
-Achtung!
 
-Innerhalb einer where Klausel müssen immer vollständig gültige boolesche Ausdrücke stehen
+## Achtung!
+
+Innerhalb einer where Klausel müssen immer vollständige boolesche Ausdrücke stehen
 ```sql
 SELECT * 
 FROM Student 
@@ -138,8 +168,10 @@ funktioniert also nicht!
 ## SQL - Between
 BETWEEN gibt einen Wertebereich an zwischen dem ein Ausdruck ausgewählt wird. Die Randbereiche werden dabei mit ausgewählt.
 
+
+
 ### Beispiel
-Tebelle Student
+Tabelle Student
 
 |MatrNr|Name|
 |---|---|
@@ -153,13 +185,19 @@ FROM Student
 WHERE MatrNr BETWEEN 26000 AND 27000
 ```
 
+|MatrNr|Name|
+|---|---|
+|26120|Fichte|
+
 
 
 ## SQL - Order By
 ORDER BY gibt an nach welcher Spalte sortiert werden soll
 
+
+
 ### Beispiel
-Tebelle Student
+Tabelle Student
 
 |MatrNr|Name|
 |---|---|
@@ -173,13 +211,21 @@ FROM Student
 ORDER BY Name
 ```
 
+|MatrNr|Name|
+|---|---|
+|25403|Jonas|
+|26120|Fichte|
+|27103|Fauler|
+
 
 
 ## SQL - Join
 Verknüpfungen von Tabellen. Es werden mehrere Tabellen auf einer Bedingung zusammengefasst.
 
+
+
 ### Beispiel
-Tebelle Student
+Tabelle Student
 
 |MatrNr|Name|
 |---|---|
@@ -201,13 +247,21 @@ FROM Student JOIN Studiert
   ON Student.MatrNr = Studiert.MatrNr
 ```
 
+|Name|Fach|
+|---|---|
+|Fichte|Informatik|
+|Jonas|Informatik|
+|Fauler|Medieninformatik|
+
 
 
 ## SQL - Insert Into
 INSERT INTO fügt Werte in eine Tabelle ein.
 
+
+
 ### Beispiel
-Tebelle Student
+Tabelle Student
 
 |MatrNr|Name|
 |---|---|
@@ -224,13 +278,23 @@ INSERT INTO Student (MatrNr)
 VALUES (30001)
 ```
 
+|MatrNr|Name|
+|---|---|
+|26120|Fichte|
+|25403|Jonas|
+|27103|Fauler|
+|30000|Hansen|
+|30001||
+
 
 
 ## SQL - Update
 UPDATE aktualisiert werte einer Tabelle.
 
+
+
 ### Beispiel
-Tebelle Student
+Tabelle Student
 
 |MatrNr|Name|
 |---|---|
@@ -244,6 +308,12 @@ SET Name = 'Faula'
 WHERE MatrNr = 27103
 ```
 
+|MatrNr|Name|
+|---|---|
+|26120|Fichte|
+|25403|Jonas|
+|27103|Faula|
+
 
 
 ## SQL - Aggregatfunktionen
@@ -256,8 +326,10 @@ Aggregatfunktionen sind Funktionen in SQL mit denen mit Werten gerechnet werden 
 * MIN() - Gibt das Minimum zurück
 * SUM() - Gibt die Summe zurück
 
+
+
 ### Beispiel
-Tebelle Student
+Tabelle Student
 
 |MatrNr|Name|
 |---|---|
@@ -270,13 +342,19 @@ SELECT MIN(MatrNr)
 FROM Student 
 ```
 
+|MIN(MatrNr)|
+|---|
+|25403|
+
 
 
 ## SQL - GROUP BY
 GROUP BY geht mit den Aggregatfunktionen einher. Für das Gruppieren von Werten werden zwangsläufig Aggregatfunktionen benötigt
 
+
+
 ### Beispiel
-Tebelle Student
+Tabelle Student
 
 |MatrNr|Name|Semester|
 |---|---|---|
@@ -289,6 +367,11 @@ SELECT MIN(MatrNr)
 FROM Student 
 GROUP BY Semester
 ```
+
+|MIN(MatrNr)
+|---|
+|26120|
+|25403|
 
 Gibt die kleinste Matrikelnummer **pro Semester** zurück.
 
@@ -320,21 +403,7 @@ Gibt aus:
 
 
 ## Lösungsvorschlag
-Tabelle **Formel1**
-<div style="font-size:20px;">
 
-|Saison|Fahrerweltmeister|KonstrukteursWM|WM_Punkte|Team_Punkte|
-|---|---|---|---|---|
-|1995|Michael Schumacher|Benetton-Renault|102|137|
-|1996|Damon Hill|Williams-Renault|97|175|
-|1997|Jaques Villeneuve|Williams-Renault|81|123|
-|1998|Mika Häkinnen|McLaren-Mercedes|100|156|
-|1999|Mika Häkinnen|Ferrari|76|128|
-|2000|Michael Schumacher|Ferrari|108|170|
-|2001|Michael Schumacher|Ferrari|123|179|
-|2002|Michael Schumacher|Ferrari|144|221|
-
-</div>
 Gibt aus:
 
 1. Alle Zeilen in denen Michael Schumacher Fahrerweltmeister wurde.
@@ -392,28 +461,7 @@ Wähle aus:
 
 
 ## Lösungsvorschlag
-Tabelle **Missionen**
-<div style="font-size:20px;">
 
-|MissionID|Name|Datum|
-|---|---|---|
-|1968-089A|Apollo 7|11. Oktober 1968|
-|1969-059A|Apollo 11|16. Juli 1969|
-|1970-029A|Apollo 13|11. April 1970|
-|1973-032A|Skylab 2|25. Mai 1973|
-
-</div>
-Tabelle **Besatzung**
-<div style="font-size:20px;">
-
-|MissionID|Kommandant|Pilot|ErsterOffizier|
-|---|---|
-|1968-089A|Donn Eisele|Walter Schirra|Walter Cunningham|
-|1969-059A|Neil Armstrong|Edwin „Buzz“ Aldrin|Michael Collins|
-|1970-029A|Jim Lovell|John Swigert|Fred Haise|
-|1973-032A|Joseph Kerwin|Charles Conrad|Paul Weitz|
-
-</div>
 Wähle aus:
 1. Die Mission die nach Apollo benannt wurden
 ```sql
@@ -478,38 +526,7 @@ Wähle aus:
 
 
 
-## Aufgabe
-Tabelle **Arenen**
-<div style="font-size:20px;">
-
-|ArenaID|Ort|BesitzendesTeam|
-|---|---|---|
-|ARN2732|BerlinHauptbahnhof|Team Intuition|
-|ARN7231|WüsteGobi|Team Wagemut|
-|ARN8329|UlmerMünster|Team Weisheit|
-|ARN6723|Eiffelturm|Team Wagemut|
-
-</div>
-Tabelle **ArenaPokemon**
-<div style="font-size:20px;">
-
-|ArenaID|Name|Kampfpunkte|
-|---|---|---|
-|ARN7231|Ratzfratz|68|
-|ARN6723|Taubsi|121|
-|ARN2732|Zubat|10|
-
-</div>
-Tabelle **Teams**
-<div style="font-size:20px;">
-
-|TeamName|Farbe|
-|---|---|
-|Team Intuition|Gelb|
-|Team Weisheit|Blau|
-|Team Wagemut|Rot|
-
-</div>
+## Lösungsvorschlag
 Wähle aus:
 1. Die Farbe des Teams von dem das Taubsi die Arena bewacht
 ```sql
