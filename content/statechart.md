@@ -105,7 +105,7 @@ Erstelle ein Statechart, das die Funktionsweise der Ampel beschreibt.
 ### Aufgabe
 Ein einfaches Faxgerät hat folgendes Benutzerinterface:
 
-![Faxmachine](content/images/Faxmachine.png)
+![Faxmachine](content/images/Faxmachine.png)<!-- .element height="50%" width="50%" -->
 
 Mit der Taste Ein/Aus wird das Gerät ein- bzw. ausgeschaltet. 
 

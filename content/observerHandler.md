@@ -1,4 +1,4 @@
-# Listener und Observer
+# Handler und Observer 
 
 
 
@@ -64,6 +64,7 @@ Note: ANIMIERT! Seperat öffnen, da die Animation sonst nicht funktioniert.
     * ObservableMap
     * ...
 * ...
+
 
 
 ### Schwierigkeiten von Observer/Observable
@@ -326,6 +327,7 @@ public class HandlerExample01 extends Application implements EventHandler<Action
 * MouseEvent.MOUSE_CLICKED
 * MouseEvent.MOUSE_DRAGGED
 * ...
+
 
 
 ### Aufgabe

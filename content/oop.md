@@ -201,7 +201,8 @@ Funktioniert die main-Methode der Klasse `Foo` so?
 
 Ja, oder nein. Warum?
 ```java
-public class Person extends Body {
+public class Person extends Body { 
+// Body: abstrakte Klasse mit Attributen 'int limbs' und 'int eyes' und einem Konstruktor
     final int height;
     int weight;
 
@@ -230,6 +231,7 @@ class Foo {
 ### Aufgabe 2 - Lösung
 ```java
 public class Person extends Body {
+// Body: abstrakte Klasse mit Attributen 'int limbs' und 'int eyes' und einem Konstruktor
     final int height;
     int weight;
 
@@ -262,6 +264,7 @@ Funktioniert die main-Methode der Klasse `Foo` so?
 Ja, oder nein. Warum?
 ```java
 public class Person extends Body {
+// Body: abstrakte Klasse mit Attributen 'int limbs' und 'int eyes' und einem Konstruktor
     final int height;
     int weight;
 
@@ -291,6 +294,7 @@ class Foo {
 ### Aufgabe 3 - Lösung
 ```java
 public class Person extends Body {
+// Body: abstrakte Klasse mit Attributen 'int limbs' und 'int eyes' und einem Konstruktor
     final int height;
     int weight;
 
@@ -319,6 +323,7 @@ class Foo {
 1. Ja, denn die Klasse `Person` erbt von `Body`.
 
 Note: abstract -> konkret geht, andersrum nicht!
+
 
 
 ### Aufgabe 4
@@ -398,6 +403,9 @@ public abstract class Body {
     }
 }
 ```
+
+
+
 ```java
 public class Person extends Body {
     int height;
@@ -441,6 +449,9 @@ public abstract class Body {
     }
 }
 ```
+
+
+
 ```java
 public class Person extends Body {
     int height;

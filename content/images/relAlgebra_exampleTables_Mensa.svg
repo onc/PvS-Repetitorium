@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 371.8 90.8" enable-background="new 0 0 371.8 90.8" xml:space="preserve">
+<rect x="11.7" y="10.4" fill="none" width="165.7" height="29.3"/>
+<text transform="matrix(1 0 0 1 75.8509 19.0411)"><tspan x="0" y="0" font-family="'Arial-BoldMT'" font-size="12">Mensa</tspan><tspan x="-60" y="18" font-family="'ArialMT'" font-size="12">MensaID GerichtID Sitzplätze</tspan></text>
+<line stroke="#000000" stroke-miterlimit="10" x1="11.7" y1="25.1" x2="177.4" y2="25.1"/>
+<rect x="196.2" y="10.4" fill="none" width="165.7" height="29.3"/>
+<text transform="matrix(1 0 0 1 258.0138 19.0411)"><tspan x="0" y="0" font-family="'Arial-BoldMT'" font-size="12">Gericht</tspan><tspan x="-57.4" y="18" font-family="'ArialMT'" font-size="12">GerichtID Name Preis Menge</tspan></text>
+<line stroke="#000000" stroke-miterlimit="10" x1="196.2" y1="25.1" x2="361.8" y2="25.1"/>
+<rect x="103.3" y="51.5" fill="none" width="165.7" height="29.3"/>
+<text transform="matrix(1 0 0 1 164.4253 60.1017)"><tspan x="0" y="0" font-family="'Arial-BoldMT'" font-size="12">Zutaten</tspan><tspan x="-42.7" y="18" font-family="'ArialMT'" font-size="12">ZutatID GerichtID Name</tspan></text>
+<line stroke="#000000" stroke-miterlimit="10" x1="103.3" y1="66.2" x2="268.9" y2="66.2"/>
+</svg>

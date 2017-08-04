@@ -99,7 +99,7 @@ liest `bytes` und wandelt sie in `chars` um / liest `chars` und wandelt sie in `
       System.out.print(c);
     }
 
-    reader.close();</code></pre>
+    reader.close();
 ```
 
 Output: Hallo Welt

@@ -114,8 +114,8 @@ Note: Ergebnis unten
 Ein Beispiel:
 
 * Zwei Alternativen
-  1. &pi;<sub style="font-size:20px;">KdNr, KdName</sub> (&sigma;<sub style="font-size:20px;">KdStadt = 'Ulm'</sub> Kunden)
-  2. &sigma;<sub style="font-size:20px;">KdStadt = 'Ulm'</sub> (&pi;<sub style="font-size:20px;">KdNr, KdName</sub> Kunden)
+  1. &pi;<sub style="font-size:20px;">{KdNr, KdName}</sub> (&sigma;<sub style="font-size:20px;">{KdStadt = 'Ulm'}</sub> Kunden)
+  2. &sigma;<sub style="font-size:20px;">{KdStadt = 'Ulm'}</sub> (&pi;<sub style="font-size:20px;">{KdNr, KdName}</sub> Kunden)
 * Eine der beiden Alternativen führt nicht zum gewünschten Ergebnis
 
 * Welche? Nr 2
@@ -127,17 +127,7 @@ Ein Beispiel:
 ## Aufgabe
 Gegeben seien die folgenden Relationenschemata:
 
-|Mensa|||
-|---|---|---|
-|MensaID|GerichtID|Sitzplätze|
-
-|Gericht||||
-|---|---|---|---|
-|GerichtID|Name|Preis|Menge|
-
-|Zutaten|||
-|---|---|---|
-|ZutatID|GerichtID|Name|
+![MensaTables](content/images/relAlgebra_exampleTables_Mensa.svg)<!-- .element height="50%" width="50%" -->
 
 --------
 
@@ -150,45 +140,22 @@ Gib die Algebra-Ausdrücke für die folgenden Anfragen an:
 
 
 ## Lösungsvorschlag
-|Mensa|||
-|---|---|---|
-|MensaID|GerichtID|Sitzplätze|
 
-|Gericht||||
-|---|---|---|---|
-|GerichtID|Name|Preis|Menge|
-
-|Zutaten|||
-|---|---|---|
-|ZutatID|GerichtID|Name|
+![MensaTables](content/images/relAlgebra_exampleTables_Mensa.svg)<!-- .element height="50%" width="50%" -->
 
 --------
 
 1. &pi;<sub style="font-size:20px;">{Name,Preis}</sub>Gericht
-2. &pi;<sub style="font-size:20px;">{Preis}</sub>Gericht &#10781;<sub style="font-size:20px;">{GerichtID}</sub>(&sigma;<sub style="font-size:20px;">{Sitzplätze = 530}</sub>Mensa)
-3. &pi;<sub style="font-size:20px;">{Sitzplätze}</sub>Mensa &#10781;<sub style="font-size:20px;">{GerichtID}</sub> (Gericht &#10781;<sub style="font-size:20px;">{GerichtID}</sub> (&sigma;<sub style="font-size:20px;">{Zutaten.Name = Fisch}</sub>Zutaten))
-4. &pi;<sub style="font-size:20px;">{Name}</sub>Zutaten &#10781;<sub style="font-size:20px;">{GerichtID}</sub> (&sigma;<sub style="font-size:20px;">{Gericht.Name = Gut & Günstig}</sub>Gericht) - &pi;<sub style="font-size:20px;">{Name}</sub>Zutaten &#10781;<sub style="font-size:20px;">{GerichtID}</sub> (&sigma;<sub style="font-size:20px;">{Gericht.Name = Lecker & Fein}</sub>Gericht)
+2. &pi;<sub style="font-size:20px;">{Preis}</sub>Gericht &#10781;<sub style="font-size:20px;">{Gericht.GerichtID = Mensa.GerichtID}</sub>(&sigma;<sub style="font-size:20px;">{Sitzplätze = 530}</sub>Mensa)
+3. &pi;<sub style="font-size:20px;">{Sitzplätze}</sub>Mensa &#10781;<sub style="font-size:20px;">{Mensa.GerichtID = Gericht.GerichtID}</sub> (Gericht &#10781;<sub style="font-size:20px;">{Gericht.GerichtID = Zutaten.GerichtID}</sub> (&sigma;<sub style="font-size:20px;">{Zutaten.Name = 'Fisch'}</sub>Zutaten))
+4. &pi;<sub style="font-size:20px;">{Name}</sub>Zutaten &#10781;<sub style="font-size:20px;">{Zutaten.GerichtID = Gericht.GerichtID}</sub> (&sigma;<sub style="font-size:20px;">{Gericht.Name = 'Gut & Günstig'}</sub>Gericht) - &pi;<sub style="font-size:20px;">{Name}</sub>Zutaten &#10781;<sub style="font-size:20px;">{Zutaten.GerichtID = Gericht.GerichtID}</sub> (&sigma;<sub style="font-size:20px;">{Gericht.Name = 'Lecker & Fein'}</sub>Gericht)
 
 
 
 ## Aufgabe
 Gegeben seien die folgenden Relationenschemata:
 
-|Teile||||
-|---|---|---|---|
-|TNR|Name|Preis|Bestand|
-
-|Lieferant|||
-|---|---|---|
-|LiefNr|LiefName|LiefStadt|
-
-|Bestellung|||
-|---|---|---|
-|TNR|LiefNr|KdNr|
-
-|Kunde|||
-|---|---|---|
-|KdNR|KdName|KdStadt|
+![TeileTables](content/images/relAlgebra_exampleTables_Teile.svg)<!-- .element height="50%" width="50%" -->
 
 --------
 
@@ -203,21 +170,8 @@ Gib die Algebra-Ausdrücke für die folgenden Anfragen an:
 
 
 ## Lösungsvorschlag
-|Teile||||
-|---|---|---|---|
-|TNR|Name|Preis|Bestand|
 
-|Lieferant|||
-|---|---|---|
-|LiefNr|LiefName|LiefStadt|
-
-|Bestellung|||
-|---|---|---|
-|TNR|LiefNr|KdNr|
-
-|Kunde|||
-|---|---|---|
-|KdNR|KdName|KdStadt|
+![TeileTables](content/images/relAlgebra_exampleTables_Teile.svg)<!-- .element height="50%" width="50%" -->
 
 --------
 
@@ -225,7 +179,7 @@ Gib die Algebra-Ausdrücke für die folgenden Anfragen an:
 2. &pi;<sub style="font-size:20px;">{LiefStadt}</sub>Lieferant &#x222a; &pi;<sub style="font-size:20px;">{KdStadt}</sub>(Bestellung &#10781;<sub style="font-size:20px;">{Bestellung.KdNr = Kunde.KdNr}</sub> Kunde)
 3. &pi;<sub style="font-size:20px;">{Name:KdName}</sub>Kunde − &pi;<sub style="font-size:20px;">{Name:LiefName}</sub>Lieferant
 4. &pi;<sub style="font-size:20px;">{LiefName, LiefStadt}</sub>Lieferant − &pi;<sub style="font-size:20px;">{LiefName, LiefStadt}</sub>(Lieferant &#10781;<sub style="font-size:20px;">{Lieferant.LiefNr = Bestellung.LiefNr}</sub> Bestellung)
-5. &pi;<sub style="font-size:20px;">{Name}</sub>(Teile &#10781;<sub style="font-size:20px;">{Teile.TNR = Bestellung.TNR}</sub> (&sigma;<sub style="font-size:20px;">{KdStadt = ’Ulm’ ^ LiefName = ’Rapp’}</sub>
+5. &pi;<sub style="font-size:20px;">{Name}</sub>(Teile &#10781;<sub style="font-size:20px;">{Teile.TNR = Bestellung.TNR}</sub> (&sigma;<sub style="font-size:20px;">{KdStadt = 'Ulm' ^ LiefName = 'Rapp'}</sub>
 ((Bestellung &#10781;<sub style="font-size:20px;">{Bestellung.LiefNr = Lieferant.LiefNr}</sub> Lieferant) &#10781;<sub style="font-size:20px;">{Bestellung.KdNr = Kunde.KdNr}</sub> Kunde)))
 6. &pi;<sub style="font-size:20px;">{Name}</sub>(Teile &#10781;<sub style="font-size:20px;">{Teile.TNR = Bestellung.TNR}</sub> (Bestellung &#10781;<sub style="font-size:20px;">{Bestellung.LiefNr = Lieferant.LiefNr ^ Bestellung.KdNr = Kunde.KdNr}</sub>
 (Lieferant &#10781;<sub style="font-size:20px;">{LiefStadt = KdStadt}</sub> Kunde)))
@@ -302,7 +256,7 @@ Note: Zusammengesetzter Primärschlüssel
 |       3 | The Dark Side of the Moon | Pink Floyd          |          1973 |       1 | Speak to Me      |
 |       3 | The Dark Side of the Moon | Pink Floyd          |          1973 |       2 | On the Run, Time |
 
-### 2. NF verletzt! Album, Interpret und Erscheinungsjahr hängen von CD_ID ab, aber nicht von Track! Die Nicht-Schlüssel-Attribute dürfen nicht nur von einem Teil des Schlüssels abhängen!
+### 2. NF verletzt! Album, Interpret und Gründungsjahr hängen von CD_ID ab, aber nicht von Track! Die Nicht-Schlüssel-Attribute dürfen nicht nur von einem Teil des Schlüssels abhängen!
 
 Note: Abhängigkeiten von Schlüsseln betrachten!
 
@@ -324,7 +278,7 @@ Note: Abhängigkeiten von Schlüsseln betrachten!
 |       1 |       1 | Baby Be Mine     |
 |       1 |       2 | The Girl Is Mine |
 |       1 |       3 | Thriller         |
-|       1 |       1 | Hells Bells      |
+|       2 |       1 | Hells Bells      |
 |       2 |       2 | Shoot to Thrill  |
 |       2 |       3 | Back in Black    |
 |       3 |       1 | Speak to Me      |
