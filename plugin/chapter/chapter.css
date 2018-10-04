@@ -1,4 +1,6 @@
 #chapter-panel {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 22px;
     position: fixed;
     top: 0;
     left: 0;
@@ -36,7 +38,9 @@
     color: #b10135;
 }
 
-#toggle-chapter {
+#toggle-chapter { 
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 22px;
     position: fixed;
     left: 0;
     bottom: 0;
@@ -45,9 +49,10 @@
     background-color: #b10135;
     text-align: center;
     line-height: 32px;
-    color: black;
+    color: white;
     z-index: 1002;
     border-top-right-radius: 8px;
+    padding: 20px;
 }
 
 #toggle-chapter:hover {
