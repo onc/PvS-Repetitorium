@@ -4,12 +4,12 @@
 
 ## Zeitplan
 
-| Montag              | Dienstag           | Mittwoch   |
-| ---                 | ---                | ---        |
-| OOP                 | XML                | Threads    |
-| JavaFX              | ER-Diagramme       | Fragen?    |
-| Listener & Observer | DB-Entwurf und SQL | Wünsche?   |
-| JavaIO              |                    |            |
+| Montag              | Dienstag           | Mittwoch |
+| ------------------- | ------------------ | -------- |
+| OOP                 | XML                | Threads  |
+| JavaFX              | ER-Diagramme       | Fragen?  |
+| Listener & Observer | DB-Entwurf und SQL | Wünsche? |
+| JavaIO              |                    |          |
 
 Note: GEPLANTER Zeitplan, muss nicht eingehalten werden
 

@@ -84,38 +84,38 @@ Die Java VM erstellt beim Auftreten eines Ereignisses (z.B. Button-Klick) automa
 
 
 ### Events
-|Klassenname|Auslösung|Beispiel|
-|---|---|---|
-|ActionEvent|GUI-Komponenten werden betätigt|Betätigen eines Buttons|
-|FocusEvent|Komponente bekommt oder verliert den Fokus|Nutzer klickt in TextArea|
-|MouseEvent|Mausaktionen werden getätigt|Maus klick|
-|TextEvent|Text einer Komponente verändert sich|In TextArea wird Text eingegeben|
-|WindowEvent|Zustand eines Fensters ändert sich|Fenster schließen|
-|XXXEvent|...|...|
-|...|...|...|
+| Klassenname | Auslösung                                  | Beispiel                         |
+| ----------- | ------------------------------------------ | -------------------------------- |
+| ActionEvent | GUI-Komponenten werden betätigt            | Betätigen eines Buttons          |
+| FocusEvent  | Komponente bekommt oder verliert den Fokus | Nutzer klickt in TextArea        |
+| MouseEvent  | Mausaktionen werden getätigt               | Maus klick                       |
+| TextEvent   | Text einer Komponente verändert sich       | In TextArea wird Text eingegeben |
+| WindowEvent | Zustand eines Fensters ändert sich         | Fenster schließen                |
+| XXXEvent    | ...                                        | ...                              |
+| ...         | ...                                        | ...                              |
 
 
 
 ### Event Methoden(1/2)
 #### ActionEvent
-|Rückgabewert|Methode|Aufruf|
-|---|---|---|
-|String|`getActionCommand()`|Gibt zugehörigen command-String zurück|
-|int|`getModifiers()`|Gibt modifizierende Keys (Strg, Umschalt, etc.) zurück|
-|long|`getWhen()`|Gibt Zeitstempel des Auftretens zurück|
-|...|...|...|
+| Rückgabewert | Methode              | Aufruf                                                 |
+| ------------ | -------------------- | ------------------------------------------------------ |
+| String       | `getActionCommand()` | Gibt zugehörigen command-String zurück                 |
+| int          | `getModifiers()`     | Gibt modifizierende Keys (Strg, Umschalt, etc.) zurück |
+| long         | `getWhen()`          | Gibt Zeitstempel des Auftretens zurück                 |
+| ...          | ...                  | ...                                                    |
 
 
 
 ### Event Methoden(2/2)
 #### MouseEvent
-|Rückgabewert|Methode|Aufruf|
-|---|---|---|
-|int|`getButton()`|Gibt zurück welcher (wenn überhaupt) Knopf der Maus gedrückt wurde|
-|int|`getClickCount()`|Gibt die Anzahl der Klicks eines Events zurück|
-|int|`getX()`|Gibt die X Koordinate relativ zur Komponente zurück|
-|int|`getY()`|Gibt die Y Koordinate relativ zur Komponente zurück|
-|...|...|...|
+| Rückgabewert | Methode           | Aufruf                                                             |
+| ------------ | ----------------- | ------------------------------------------------------------------ |
+| int          | `getButton()`     | Gibt zurück welcher (wenn überhaupt) Knopf der Maus gedrückt wurde |
+| int          | `getClickCount()` | Gibt die Anzahl der Klicks eines Events zurück                     |
+| int          | `getX()`          | Gibt die X Koordinate relativ zur Komponente zurück                |
+| int          | `getY()`          | Gibt die Y Koordinate relativ zur Komponente zurück                |
+| ...          | ...               | ...                                                                |
 
 
 

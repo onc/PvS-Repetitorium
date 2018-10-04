@@ -36,11 +36,11 @@ Entspricht in Relationaler Algebra dem Pi &pi;
 ### Beispiel
 Tabelle Student
 
-|MatrNr|Name|
-|---|---|
-|26120|Fichte|
-|25403|Jonas|
-|27103|Fauler|
+|            MatrNr            |            Name                                    |
+|            ------ --- --- --- --- --- --- --- --- --- --- --- |        ---    ------ --- --- --- --- --- ---  --- --- --- --- |
+|            26120                        |            Fichte            |
+|           25403                      |           Jonas                      |
+|           27103                      |           Fauler           |
 
 ```sql
 SELECT * 
@@ -91,10 +91,10 @@ FROM Student
 WHERE MartrNr > 26000
 ```
 
-|MatrNr|Name|
-|---|---|
-|26120|Fichte|
-|27103|Fauler|
+|  MatrNr  |  Name      |
+| --- ------  | - ------ -- |
+|  26120    |  Fichte  |
+|  27103    |  Fauler  |
 
 
 
@@ -211,11 +211,11 @@ FROM Student
 ORDER BY Name
 ```
 
-|MatrNr|Name|
-|---|---|
-|25403|Jonas|
-|26120|Fichte|
-|27103|Fauler|
+| MatrNr | Name   |
+| ------ | ------ |
+| 25403  | Jonas  |
+| 26120  | Fichte |
+| 27103  | Fauler |
 
 
 
@@ -226,17 +226,17 @@ Verknüpfungen von Tabellen. Es werden mehrere Tabellen auf einer Bedingung zusa
 
 ### Beispiel
 
-|Student|MatrNr|Name|
-|---|---|---|
-||26120|Fichte|
-||25403|Jonas|
-||27103|Fauler|
+| Student | MatrNr | Name |
+| ------- | ------ | ---- |
+| 26120   | Fichte |
+| 25403   | Jonas  |
+| 27103   | Fauler |
 
-|Studiert|MatrNr|Fach|
-|---|---|---|
-||26120|Informatik|
-||25403|Informatik|
-||27103|Medieninformatik|
+| Studiert | MatrNr           | Fach |
+| -------- | ---------------- | ---- |
+| 26120    | Informatik       |
+| 25403    | Informatik       |
+| 27103    | Medieninformatik |
 
 ```sql
 SELECT Student.Name, Studiert.Fach
@@ -244,11 +244,11 @@ FROM Student JOIN Studiert
   ON Student.MatrNr = Studiert.MatrNr
 ```
 
-|Name|Fach|
-|---|---|
-|Fichte|Informatik|
-|Jonas|Informatik|
-|Fauler|Medieninformatik|
+| Name   | Fach             |
+| ------ | ---------------- |
+| Fichte | Informatik       |
+| Jonas  | Informatik       |
+| Fauler | Medieninformatik |
 
 
 
@@ -275,13 +275,13 @@ INSERT INTO Student (MatrNr)
 VALUES (30001)
 ```
 
-|MatrNr|Name|
-|---|---|
-|26120|Fichte|
-|25403|Jonas|
-|27103|Fauler|
-|30000|Hansen|
-|30001||
+| MatrNr | Name   |
+| ------ | ------ |
+| 26120  | Fichte |
+| 25403  | Jonas  |
+| 27103  | Fauler |
+| 30000  | Hansen |
+| 30001  |
 
 
 
@@ -305,11 +305,11 @@ SET Name = 'Faula'
 WHERE MatrNr = 27103
 ```
 
-|MatrNr|Name|
-|---|---|
-|26120|Fichte|
-|25403|Jonas|
-|27103|Faula|
+| MatrNr | Name   |
+| ------ | ------ |
+| 26120  | Fichte |
+| 25403  | Jonas  |
+| 27103  | Faula  |
 
 
 
@@ -353,11 +353,11 @@ GROUP BY geht mit den Aggregatfunktionen einher. Für das Gruppieren von Werten 
 ### Beispiel
 Tabelle Student
 
-|MatrNr|Name|Semester|
-|---|---|---|
-|26120|Fichte|2|
-|25403|Jonas|3|
-|27103|Fauler|3|
+| MatrNr | Name   | Semester |
+| ------ | ------ | -------- |
+| 26120  | Fichte | 2        |
+| 25403  | Jonas  | 3        |
+| 27103  | Fauler | 3        |
 
 ```sql
 SELECT MIN(MatrNr)
@@ -378,16 +378,16 @@ Gibt die kleinste Matrikelnummer **pro Semester** zurück.
 Tabelle **Formel1**
 <div style="font-size:20px;">
 
-|Saison|Fahrerweltmeister|KonstrukteursWM|WM_Punkte|Team_Punkte|
-|---|---|---|---|---|
-|1995|Michael Schumacher|Benetton-Renault|102|137|
-|1996|Damon Hill|Williams-Renault|97|175|
-|1997|Jaques Villeneuve|Williams-Renault|81|123|
-|1998|Mika Häkinnen|McLaren-Mercedes|100|156|
-|1999|Mika Häkinnen|Ferrari|76|128|
-|2000|Michael Schumacher|Ferrari|108|170|
-|2001|Michael Schumacher|Ferrari|123|179|
-|2002|Michael Schumacher|Ferrari|144|221|
+| Saison | Fahrerweltmeister  | KonstrukteursWM  | WM_Punkte | Team_Punkte |
+| ------ | ------------------ | ---------------- | --------- | ----------- |
+| 1995   | Michael Schumacher | Benetton-Renault | 102       | 137         |
+| 1996   | Damon Hill         | Williams-Renault | 97        | 175         |
+| 1997   | Jaques Villeneuve  | Williams-Renault | 81        | 123         |
+| 1998   | Mika Häkinnen      | McLaren-Mercedes | 100       | 156         |
+| 1999   | Mika Häkinnen      | Ferrari          | 76        | 128         |
+| 2000   | Michael Schumacher | Ferrari          | 108       | 170         |
+| 2001   | Michael Schumacher | Ferrari          | 123       | 179         |
+| 2002   | Michael Schumacher | Ferrari          | 144       | 221         |
 
 </div>
 Gibt aus:
@@ -429,19 +429,19 @@ SELECT Saison FROM Formel1 ORDER BY Team_Punkte
 ## Aufgabe
 <div style="font-size:20px;">
 
-|Missionen|MissionID|Name|Datum|
-|---|---|---|---|
-||1968-089A|Apollo 7|11. Oktober 1968|
-||1969-059A|Apollo 11|16. Juli 1969|
-||1970-029A|Apollo 13|11. April 1970|
-||1973-032A|Skylab 2|25. Mai 1973|
+| Missionen | MissionID | Name             | Datum |
+| --------- | --------- | ---------------- | ----- |
+| 1968-089A | Apollo 7  | 11. Oktober 1968 |
+| 1969-059A | Apollo 11 | 16. Juli 1969    |
+| 1970-029A | Apollo 13 | 11. April 1970   |
+| 1973-032A | Skylab 2  | 25. Mai 1973     |
 
-|Besatzung|MissionID|Kommandant|Pilot|ErsterOffizier|
-|---|---|---|
-||1968-089A|Donn Eisele|Walter Schirra|Walter Cunningham|
-||1969-059A|Neil Armstrong|Edwin „Buzz“ Aldrin|Michael Collins|
-||1970-029A|Jim Lovell|John Swigert|Fred Haise|
-||1973-032A|Joseph Kerwin|Charles Conrad|Paul Weitz|
+| Besatzung | MissionID      | Kommandant           | Pilot             | ErsterOffizier |
+| --------- | -------------- | -------------------- |
+| 1968-089A | Donn Eisele    | Walter Schirra       | Walter Cunningham |
+| 1969-059A | Neil Armstrong | Edwin „Buzz“ Aldrin | Michael Collins   |
+| 1970-029A | Jim Lovell     | John Swigert         | Fred Haise        |
+| 1973-032A | Joseph Kerwin  | Charles Conrad       | Paul Weitz        |
 
 </div>
 Wähle aus:
@@ -483,24 +483,24 @@ SELECT MissionID FROM Besatzung WHERE
 ## Aufgabe
 <div style="font-size:20px;">
 
-|Arenen|ArenaID|Ort|BesitzendesTeam|
-|---|---|---|---|
-||ARN2732|BerlinHauptbahnhof|Team Intuition|
-||ARN7231|WüsteGobi|Team Wagemut|
-||ARN8329|UlmerMünster|Team Weisheit|
-||ARN6723|Eiffelturm|Team Wagemut|
+| Arenen  | ArenaID            | Ort            | BesitzendesTeam |
+| ------- | ------------------ | -------------- | --------------- |
+| ARN2732 | BerlinHauptbahnhof | Team Intuition |
+| ARN7231 | WüsteGobi          | Team Wagemut   |
+| ARN8329 | UlmerMünster       | Team Weisheit  |
+| ARN6723 | Eiffelturm         | Team Wagemut   |
 
-|ArenaPokemon|ArenaID|Name|Kampfpunkte|
-|---|---|---|---|
-||ARN7231|Ratzfratz|68|
-||ARN6723|Taubsi|121|
-||ARN2732|Zubat|10|
+| ArenaPokemon | ArenaID   | Name | Kampfpunkte |
+| ------------ | --------- | ---- | ----------- |
+| ARN7231      | Ratzfratz | 68   |
+| ARN6723      | Taubsi    | 121  |
+| ARN2732      | Zubat     | 10   |
 
-|Teams|TeamName|Farbe|
-|---|---|---|
-||Team Intuition|Gelb|
-||Team Weisheit|Blau|
-||Team Wagemut|Rot|
+| Teams          | TeamName | Farbe |
+| -------------- | -------- | ----- |
+| Team Intuition | Gelb     |
+| Team Weisheit  | Blau     |
+| Team Wagemut   | Rot      |
 
 </div>
 Wähle aus:

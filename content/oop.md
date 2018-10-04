@@ -77,12 +77,12 @@ Note: Kuchenform: Volumen und Durchmesser statisch
 
 
 ### Zugriffsmodifizierer 
-|                | Die Klasse selbst, innere Klassen | Klassen im selben Package | Unterklassen | Sonstige Klassen |
-|--------------|-----------------------------------|---------------------------|--------------|------------------|
-| private "-"  | Ja                                | Nein                      | Nein         | Nein             |
-| (default) "~"| Ja                                | Ja                        | Nein         | Nein             |
-| protected "#"| Ja                                | Ja                        | Ja           | Nein             |
-| public "+"   | Ja                                | Ja                        | Ja           | Ja               |
+|               | Die Klasse selbst, innere Klassen | Klassen im selben Package | Unterklassen | Sonstige Klassen |
+| ------------- | --------------------------------- | ------------------------- | ------------ | ---------------- |
+| private "-"   | Ja                                | Nein                      | Nein         | Nein             |
+| (default) "~" | Ja                                | Ja                        | Nein         | Nein             |
+| protected "#" | Ja                                | Ja                        | Ja           | Nein             |
+| public "+"    | Ja                                | Ja                        | Ja           | Ja               |
 
 Note: Erklären: mehrere Klassen in einer Datei, innere Klassen, Unterklassen; default == package private
 

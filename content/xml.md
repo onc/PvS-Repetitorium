@@ -459,10 +459,10 @@ SVG basiert auf XML und ist daher für Mashinen und Menschen gut lesbar.
 ### SVG - Elemente
 ![SVG-Grundelemente](content/images/SVG-Grundelemente.svg)
 
-|||
-|---|---|
-|< rect x="25" y="25" width="40" height="40" />|< circle cx="160" cy="40" r="20" />|
-|< line x1="25" y1="150" x2="80" y2="120" />|< polyline points="150,120 170,150 170,180 180,130" />|
+|  |
+| ---------------------------------------------- | ------------------------------------------------------ |
+| < rect x="25" y="25" width="40" height="40" /> | < circle cx="160" cy="40" r="20" />                    |
+| < line x1="25" y1="150" x2="80" y2="120" />    | < polyline points="150,120 170,150 170,180 180,130" /> |
 
 
 
@@ -486,14 +486,14 @@ XPath nutzt Reguläre Ausdrücke um Knoten (nodes) in XML Dokumenten zu selektie
 ### XPath Selektoren
 Selektoren werden verwendet um bestimmte Knoten oder Attribute auszuwählen
 
-|Ausdruck|Beschreibung|
-|---|---|
-|nodename|Wählt alle Knoten mit dem Namen `nodename` aus|
-|`/`|Wählt den Wurzelknoten aus|
-|`//`|Wählt Knoten passend zum Selektor aus, unabhänging von ihrer Position|
-|`.`|Wählt den gegenwärtigen Knoten aus|
-|`..`|Wählt den Vater des gegenwärtigen Knotens aus|
-|`@`|Wählt Attribute|
+| Ausdruck | Beschreibung                                                          |
+| -------- | --------------------------------------------------------------------- |
+| nodename | Wählt alle Knoten mit dem Namen `nodename` aus                        |
+| `/`      | Wählt den Wurzelknoten aus                                            |
+| `//`     | Wählt Knoten passend zum Selektor aus, unabhänging von ihrer Position |
+| `.`      | Wählt den gegenwärtigen Knoten aus                                    |
+| `..`     | Wählt den Vater des gegenwärtigen Knotens aus                         |
+| `@`      | Wählt Attribute                                                       |
 
 
 
@@ -511,14 +511,14 @@ Selektoren werden verwendet um bestimmte Knoten oder Attribute auszuwählen
     </book>
 </bookstore>
 ```
-|Ausdruck|Resultat|
-|---|---|
-|`bookstore`|Wählt alle Knoten mit dem Namen `bookstore` aus|
-|`/bookstore`|Wählt den Wurzelknoten `bookstore` aus|
-|`bookstore/book`|Wählt alle `book` Knoten aus, die Kinder von `bookstore` sind|
-|`//book`|Wählt alle `book` Knoten aus|
-|`bookstore//book`|Wählt alle `book` Knoten (die Kinder von `bookstore` sind) aus, unabhängig von ihrer Position|
-|`//@lang`|Wählt alle `lang` Attribute aus|
+| Ausdruck          | Resultat                                                                                      |
+| ----------------- | --------------------------------------------------------------------------------------------- |
+| `bookstore`       | Wählt alle Knoten mit dem Namen `bookstore` aus                                               |
+| `/bookstore`      | Wählt den Wurzelknoten `bookstore` aus                                                        |
+| `bookstore/book`  | Wählt alle `book` Knoten aus, die Kinder von `bookstore` sind                                 |
+| `//book`          | Wählt alle `book` Knoten aus                                                                  |
+| `bookstore//book` | Wählt alle `book` Knoten (die Kinder von `bookstore` sind) aus, unabhängig von ihrer Position |
+| `//@lang`         | Wählt alle `lang` Attribute aus                                                               |
 
 
 
@@ -603,14 +603,14 @@ Sie werden immer in eckigen Klammern geschrieben
     </book>
 </bookstore>
 ```
-|Ausdruck|Resultat|
-|---|---|
-|/bookstore/book[1]|Wählt den ersten book Knoten, welcher Kind von bookstore ist, aus|
-|/bookstore/book[last()]|Wählt das letzte book Kind aus bookstore aus|
-|/bookstore/book[last()-1]|Wählt das vorletzte book Kind aus bookstore aus|
-|//title[@lang]|Wählt alle Titel Knoten aus die ein Attribut *lang* haben|
-|/bookstore/book[price>35.00]|Wählt alle Book Knoten aus deren Preis über 35.00|
-|/bookstore/book[price>35.00]/title|Wählt alle title Elemente aus Book Elementen innerhalb des Bookstores aus mit einem Preis von über 35.00|
+| Ausdruck                           | Resultat                                                                                                 |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| /bookstore/book[1]                 | Wählt den ersten book Knoten, welcher Kind von bookstore ist, aus                                        |
+| /bookstore/book[last()]            | Wählt das letzte book Kind aus bookstore aus                                                             |
+| /bookstore/book[last()-1]          | Wählt das vorletzte book Kind aus bookstore aus                                                          |
+| //title[@lang]                     | Wählt alle Titel Knoten aus die ein Attribut *lang* haben                                                |
+| /bookstore/book[price>35.00]       | Wählt alle Book Knoten aus deren Preis über 35.00                                                        |
+| /bookstore/book[price>35.00]/title | Wählt alle title Elemente aus Book Elementen innerhalb des Bookstores aus mit einem Preis von über 35.00 |
 
 
 
@@ -671,11 +671,11 @@ Sie werden immer in eckigen Klammern geschrieben
 ### XPath Wildcards
 Wildcards werden benutzt um unbekannte Knoten zu selektieren
 
-|Ausdruck|Beschreibung|
-|---|---|
-|*|Wählt jedes beliebige Elemente|
-|@*|Wählt jedes beliebige Attribut|
-|node()|Wählt irgendeinen beliebigen Knoten|
+| Ausdruck | Beschreibung                        |
+| -------- | ----------------------------------- |
+| *        | Wählt jedes beliebige Elemente      |
+| @*       | Wählt jedes beliebige Attribut      |
+| node()   | Wählt irgendeinen beliebigen Knoten |
 
 
 
@@ -693,11 +693,11 @@ Wildcards werden benutzt um unbekannte Knoten zu selektieren
     </book>
 </bookstore>
 ```
-|Ausdruck|Resultat|
-|---|---|
-|/bookstore/*|Wählt alle Kinder des bookstore Knotens aus|
-|//*|Wählt alle Elemente des Dokuments|
-|/title[@*]|Wählt alle Titel elemente aus die mindestens ein Attribut haben|
+| Ausdruck     | Resultat                                                        |
+| ------------ | --------------------------------------------------------------- |
+| /bookstore/* | Wählt alle Kinder des bookstore Knotens aus                     |
+| //*          | Wählt alle Elemente des Dokuments                               |
+| /title[@*]   | Wählt alle Titel elemente aus die mindestens ein Attribut haben |
 
 
 

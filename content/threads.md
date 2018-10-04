@@ -22,16 +22,16 @@ Im Texteditor (Prozess) kann gleichzeitig die automatische Rechtschreibprüfung 
 
 
 ## Wichtige Begriffe und Schlüsselwörter
-| Schlüsselwort | Funktion |
-|---|---|
-| Thread | *Klasse*, welche unterschiedliche Methoden für die Handhabung von Nebenläufigkeit anbietet. |
-| Runnable | *Interface*, welches die `run()`-Methode vorgibt. |
-| start | Bewirkt das starten eines Threads. Die Java VM ruft intern die `run()`-Methode des `Runnable` Interfaces auf. |
-| synchronized | Markiert kritische Programmabschnitte |
-| volatile | Markiert Variablen um zu verhindern, dass diese zwischengespeichert werden. |
-| atomic | *Klasse*, die Bspw. `AtomicInteger` nutz um Funktionen Atomar auszuführen. |
-| join | Bewirkt, dass Threads aufeinander warten. |
-| sleep | Verzögert die Ausführung eines Threads |
+| Schlüsselwort | Funktion                                                                                                      |
+| ------------- | ------------------------------------------------------------------------------------------------------------- |
+| Thread        | *Klasse*, welche unterschiedliche Methoden für die Handhabung von Nebenläufigkeit anbietet.                   |
+| Runnable      | *Interface*, welches die `run()`-Methode vorgibt.                                                             |
+| start         | Bewirkt das starten eines Threads. Die Java VM ruft intern die `run()`-Methode des `Runnable` Interfaces auf. |
+| synchronized  | Markiert kritische Programmabschnitte                                                                         |
+| volatile      | Markiert Variablen um zu verhindern, dass diese zwischengespeichert werden.                                   |
+| atomic        | *Klasse*, die Bspw. `AtomicInteger` nutz um Funktionen Atomar auszuführen.                                    |
+| join          | Bewirkt, dass Threads aufeinander warten.                                                                     |
+| sleep         | Verzögert die Ausführung eines Threads                                                                        |
 
 
 
