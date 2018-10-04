@@ -1,6 +1,6 @@
 # PvS Repetitorium
 
-Dieses Repo enthält alle Folien und Übungen des PvS Repetitorium im Sommersemester 2016 an der Universität Ulm.
+Dieses Repo enthält alle Folien und Übungen des PvS Repetitorium im Sommersemester 2018 an der Universität Ulm.
 Wenn du irgendwelche Fehler finden solltest, erstelle gerne einen [Issue](https://github.com/onc/PvS-Repetitorium/issues/new). 
 
 Bitte beachte: Die Markdown-Dateien in `content/` müssen unix line-endings haben!
@@ -14,7 +14,7 @@ Bitte beachte: Die Markdown-Dateien in `content/` müssen unix line-endings habe
 ## Inhalt
 
 | Ordner       | Inhalt                                                      |
-|--------------|-------------------------------------------------------------|
+| ------------ | ----------------------------------------------------------- |
 | checks       | Checkstyle-Konfiguration und Google Style-Guide für Eclipse |
 | code/PvS-Rep | Eclipse-Projekt für die Übungen                             |
 | content      | Folien                                                      |
