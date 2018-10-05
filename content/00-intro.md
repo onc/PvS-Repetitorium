@@ -4,12 +4,12 @@
 
 ## Zeitplan
 
-| Montag              | Dienstag           | Mittwoch |
-| ------------------- | ------------------ | -------- |
-| OOP                 | XML                | Threads  |
-| JavaFX              | ER-Diagramme       | Fragen?  |
-| Listener & Observer | DB-Entwurf und SQL | Wünsche? |
-| JavaIO              |                    |          |
+| Donnerstag                    | Freitag            | Samstag     |
+| ----------------------------- | ------------------ | ----------- |
+| OOP                           | RDBMS              | Petri-Netze |
+| Grafische Benutzeroberflächen | SQL                | Threads     |
+| UML                           | SQL-Programmierung | Fragen?     |
+| Dateien und JavaIO            | DB-Entwurf         | Wünsche?    |
 
 Note: GEPLANTER Zeitplan, muss nicht eingehalten werden
 
@@ -19,8 +19,10 @@ Note: GEPLANTER Zeitplan, muss nicht eingehalten werden
 
 [https://onc.github.io/PvS-Repetitorium](https://onc.github.io/PvS-Repetitorium)
 
-maria.aufheimer@uni-ulm.de
+[`tobias.lahmann@uni-ulm.de`](mailto:tobias.lahmann@uni-ulm.de)
 
-christian.van-onzenoodt@uni-ulm.de
+---
 
-Am besten immer an BEIDE schreiben!
+Mit liebevoller Unterstützung von:
+
+Maria Aufheimer und Christian van Onzenoodt
