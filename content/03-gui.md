@@ -1,41 +1,47 @@
-# JavaFX
+# Java Swing
 
 
 
-### Übersicht der JavaFX-Hierarchie
+### Übersicht der Swing-Hierarchie
 
-![JavaFX](content/images/javafx.svg)<!-- .element height="50%" width="50%" -->
+![Swing](content/images/swing.svg)<!-- .element height="50%" width="50%" -->
 
 
 
 ### Setup im Code
 
 ```java
-public class ExampleClass extends Application {
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
-  public static void main(String[] args) {
-    launch(args);
-  }
+public class SwingWindow extends JFrame{
+	public static void main(String[] args) {
+		new PoemWindow();
+	}
+	
+	public SwingWindow() {
+		super(); // Aufruf ist nicht unbedingt notwendig
+		setSize(300, 200);
+		setTitle("Ein Fenster");		
+		getContentPane().add(new JLabel("Hallo, PvS-Rep"));
+		this.setVisible(true);
+	}
+}
+```
 
-  @Override
-  public void start(Stage primaryStage) throws Exception {
-    // Hier steht der primäre GUI Code
-  }
-}```
 
 
+### Swing Komponenten 
 
-### FX Komponenten
-
-* `Button`
-* `Label`
-* `MenuBar`, `Menu`, `MenuItem`
-* `CheckBox`
-* `RadioButton`
-* `TextField`
-* `TextArea`
-* `PasswordField`
-* `ScrollPane`
+* `JButton` 
+* `JLabel`
+* `JMenuBar`, `JMenu`, `JMenuItem`
+* `JCheckBox`
+* `JRadioButton`
+* `JTextField`
+* `JTextArea`
+* `JPasswordField`
+* `JScrollPane`
 * ...
 
 
@@ -45,133 +51,90 @@ public class ExampleClass extends Application {
 LayoutManager verwalten das Layout des Fensters. 
 Alle Komponenten werden dem Layout entsprechend skaliert und positioniert, auch wenn sich die Fenstergröße ändert.
 
-* `VBox`, `HBox` *nebeneinander/übereinander*
-* `StackPane` *aufeinander*
-* `BorderPane` *Bereiche*
-* `TilePane`, `FlowPane` *von links nach rechts*
-* `AnchorPane` *absolut oder relativ zu umgebenden Rändern*
-* `GridPane` *Gitternetz*
+* **`JFlowLayout` (!)**
+* **`JGridLayout` (!)**
+* **`JBorderLayout` (!)**
+* `JBoxLayout`
+* `JCardLayout` 
 
-Note: TilePane: alle so groß wie die Größte, FlowPane: alle nur so viel groß wie nötig
+Note: Fett gedruckte sind Layouts sind die am häufigsten verwendeten
 
-
-
-### BorderPane
-
-![FX_BorderPane](content/images/fx-borderPane.png)<!-- .element height="50%" width="50%" -->
+Werden gleich besprochen 
 
 
 
-### BorderPane Example
+### FlowLayout Beispiel
+
+![Swing FlowLayout](content/images/swing-flow-layout.png)<!-- .element height="50%" width="50%" -->
 
 ```java
-public class BorderPaneExample extends Application {
-  ...
-  @Override
-  public void start(Stage primaryStage) throws Exception {
-    primaryStage.setTitle("BorderPaneExample");
-    BorderPane rootLayout = new BorderPane();
+public class FlowLayoutExample extends JFrame {
+	public FlowLayoutExample() {
+		JPanel panel = new JPanel(); 
+		panel.setLayout(new FlowLayout());
+		panel.add(new JButton("Button")); 
+    	// ... 
 
-    Button top = new Button("top");
-    BorderPane.setAlignment(top, Pos.CENTER);
-    rootLayout.setTop(top);
-    ... // das gleiche noch für left, right, center und bottom
-    
-    primaryStage.setScene(new Scene(rootLayout, 300, 300));
-    primaryStage.show();
+		Container container = this.getContentPane();
+    	container.add(panel);
+    	this.setVisible(true);
+	}
+}
+```
+
+<small>Achtung: Keine 1 zu 1 umsetzung des Bildes!</small>
+
+
+
+### GridLayout Beispiel
+
+![Swing GridLayout](content/images/swing-grid-layout.png)<!-- .element height="50%" width="50%" -->
+
+```java
+public class GridLayoutExample extends JFrame {
+  private static final int GRID_ROWS = 5;
+  private static final int GRID_COLS = 3;
+
+  public GridLayoutExample() {
+    JPanel panel = new JPanel(); 
+    panel.setLayout(new GridLayout(GRID_ROWS, GRID_COLS, GRID_GAP));
+
+    for (int y = 0; y < GRID_ROWS; y++) {
+  	  for (int x = 0; x < GRID_COLS; x++) {
+        JButton button = new JButton("Button at (x: " + x + ", y: " + y + ")");
+	    panel.add(button);
+      }
+	}
+	Container container = this.getContentPane();
+    container.add(panel);
+    this.setVisible(true);
   }
-}```
+}
+```
 
 
 
-### TilePane
+### BorderLayout Beispiel
 
-![FX-TilePane](content/images/fx-tilePane.png)
-
-
-
-### TilePane Example
+![Swing BorderLayout](content/images/swing-border-layout.png)<!-- .element height="50%" width="50%" -->
 
 ```java
-public class TilePaneExample extends Application{
-    ...
-	@Override
-	public void start(Stage primaryStage) throws Exception {
-		primaryStage.setTitle("TilePaneExample");
-		TilePane rootLayout = new TilePane();
-		
-		Button button = new Button("I'm a Button!");
-		TextArea textArea = new TextArea("I'm a TextArea!");
-		TextField textField = new TextField("I'm a TextField!");
-		RadioButton radioButton = new RadioButton("I'm a RadioButton!");
+public class BorderLayoutExample extends JFrame {
+  public BorderLayoutExample() {
+    JPanel panel = new JPanel();
+    panel.setLayout(new BorderLayout());
 
-		rootLayout.getChildren().addAll(button, textArea, textField, radioButton);
-		primaryStage.setScene(new Scene(rootLayout, 1076, 400));
-		primaryStage.show();
-	}
-}```
+    panel.add(new JButton("North"), BorderLayout.NORTH);
+    panel.add(new JButton("South"), BorderLayout.SOUTH);
+    panel.add(new JButton("West"), BorderLayout.WEST);
+    panel.add(new JButton("Center"), BorderLayout.CENTER); 
 
-
-
-### FlowPane
-
-![FX-FlowPane](content/images/fx-flowPane.png)<!-- .element height="50%" width="50%" -->
-
-
-
-### FlowPane Example
-
-```java
-public class FlowPaneExample extends Application{
-    ...
-	@Override
-	public void start(Stage primaryStage) throws Exception {
-		primaryStage.setTitle("FlowPaneExample");
-		FlowPane rootLayout = new FlowPane();
-		
-		Button button = new Button("I'm a Button!");
-		TextArea textArea = new TextArea("I'm a TextArea!");
-		TextField textField = new TextField("I'm a TextField!");
-		RadioButton radioButton = new RadioButton("I'm a RadioButton!");
-
-		rootLayout.getChildren().addAll(button, textArea, textField, radioButton);
-		primaryStage.setScene(new Scene(rootLayout, 400, 400));
-		primaryStage.show();
-	}
-}```
-
-
-
-### GridPane
-
-![FX-GridPane](content/images/fx-gridPane.png)<!-- .element height="50%" width="50%" -->
-
-
-
-### GridPane Example
-
-```java
-public class GridPaneExample extends Application{
-    ...
-	@Override
-	public void start(Stage primaryStage) throws Exception {
-		primaryStage.setTitle("GridPaneExample");
-		GridPane rootLayout = new GridPane();
-		
-		Button button = new Button("I'm a Button!");
-		TextArea textArea = new TextArea("I'm a TextArea!");
-		TextField textField = new TextField("I'm a TextField!");
-        
-        // node, column, row, columnSpan, rowSpan
-		rootLayout.add(button, 1, 5, 1, 1);
-		rootLayout.add(textArea, 1, 1, 3, 2);
-		rootLayout.add(textField, 3, 4, 2, 1);
-		
-		primaryStage.setScene(new Scene(rootLayout, 500, 400));
-		primaryStage.show();
-		
-	}
-}```
+    Container container = this.getContentPane();
+    container.add(panel);
+    this.setVisible(true);
+  }
+}
+```
 
 
 
@@ -182,48 +145,29 @@ public class GridPaneExample extends Application{
 ### Aufgabe 1
 Schreibe ein Programm, das die folgende GUI erzeugt 
 
-![FX-Übung](content/images/fx-uebung01.png)<!-- .element height="50%" width="50%" -->
+![Swing Übung](content/images/swing-uebung.png)<!-- .element height="50%" width="50%" -->
 
 
 
-### Lösung 1 (1/2)
-
-```java
-		primaryStage.setTitle("FX-Übung 01");
-		BorderPane root = new BorderPane();
-		GridPane grid = new GridPane();
-				
-		Label name = new Label("Name: ");
-		name.setPrefSize(150, 75);
-		TextField nameInput = new TextField();
-		nameInput.setPrefSize(150, 75);
-		
-		Label pass = new Label("Password: ");
-		pass.setPrefSize(150, 75);
-		TextField passInput = new TextField();
-		passInput.setPrefSize(150, 75);
-
-		Button login = new Button("Login");
-		login.setPrefSize(300, 50);
-        ...```
-
-
-
-### Lösung 1 (2/2)
+### Lösung 1
 
 ```java
-        ...
-		grid.addColumn(1, name, pass);
-		grid.addColumn(2, nameInput, passInput);
-		
-		root.setCenter(grid);
-		root.setBottom(login);
-		
-		BorderPane.setAlignment(grid, Pos.CENTER);
-		BorderPane.setAlignment(login, Pos.TOP_CENTER);
+	JPanel topPanel = new JPanel(); 
+	topPanel.setLayout(new GridLayout(2, 2));
+
+	topPanel.add(new JLabel("Name: ")); 
+	topPanel.add(new JTextField()); 
+	topPanel.add(new JLabel("Passwort: "));
+	topPanel.add(new JPasswordField());
+
+	JPanel panel = new JPanel();
+	panel.setLayout(new BorderLayout());
+	panel.add(topPanel, BorderLayout.CENTER); 
+	panel.add(new JButton("Login"), BorderLayout.SOUTH);
 	
-		primaryStage.setScene(new Scene(root, 300, 200));
-		primaryStage.show();	
+	Container contentPane = this.getContentPane(); 
+	contentPane.add(panel); 
+	this.setVisible(true); 
 ```
 
 
@@ -232,62 +176,57 @@ Schreibe ein Programm, das die folgende GUI erzeugt
 Welche GUI erzeugt das folgende Programm?
 
 ```java
-		primaryStage.setTitle("FX-Übung 02");
-		BorderPane root = new BorderPane();
-		FlowPane flow = new FlowPane();
-		
-		Button cancel = new Button("Abbrechen");
-		Button okay = new Button("OK");
-		
-		TextArea textArea = new TextArea();
-		
-		flow.getChildren().addAll(cancel, okay);
-		root.setCenter(textArea);
-		root.setBottom(flow);
+	JPanel panel = new JPanel(); 
+	panel.setLayout(new BorderLayout()); 
+
+	JPanel bottomPanel = new JPanel();  
+	bottomPanel.setLayout(new FlowLayout()); 
+	bottomPanel.add(new JButton("Abbrechen"));
+	bottomPanel.add(new JButton("Ok")); 
 	
-		primaryStage.setScene(new Scene(root, 500, 500));
-		primaryStage.show();
+	panel.add(new JTextArea(), BorderLayout.CENTER); 
+	panel.add(bottomPanel, BorderLayout.SOUTH); 
+	
+	Container container = this.getContentPane(); 
+	container.add(panel); 
+	this.setVisible(true);
 ```
 
 
 
 ### Lösung 2
 
-![FX-Übung](content/images/fx-uebung02.png)<!-- .element height="50%" width="50%" -->
+![Swing Übung](content/images/swing-uebung-zwei.png)<!-- .element height="50%" width="50%" -->
 
 
 
 ### Aufgabe 3
 Schreibe ein Programm, dass die folgende GUI erzeugt
 
-![FX-Übung](content/images/fx-uebung03.png)<!-- .element height="50%" width="50%" -->
+![Swing Übung](content/images/swing-uebung-drei.png)<!-- .element height="50%" width="50%" -->
 
 
 
 ### Lösung 3
 
 ```java
-		primaryStage.setTitle("FX-Übung 03");
-		BorderPane root = new BorderPane();
-		TilePane top = new TilePane();
-		FlowPane bottom = new FlowPane();
-		
-		Label c = new Label("Celsius");
-		TextField celsius = new TextField();
-		Label f = new Label("Fahrenheit");
-		TextField fahrenheit = new TextField();
-		Button button = new Button("Convert");
-		button.prefWidthProperty().bind(root.widthProperty());
-		button.prefHeightProperty().bind(root.heightProperty());
-		
-		top.getChildren().addAll(c, celsius);
-		bottom.getChildren().addAll(f, fahrenheit);
-		root.setCenter(button);
-		root.setTop(top);
-		root.setBottom(bottom);
+	Container cp = getContentPane();
+	cp.setLayout(new BorderLayout());
+
+	JPanel top = new JPanel();
+	top.add(new JLabel("Celsius"));
+	top.add(new JTextField("", 14));
 	
-		primaryStage.setScene(new Scene(root, 500, 500));
-		primaryStage.show();
+	JPanel bottom = new JPanel();
+	bottom.add(new JLabel("Fahrenheit"));
+	bottom.add(new JTextField("", 14));
+	
+	cp.add(top, BorderLayout.NORTH);
+	cp.add(bottom, BorderLayout.SOUTH);
+	cp.add(new JButton("Convert"), BorderLayout.CENTER);
+	setSize(250, 200);
+	setTitle("Converter");
+	setVisible(true);
 ```
 
 
@@ -296,33 +235,34 @@ Schreibe ein Programm, dass die folgende GUI erzeugt
 Welche GUI erzeugt das folgende Programm?
 
 ```java
-	String[] solmisation = new String[] {"do", "re", "mi", "fa", "sol"};
-	@Override
-	public void start(Stage primaryStage) throws Exception {
-		primaryStage.setTitle("FX-Übung 04");
-		HBox root = new HBox();
-		addHBox(root, 0);
+String[] solmisation = new String[] {"do", "re", "mi", "fa", "sol", "la", "si", "do"};
 
-		primaryStage.setScene(new Scene(root, 500, 500));
-		primaryStage.show();	
-	}
-	
-	private HBox addHBox(HBox parent, int depth) {
-		if(depth >= solmisation.length) {
-			return null;
-		} else {
-			HBox child = new HBox();
-			child.getChildren().add(new Button(solmisation[depth]));
-			parent.getChildren().add(child);
-			return addHBox(child, depth+1);
-		}
-	}```
+private Nested() {
+	JPanel top = new JPanel();
+	addPanel(top, 0);
+	getContentPane().setLayout(new BorderLayout());
+	getContentPane().add(top, BorderLayout.CENTER);
+	this.pack(); 
+	this.setVisible(true); 
+} 
+
+private JPanel addPanel(JPanel parent, int depth) {
+	if (depth >= solmisation.length)
+		return null; 
+
+	JPanel child = new JPanel(); 
+	child.add(new JButton(solmisation[depth]));
+	parent.setBorder(BorderFactory.createLineBorder(Color.black));
+	parent.add(child);
+	return addPanel(child, depth+1);
+}
+```
 
 
 
 ### Lösung 4
 
-![FX-Übung](content/images/fx-uebung04.png)<!-- .element height="50%" width="50%" -->
+![Swing Übung](content/images/swing-uebung-vier.png)<!-- .element height="50%" width="50%" -->
 
 
 
