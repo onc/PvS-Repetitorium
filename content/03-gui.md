@@ -268,12 +268,9 @@ private JPanel addPanel(JPanel parent, int depth) {
 
 ### Bonus
 
-* GridPanes
-    * Was könnte `setGridLinesVisible(true)` bedeuten?
-    * Was könnte `setHgap(3.0) bedeuten`?
-* FlowPanes
-    * Was stellt ihr euch unter `getPrefWrapLength()` vor?
-* Stage
-    * Was könnte `setAlwaysOnTop(true)` bewirken?
-    * Was macht wohl `setResizable(false)`?
+* Was wird `setBorder(...)` bewirken?
+* Was könnte `setHgap(3.0)` bedeuten?
+* Was stellt ihr euch unter `applyComponentOrientation(...)` vor?
+* Was könnte `setAlwaysOnTop(true)` bewirken?
+* Was macht wohl `setResizable(false)`?
 
