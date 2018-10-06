@@ -77,12 +77,12 @@ Note: Kuchenform: Volumen und Durchmesser statisch
 
 
 ### Zugriffsmodifizierer 
-|               | Die Klasse selbst, innere Klassen | Klassen im selben Package | Unterklassen | Sonstige Klassen |
-| ------------- | --------------------------------- | ------------------------- | ------------ | ---------------- |
-| private "-"   | Ja                                | Nein                      | Nein         | Nein             |
-| (default) "~" | Ja                                | Ja                        | Nein         | Nein             |
-| protected "#" | Ja                                | Ja                        | Ja           | Nein             |
-| public "+"    | Ja                                | Ja                        | Ja           | Ja               |
+|               | Die Klasse selbst,<br/> innere Klassen | Klassen im<br/> selben Package | Unterklassen | Sonstige Klassen |
+| ------------- | -------------------------------------- | ------------------------------ | ------------ | ---------------- |
+| private "-"   | Ja                                     | Nein                           | Nein         | Nein             |
+| (default) "~" | Ja                                     | Ja                             | Nein         | Nein             |
+| protected "#" | Ja                                     | Ja                             | Ja           | Nein             |
+| public "+"    | Ja                                     | Ja                             | Ja           | Ja               |
 
 Note: Erklären: mehrere Klassen in einer Datei, innere Klassen, Unterklassen; default == package private
 
@@ -126,25 +126,35 @@ Statische Eigenschaften gelten für die Klasse an sich, unabhängig von Instanze
 
 
 ### Quick-Quiz
-* Attribut
-* Variable
-* Klassenvariable
-* Objektattribut
-* Objektvariable
-* Klassenattribut
-* Feld
+Erkläre die Begriffe und ordne sie folgenden Bereichen zu: **Klasse**, **Objekt**, **Methode**
+
+##### Attribut
+##### Variable
+##### Objektattribut / Objektvariable
+##### Klassenattribut / Klassenvariable
+##### Feld
+
+Note: 
+* **Attribut**: Eine Variable, die Teil einer Objektinstanz ist.
+* **Variable**: Eine Variable, die innerhalb einer Methode deklariert ist. Diese ist nur bis zum Ende der Methode gültig. (Auch übergebene Variablen)
+* **Objektattribut**: Synonym zu Attribut.
+* **Klassenattribut**: Eine einer Klasse zugeordnete Variable, die nicht zu einer Objektinstanz gehört, sondern zur Klasse selbst.
+* **Feld**: (engl. Array) ist eine Zusammenfassung von mehreren Variablen desselben Datentyps zu einer gemeinsamen Struktur mit einem gemeinsamen Namen.
 
 
 
 ### Quick-Quiz 
-*Erfahrungsgemäßer Sprachgebrauch*
-* Attribut **Objekt**
-* Variable **Methode**
-* Klassenvariable **Klasse**
-* Objektattribut **Objekt**
-* Objektvariable **Objekt**
-* Klassenattribut **Klasse**
-* Feld **Klasse**
+<small>Erfahrungsgemäßer Sprachgebrauch</small>
+##### Attribut [Objekt]
+*Eine Variable, die Teil einer Objektinstanz ist*
+##### Variable [Methode]
+*Eine Variable, die innerhalb einer Methode deklariert ist. Diese ist nur bis zum Ende der Methode gültig. (Auch übergebene Variablen)*
+##### Objektattribut / Objektvariable [Objekt]
+*Synonym zu Attribut*
+##### Klassenattribut / Klassenvariable [Klasse]
+*Eine einer Klasse zugeordnete Variable, die nicht zu einer Objektinstanz gehört, sondern zur Klasse selbst*
+##### Feld [Klasse / Objekt]
+*(engl. Array) Eine Zusammenfassung von mehreren Variablen desselben Datentyps zu einer gemeinsamen Struktur mit einem gemeinsamen Namen*
 
 
 
@@ -319,8 +329,8 @@ class Foo {
 }
 ```
 1. Nein, `Body` kann nicht instanziiert werden.
-1. Nein, `Body` kann nicht instanziiert werden.
-1. Ja, denn die Klasse `Person` erbt von `Body`.
+2. Nein, `Body` kann nicht instanziiert werden.
+3. Ja, denn die Klasse `Person` erbt von `Body`.
 
 Note: abstract -> konkret geht, andersrum nicht!
 
@@ -531,7 +541,8 @@ class Foo {
 
 
 ### Aufgabe 7
-![A7](content/images/UML-A3-Klassendiagramm.png)<!-- .element height="50%" width="50%" -->
+Funktionieren die Aufrufe in der `main`-Methode so?
+![A7](content/images/UML-A3-Klassendiagramm.png)<!-- .element height="75%" width="75%" -->
 
 ```java
 public class Main {
@@ -586,7 +597,7 @@ public class Main {
 
 
 ### Aufgabe 8
-![A7](content/images/UML-A3-Klassendiagramm.png)<!-- .element height="50%" width="50%" -->
+![A7](content/images/UML-A3-Klassendiagramm.png)<!-- .element height="75%" width="75%" -->
 
 ```java
 public class Main {
@@ -764,6 +775,10 @@ public class Bar extends Foo {
         return num1*2;
     }
     
+    public float add(int num1, int num2) {
+        return ((float)(num1 + num2))
+    }
+    
     public float add(float num1, float num2) {
         return num2 + num1;
     }
@@ -790,6 +805,10 @@ public class Bar extends Foo {
         return num1*2;
     }
     
+    public float add(int num1, int num2) {
+        return ((float)(num1 + num2))
+    }
+
     public float add(float num1, float num2) {
         return num2 + num1;
     }
@@ -797,7 +816,8 @@ public class Bar extends Foo {
 ```
 * `Foo:add` ist überladen
 * `Foo:add(1)` ist überschrieben in `Bar`
-* `Bar:add(2)` ist eine vollkommen neue Methode
+* `Bar:add(2)` (mit `int` Variablen) ist überschrieben
+* `Bar:add(2)` (mit `float` Variablen) ist überladen
 
 
 
@@ -812,12 +832,14 @@ ist für alle Datentypen so definiert, dass er die vollständige Übereinstimmun
 
 
 
-<pre><code class="line-numbers">Point p = new Point(10, 10);
+```java
+Point p = new Point(10, 10);
 Point q = p;
 Point r = new Point(10, 10);
 System.out.println(p==q); // true, da p und q dasselbe Objekt referenzieren
 System.out.println(p==r); // false, da p und r zwei unterschiedliche
-                          // Punkt-Objekte referenzieren</code></pre>
+                          // Punkt-Objekte referenzieren
+```
 
 Note: Referenzen an die Tafel malen
 
@@ -831,15 +853,17 @@ implementieren, die Exemplare dieser Klasse mit beliebigen anderen Objekten verg
 
 `equals()` liefert true, wenn die Objektvariablen einer Instanz vollständig übereinstimmen.
 
-**ABER:** Das entspricht der default-Implementierung wahr. `equals()` kann auch überschrieben werden!
+**ABER:** Das entspricht der default-Implementierung. `equals()` kann auch überschrieben werden!
 
 
 
-<pre><code class="line-numbers">Point p = new Point(10, 10);
+```java
+Point p = new Point(10, 10);
 Point q = p;
 Point r = new Point(10, 10);
 System.out.println(p.equals(q)); // true, da p und q dasselbe Objekt referenzieren
-System.out.println(p.equals(r)); // true, da p und r identisch sind</code></pre>
+System.out.println(p.equals(r)); // true, da p und r identisch sind
+```
 
 
 
@@ -857,8 +881,6 @@ Eine Exception kann auftreten, wenn zum Beispiel
 
 
 Solche Fälle sind schwierig bis unmöglich vorherzusehen.
-
-
 
 Also – was tun?
 
@@ -965,7 +987,7 @@ Checked Esceptions müssen beim Programmieren behandelt werden, anderfalls wird 
 
 
 ### Unchecked Exceptions
-Unchecked Esceptions werden vom Compiler ignoriert, können aber dennoch im Programmablauf auftreten und behandelt werden.
+Unchecked Exceptions werden vom Compiler ignoriert, können aber dennoch im Programmablauf auftreten und behandelt werden.
 + ArrayIndexOutOfBoundsException
 + IllegalArgumentException
 + NullPointerException
@@ -976,7 +998,7 @@ Unchecked Esceptions werden vom Compiler ignoriert, können aber dennoch im Prog
 
 
 
-Als Java im letzten Jahrtausend entworfen wurde, galt diese Unterscheidung als chic und modern. 
+Als Java im letzten Jahrtausend entworfen wurde, galt diese Unterscheidung als *chic* und *modern*. 
 
 Man wollte Fehler danach unterscheiden, ob der Aufrufer sie hätte vermeiden können oder nicht.
 
@@ -984,7 +1006,7 @@ Man wollte Fehler danach unterscheiden, ob der Aufrufer sie hätte vermeiden kö
 
 Fehler wie `NullPointerException` (unchecked) oder `IllegalArgumentException` (unchecked) liegen an einer fehlerhaften Verwendung der betreffenden Klasse und können prinzipiell überall auftreten. 
 
-Sie zu behandeln bringt hat folglich eine sehr schlecht "Kosten-Nutzen-Ratio"
+Sie zu behandeln bringt folglich ein sehr schlechtes "Kosten-Nutzen-Verhältnis"
 
 
 
@@ -1080,6 +1102,7 @@ z.B. `List<Integer> = new ArrayList<>()`
 oder 
 
 `List<Contact> = new LinkedList<>()`
+Note: Die Angabe des generischen Typs **kann** auf der instanziierungs-Seite weggelassen werden
 
 
 
@@ -1096,7 +1119,7 @@ Typumwandlungen und (teilweise auch) Exception Handling kann so vermieden werden
 
 
 
-Treasure soll alles mögliche enthalten können!
+Eine Beispielklasse:
 ```java
 class Treasure {
   private int value;
@@ -1106,7 +1129,13 @@ class Treasure {
   public void setValue(Object val){ this.value = Integer.parseInt(val); }
 }
 ```
-Geht aber nicht... Objects übergeben, casten, exceptions, alles doof :(
+Idealerweise sollte `Treasure` unterschiedliche Datentyen als `value` enthalten können! *int*s für Silbertaler, *floats* für Steine, *String*s für Goldbarren.
+
+Geht aber nur, wenn wir statt primitiver Datentypen Objekte übergeben oder viel Typecasting betreiben.
+
+Danach müsen wir noch exceptions behandeln.
+
+Alles doof :(
 
 
 
@@ -1152,7 +1181,8 @@ public class Tupel<T, V> {
 
 ## println von Objekten
 ### Aufgabe 1
-<pre><code class="line-numbers">public static void main(String[] args) {
+```java
+public static void main(String[] args) {
     System.out.println("foo");
     System.out.println("bar".charAt(0));
     System.out.println(new String("foobar") == new String("foobar"));
@@ -1168,13 +1198,15 @@ public class Tupel<T, V> {
     char[] charArray = new char[]{'p','v','s',' ','r','e','p'};
     System.out.println(charArray);
     System.out.println(Arrays.asList(charArray));
-}</code></pre>
+}
+```
 
 
 
 ## println von Objekten
 ### Aufgabe 1 - Lösung
-<pre><code class="line-numbers">public static void main(String[] args) {
+```java
+public static void main(String[] args) {
     System.out.println("foo");                                              // foo
     System.out.println("bar".charAt(0));                                    // b
     System.out.println(new String("foobar") == new String("foobar"));       // false
@@ -1190,7 +1222,8 @@ public class Tupel<T, V> {
     char[] charArray = new char[]{'p','v','s',' ','r','e','p'};
     System.out.println(charArray);                                          // pvs rep
     System.out.println(Arrays.asList(charArray));                           // anonymerName@hash
-}</code></pre>
+}
+```
 
 
 
@@ -1296,7 +1329,8 @@ public class Tupel<T, V> {
 
 ## println von Objekten
 ### Aufgabe 4
-<pre><code class="line-numbers">public class Cell {
+```java
+public class Cell {
     public int row;
     public int col;
     public Cell(int row, int column) {
@@ -1314,13 +1348,15 @@ public class Tupel<T, V> {
         System.out.println(new Cell(1,1){public String toString(){return this.row + ":" + this.col;}});
         System.out.println(new Cell(2,4).add(new Cell(1,-1)));
     }
-}</code></pre>
+}
+```
 
 
 
 ## println von Objekten
 ### Aufgabe 4 - Lösung
-<pre><code class="line-numbers">public class Cell {
+```java
+public class Cell {
     public int row;
     public int col;
     public Cell(int row, int column) {
@@ -1339,7 +1375,8 @@ public class Tupel<T, V> {
                                                                               // 1:1
         System.out.println(new Cell(2,4).add(new Cell(1,-1)));                // 3,3
     }
-}</code></pre>
+}
+```
 
 
 
