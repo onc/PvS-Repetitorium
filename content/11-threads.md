@@ -81,7 +81,7 @@ Ein `Thread` nimmt z.B. ein `Runnable` und überschreibt die `run()`-Methode. An
 
 Startet zwei Threads die nebenläufig abgearbeitet werden.
 
-Ouput: [T2] 0, [T2] 1, [T1] 0, [T1] 3, [T2] 2, [T1] 4, [T2] 5, ...
+Output: [T2] 0, [T2] 1, [T1] 0, [T1] 3, [T2] 2, [T1] 4, [T2] 5, ...
 
 
 
@@ -112,7 +112,7 @@ Ouput: [T2] 0, [T2] 1, [T1] 0, [T1] 3, [T2] 2, [T1] 4, [T2] 5, ...
 
 Startet zwei Threads die nebenläufig abgearbeitet werden.
 
-Ouput: [T2] 0, [T2] 1, [T1] 0, [T1] 3, [T2] 2, [T1] 4, [T2] 5, ...
+Output: [T2] 0, [T2] 1, [T1] 0, [T1] 3, [T2] 2, [T1] 4, [T2] 5, ...
 
 ## Was ist mit den Zahlen los? Da sind manche doppelt!!11!
 

@@ -76,7 +76,7 @@ Note: Kuchenform: Volumen und Durchmesser statisch
 
 
 
-### Zugriffsmodifizierer 
+### Zugriffsmo­di­fi­ka­toren
 |               | Die Klasse selbst,<br/> innere Klassen | Klassen im<br/> selben Package | Unterklassen | Sonstige Klassen |
 | ------------- | -------------------------------------- | ------------------------------ | ------------ | ---------------- |
 | private "-"   | Ja                                     | Nein                           | Nein         | Nein             |
@@ -87,7 +87,7 @@ Note: Kuchenform: Volumen und Durchmesser statisch
 Note: Erklären: mehrere Klassen in einer Datei, innere Klassen, Unterklassen; default == package private
 
 
-### Polymorphie-Modifizierer
+### Polymorphie-Mo­di­fi­ka­tor
 `abstract, final, static`
 Note:Polymorphie: griechisch: Vielgestaltigkeit
 
@@ -341,7 +341,7 @@ Funktioniert die main-Methode der Klasse `Foo` so?
 
 Ja, oder nein. Warum?
 ```java
-public abstact class Body {
+public abstract class Body {
     int limbs;
     int eyes;
 
@@ -366,7 +366,7 @@ class Foo {
 
 ### Aufgabe 4 - Lösung
 ```java
-public abstact class Body {
+public abstract class Body {
     int limbs;
     int eyes;
 
@@ -698,7 +698,7 @@ Eine 'geerbte' Methode kann überschrieben werden.
 
 
 
-Überschriebene Methoden werden vom Compiler priorisiert. Es wird also immer zuerst in der Klasse nach der ensprechenden Methode gesucht, in der der Aufruf stattfindet.
+Überschriebene Methoden werden vom Compiler priorisiert. Es wird also immer zuerst in der Klasse nach der entsprechenden Methode gesucht, in der der Aufruf stattfindet.
 
 Die Superklasse **jeder** Klasse ist in Java die `Object` Klasse.
 
@@ -757,7 +757,7 @@ Die Methode `add` ist überladen.
 
 
 ## Aufgabe
-Wo geschiet hier overloading, wo overriding?
+Wo geschieht hier overloading, wo overriding?
 ```java
 public class Foo {
     public int add(int num1) {
@@ -888,7 +888,7 @@ Also – was tun?
 
 In Objektorientierten Programmiersprachen hat sich das Konzept des `Exception Handling` durchgesetzt.
 
-Sollten Fehler auftreten wird ein spezieller Programmabschnitt druchlaufen, der angemessen auf den Fehler reagiert (beheben, umgehen, ...).
+Sollten Fehler auftreten wird ein spezieller Programmabschnitt durchlaufen, der angemessen auf den Fehler reagiert (beheben, umgehen, ...).
 
 
 
@@ -976,7 +976,7 @@ Ist natürlich einfach zu finden, wenn man weiß wie groß das Array ist.
 
 
 ### Checked Exceptions
-Checked Esceptions müssen beim Programmieren behandelt werden, anderfalls wird der Code nicht kompilieren.
+Checked Exceptions müssen beim Programmieren behandelt werden, andernfalls wird der Code nicht kompilieren.
 + IOException
 + FileNotFoundException
 + ParseException
@@ -1129,11 +1129,11 @@ class Treasure {
   public void setValue(Object val){ this.value = Integer.parseInt(val); }
 }
 ```
-Idealerweise sollte `Treasure` unterschiedliche Datentyen als `value` enthalten können! *int*s für Silbertaler, *floats* für Steine, *String*s für Goldbarren.
+Idealerweise sollte `Treasure` unterschiedliche Datentypen als `value` enthalten können! *int*s für Silbertaler, *floats* für Steine, *String*s für Goldbarren.
 
 Geht aber nur, wenn wir statt primitiver Datentypen Objekte übergeben oder viel Typecasting betreiben.
 
-Danach müsen wir noch exceptions behandeln.
+Danach müssen wir noch exceptions behandeln.
 
 Alles doof :(
 
