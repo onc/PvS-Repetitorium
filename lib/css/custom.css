@@ -1,0 +1,9 @@
+.reveal .slides > section, .reveal .slides > section > section {
+    padding: 60px 0;
+    width: 94%;
+}
+
+.reveal .slides {
+    padding: 0 3%;
+    width: 94%;
+}
