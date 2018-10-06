@@ -23,6 +23,7 @@ Note: GEPLANTER Zeitplan, muss nicht eingehalten werden
 
 ---
 
-Mit liebevoller Unterstützung von:
-
+<small>
+Mit liebevoller Unterstützung von:<br/>
 Maria Aufheimer und Christian van Onzenoodt
+</small>
