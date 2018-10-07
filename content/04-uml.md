@@ -1,3 +1,32 @@
+# UML - Die Unified Modeling Language
+
+
+
+## UML
+> Die **Unified Modeling Language** (vereinheitlichte Modellierungssprache), ist eine grafische Modellierungssprache zur Spezifikation, Konstruktion und Dokumentation von Software-Teilen und anderen Systemen. - https://de.wikipedia.org/wiki/Unified_Modeling_Language
+
+Die UML ist Domänen-unabhängig, es werden keine sprachtypischen, sondern möglichst allgemeine Begriffe verwendet.
+
+
+
+Die Ziele von UML Diagrammen sind unter Anderem:
+* Kommunikation vereinfachen
+* Komplexität reduzieren
+* Entwurf dokumentieren
+* Vollständigkeit und Konsistenz des Entwurfs prüfen
+
+
+
+## UML Diagramtypen
+* **Klassendiagramm** (statisch)
+* Objektdiagramm (statisch)
+* Zustandsdiagramm (dynamisch)
+* Aktivitätsdiagramm (dynamisch)
+* Sequenzdiagramme (dynamisch)
+* ...
+
+
+
 ## UML Klassendiagramm
 Klassen und Schnittstellen werden durch Rechtecke dargestellt.
 * \+ für public
