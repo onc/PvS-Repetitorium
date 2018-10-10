@@ -276,7 +276,7 @@ Note: Interim - vorläufig
 
 
 
-## Aufgabe
+## Lösung
 Welches dieser Statements existiert nicht?
 * Statement
 * Prepared Statement
