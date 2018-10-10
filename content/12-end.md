@@ -1,8 +1,8 @@
-# Das war's
+# Das wars
 
 
 
-## Das war's
+## Das wars
 
 # noch nicht ganz
 
@@ -15,7 +15,7 @@
 * Altklausuren von der FIN
 * w3schools
 * YouTube tutorials
-* Aufgaben googlen
+* Aufgaben googeln
 * Beispiele im Repo
 
 
@@ -26,6 +26,6 @@
 
 # Vielen Dank
 
-# &
+## &
 
 # Viel Erfolg
