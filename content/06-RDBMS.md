@@ -296,6 +296,18 @@ BC → E
 ED → A
 ```
 
+Note: Wir teilten die Attribute nach ihrem Vorkommen in den funktionalen Abhängigkeiten ein.
+
+linke Seite: C,D
+
+Beide Seiten: A,B,E
+
+Rechte Seite: kein
+
+Kommen Attribute ausschließlich auf der linken Seite vor, müssen sie im Schlüsselkandidaten enthalten sein. 
+Kommen Attribute auf beiden Seiten vor, können sie in den Schlüsselkandidaten auftauchen.
+Kommen Attribute auf der rechten Seite vor, dürfen sie nicht Teil der Schlüsselkandidaten sein. 
+
 
 
 ## Lösung
@@ -306,6 +318,18 @@ BC → E
 ED → A
 ```
 > ACD, BCD, ECD
+
+Note: Wir teilten die Attribute nach ihrem Vorkommen in den funktionalen Abhängigkeiten ein.
+
+linke Seite: C,D
+
+Beide Seiten: A,B,E
+
+Rechte Seite: kein
+
+Kommen Attribute ausschließlich auf der linken Seite vor, müssen sie im Schlüsselkandidaten enthalten sein. 
+Kommen Attribute auf beiden Seiten vor, können sie in den Schlüsselkandidaten auftauchen.
+Kommen Attribute auf der rechten Seite vor, dürfen sie nicht Teil der Schlüsselkandidaten sein. 
 
 
 
