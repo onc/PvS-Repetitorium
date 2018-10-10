@@ -262,16 +262,89 @@ Gib die Algebra-Ausdrücke für die folgenden Anfragen an:
 
 
 
+## Funktionale abhängigkeiten
+Eine Relation wird durch Attribute definiert. Bestimmen einige dieser Attribute eindeutig die Werte anderer Attribute, so spricht man von funktionaler Abhängigkeit. 
+
+
+
+## Funktionale Abhängigkeiten
+Man könnte sich etwa eine Kundendatenbank vorstellen, in der die Anschrift und die Telefonnummer eines Kunden eindeutig durch seinen Namen zusammen mit seinem Geburtsdatum bestimmt sind. Hier wären also Anschrift und Telefonnummer funktional abhängig von Name und Geburtsdatum. 
+
+```
+Name, Geburtsdatum -> Anschrift
+Name, Geburtsdatum -> Telefonnummer
+```
+
+
+
+## Formale Definition
+Sei r(R) eine Relation mit dem Relationenschema R und seien α und β Teilmengen von Attributen von R. Sei t ∈ r ein Tupel aus r. Dann ist t[α] die Einschränkung von t auf die Attribute aus α. 
+
+Die funktionale Abhängigkeit α → β (β ist funktional abhängig von α) gilt auf R, wenn für jede zulässige Relation r(R) gilt: 
+
+![Definition formale Abhängigkeit](content/images/funk_abhaengigkeit.png)<!-- .element height="35%" width="35%" --> 
+ 
+Das heißt, für alle Tupel t1, t2 ∈ r mit gleichen α-Attributen (t1[α] = t2[α]) gilt auch, dass ihre β-Attribute gleich sind (t1[β] = t2[β]). Die Werte der Attribute aus der Attributmenge α bestimmen also eindeutig die Werte der Attribute aus der Attributmenge β
+
+
+
+## Aufgabe
+Bestimme die Schlüsselkandidaten der folgenden funktionalen Abhängigkeiten:
+```
+A → B
+BC → E
+ED → A
+```
+
+
+
+## Lösung
+Bestimme die Schlüsselkandidaten der folgenden funktionalen Abhängigkeiten:
+```
+A → B
+BC → E
+ED → A
+```
+> ACD, BCD, ECD
+
+
+
+## Aufgabe
+Welche funktionalen Abhängigkeiten können für das folgende Relationenschema vorliegen?
+
+| A   | B   | C     | D        |
+| --- | --- | ----- | -------- |
+| 1   | 1   | Katze | Montag   |
+| 1   | 2   | Hund  | Dienstag |
+| 1   | 3   | Katze | Montag   |
+| 2   | 1   | Katze | Mittwoch |
+
+
+
+## Lösung
+Welche funktionalen Abhängigkeiten können für das folgende Relationenschema vorliegen?
+
+| A   | B   | C     | D        |
+| --- | --- | ----- | -------- |
+| 1   | 1   | Katze | Montag   |
+| 1   | 2   | Hund  | Dienstag |
+| 1   | 3   | Katze | Montag   |
+| 2   | 1   | Katze | Mittwoch |
+
+> B → C, D → A, D → C
+> 
+> AB → C, AB → D, AB → CD, AC → D, AD → C, BD → A, BD → C, CD → A
+> 
+> ABC → D, ABD → C
+
+
+
+
 # Normalformen & Anomalien
-Die Normalisierung eines relationalen Datenbankschemas soll Redundanzen verringern 
+Die Normalisierung eines relationalen Datenbankschemas soll Redundanzen verringern und Anomalien verhindert.
+Außerdem sollen die Aktualisierung einer Datenbank vereinfacht und die Konsistenz der Daten gewährleistet werden.
 
-Dadurch können Anomalien zu verhindert werden
-
-So soll die Aktualisierung einer Datenbank vereinfacht und die Konsistenz der Daten gewährleistet werden
-
-
-
-Dazu gibt es die Normalformen, die durch die Einhaltung von Normalisierungsregeln erreicht werden
+Dazu gibt es die Normalformen, die durch die Einhaltung von Normalisierungs-Regeln erreicht werden
 
 
 
