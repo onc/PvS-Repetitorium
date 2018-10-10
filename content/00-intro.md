@@ -4,12 +4,12 @@
 
 ## Zeitplan
 
-| Donnerstag                    | Freitag            | Samstag     |
-| ----------------------------- | ------------------ | ----------- |
-| OOP                           | RDBMS              | Petri-Netze |
-| Grafische Benutzeroberflächen | SQL                | Threads     |
-| UML                           | SQL-Programmierung | Fragen?     |
-| Dateien und JavaIO            | DB-Entwurf         | Wünsche?    |
+| Donnerstag                    | Freitag              | Samstag             |
+| ----------------------------- | -------------------- | ------------------- |
+| OOP                           | Dateien und JavaIO   | SQL-Programmierung  |
+| Grafische Benutzeroberflächen | RDBMS (+ DB-Entwurf) | Petri-Netze         |
+| UML                           | SQL                  | Threads             |
+|                               |                      | Fragen und Wünsche? |
 
 Note: GEPLANTER Zeitplan, muss nicht eingehalten werden
 
