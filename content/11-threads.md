@@ -240,4 +240,4 @@ Kann man nicht sagen!
 
 ## Lösung 2
 
-Wegen dem Scheduler
+Wegen des Schedulers
