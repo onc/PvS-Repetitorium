@@ -1,4 +1,5 @@
 # Structured Query Language (SQL)
+Note: DISTINCT, AS und LIMIT in das Dokument aufnehmen!!!
 
 
 
@@ -36,8 +37,8 @@ Entspricht in Relationaler Algebra dem Pi &pi;
 ### Beispiel
 Tabelle Student
 
-| MatrNr | Name   |
-| ------ | ------ |
+| MatrNr | Name |
+| ------ | ---- |
 | 26120  | Fichte |
 | 25403  | Jonas  |
 | 27103  | Fauler |
@@ -253,23 +254,28 @@ FROM Student JOIN Studiert
 
 
 ## SQL - Insert Into
-INSERT INTO fügt Werte in eine Tabelle ein.
+`INSERT INTO` fügt Werte in eine Tabelle ein.
 
 
 
 ### Beispiel
 Tabelle Student
 
-|   MatrNr   |   Name         |
-|   ------ --- --- |   ------ --- --- |
-|   26120      |   Fichte   |
-|   25403      |   Jonas      |
-|   27103      |   Fauler   |
+| MatrNr | Name   |
+| ------ | ------ |
+| 26120  | Fichte |
+| 25403  | Jonas  |
+| 27103  | Fauler |
+
+Das einfügen von Daten in eine Tabelle kann explizit geschehen:
 
 ```sql
 INSERT INTO Student 
 VALUES (30000, Hansen)
 ```
+
+oder implizit:
+
 ```sql
 INSERT INTO Student (MatrNr)
 VALUES (30001)
@@ -281,12 +287,24 @@ VALUES (30001)
 | 25403  | Jonas  |
 | 27103  | Fauler |
 | 30000  | Hansen |
-| 30001  |
+| 30001  |        |
+
+
+
+## Einfügen
+Es können auch Werte aus anderen Relationen in eine Relation eingefügt werden:
+
+```sql
+INSERT INTO Student2
+  SELECT MatrNr, Name
+  FROM Student 
+  WHERE MatrMr = 19021
+```
 
 
 
 ## SQL - Update
-UPDATE aktualisiert werte einer Tabelle.
+`UPDATE` aktualisiert werte einer Tabelle.
 
 
 
@@ -310,6 +328,79 @@ WHERE MatrNr = 27103
 | 26120  | Fichte |
 | 25403  | Jonas  |
 | 27103  | Faula  |
+
+
+
+## Achtung!
+Wird die Bedingung vergessen werden alle Zeilen aktualisiert!
+
+```sql
+UPDATE relation
+SET spalte1='Hallo Welt!';
+```
+
+
+
+## Aktualisierung
+Wir können auch hier wieder Werte aus anderen Relationen selektieren.
+
+```sql
+UPDATE Student
+SET Name = (
+  SELECT Name
+  FROM Student2
+)
+WHERE MatrNr = 27103
+```
+
+
+
+
+## SQL - Löschen
+`DELETE FROM` aktualisiert werte einer Tabelle.
+
+
+
+### Beispiel
+Beim Löschen, werden alle Zeilen gelöscht, auf die die Bedingung zutrifft
+
+Tabelle Student
+
+| MatrNr | Name   |
+| ------ | ------ |
+| 26120  | Fichte |
+| 25403  | Jonas  |
+| 27103  | Fauler |
+
+```sql
+DELETE FROM Student
+WHERE MatrNr = 27103
+```
+
+| MatrNr | Name   |
+| ------ | ------ |
+| 26120  | Fichte |
+| 25403  | Jonas  |
+
+
+
+## Achtung!
+Auch hier kann eine vergessene Bedingung alle zeilen ändern!
+
+Tabelle Student
+
+| MatrNr | Name   |
+| ------ | ------ |
+| 26120  | Fichte |
+| 25403  | Jonas  |
+| 27103  | Fauler |
+
+```sql
+DELETE FROM Student
+```
+
+| MatrNr | Name   |
+| ------ | ------ |
 
 
 
@@ -374,6 +465,62 @@ Gibt die kleinste Matrikelnummer **pro Semester** zurück.
 
 
 
+## SQL - Having
+Tabelle Student
+
+| MatrNr | Name   | Semester |
+| ------ | ------ | -------- |
+| 26120  | Fichte | 2        |
+| 25403  | Jonas  | 3        |
+| 27103  | Fauler | 3        |
+
+```sql
+SELECT *
+FROM Student 
+GROUP BY Semester
+HAVING COUNT(SEMESTER) > 1
+```
+
+| MatrNr | Name   | Semester |
+| ------ | ------ | -------- |
+| 25403  | Jonas  | 3        |
+| 27103  | Fauler | 3        |
+
+Gibt die kleinste Matrikelnummer **pro Semester** zurück wobei nur Resultate selektiert werden, wenn mehr als 2 Studierende in einem Semester sind.
+
+
+## Unterabfragen
+Eine Unterabfrage (Subquery) kann eine Referenz auf ein Objekt enthalten, das in einer übergeordneten Anweisung definiert ist. Dies wird als *äußere Referenz* bezeichnet. Eine Unterabfrage, die eine äußere Referenz enthält, wird als **korrelierte** Unterabfrage bezeichnet.
+
+```sql
+SELECT spalte1, spalte2
+FROM relation1
+WHERE spalte3 < 2 * (
+  SELECT AVG( spalte2 )
+  FROM relation2
+  WHERE relation1.spalte1 = relation2.spalte1 )
+```
+
+
+
+## Unterabfragen
+Eine Unterabfrage (Subquery), die *keine Referenzen* auf Objekte in einer übergeordneten Anweisung enthält, wird **nichtkorrelierte** Unterabfrage genannt.
+
+```sql
+SELECT spalte1, spalte2
+FROM relation1
+WHERE spalte3 <  2 * (
+   SELECT AVG( spalte2 )
+   FROM relation2 )
+```
+
+
+
+## Unterabfragen
+![Subqueries Ausführungsmodell](content/images/subqueries.PNG)<!-- .element height="50%" width="50%" -->
+
+
+
 ## Aufgabe
 Tabelle **Formel1**
 <div style="font-size:20px;">
@@ -413,7 +560,7 @@ SELECT * FROM Formel1 WHERE Team_Punkte > 150
 ```
 3. Das Jahr mit der Höchsten WM-Punktzahl
 ```sql
-SELECT Saison, MAX(WM_Punkte) FROM Formel1
+SELECT Saison FROM Formel1 ORDER BY WM_Punkte DESC LIMIT 1
 ```
 4. Die Namen aller Fahrer die Weltmeister wurden (eindeutig)
 ```sql
@@ -526,125 +673,6 @@ WHERE TeamName IN (
     JOIN ArenaPokemon AS ap on a.ArenaID = ap.ArenaID
     WHERE ap.Kampfpunkte = ( SELECT MIN(Kampfpunkte) FROM ArenaPokemon ) )
 ```
-
-
-## Datenmanipulation
-
-
-
-### Einfügen
-Das einfügen von Daten in eine Tabelle kann explizit geschehen:
-
-```sql
-INSERT INTO relation (spalte1, spalte2, spalte3, ...)
-VALUES (wert1, wert2, wert3, ...);
-```
-
-oder implizit:
-
-```sql
-INSERT INTO relation
-VALUES (wert1, wert2, wert3, ...); 
-```
-
-
-
-## Einfügen
-Es können auch Werte aus anderen Relationen in eine Relation eingefügt werden:
-
-```sql
-INSERT INTO relation1
-  SELECT spalte1, spalte3, spalte4 + 1
-  FROM relation2 
-  WHERE spalte2 = 'Tobias'
-```
-
-
-
-### Aktualisieren
-Eine Aktualisierung geschieht über den folgenden Befahlt:
-
-```sql
-UPDATE relation
-SET spalte1 = wert1, spalte2 = wert2, ...
-WHERE bedingung; 
-```
-
-
-
-## Achtung!
-Wird die Bedingung vergessen werden alle Zeilen aktualisiert!
-
-```sql
-UPDATE relation
-SET spalte1='Hallo Welt!';
-```
-
-
-
-## Aktualisierung
-Wir können auch hier wieder Werte aus anderen Relationen selektieren.
-
-```sql
-UPDATE relation1
-SET spalte1 = (
-  SELECT min(spalte1)
-  FROM relation2
-)
-WHERE spalte2 = 'Tobias'
-```
-
-
-
-## Löschen
-Beim Löschen, werden alle Zeilen gelöscht, auf die die Bedingung zutrifft
-
-```sql
-DELETE FROM relation
-WHERE bedingung
-```
-
-
-
-## Achtung!
-Auch hier kann eine vergessene Bedingung alle zeilen ändern!
-
-```sql
-UPDATE relation
-SET spalte1='Hallo Welt!';
-```
-
-
-
-## Unterabfragen
-Eine Unterabfrage (Subquery) kann eine Referenz auf ein Objekt enthalten, das in einer übergeordneten Anweisung definiert ist. Dies wird als *äußere Referenz* bezeichnet. Eine Unterabfrage, die eine äußere Referenz enthält, wird als **korrelierte** Unterabfrage bezeichnet.
-
-```sql
-SELECT spalte1, spalte2
-FROM relation1
-WHERE spalte3 < 2 * (
-  SELECT AVG( spalte2 )
-  FROM relation2
-  WHERE relation1.spalte1 = relation2.spalte1 )
-```
-
-
-
-## Unterabfragen
-Eine Unterabfrage (Subquery), die *keine Referenzen* auf Objekte in einer übergeordneten Anweisung enthält, wird **nichtkorrelierte** Unterabfrage genannt.
-
-```sql
-SELECT spalte1, spalte2
-FROM relation1
-WHERE spalte3 <  2 * (
-   SELECT AVG( spalte2 )
-   FROM relation2 )
-```
-
-
-
-## Unterabfragen
-![Subqueries Ausführungsmodell](content/images/subqueries.PNG)<!-- .element height="50%" width="50%" -->
 
 
 
