@@ -98,6 +98,7 @@ public class FlowLayoutExample extends JFrame {
 public class GridLayoutExample extends JFrame {
   private static final int GRID_ROWS = 5;
   private static final int GRID_COLS = 3;
+  private static final int GRID_GAP = 5;
 
   public GridLayoutExample() {
     JPanel panel = new JPanel(); 
