@@ -528,6 +528,239 @@ WHERE TeamName IN (
 ```
 
 
+## Datenmanipulation
+
+
+
+### Einfügen
+Das einfügen von Daten in eine Tabelle kann explizit geschehen:
+
+```sql
+INSERT INTO relation (spalte1, spalte2, spalte3, ...)
+VALUES (wert1, wert2, wert3, ...);
+```
+
+oder implizit:
+
+```sql
+INSERT INTO relation
+VALUES (wert1, wert2, wert3, ...); 
+```
+
+
+
+## Einfügen
+Es können auch Werte aus anderen Relationen in eine Relation eingefügt werden:
+
+```sql
+INSERT INTO relation1
+  SELECT spalte1, spalte3, spalte4 + 1
+  FROM relation2 
+  WHERE spalte2 = 'Tobias'
+```
+
+
+
+### Aktualisieren
+Eine Aktualisierung geschieht über den folgenden Befahlt:
+
+```sql
+UPDATE relation
+SET spalte1 = wert1, spalte2 = wert2, ...
+WHERE bedingung; 
+```
+
+
+
+## Achtung!
+Wird die Bedingung vergessen werden alle Zeilen aktualisiert!
+
+```sql
+UPDATE relation
+SET spalte1='Hallo Welt!';
+```
+
+
+
+## Aktualisierung
+Wir können auch hier wieder Werte aus anderen Relationen selektieren.
+
+```sql
+UPDATE relation1
+SET spalte1 = (
+  SELECT min(spalte1)
+  FROM relation2
+)
+WHERE spalte2 = 'Tobias'
+```
+
+
+
+## Löschen
+Beim Löschen, werden alle Zeilen gelöscht, auf die die Bedingung zutrifft
+
+```sql
+DELETE FROM relation
+WHERE bedingung
+```
+
+
+
+## Achtung!
+Auch hier kann eine vergessene Bedingung alle zeilen ändern!
+
+```sql
+UPDATE relation
+SET spalte1='Hallo Welt!';
+```
+
+
+
+## Unterabfragen
+Eine Unterabfrage (Subquery) kann eine Referenz auf ein Objekt enthalten, das in einer übergeordneten Anweisung definiert ist. Dies wird als *äußere Referenz* bezeichnet. Eine Unterabfrage, die eine äußere Referenz enthält, wird als **korrelierte** Unterabfrage bezeichnet.
+
+```sql
+SELECT spalte1, spalte2
+FROM relation1
+WHERE spalte3 < 2 * (
+  SELECT AVG( spalte2 )
+  FROM relation2
+  WHERE relation1.spalte1 = relation2.spalte1 )
+```
+
+
+
+## Unterabfragen
+Eine Unterabfrage (Subquery), die *keine Referenzen* auf Objekte in einer übergeordneten Anweisung enthält, wird **nichtkorrelierte** Unterabfrage genannt.
+
+```sql
+SELECT spalte1, spalte2
+FROM relation1
+WHERE spalte3 <  2 * (
+   SELECT AVG( spalte2 )
+   FROM relation2 )
+```
+
+
+
+## Unterabfragen
+![Subqueries Ausführungsmodell](content/images/subqueries.PNG)<!-- .element height="50%" width="50%" -->
+
+
+
+## Relationen erstellen
+Eine neue Relation kann angelegt werden mit dem `CREATE TABLE` Statement
+
+```sql
+CREATE TABLE tabellen_name (
+  spalte1 datentyp,
+  spalte2 datentyp,
+  spalte3 datentyp,
+  ...
+)
+```
+
+
+
+## Relationen erstellen
+... oder bereits mit Daten befüllt werden.
+
+```sql
+CREATE TABLE tabellen_name AS
+  SELECT spalte1, spalte2, ...
+  FROM relation
+  WHERE bedingung
+```
+
+Frage: welche Namen tragen die Spalten der neu angelegten Relation?
+
+
+
+## Relationen erstellen
+Wenn Spalten zwingend mit einem Wert gefüllt sein müssen, dann musst dieses bei der Erstellung angegeben werden
+
+```sql
+CREATE TABLE tabellen_name (
+  spalte1 datentyp NOT NULL,
+  spalte2 datentyp NULL,
+  spalte3 datentyp,
+  ...
+)
+```
+
+
+
+## Relationen erstellen - Primärschlüssel (1/2)
+Der Primärschlüssel kann mittels `PRIMARY KEY` festgelegt werden
+
+```sql
+CREATE TABLE tabellen_name (
+  spalte1 datentyp NOT NULL PRIMARY KEY,
+  spalte2 datentyp NULL,
+  spalte3 datentyp,
+  ...
+)
+```
+
+
+
+## Relationen erstellen - Primärschlüssel (2/2)
+... oder:
+
+```sql
+CREATE TABLE tabellen_name (
+  spalte1 datentyp NOT NULL,
+  spalte2 datentyp NULL,
+  spalte3 datentyp,
+  ...
+  PRIMARY KEY(spalte1, spalte2)
+)
+```
+
+
+
+## Relationen erstellen - Fremdschlüssel (1/3)
+Fremdschlüssel können mittels `REFERENCES` festgelegt werden
+
+```sql
+CREATE TABLE tabellen_name (
+  spalte1 datentyp NOT NULL PRIMARY KEY,
+  spalte2 datentyp NULL,
+  spalte3 datentyp NOT NULL REFERENCES relation2,
+  ...
+)
+```
+
+
+
+## Relationen erstellen - Fremdschlüssel (2/3)
+oder: 
+
+```sql
+CREATE TABLE tabellen_name (
+  spalte1 datentyp NOT NULL PRIMARY KEY,
+  spalte2 datentyp NULL,
+  spalte3 datentyp NOT NULL REFERENCES relation2(spalte7),
+  ...
+)
+```
+
+
+
+## Relationen erstellen - Fremdschlüssel (3/3)
+Fremdschlüssel können auch mittels `FOREIGN KEY` + `REFERENCES` festgelegt werden
+
+```sql
+CREATE TABLE tabellen_name (
+  spalte1 datentyp NOT NULL,
+  spalte2 datentyp NULL,
+  spalte3 datentyp,
+  ...
+  FOREIGN KEY (spalte1, spalte2) REFERENCES relation2(spalte1, spalte2)
+)
+```
+
+
 
 ## Aufgabe
 Quiz von w3school
