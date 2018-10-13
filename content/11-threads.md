@@ -241,3 +241,136 @@ Kann man nicht sagen!
 ## Lösung 2
 
 Wegen des Schedulers
+
+
+
+## Aufgabe
+
+```java
+public class MyThreads extends Thread { 
+  public static int counter = 0; 
+
+  public static void main(String[] args) {
+    for(int i = 0; i < 20; i++) { 
+      MyThreads mt = new MyThreads(); 
+      mt.start(); 
+    } 
+    System.out.println("counter = " + counter); 
+  } 
+
+  public void run() { 
+    for(int i = 0; i < 100000; i++) { 
+      counter++; 
+    } 
+    System.out.println("Incremented counter!"); 
+  } 
+}
+```
+
+1. Wird `Counter` den Wert 2.000.000 erreichen? Wenn nein, warum nicht?
+2. Was musst du ändern, damit der counter am Ende sicher den Wert 2000000 hat?
+3. Was passiert wenn du direkt nach ``mt.start()`` ein `mt.join()` einfügst. Macht das Sinn? 
+
+
+
+## Lösung
+
+```java
+public class MyThreads extends Thread { 
+  public static int counter = 0; 
+
+  public static void main(String[] args) {
+    for(int i = 0; i < 20; i++) { 
+      MyThreads mt = new MyThreads(); 
+      mt.start(); 
+    } 
+    System.out.println("counter = " + counter); 
+  } 
+
+  public void run() { 
+    for(int i = 0; i < 100000; i++) { 
+      counter++; 
+    } 
+    System.out.println("Incremented counter!"); 
+  } 
+}
+```
+
+0. Wird `Counter` den Wert 2.000.000 erreichen? Wenn nein, warum nicht?
+  * Der Wert **kann** 2.000.000 erreichen, wird aber auch oft einen anderen Wert ausgeben. Dies geschieht weil Updates verloren gehen. 
+1. Was musst du ändern, damit der counter am Ende sicher den Wert 2000000 hat?
+  * `counter++` in eine synchronisierte Methode auslagern. 
+  * Alle Threads in Liste speichern und `join()` auf jedem aufrufen, vor dem finalen Print-Statement
+2. Was passiert wenn du direkt nach ``mt.start()`` ein `mt.join()` einfügst. Macht das Sinn?
+  * Macht keinen Sinn, weil dann nur ein Thread auf einmal läuft. 
+
+
+
+## Aufgabe
+
+```java
+public class DeadLock extends Thread { 
+  public static void main(String[] args) throws Exception {
+    Object l1 = new Object(); Object l2 = new Object(); 
+    Thread t1 = new DeadLock(l1, l2); Thread t2 = new DeadLock(l2, l1); 
+    t1.start(); t2.start();
+    t1.join(); t2.join();
+  } 
+  private Object lock1; private Object lock2; 
+
+  public DeadLock(Object lock1, Object lock2) { 
+    this.lock1 = lock1; this.lock2 = lock2; 
+  } 
+
+  public void run() { 
+    synchronized(lock1) { System.out.println("First lock acquired!"); 
+        synchronized(lock2) { System.out.println("Second lock acquired!"); 
+        } 
+      } System.out.println("Done! All locks released!"); 
+  } 
+}
+```
+
+1.  Was ist der Unterschied zwischen einer synchronized Methode und den synchronized Blöcken in der run Methode im Code?
+2.  Wenn das Programm ausgeführt wird, bleibt es in einem Deadlock stecken. An welcher Stelle im Code bleiben die Threads genau hängen? 
+3.  Wofür sind die join Aufrufe gut? Was passiert wenn sie entfernt werden? 
+4.  Wieso kommt es zum Deadlock? 
+5.  Wie kann der Deadlock verhindert werden? (Tipp: Es müssen nur zwei Zeichen im Programm geändert werden.)
+
+
+
+## Aufgabe
+
+```java
+public class DeadLock extends Thread { 
+  public static void main(String[] args) throws Exception {
+    Object l1 = new Object(); Object l2 = new Object(); 
+    Thread t1 = new DeadLock(l1, l2); Thread t2 = new DeadLock(l2, l1); 
+    t1.start(); t2.start();
+    t1.join(); t2.join();
+  } 
+  private Object lock1; private Object lock2; 
+
+  public DeadLock(Object lock1, Object lock2) { 
+    this.lock1 = lock1; this.lock2 = lock2; 
+  } 
+
+  public void run() { 
+    synchronized(lock1) { System.out.println("First lock acquired!"); 
+        synchronized(lock2) { System.out.println("Second lock acquired!"); 
+        } 
+      } System.out.println("Done! All locks released!"); 
+  } 
+}
+```
+
+1.  Was ist der Unterschied zwischen einer synchronized Methode und den synchronized Blöcken in der run Methode im Code?
+  * Methoden synchronisieren auf ihrem Objekt. Bei einem Block kann man das Lock explizit angeben. 
+2.  Wenn das Programm ausgeführt wird, bleibt es in einem Deadlock stecken. An welcher Stelle im Code bleiben die Threads genau hängen?
+  *  Bei den synchronized Blöcken in der `run()` Methode
+3.  Wofür sind die join Aufrufe gut? Was passiert wenn sie entfernt werden?
+  * Die join Aufrufe warten darauf, dass beide Threads fertig sind. Dadurch bleibt das Programm beim ersten Deadlock stehen. Werden die join Aufrufe entfernt, läuft das Programm weiter, bleibt am Ende aber immer noch in Deadlocks stecken.
+4.  Wieso kommt es zum Deadlock?
+  * `l1` und `l2` werden jeweils von einem Thread geblockt und nie wieder frei gegeben. 
+5.  Wie kann der Deadlock verhindert werden? (Tipp: Es müssen nur zwei Zeichen im Programm geändert werden.) 
+  * `l1` und `l2` vertauschen.
