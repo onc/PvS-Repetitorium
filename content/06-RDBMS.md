@@ -345,26 +345,67 @@ Welche funktionalen Abhängigkeiten können für das folgende Relationenschema v
 
 
 
-## Lösung
-Welche funktionalen Abhängigkeiten können für das folgende Relationenschema vorliegen?
-
-| A   | B   | C     | D        |
-| --- | --- | ----- | -------- |
-| 1   | 1   | Katze | Montag   |
-| 1   | 2   | Hund  | Dienstag |
-| 1   | 3   | Katze | Montag   |
-| 2   | 1   | Katze | Mittwoch |
-
-> B → C, D → A, D → C
-> 
-> AB → C, AB → D, AB → CD, AC → D, AD → C, BD → A, BD → C, CD → A
-> 
-> ABC → D, ABD → C
+## Anomalien
 
 
 
+### Insertion Anomalie
+Beim Einfügen von Daten in eine Datenbank spricht man von einer Einfüge-Anomalie, wenn ein neues Tupel in die Relation nicht oder nur schwierig eingetragen werden kann, weil nicht zu allen Attributen des Primärschlüssels Werte vorliegen.
 
-# Normalformen & Anomalien
+
+
+### Beispiel
+|*Kennzeichen*|Hersteller|Vorname|*Nachname*|
+|---|---|---|---|
+|K-KJ 321|VW|Peter|Schmidt|
+|H-CH 333|Audi|Fritz|Schneider|
+|B-MD 321|BMW|Max|Maier|
+|B-MD 321|BMW|Tom|Lehmann|
+|A-BC 123|Škoda| ?| ?|
+|A-BC 123|Škoda| ?| ?|
+
+In dieser Tabelle wird für Fahrzeuge der jeweilige Fahrer angegeben. Die Attribute Kennzeichen und Nachname seien Identifikationsschlüssel. Hier treten Einfügeanomalien auf, wenn ein neues Fahrzeug eingefügt werden soll, aber noch kein Fahrer bestimmt wurde.
+
+
+
+### Update Anomalie
+Beim Ändern von Daten in einer Datenbank spricht man von einer Änderungs-Anomalie, wenn nicht alle (redundanten) Vorkommen eines Attributwert zugleich geändert werden. Dieses führt zu inkonsistenten Daten.
+
+
+
+### Beispiel
+|*Kennzeichen*|Hersteller|Farbe|Vorname|*Nachname*|
+|---|---|---|---|
+|K-KJ 321|VW|Blau|Peter|Schmidt|
+|H-CH 333|Opel|Rot|Fritz|Schneider|
+|B-MD 321|BMW|Schwarz|Max|Maier|
+|B-MM 473|Peugeot|Grün|Max|Maier|
+
+Wir gehen davon aus, dass beide "Max Meier" die selbe Person sind. Ändern wir nun seinen Namen in "Maier", muss dieses an zwei Stellen geschehen. Falls nicht, spricht man von einer Update-Anomalie.
+
+
+
+### Delete Anomalie
+Eine Lösch-Anomalie entsteht, wenn durch das Löschen eines Datensatzes mehr Informationen als erwünscht verloren gehen. Sie entsteht, wenn ein Datensatz mehrere unabhängige Informationen enthält. Durch das Löschen der einen Information wird dann auch die andere gelöscht, obwohl diese noch benötigt wird.
+
+
+
+### Beispiel
+|*Kennzeichen*|Hersteller|Farbe|Vorname|*Nachname*|
+|---|---|---|---|
+|K-KJ 321|VW|Blau|Peter|Schmidt|
+|H-CH 333|Opel|Rot|Fritz|Schneider|
+|B-MD 321|BMW|Schwarz|Max|Maier|
+
+Hier kann das Fahrzeug B-MD 321 nicht gelöscht werden, ohne den Fahrer ebenfalls zu löschen.
+
+
+
+Alle Anomalien können beseitigt werden, wenn die Datenbank in der 3. Normalform vorliegt.
+
+
+
+# Normalformen
 Die Normalisierung eines relationalen Datenbankschemas soll Redundanzen verringern und Anomalien verhindert.
 Außerdem sollen die Aktualisierung einer Datenbank vereinfacht und die Konsistenz der Daten gewährleistet werden.
 
@@ -508,60 +549,272 @@ Titel Tabelle wie oben.
 
 
 
-## Anomalien
+## Übung
+
+In Welcher Normalform liegt die folgende Tabelle vor?
+
+<div style="font-size:20px;">
+
+| PersNr | Name    | AbtNr | AbtName    | PrjNr      | PrjName | PrjStd     |
+| ------ | ------- | ----- | ---------- | ---------- | ------- | ---------- |
+| 101    | Müller  | 1     | Motoren    | 11, 12     | A, B    | 60, 40     | 
+| 102    | Meier   | 2     | Karosserie | 13         | C       | 100        | 
+| 103    | Krause  | 2     | Karosserie | 11, 12, 13 | A, B, C | 20, 50, 30 | 
+| 104    | Schmidt | 1     | Motoren    | 11, 13     | A, C    | 80, 20     | 
 
 
 
-### Insertion Anomalie
-Beim Einfügen von Daten in eine Datenbank spricht man von einer Einfüge-Anomalie, wenn ein neues Tupel in die Relation nicht oder nur schwierig eingetragen werden kann, weil nicht zu allen Attributen des Primärschlüssels Werte vorliegen.
+## Lösung
+
+In Welcher Normalform liegt die folgende Tabelle vor?
+
+<div style="font-size:20px;">
+
+| PersNr | Name    | AbtNr | AbtName    | PrjNr      | PrjName | PrjStd     |
+| ------ | ------- | ----- | ---------- | ---------- | ------- | ---------- |
+| 101    | Müller  | 1     | Motoren    | 11, 12     | A, B    | 60, 40     | 
+| 102    | Meier   | 2     | Karosserie | 13         | C       | 100        | 
+| 103    | Krause  | 2     | Karosserie | 11, 12, 13 | A, B, C | 20, 50, 30 | 
+| 104    | Schmidt | 1     | Motoren    | 11, 13     | A, C    | 80, 20     | 
+
+**In keiner Normalform**! Da die Attribute in bspw. Projektnummer nicht Atomar ist ist die 1. NF nicht erreicht. 
 
 
 
-### Beispiel
-|*Kennzeichen*|Hersteller|Vorname|*Nachname*|
-|---|---|---|---|
-|K-KJ 321|VW|Peter|Schmidt|
-|H-CH 333|Audi|Fritz|Schneider|
-|B-MD 321|BMW|Max|Maier|
-|B-MD 321|BMW|Tom|Lehmann|
-|A-BC 123|Škoda| ?| ?|
-|A-BC 123|Škoda| ?| ?|
+## Übung
 
-In dieser Tabelle wird für Fahrzeuge der jeweilige Fahrer angegeben. Die Attribute Kennzeichen und Nachname seien Identifikationsschlüssel. Hier treten Einfügeanomalien auf, wenn ein neues Fahrzeug eingefügt werden soll, aber noch kein Fahrer bestimmt wurde.
+Bringe die folgende Tabelle in die 1 Normalform
 
+<div style="font-size:20px;">
 
-
-### Update Anomalie
-Beim Ändern von Daten in einer Datenbank spricht man von einer Änderungs-Anomalie, wenn nicht alle (redundanten) Vorkommen eines Attributwert zugleich geändert werden. Dieses führt zu inkonsistenten Daten.
+| **PersNr** | Name    | AbtNr | AbtName    | PrjNr      | PrjName | PrjStd     |
+| ---------- | ------- | ----- | ---------- | ---------- | ------- | ---------- |
+| 101        | Müller  | 1     | Motoren    | 11, 12     | A, B    | 60, 40     | 
+| 102        | Meier   | 2     | Karosserie | 13         | C       | 100        | 
+| 103        | Krause  | 2     | Karosserie | 11, 12, 13 | A, B, C | 20, 50, 30 | 
+| 104        | Schmidt | 1     | Motoren    | 11, 13     | A, C    | 80, 20     | 
 
 
 
-### Beispiel
-|*Kennzeichen*|Hersteller|Farbe|Vorname|*Nachname*|
-|---|---|---|---|
-|K-KJ 321|VW|Blau|Peter|Schmidt|
-|H-CH 333|Opel|Rot|Fritz|Schneider|
-|B-MD 321|BMW|Schwarz|Max|Maier|
-|B-MM 473|Peugeot|Grün|Max|Maier|
+## Lösung
 
-Wir gehen davon aus, dass beide "Max Meier" die selbe Person sind. Ändern wir nun seinen Namen in "Maier", muss dieses an zwei Stellen geschehen. Falls nicht, spricht man von einer Update-Anomalie.
+Bringe die folgende Tabelle in die 1 Normalform
 
+<div style="font-size:20px;">
 
-
-### Delete Anomalie
-Eine Lösch-Anomalie entsteht, wenn durch das Löschen eines Datensatzes mehr Informationen als erwünscht verloren gehen. Sie entsteht, wenn ein Datensatz mehrere unabhängige Informationen enthält. Durch das Löschen der einen Information wird dann auch die andere gelöscht, obwohl diese noch benötigt wird.
-
-
-
-### Beispiel
-|*Kennzeichen*|Hersteller|Farbe|Vorname|*Nachname*|
-|---|---|---|---|
-|K-KJ 321|VW|Blau|Peter|Schmidt|
-|H-CH 333|Opel|Rot|Fritz|Schneider|
-|B-MD 321|BMW|Schwarz|Max|Maier|
-
-Hier kann das Fahrzeug B-MD 321 nicht gelöscht werden, ohne den Fahrer ebenfalls zu löschen.
+| **PersNr** | Name    | AbtNr | AbtName    | **PrjNr** | PrjName | PrjStd |
+| ---------- | ------- | ----- | ---------- | --------- | ------- | ------ |
+| 101        | Müller  | 1     | Motoren    | 11        | A       | 60     | 
+| 101        | Müller  | 1     | Motoren    | 12        | B       | 40     | 
+| 102        | Meier   | 2     | Karosserie | 13        | C       | 100    | 
+| 103        | Krause  | 2     | Karosserie | 11        | A       | 20     | 
+| 103        | Krause  | 2     | Karosserie | 12        | B       | 50     | 
+| 103        | Krause  | 2     | Karosserie | 13        | C       | 30     | 
+| 104        | Schmidt | 1     | Motoren    | 11        | A       | 80     | 
+| 104        | Schmidt | 1     | Motoren    | 13        | C       | 20     | 
 
 
 
-Alle Anomalien können beseitigt werden, wenn die Datenbank in der 3. Normalform vorliegt.
+## Übung
+
+Bringe die folgende Tabelle in die 2 Normalform
+
+<div style="font-size:20px;">
+
+| **PersNr** | Name    | AbtNr | AbtName    | **PrjNr** | PrjName | PrjStd |
+| ---------- | ------- | ----- | ---------- | --------- | ------- | ------ |
+| 101        | Müller  | 1     | Motoren    | 11        | A       | 60     | 
+| 101        | Müller  | 1     | Motoren    | 12        | B       | 40     | 
+| 102        | Meier   | 2     | Karosserie | 13        | C       | 100    | 
+| 103        | Krause  | 2     | Karosserie | 11        | A       | 20     | 
+| 103        | Krause  | 2     | Karosserie | 12        | B       | 50     | 
+| 103        | Krause  | 2     | Karosserie | 13        | C       | 30     | 
+| 104        | Schmidt | 1     | Motoren    | 11        | A       | 80     | 
+| 104        | Schmidt | 1     | Motoren    | 13        | C       | 20     | 
+
+
+
+## Lösung
+
+Bringe die folgende Tabelle in die 2 Normalform
+
+<div style="font-size:20px;">
+
+| **PersNr** | **PrjNr** | PrjStd |
+| ---------- | --------- | ------ |
+| 101        | 11        | 60     | 
+| 101        | 12        | 40     | 
+| 102        | 13        | 100    | 
+| 103        | 11        | 20     | 
+| 103        | 12        | 50     | 
+| 103        | 13        | 30     | 
+| 104        | 11        | 80     | 
+| 104        | 13        | 20     | 
+
+| **PersNr** | Name    | AbtNr | AbtName    |
+| ---------- | ------- | ----- | ---------- |
+| 101        | Müller  | 1     | Motoren    |
+| 102        | Meier   | 2     | Karosserie | 
+| 103        | Krause  | 2     | Karosserie | 
+| 104        | Schmidt | 1     | Motoren    | 
+
+| **PrjNr** | PrjName |
+| --------- | ------- |
+| 11        | A       |
+| 12        | B       |
+| 13        | C       |
+
+
+
+## Übung
+
+Bringe die folgende Tabelle in die 3 Normalform
+
+<div style="font-size:20px;">
+
+| **PersNr** | **PrjNr** | PrjStd |
+| ---------- | --------- | ------ |
+| 101        | 11        | 60     | 
+| 101        | 12        | 40     | 
+| 102        | 13        | 100    | 
+| 103        | 11        | 20     | 
+| 103        | 12        | 50     | 
+| 103        | 13        | 30     | 
+| 104        | 11        | 80     | 
+| 104        | 13        | 20     | 
+
+| **PersNr** | Name    | AbtNr | AbtName    |
+| ---------- | ------- | ----- | ---------- |
+| 101        | Müller  | 1     | Motoren    |
+| 102        | Meier   | 2     | Karosserie | 
+| 103        | Krause  | 2     | Karosserie | 
+| 104        | Schmidt | 1     | Motoren    | 
+
+| **PrjNr** | PrjName |
+| --------- | ------- |
+| 11        | A       |
+| 12        | B       |
+| 13        | C       |
+
+
+
+## Lösung
+
+Bringe die folgende Tabelle in die 3 Normalform
+
+<div style="font-size:20px;">
+
+| **PersNr** | **PrjNr** | PrjStd |
+| ---------- | --------- | ------ |
+| 101        | 11        | 60     | 
+| 101        | 12        | 40     | 
+| 102        | 13        | 100    | 
+| 103        | 11        | 20     | 
+| 103        | 12        | 50     | 
+| 103        | 13        | 30     | 
+| 104        | 11        | 80     | 
+| 104        | 13        | 20     | 
+
+| **PersNr** | Name    |
+| ---------- | ------- |
+| 101        | Müller  |
+| 102        | Meier   |
+| 103        | Krause  |
+| 104        | Schmidt |
+
+| **PrjNr** | PrjName |
+| --------- | ------- |
+| 11        | A       |
+| 12        | B       |
+| 13        | C       |
+
+| **AbtNr** | AbtName    |
+| --------- | ---------- |
+| 1         | Motoren    |
+| 2         | Karosserie |
+
+
+
+## Übung
+
+In welcher Normalform liegt die folgende Relation vor?
+
+| ID | Name | Vorname |
+|--|--|
+| 123456 | Müller | Martin |
+| 387645 | Schmidt | Jana |
+| 723999 | Schulze | Stephan |
+
+
+
+## Übung
+
+In welcher Normalform liegt die folgende Relation vor?
+
+| ID | Name | Vorname |
+|--|--|
+| 123456 | Müller | Martin |
+| 387645 | Schmidt | Jana |
+| 723999 | Schulze | Stephan |
+
+**In 3. Normalform**
+
+
+
+## Übung
+
+In welcher Normalform liegt die folgende Relation vor?
+
+Klasse (*Jahrgang*, *Buchstabe*, Klassenlehrer, Klassensprecher) 
+
+Funktionale Abhängigkeiten: 
+* jahrgang, buchstabe → klassenlehrer klassensprecher
+
+(PK in kursiv)
+
+
+
+## Lösung
+
+In welcher Normalform liegt die folgende Relation vor?
+
+Klasse (*Jahrgang*, *Buchstabe*, Klassenlehrer, Klassensprecher) 
+
+Funktionale Abhängigkeiten: 
+* jahrgang, buchstabe → klassenlehrer klassensprecher
+
+**In 3. Normalform**: Die FD ist nur vom (ganzen) Schlüssel abhängig
+
+
+
+## Übung
+
+In welcher Normalform liegt die folgende Relation vor?
+
+Schueler (*name*, geburtsdatum, alter) 
+
+Funktionale Abhängigkeiten: 
+* name → geburtsdatum, 
+* alter geburtsdatum → alter 
+
+Funktionale Abhängigkeiten: 
+* jahrgang, buchstabe → klassenlehrer klassensprecher
+
+(PK in kursiv)
+
+
+
+## Lösung
+
+In welcher Normalform liegt die folgende Relation vor?
+
+Schueler (*name*, geburtsdatum, alter) 
+
+Funktionale Abhängigkeiten: 
+* name → geburtsdatum, 
+* alter geburtsdatum → alter 
+
+Funktionale Abhängigkeiten: 
+* jahrgang, buchstabe → klassenlehrer klassensprecher
+
+**In 2. Normalform**: Alle Attribute sind voll funktional abhängig vom Schlüssel *name*
